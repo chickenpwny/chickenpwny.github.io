@@ -12,11 +12,22 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/challenges/challenges/</link>
+      <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/hackthebox/challenges/challenges/</guid>
+      <guid>/hackthebox/challenges/bloodhound/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>BloodHound Neo4j</title>
+      <link>/tools/bloodhound/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/bloodhound/</guid>
+      <description>TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.
+I would highly recommend installing Neo4j using the repository. Neo4j is a database for bloodhound API. I had a couple of issues installing this. had some issues with multiple versions of Java running. currently, neo4k only runs on Java 8 kali currently comes with 11.x. need to tell java to use the legacy version. Next, need to add the repository to download neo4j.
+##### echo &amp;quot;deb http://httpredir.</description>
     </item>
     
     <item>
@@ -26,6 +37,26 @@
       
       <guid>/_header/</guid>
       <description> ChickenPwny </description>
+    </item>
+    
+    <item>
+      <title>FTP</title>
+      <link>/tools/ftp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/ftp/</guid>
+      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
+mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP
+SSHFS is built on SFTP.</description>
+    </item>
+    
+    <item>
+      <title>SqlMap</title>
+      <link>/tools/webapp/sqlmap/sqlmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/webapp/sqlmap/sqlmap/</guid>
+      <description></description>
     </item>
     
   </channel>

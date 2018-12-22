@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Challenges on DocDock Documentation</title>
+    <title>Miscellaneous on DocDock Documentation</title>
     <link>/hackthebox/challenges/</link>
-    <description>Recent content in Challenges on DocDock Documentation</description>
+    <description>Recent content in Miscellaneous on DocDock Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -12,10 +12,10 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/challenges/challenges/</link>
+      <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/hackthebox/challenges/challenges/</guid>
+      <guid>/hackthebox/challenges/bloodhound/</guid>
       <description></description>
     </item>
     

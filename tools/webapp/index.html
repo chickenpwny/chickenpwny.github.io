@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-22T16:56:06 EST">
-<title>Valentine :: DocDock Documentation</title>
+<meta name="revised" content="2018-12-22T16:56:09 EST">
+<title>WebApps :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/boxes/valentine/">
+  <body data-url="/tools/webapp/">
     
       <header>
   <div class="logo">
@@ -109,18 +109,16 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+    <li data-nav-id="/hackthebox/" class="dd-item haschildren
         ">
       <div>
-      <a href="/hackthebox/">HackTheBox</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/">HackTheBox</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+    <li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
         ">
       <div>
-      <a href="/hackthebox/boxes/">Boxes</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
     <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
@@ -129,7 +127,7 @@
       <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
-    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item parent active
+    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
         ">
       <div>
       <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
@@ -160,10 +158,11 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/tools/" class="dd-item haschildren
+    <li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/">Tools</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -180,10 +179,11 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-    <li data-nav-id="/tools/webapp/" class="dd-item haschildren
+    <li data-nav-id="/tools/webapp/" class="dd-item parent active haschildren
         ">
       <div>
-      <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/webapp/">WebApps</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
     <li data-nav-id="/tools/webapp/gobuster/" class="dd-item
@@ -240,27 +240,26 @@
     <option value="/concepts/" >
    Concept</option>
     <option value="/hackthebox/" >
-   HackTheBox</option> 
-    <option value="/hackthebox/boxes/" >
-  - 
-   Boxes</option> 
-    <option value="/hackthebox/boxes/poison/" >
-  -- 
-   Poison</option>
-    <option value="/hackthebox/boxes/valentine/"  selected>
-  -- 
-   Valentine</option> 
-  
-    <option value="/hackthebox/boxes/waldo/" >
-  -- 
-   Waldo</option>
-  
-    <option value="/hackthebox/challenges/" >
-  - 
-   Miscellaneous</option>
-  
+   HackTheBox</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/webapp/"  selected>
+  - 
+   WebApps</option> 
+    <option value="/tools/webapp/gobuster/" >
+  -- 
+   GoBuster</option>
+      <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
+    <option value="/tools/webapp/wfuzz/" >
+  -- 
+   WFUZZ</option>
+  
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -283,64 +282,49 @@
       </div>
     
 
-    <h1>Valentine</h1>
+    <h1>WebApps</h1>
     
     
     
 
-<p>I lost my original notes. VM corrupted.</p>
 
-<p>PHASE 1 — NMAP</p>
 
-<p>nmap -sC -sV -Pn -oA initial 10.10.10.79</p>
+<div class="extra-pagination inner">
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
-<p>Didn’t  return anything of significance. https is odd for a hackthebox  challenge. Port 22 could be the initial foothold. Google apache 2.2.22  https vulns nothing crazy pops out.</p>
+</div>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*ktA4Uly8qZqyY5idaFSzIQ.png" alt="img" /></p>
 
-<p>PHASE 2 — GOBUSTER /wpscan</p>
+   <article class="post Tools">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/tools/webapp/sqlmap/sqlmap/">SqlMap</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> <a class="read-more" href="/tools/webapp/sqlmap/sqlmap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
 
-<p>gobuster -u <a href="http://10.10.10.88">http://10.10.10.</a>79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50</p>
+        
+        
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6GxlmGhzKcW9p3dM6IJQmA.png" alt="img" /></p>
+    </footer>
+</article>
 
-<p>return vulnerable to OpenSSL hearbleed</p>
 
-<p>PHASE 3 Manual investigation of the webpage</p>
+<div style="margin-bottom:2rem"></div>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*qKs0pc3NjJSekozsOxl5aQ.png" alt="img" /></p>
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
 
-<p>The big give away. A heart bleeding, hmm.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6q_Tt4SUGxpXiLjP3Hawfg.png" alt="img" /></p>
-
-<p>BELIEVE THE HYPE. It’s also a hint to the exploit.</p>
-
-<p>PHASE 4</p>
-
-<p>Wpscan returned Heartbleed vulnerability.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*egW7vA0TIGqAoOhPc0ZScg.png" alt="img" /></p>
-
-<p>You may also run the exploit through Metasploit.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*Rsm41I0bgJ06JiW29nyVsw.png" alt="img" /></p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*GdxEeuJjOXsUWeYEFqX-FA.png" alt="img" /></p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*5S7t58K2dVIfIBBB9DMN_g.png" alt="img" /></p>
-
-<p>Buahahahahaha, we have the ssh RSA key. Truly we are master of the universe.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*cUKOc1S3P8HDrfSV7RvGjQ.png" alt="img" /></p>
-
-<p>without Metasploit</p>
-
-<p>Some crap, the server leaked.</p>
-
-<p>PHASE 6 SSH</p>
-
-<p>I wasn’t sure what the username was it took a few tries to figure out its hype :P.</p>
 
 
 
@@ -348,8 +332,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/poison/" title="Poison"> <i class="fa fa-chevron-left"></i><label>Poison</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/waldo/" title="Waldo" style="margin-right: 0px;"><label>Waldo</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/ftp/" title="FTP"> <i class="fa fa-chevron-left"></i><label>FTP</label></a>
+    <a class="nav nav-next" href="/tools/webapp/gobuster/" title="GoBuster" style="margin-right: 0px;"><label>GoBuster</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -366,7 +350,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/valentine/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

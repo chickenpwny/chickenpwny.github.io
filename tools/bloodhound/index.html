@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-22T16:56:06 EST">
-<title>Valentine :: DocDock Documentation</title>
+<meta name="revised" content="2018-12-22T16:55:59 EST">
+<title>BloodHound Neo4j :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -17,13 +17,13 @@
 <script type="text/javascript">
       var baseurl = "\/";
 </script>
-<meta name="description" content="">
+<meta name="description" content="setting up bloodhound in a Debian environment">
 
 
 
     
   </head>
-  <body data-url="/hackthebox/boxes/valentine/">
+  <body data-url="/tools/bloodhound/">
     
       <header>
   <div class="logo">
@@ -109,18 +109,16 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+    <li data-nav-id="/hackthebox/" class="dd-item haschildren
         ">
       <div>
-      <a href="/hackthebox/">HackTheBox</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/">HackTheBox</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+    <li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
         ">
       <div>
-      <a href="/hackthebox/boxes/">Boxes</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
     <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
@@ -129,7 +127,7 @@
       <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
-    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item parent active
+    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
         ">
       <div>
       <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
@@ -160,13 +158,14 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/tools/" class="dd-item haschildren
+    <li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/">Tools</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/tools/bloodhound/" class="dd-item">
+      <li data-nav-id="/tools/bloodhound/" class="dd-item active">
         <div>
           <a href="/tools/bloodhound/">
             BloodHound Neo4j
@@ -240,27 +239,18 @@
     <option value="/concepts/" >
    Concept</option>
     <option value="/hackthebox/" >
-   HackTheBox</option> 
-    <option value="/hackthebox/boxes/" >
-  - 
-   Boxes</option> 
-    <option value="/hackthebox/boxes/poison/" >
-  -- 
-   Poison</option>
-    <option value="/hackthebox/boxes/valentine/"  selected>
-  -- 
-   Valentine</option> 
-  
-    <option value="/hackthebox/boxes/waldo/" >
-  -- 
-   Waldo</option>
-  
-    <option value="/hackthebox/challenges/" >
-  - 
-   Miscellaneous</option>
-  
+   HackTheBox</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/"  selected>- BloodHound Neo4j</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/webapp/" >
+  - 
+   WebApps</option>
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -283,73 +273,77 @@
       </div>
     
 
-    <h1>Valentine</h1>
+    <h1>BloodHound Neo4j</h1>
     
     
     
+    <p>TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.</p>
 
-<p>I lost my original notes. VM corrupted.</p>
+<p>I  would highly recommend installing Neo4j using the repository. Neo4j is a  database for bloodhound API. I had a couple of issues installing this.  had some issues with multiple versions of Java running. currently, neo4k  only runs on Java 8 kali currently comes with 11.x. need to tell java  to use the legacy version. Next, need to add the repository to download  neo4j.</p>
 
-<p>PHASE 1 — NMAP</p>
+<pre><code>#####
+  echo &quot;deb http://httpredir.debian.org/debian jessie-backports   main&quot; | sudo tee -a /etc/apt/sources.list.d/jessie-backports.list
+  apt-get update
+#####
+  apt-get -t jessie-backports install ca-certificates-java
+##### take the output and put it after set &lt;java8bane&gt;
+  update-java-alternatives --list
+##### currently 
+  update-java-alternatives --jre --set &lt;java8name&gt;
+##### update repo
+  wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
+  sudo apt-get update
+######
+neo4j start -- background
+neo4j console -- foreground
+</code></pre>
 
-<p>nmap -sC -sV -Pn -oA initial 10.10.10.79</p>
+<p>BloodHound</p>
 
-<p>Didn’t  return anything of significance. https is odd for a hackthebox  challenge. Port 22 could be the initial foothold. Google apache 2.2.22  https vulns nothing crazy pops out.</p>
+<pre><code>go to the desirded location you wish to set this up. For me a have a tool directory.
+##### this is already compiled ready to go
+git clone https://github.com/BloodHoundAD/BloodHound.git
+cd BloodHound
+wget https://github.com/BloodHoundAD/BloodHound/releases/download/2.0.4/BloodHound-linux-x64.zip
+unzip BloodHound-linux-x64.zip
+./Bloodhound
+if you get a white screen hit these keys ( crtl + r )
+####
+For a lager selection of  compiled bloodhound releases.
+ https://github.com/BloodHoundAD/BloodHound/releases
+</code></pre>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*ktA4Uly8qZqyY5idaFSzIQ.png" alt="img" /></p>
+<p>I  changed the password before I got to this part. So I will be using  screenshots from ippsecs video. when you first setup bloodhound and  enter some creds it&rsquo;ll ask you to go to localhost:7687 to change the  password. go to your browser and type it in. the default creds for neo4j  are neo4j and it won&rsquo;t let you in until you change the password which  is nice a feature.</p>
 
-<p>PHASE 2 — GOBUSTER /wpscan</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*uBBxKBKlczSVG0jKKj3YoA.png" alt="img" /></p>
 
-<p>gobuster -u <a href="http://10.10.10.88">http://10.10.10.</a>79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50</p>
+<p>bloodhound login</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6GxlmGhzKcW9p3dM6IJQmA.png" alt="img" /></p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*fHc_MuElCuGGzwBTMk19Cg.png" alt="img" /></p>
 
-<p>return vulnerable to OpenSSL hearbleed</p>
+<p>initial neo4j browser page</p>
 
-<p>PHASE 3 Manual investigation of the webpage</p>
+<p><img src="https://cdn-images-1.medium.com/max/667/1*No_Ia35Qz4wxRIEvxpbFEA.png" alt="img" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*qKs0pc3NjJSekozsOxl5aQ.png" alt="img" /></p>
+<p>change your password</p>
 
-<p>The big give away. A heart bleeding, hmm.</p>
+<p>If you&rsquo;d like to install from the repo use this guide</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6q_Tt4SUGxpXiLjP3Hawfg.png" alt="img" /></p>
-
-<p>BELIEVE THE HYPE. It’s also a hint to the exploit.</p>
-
-<p>PHASE 4</p>
-
-<p>Wpscan returned Heartbleed vulnerability.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*egW7vA0TIGqAoOhPc0ZScg.png" alt="img" /></p>
-
-<p>You may also run the exploit through Metasploit.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*Rsm41I0bgJ06JiW29nyVsw.png" alt="img" /></p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*GdxEeuJjOXsUWeYEFqX-FA.png" alt="img" /></p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*5S7t58K2dVIfIBBB9DMN_g.png" alt="img" /></p>
-
-<p>Buahahahahaha, we have the ssh RSA key. Truly we are master of the universe.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*cUKOc1S3P8HDrfSV7RvGjQ.png" alt="img" /></p>
-
-<p>without Metasploit</p>
-
-<p>Some crap, the server leaked.</p>
-
-<p>PHASE 6 SSH</p>
-
-<p>I wasn’t sure what the username was it took a few tries to figure out its hype :P.</p>
-
+<pre><code>https://stealingthe.network/quick-guide-to-installing-bloodhound-in-kali-rolling/
+references and thanks
+https://www.youtube.com/watch?v=ob9SgtFm6_g&amp;t=21s
+https://neo4j.com/docs/operations-manual/current/installation/linux/debian/
+https://0xdf.gitlab.io/2018/11/10/htb-reel.html
+</code></pre>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/poison/" title="Poison"> <i class="fa fa-chevron-left"></i><label>Poison</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/waldo/" title="Waldo" style="margin-right: 0px;"><label>Waldo</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/" title="Tools"> <i class="fa fa-chevron-left"></i><label>Tools</label></a>
+    <a class="nav nav-next" href="/tools/ftp/" title="FTP" style="margin-right: 0px;"><label>FTP</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -366,7 +360,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/valentine/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/Tools/BloodHound.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
