@@ -56,6 +56,13 @@
 	"content": "HackTheBox\n"
 },
 {
+	"uri": "/concepts/webapppentest/heartbld/",
+	"title": "HeartBleed",
+	"tags": [],
+	"description": "",
+	"content": "Heart bleed is an OpenSSL vulnerability that allows the attacker to �bleed� out whatever in memory on the server. You can also dump the TSL/SSL cert for the webpage. You can modify the exploit to continuously extract data at 64 bytes at a time. Messing around with the POC was tricky the c code has all these errors and won�t compile arg, luckily for me, Metasploit has the solution.\nProff of concept https://www.exploit-db.com/exploits/32745/\nMetasploit: https://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed\n"
+},
+{
 	"uri": "/concepts/webapppentest/osinjcmd/",
 	"title": "OS Command Injection",
 	"tags": [],
