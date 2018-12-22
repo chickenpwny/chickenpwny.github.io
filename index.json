@@ -1,10 +1,31 @@
 [
 {
+	"uri": "chickenpwny.github.io/hackthebox/boxes/",
+	"title": "Boxes",
+	"tags": [],
+	"description": "",
+	"content": "Boxes\n"
+},
+{
+	"uri": "chickenpwny.github.io/hackthebox/challenges/challenges/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "chickenpwny.github.io/categories/",
 	"title": "Categories",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "chickenpwny.github.io/hackthebox/challenges/",
+	"title": "Challenges",
+	"tags": [],
+	"description": "",
+	"content": "Challenges\n"
 },
 {
 	"uri": "chickenpwny.github.io/_header/",
@@ -14,6 +35,13 @@
 	"content": " ChickenPwny "
 },
 {
+	"uri": "chickenpwny.github.io/concepts/",
+	"title": "Concept",
+	"tags": [],
+	"description": "",
+	"content": "Concept\n"
+},
+{
 	"uri": "chickenpwny.github.io/",
 	"title": "DocDock Documentation",
 	"tags": [],
@@ -21,9 +49,30 @@
 	"content": ""
 },
 {
+	"uri": "chickenpwny.github.io/hackthebox/",
+	"title": "HackTheBox",
+	"tags": [],
+	"description": "",
+	"content": "HackTheBox\n"
+},
+{
 	"uri": "chickenpwny.github.io/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "chickenpwny.github.io/tools/",
+	"title": "Tools",
+	"tags": [],
+	"description": "",
+	"content": "Tools\n"
+},
+{
+	"uri": "chickenpwny.github.io/hackthebox/boxes/waldo/",
+	"title": "Waldo",
+	"tags": [],
+	"description": "",
+	"content": "WALDO\nInstead of giving binaries system-wide permissions, give them the permissions they need to do the job.\nSkipping past Nmap, after messing around with the request’s found three request fileWrite, dirRead, fileRead. FileWrite writes user-supplied input to list1. dirRead will enumerate directories and print out the content. fileRead needs the exact file path to work.\nSqlmap, Wfuzz didn’t work I had more success with wfuzz but I couldn’t filter the output. Nothing I tried allowed me to escape the current directory. Examining what’s available the PHP source code that’s running the website. The PHP script appears to call a bunch of functions from the PHP library =D. REQUEST_METHOD determines whether the request was a post or a get === strict comparison to POST request. the first few parts of the stript involve telling the browser what kind of data to expect Content-Type. “str_replace — Replace all occurrences of the search string with the replacement string” str_replace takes every occurrence of the the subject and replaces those values with replace. Mixed str_replace ( mixed $search , mixed\nIt finds ../ or ..\\” it will replace them with nothing the two quotes in replace represent nothing. the next part say if file name === (strict) user.txt print false(no user.txt) . /n/t/t, /n newline /tab /tab json_encode($filecontent) is taking the var file content and encoding the output(that will matter later) taking all this into consideration the script only checks for ../ or ..\\ anything else it find’s, it’ll ignore. I tried encoding these in every possible way. Then I was reading about LFI and saw it ….// yes the holy grail. ….//….//….// escaped out and allowed for directory traversal.\nI didn’t see .ssh at first because I’ve seen it before. when trying to view .ssh with fileRead it spat out is a directory noticed the output with request differs from .ash_history. bash_history produces false .ssh produced a file. Plug that into fileRead. Then you should find ssh private key!!! the format all fudged. using vim repeat I was able to clean up the file. when editing the file \\n is not a null character, it means newline in JSON. need to also get rid of “\\” this part was also tricky because of these two ports 9000 8888 rabbit holes. Netstat -antp after looking at it for a while noticed some of the ssh connection came from local address rcf-1904 address from localhost weird. That was the next big hint. Since the .monitor file is local now it’ll make it easier to use. the next username is monitor. Next were cast into a restricted environment (jail) to get out of this use the -t switch in ssh -t (bash — noprofile). Lots of rabbit holes \u0026amp; some useless tools.\nssh monitor@waldo -i .monitor -t \u0026quot;bash --noprofile\u0026quot;  PERMISSIONS\n-rwSr--r-- 1 root root first s is the suid bit the capital S denotes the file isn't executable. -rwsr-sr-x 1 root root first s is the suid bit second is the guid bit sticky bit the file gets its permissions from the parent directory  The for mentioned permissions are system-wide can have unintended effects that can often lead to getting root access in one way or another. If the binaries only need to read files with root permissions. Theirs this thing called capabilities. where the file is given limited permission as root. There is a whole a lot of different ones to choose from the one we’re interested in is.\n/usr/bin/tac = cap_dac_read_search  Allows the binary to read files as root. It took a while to find the tools full path getcap basically the find command for Linux capabilities.\n/sbin/getcap -r / 2\u0026gt;/dev/null. If you don’t run it with dev/null it’ll kind of lead you to the .monitor script but we want tac. tac just cat but in reverse lol. cat /root/root.txt  Conclusion\nInstead of giving binaries system-wide permissions, give them the permissions they need to do the job.\n"
 }]

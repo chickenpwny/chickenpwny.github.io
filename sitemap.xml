@@ -3,12 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>chickenpwny.github.io/hackthebox/boxes/</loc>
+  </url>
+  
+  <url>
+    <loc>chickenpwny.github.io/hackthebox/challenges/challenges/</loc>
+  </url>
+  
+  <url>
     <loc>chickenpwny.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>chickenpwny.github.io/hackthebox/challenges/</loc>
+  </url>
+  
+  <url>
     <loc>chickenpwny.github.io/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>chickenpwny.github.io/concepts/</loc>
   </url>
   
   <url>
@@ -17,8 +33,20 @@
   </url>
   
   <url>
+    <loc>chickenpwny.github.io/hackthebox/</loc>
+  </url>
+  
+  <url>
     <loc>chickenpwny.github.io/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>chickenpwny.github.io/tools/</loc>
+  </url>
+  
+  <url>
+    <loc>chickenpwny.github.io/hackthebox/boxes/waldo/</loc>
   </url>
   
 </urlset>
