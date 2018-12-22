@@ -14,6 +14,13 @@
 	"content": ""
 },
 {
+	"uri": "/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "Welcome to my repository of knowledge, on the top right you will find social links. to the left or top, you should see navigation depends on the platform.\n"
+},
+{
 	"uri": "/tools/bloodhound/",
 	"title": "BloodHound Neo4j",
 	"tags": [],
@@ -40,13 +47,6 @@
 	"tags": [],
 	"description": "",
 	"content": "Concept\n"
-},
-{
-	"uri": "/",
-	"title": "DocDock Documentation",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "/tools/ftp/",

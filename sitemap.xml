@@ -11,6 +11,10 @@
   </url>
   
   <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/bloodhound/</loc>
   </url>
   
@@ -25,11 +29,6 @@
   
   <url>
     <loc>/concepts/</loc>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
