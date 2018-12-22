@@ -3,17 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>chickenpwny.github.io/_header/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>chickenpwny.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>chickenpwny.github.io/</loc>
+    <lastmod>2017-04-24T18:36:24+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>chickenpwny.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
