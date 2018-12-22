@@ -37,6 +37,14 @@
   </url>
   
   <url>
+    <loc>/concepts/webapppentest/osinjcmd/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/webapppentest/phptypejuggling/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <priority>0</priority>
   </url>
@@ -51,6 +59,11 @@
   
   <url>
     <loc>/hackthebox/boxes/waldo/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/webapppentest/</loc>
+    <priority>0</priority>
   </url>
   
 </urlset>
