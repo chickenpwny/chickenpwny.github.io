@@ -3,50 +3,50 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>chickenpwny.github.io/hackthebox/boxes/</loc>
+    <loc>/hackthebox/boxes/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/hackthebox/challenges/challenges/</loc>
+    <loc>/hackthebox/challenges/challenges/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/hackthebox/challenges/</loc>
+    <loc>/hackthebox/challenges/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/_header/</loc>
+    <loc>/_header/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/concepts/</loc>
+    <loc>/concepts/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/</loc>
+    <loc>/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/hackthebox/</loc>
+    <loc>/hackthebox/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/tools/</loc>
+    <loc>/tools/</loc>
   </url>
   
   <url>
-    <loc>chickenpwny.github.io/hackthebox/boxes/waldo/</loc>
+    <loc>/hackthebox/boxes/waldo/</loc>
   </url>
   
 </urlset>
