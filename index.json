@@ -144,7 +144,7 @@
 	"title": "WFUZZ",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "WFUZZ\nWFUZZ is a powerful fuzzer, you can enumerate directories, Wierd directories. You can also use it for bruteforcing passwords, look for Lfi, I could keep going. This is a swiss army knife it doesn\u0026rsquo;t beat manual enumeration. Becoming depending on this tool to look for SQL injection can lead you to miss something obvious.\n"
 },
 {
 	"uri": "/hackthebox/boxes/waldo/",
