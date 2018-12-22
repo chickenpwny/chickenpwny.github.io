@@ -70,6 +70,13 @@
 	"content": "Tools\n"
 },
 {
+	"uri": "/hackthebox/boxes/valentine/",
+	"title": "Valentine",
+	"tags": [],
+	"description": "",
+	"content": "I lost my original notes. VM corrupted.\nPHASE 1 — NMAP\nnmap -sC -sV -Pn -oA initial 10.10.10.79\nDidn’t return anything of significance. https is odd for a hackthebox challenge. Port 22 could be the initial foothold. Google apache 2.2.22 https vulns nothing crazy pops out.\nPHASE 2 — GOBUSTER /wpscan\ngobuster -u http://10.10.10.79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50\nreturn vulnerable to OpenSSL hearbleed\nPHASE 3 Manual investigation of the webpage\nThe big give away. A heart bleeding, hmm.\nBELIEVE THE HYPE. It’s also a hint to the exploit.\nPHASE 4\nWpscan returned Heartbleed vulnerability.\nYou may also run the exploit through Metasploit.\nBuahahahahaha, we have the ssh RSA key. Truly we are master of the universe.\nwithout Metasploit\nSome crap, the server leaked.\nPHASE 6 SSH\nI wasn’t sure what the username was it took a few tries to figure out its hype :P.\n"
+},
+{
 	"uri": "/hackthebox/boxes/waldo/",
 	"title": "Waldo",
 	"tags": [],

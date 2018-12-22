@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-22T12:57:46 EST">
+<meta name="revised" content="2018-12-22T13:19:52 EST">
 <title>Waldo :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -90,6 +90,12 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
+    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
     <li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item parent active
         ">
       <div>
@@ -142,6 +148,9 @@
     <option value="/hackthebox/boxes/" >
   - 
    Boxes</option> 
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
     <option value="/hackthebox/boxes/waldo/"  selected>
   -- 
    Waldo</option> 
@@ -188,6 +197,8 @@
 
 <p>Skipping  past Nmap, after messing around with the request’s found three request  fileWrite, dirRead, fileRead. FileWrite writes user-supplied input to  list1. dirRead will enumerate directories and print out the content.  fileRead needs the exact file path to work.</p>
 
+<p><img src="https://chickenpwny.github.io/images/waldo/lfi_success.PNG" alt="lfi" /></p>
+
 <p>Sqlmap,  Wfuzz didn’t work I had more success with wfuzz but I couldn’t filter  the output. Nothing I tried allowed me to escape the current directory.  Examining what’s available the PHP source code that’s running the  website. The PHP script appears to call a bunch of functions from the  PHP library =D.
 REQUEST_METHOD determines whether the request was a  post or a get === strict comparison to POST request. the first few parts  of the stript involve telling the browser what kind of data to expect  Content-Type.
 “str_replace — Replace all occurrences of the search  string with the replacement string” str_replace takes every occurrence  of the the subject and replaces those values with replace. Mixed  str_replace ( mixed $search , mixed</p>
@@ -197,6 +208,12 @@ REQUEST_METHOD determines whether the request was a  post or a get === strict co
 <p>It  finds ../ or ..\” it will replace them with nothing the two quotes in  replace represent nothing. the next part say if file name === (strict)  user.txt print false(no user.txt) . /n/t/t, /n newline /tab /tab
 json_encode($filecontent) is taking the var file content and encoding
 the  output(that will matter later) taking all this into consideration the  script only checks for ../ or ..\ anything else it find’s, it’ll ignore.  I tried encoding these in every possible way. Then I was reading about  LFI and saw it ….// yes the holy grail. ….//….//….// escaped out and  allowed for directory traversal.</p>
+
+<p><img src="https://chickenpwny.github.io/images/waldo/not_false.PNG" alt="lfi-false" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/waldo/nobody_file.PNG" alt="lfi-false-highlight" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/waldo/lfi_monitor.PNG" alt="lfi-false-more-stuff" /></p>
 
 <p>I  didn’t see .ssh at first because I’ve seen it before. when trying to  view .ssh with fileRead it spat out is a directory noticed the output  with request differs from .ash_history. bash_history produces false .ssh  produced a file. Plug that into fileRead. Then you should find ssh  private key!!! the format all fudged. using vim repeat I was able to  clean up the file. when editing the file \n is not a null character, it  means newline in JSON. need to also get rid of “\”
 this part was also  tricky because of these two ports 9000 8888 rabbit holes. Netstat -antp  after looking at it for a while noticed some of the ssh connection came  from local address rcf-1904 address from localhost weird. That was the  next big hint. Since the .monitor file is local now it’ll make it easier  to use. the next username is monitor.
@@ -232,7 +249,7 @@ sticky bit the file gets its permissions from the parent directory
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/" title="Boxes"> <i class="fa fa-chevron-left"></i><label>Boxes</label></a>
+<a class="nav nav-prev" href="/hackthebox/boxes/valentine/" title="Valentine"> <i class="fa fa-chevron-left"></i><label>Valentine</label></a>
     <a class="nav nav-next" href="/hackthebox/challenges/" title="Challenges" style="margin-right: 0px;"><label>Challenges</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
