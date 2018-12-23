@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-23T14:20:09 EST">
+<meta name="revised" content="2018-12-23T14:38:30 EST">
 <title>Creating a Hugo Webpage on GitHub :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -368,8 +368,11 @@ role="alert">POWERSHELL</div>
 <h4 id="if-it-hangs-just-wait-paniently-for-atleast-one-minute">IF IT HANGS JUST WAIT PANIENTLY FOR ATLEAST ONE MINUTE.</h4>
 
 <pre><code>mkdir c:\Hugo\bin
+cd c:\Hugo\bin
 Invoke-webRequest -Uri https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_extended_0.52_Windows-64bit.zip -OutFile hugo_extended_0.52_Windows-64bit.zip
-
+Expand-Archive -Path .\hugo_extended_0.52_Windows-64bit.zip -DestinationPath .
+Unzip hugo_extended_0.52_Windows-64bit.zip .
+scoop install unzip 
 cd c:\Hugo
 mkdir .\sites
 cd .\sites
