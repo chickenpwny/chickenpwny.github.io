@@ -7,6 +7,14 @@
   </url>
   
   <url>
+    <loc>/github/hugo/install/</loc>
+  </url>
+  
+  <url>
+    <loc>/github/hugo/staticwebpages/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
   </url>
   
@@ -36,7 +44,15 @@
   </url>
   
   <url>
+    <loc>/github/hugo/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/ftp/</loc>
+  </url>
+  
+  <url>
+    <loc>/github/</loc>
   </url>
   
   <url>
