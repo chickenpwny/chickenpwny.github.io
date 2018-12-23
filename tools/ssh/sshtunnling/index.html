@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-23T07:11:34 EST">
+<meta name="revised" content="2018-12-23T08:36:28 EST">
 <title>SSHuttle :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -191,6 +191,12 @@
       <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
+    <li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
     <li data-nav-id="/tools/portscanning/nmap/" class="dd-item
         ">
       <div>
@@ -313,13 +319,23 @@
 
 <p>Creates a VPN  connection using the SSH protocol; forwarding all traffic to the target&rsquo;s network. It has a lot of options/switches to use but by default, they are set to auto/detect. So typically you won&rsquo;t need most of them.</p>
 
+
+
+<button class="btn  btn-primary" type="button"  onclick="location.href='https:\/\/github.com\/apenwarr\/sshuttle.git'" >DOWNLOAD </button>
+
+
+
+
 <p>Something to note you will need root access to run sshuttle; be sure to test the connection before wildly connecting.</p>
 
 <p>Connecting to a router with enabled ssh will give you access to the whole network. That is typical of VPN anyways.</p>
 
-<p><code>sshuttle -r chicken@192.168.1.6 172.16.42.1</code></p>
+<div class="notices info" ><pre><code>sshuttle -r chicken@192.168.1.6 172.16.42.0/24&lt;/code&gt;
 
-<p><code>-r &ndash;remote</code></p>
+&lt;code&gt;-r --remote&lt;/code&gt;
+</code></pre>
+</div>
+
 
 
 

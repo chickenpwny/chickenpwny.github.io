@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-23T07:11:34 EST">
+<meta name="revised" content="2018-12-23T08:36:28 EST">
 <title>Nmap :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -192,6 +192,12 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
+    <li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
     <li data-nav-id="/tools/portscanning/nmap/" class="dd-item parent active
         ">
       <div>
@@ -268,6 +274,9 @@
     <option value="/tools/portscanning/" >
   - 
    PortScannings</option> 
+    <option value="/tools/portscanning/netcat/" >
+  -- 
+   NetCat PORT SCAN</option>
     <option value="/tools/portscanning/nmap/"  selected>
   -- 
    Nmap</option> 
@@ -309,12 +318,17 @@
 
 <p>Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.</p>
 
-<div class="notices note" ><p>nmap -sC -sV -Pn -p- -oA total-nightmare -T3 10.10.10.6</p>
+<div class="notices info" ><p>nmap -sC -sV -Pn -p- -oA total-nightmare -T3 10.10.10.6</p>
 
 <div class="alert 
 alert-success"
  
 role="alert">nmap -sT -vv -oA total-nightmare -T3 10.10.10.6 TCP CONNECT</div>
+
+<div class="alert 
+alert-success"
+ 
+role="alert">nmap -sU -p- -oA total-UDP-nightmare -T3 10.10.10.6 UDP SCAN</div>
 
 <p>-sC: equivalent to &ndash;script=default</p>
 
@@ -330,6 +344,8 @@ role="alert">nmap -sT -vv -oA total-nightmare -T3 10.10.10.6 TCP CONNECT</div>
 <p>-p- Scan 1 to 65000 ports</p>
 
 <p>-T1 1 through 5 it&rsquo;s not recommended to run 5</p>
+
+<h4 id="example">Example</h4>
 
 <pre><code>Nmap 7.70 scan initiated Sun Dec  2 14:12:17 2018 as: nmap -sC -sV -Pn -p- -oA total-nightmare -T5 10.10.10.6`
 `Nmap scan report for 10.10.10.66`
@@ -370,7 +386,7 @@ role="alert">nmap -sT -vv -oA total-nightmare -T3 10.10.10.6 TCP CONNECT</div>
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/tools/portscanning/" title="PortScannings"> <i class="fa fa-chevron-left"></i><label>PortScannings</label></a>
+<a class="nav nav-prev" href="/tools/portscanning/netcat/" title="NetCat PORT SCAN"> <i class="fa fa-chevron-left"></i><label>NetCat PORT SCAN</label></a>
     <a class="nav nav-next" href="/tools/webapp/" title="WebApps" style="margin-right: 0px;"><label>WebApps</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 

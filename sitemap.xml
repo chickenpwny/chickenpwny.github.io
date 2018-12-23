@@ -56,6 +56,10 @@
   </url>
   
   <url>
+    <loc>/tools/portscanning/netcat/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/portscanning/nmap/</loc>
   </url>
   

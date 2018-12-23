@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2018-12-23T08:36:28 EST">
-<title>OS Command Injection :: DocDock Documentation</title>
+<title>NetCat PORT SCAN :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/concepts/webapppentest/osinjcmd/">
+  <body data-url="/tools/portscanning/netcat/">
     
       <header>
   <div class="logo">
@@ -75,18 +75,16 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/concepts/" class="dd-item parent haschildren
+    <li data-nav-id="/concepts/" class="dd-item haschildren
         ">
       <div>
-      <a href="/concepts/">Concept</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/concepts/webapppentest/" class="dd-item parent haschildren
+    <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
         ">
       <div>
-      <a href="/concepts/webapppentest/">WebAppPenTests</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
     <li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
@@ -101,7 +99,7 @@
       <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
-    <li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item parent active
+    <li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
         ">
       <div>
       <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
@@ -166,10 +164,11 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/tools/" class="dd-item haschildren
+    <li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/">Tools</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -186,13 +185,14 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
-    <li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+    <li data-nav-id="/tools/portscanning/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/portscanning/">PortScannings</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+    <li data-nav-id="/tools/portscanning/netcat/" class="dd-item parent active
         ">
       <div>
       <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
@@ -264,29 +264,31 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/concepts/" >
-   Concept</option> 
-    <option value="/concepts/webapppentest/" >
-  - 
-   WebAppPenTests</option> 
-    <option value="/concepts/webapppentest/lfi/" >
-  -- 
-    Local File inclusion</option>
-    <option value="/concepts/webapppentest/heartbld/" >
-  -- 
-   HeartBleed</option>
-    <option value="/concepts/webapppentest/osinjcmd/"  selected>
-  -- 
-   OS Command Injection</option> 
-  
-    <option value="/concepts/webapppentest/phptypejuggling/" >
-  -- 
-   PHP Typw Juggling</option>
-  
-  
+   Concept</option>
     <option value="/hackthebox/" >
    HackTheBox</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/portscanning/" >
+  - 
+   PortScannings</option> 
+    <option value="/tools/portscanning/netcat/"  selected>
+  -- 
+   NetCat PORT SCAN</option> 
+  
+    <option value="/tools/portscanning/nmap/" >
+  -- 
+   Nmap</option>
+  
+    <option value="/tools/webapp/" >
+  - 
+   WebApps</option>
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -309,46 +311,19 @@
       </div>
     
 
-    <h1>OS Command Injection</h1>
+    <h1>NetCat PORT SCAN</h1>
     
     
     
 
-<p>No,  probably not what your thinking. I’m talking about web app pen-testing. A  lot of programming languages are vulnerable, to command injection via  webpage. The user supplies OS commands that are escaped and executed.  This is due to not properly sanitizing user input or elements aren’t  hard coded allowing for exploitation. Below are the characters to  sanitize.</p>
+<p>NetCat as a port scanner with a little bash foo. We can make bash script that will enumerate ports on a target. NetCat is common on Linux systems. So chances are high it will be available.</p>
 
-<pre><code>| &amp;&amp; … ; `(tilda) &gt; &lt; \ !
+<div class="notices info" ><pre><code>for ip in $(seq 1 1000); do
+nc -zv -w 1 10.0.0.2 $ip  2&gt;&amp;1 &gt; /tmp/nul | grep -v 'timed' &amp;
+done
 </code></pre>
+</div>
 
-<p>This  vulnerability can occur by using as owsp puts it Dangerous API, or  using system commands inside a script that handles users supplied input.</p>
-
-<pre><code>PHP
-system
-exec
-eval
-shell_exec
-ASP.NET
-HttpRequest.Params
-HttpRequest.Url
-HttpRequest.Item
-EXAMPLES
-hackthebox.eu/index.php?exec=ls
-index.php?shell_exec=c3ViMmlw;ls
-index.php?shell_exec=c3ViMmlw||ls
-POST request
-tester=c3ViMmlw|ls
-tester=c3ViMmlw||ls
-tester=c3ViMmlw;ls
-tester2=c3ViMmlw&amp;&amp;ls &lt; -- in some scenario you'll need to encode theses values
-</code></pre>
-
-<p>FOR MORE INFORMATION PLEASE FOLLOW THESES LINKS</p>
-
-<p><a href="https://null-byte.wonderhowto.com/how-to/use-command-injection-pop-reverse-shell-web-server-0185760/">https://null-byte.wonderhowto.com/how-to/use-command-injection-pop-reverse-shell-web-server-0185760/</a></p>
-
-<p><a href="https://www.owasp.org/index.php/Testing_for_Command_Injection_%28OTG-INPVAL-013%29"><strong>Testing for Command Injection (OTG-INPVAL-013) - OWASP</strong>
-*OS command injection is a technique used via a web interface in order to execute OS commands on a web server. The user…*www.owasp.org</a></p>
-
-<p><a href="https://www.owasp.org/index.php/Command_Injection">https://www.owasp.org/index.php/Command_Injection</a></p>
 
 
 
@@ -356,8 +331,8 @@ tester2=c3ViMmlw&amp;&amp;ls &lt; -- in some scenario you'll need to encode thes
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/concepts/webapppentest/heartbld/" title="HeartBleed"> <i class="fa fa-chevron-left"></i><label>HeartBleed</label></a>
-    <a class="nav nav-next" href="/concepts/webapppentest/phptypejuggling/" title="PHP Typw Juggling" style="margin-right: 0px;"><label>PHP Typw Juggling</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/portscanning/" title="PortScannings"> <i class="fa fa-chevron-left"></i><label>PortScannings</label></a>
+    <a class="nav nav-next" href="/tools/portscanning/nmap/" title="Nmap" style="margin-right: 0px;"><label>Nmap</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -374,7 +349,7 @@ tester2=c3ViMmlw&amp;&amp;ls &lt; -- in some scenario you'll need to encode thes
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/Concepts/WebAppPenTest/OsInjCmd/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/Tools/PortScanning/NetCat/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
