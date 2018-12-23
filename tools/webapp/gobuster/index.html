@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-22T17:56:04 EST">
+<meta name="revised" content="2018-12-23T05:55:12 EST">
 <title>GoBuster :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -87,6 +87,13 @@
       <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
+      <li data-nav-id="/concepts/webapppentest/lfi/lfi/" class="dd-item">
+        <div>
+          <a href="/concepts/webapppentest/lfi/lfi/">
+             Local File inclusion
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
     <li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
         ">
       <div>
@@ -179,6 +186,20 @@
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
     </li>
+    <li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
     <li data-nav-id="/tools/webapp/" class="dd-item parent haschildren
         ">
       <div>
@@ -245,6 +266,9 @@
    Tools</option> 
       <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
       <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/portscanning/" >
+  - 
+   PortScannings</option>
     <option value="/tools/webapp/" >
   - 
    WebApps</option> 
@@ -314,9 +338,7 @@
 
 <h4 id="enumerating-browser-user-agent">Enumerating Browser User Agent</h4>
 
-<p>Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE).</p>
-
-<p><code>gobuster -u <a href="http://localhost:3000">http://localhost:3000</a> -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 39</p>
+<p>Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE). Some webservers can be configred to only accept a certain browser.</p>
 
 <p>gobuster -u <a href="http://target:port">http://target:port</a> -a &lsquo;agent&rsquo; -w wordlists -t 100</p>
 

