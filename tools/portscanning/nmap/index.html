@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-23T05:59:22 EST">
+<meta name="revised" content="2018-12-23T07:09:46 EST">
 <title>Nmap :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -309,6 +309,61 @@
     
 
 <p>Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.</p>
+
+<div class="notices note" ><p>nmap -sC -sV -Pn -p- -oA total-nightmare -T3 10.10.10.6</p>
+
+<div class="alert 
+alert-success"
+ 
+role="alert">nmap -sT -vv -oA total-nightmare -T3 10.10.10.6 TCP CONNECT</div>
+
+<p>-sC: equivalent to &ndash;script=default</p>
+
+<p>-sV: Probe open ports to determine service/version info</p>
+
+<p>-Pn: Treat all hosts as online &ndash; skip host discovery
+​   nmap -v -iR 10000 -Pn -p 80</p>
+
+<p>-p port ranges : Only scan specified ports
+​    Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+  &ndash;exclude-ports port ranges : Exclude the specified ports from scanning</p>
+
+<p>-p- Scan 1 to 65000 ports</p>
+
+<p>-T1 1 through 5 it&rsquo;s not recommended to run 5</p>
+
+<pre><code>Nmap 7.70 scan initiated Sun Dec  2 14:12:17 2018 as: nmap -sC -sV -Pn -p- -oA total-nightmare -T5 10.10.10.6`
+`Nmap scan report for 10.10.10.66`
+`Host is up (0.14s latency).`
+`Not shown: 65533 filtered ports`
+&lt;div class=&quot;notices note&quot; &gt;&lt;p&gt;&lt;code&gt;PORT     STATE SERVICE VERSION&lt;/code&gt;
+&lt;code&gt;80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))&lt;/code&gt;
+&lt;code&gt;| http-cookie-flags:&lt;/code&gt;
+&lt;code&gt;|   /:&lt;/code&gt;
+&lt;code&gt;|     PHPSESSID:&lt;/code&gt;
+&lt;code&gt;|_      httponly flag not set&lt;/code&gt;
+&lt;code&gt;|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: NOTES&lt;/code&gt;
+&lt;code&gt;2222/tcp open  ssh     (protocol 2.0)&lt;/code&gt;
+&lt;code&gt;| fingerprint-strings:&lt;/code&gt;
+&lt;code&gt;|   NULL:&lt;/code&gt;
+&lt;code&gt;|_    SSH-2.0-OpenSSH 32bit (not so recent ver)&lt;/code&gt;
+&lt;code&gt;| ssh-hostkey:&lt;/code&gt;
+&lt;code&gt;|   1024 e2:71:84:5d:ed:07:89:98:68:8b:6e:78:da:84:4c:b5 (DSA)&lt;/code&gt;
+&lt;code&gt;|   2048 bd:1c:11:9a:5b:15:d2:f6:28:76:c3:40:7c:80:6d:ec (RSA)&lt;/code&gt;
+&lt;code&gt;|   256 bf:e8:25:bf:ca:92:55:bc:ca:a4:96:c7:43:d0:51:73 (ECDSA)&lt;/code&gt;
+&lt;code&gt;|_  256 6f:14:30:b1:39:47:54:b7:5a:01:be:96:2c:a7:96:58 (ED25519)&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+`1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :`
+`SF-Port2222-TCP:V=7.70%I=7%D=12/2%Time=5C042F3B%P=x86_64-pc-linux-gnu%r(NU`
+`SF:LL,2B,&quot;SSH-2\.0-OpenSSH\x2032bit\x20\(not\x20so\x20recent\x20ver\)\r\n&quot;`
+`SF:);`
+
+`Service detection performed. Please report any incorrect results at https://nmap.org/submit/` 
+</code></pre>
+</div>
+
 
 
 
