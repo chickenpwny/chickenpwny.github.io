@@ -21,7 +21,7 @@
 	"content": "Welcome, to my repository of knowledge, HACKTHEBOXon walkthroughs, pentesting tools \u0026amp; concepts. The top right you will find social links. to the left or top, you should see navigation depends on the platform.\n"
 },
 {
-	"uri": "/concepts/webapppentest/lfi/lfi/",
+	"uri": "/concepts/webapppentest/lfi/",
 	"title": " Local File inclusion",
 	"tags": [],
 	"description": "",
