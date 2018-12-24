@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-24T09:11:31 EST">
+<meta name="revised" content="2018-12-24T10:32:51 EST">
 <title>Blue :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -344,6 +344,8 @@
 
 <h3 id="blue">Blue</h3>
 
+<p>Special thanks to IppSec for contributing to this post. <a href="https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA">Please Subscribe</a></p>
+
 <p><img src="https://chickenpwny.github.io/images/blue/blue_logo.jpg" alt="blue_logo" /></p>
 
 <p>changes /etc/hosts so 10.10.10.40 blue.htb</p>
@@ -376,7 +378,7 @@ Nmap done: 1 IP address (1 host up) scanned in 82.62 seconds
 
 <p>Atleast l wilI try to, for a detailed in-depth explanation <a href="https://research.checkpoint.com/eternalblue-everything-know/">Click Here</a></p>
 
-<p>The exploit is called ms17-010 EternalBlue, it was discovered in 2017 existed earlier it was used by the NSA. It was always publicly available hosted on some obscure server. The NSA did this to escape international law since it could be argued it was publicly available.</p>
+<p>The exploit MS17-10, aka EternalBlue was used by an Nation State Advisory and after getting leaked and becoming public a different group used it to cryptolocker a good portion of internet connected SMB Hosts. SMB normally isn&rsquo;t connected to the internet, so it is doubtful the exploit is intended to be the initial infection.  It is was an excellent tool to move around a network laterally as SMB is used legitimately by Windows for domain management.  Today, it remains a way to gain SYSTEM access to unpatched system and attempt to find loot that is helpful.</p>
 
 <p>EternalBlue exploits three bugs to achieve RCE</p>
 
