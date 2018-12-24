@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-24T07:32:29 EST">
+<meta name="revised" content="2018-12-24T09:11:31 EST">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -366,11 +366,9 @@ Manually inspect the webpage this is kind of tedious. As you’ll have to invest
 		<a href="/hackthebox/boxes/valentine/" >Valentine</a></card>
 <p>I lost my original notes. VM corrupted.
 PHASE 1 — NMAP
-nmap -sC -sV -Pn -oA initial 10.10.10.79
-Didn’t return anything of significance. https is odd for a hackthebox challenge. Port 22 could be the initial foothold. Google apache 2.2.22 https vulns nothing crazy pops out.
+nmap -sC -sV -Pn -oA initial 10.10.10.79  Didn’t return anything of significance. https is odd for a hackthebox challenge. Port 22 could be the initial foothold. Google apache 2.2.22 https vulns nothing crazy pops out.
 PHASE 2 — GOBUSTER /wpscan
-gobuster -u http://10.10.10.79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50
-return vulnerable to OpenSSL hearbleed
+gobuster -u [http://10.10.10.](http://10.10.10.88)79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50  return vulnerable to OpenSSL hearbleed
 PHASE 3 Manual investigation of the webpage</p>
 </span>
 
