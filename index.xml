@@ -12,15 +12,6 @@
     
     <item>
       <title></title>
-      <link>/github/hugo/staticwebpages/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/github/hugo/staticwebpages/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -57,6 +48,16 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
       <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
 mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP
 SSHFS is built on SFTP.</description>
+    </item>
+    
+    <item>
+      <title>Hugo/Github/Power</title>
+      <link>/github/hugopowershell/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/github/hugopowershell/</guid>
+      <description>POWERSHELL Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
+First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&amp;rsquo;t find the material I need to do within windows.</description>
     </item>
     
     <item>

