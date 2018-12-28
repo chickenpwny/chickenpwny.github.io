@@ -72,6 +72,14 @@
   </url>
   
   <url>
+    <loc>/help/</loc>
+  </url>
+  
+  <url>
+    <loc>/network-manager-down/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/portscanning/nmap/</loc>
   </url>
   

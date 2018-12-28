@@ -61,6 +61,17 @@ First off id like to say I wish there was a way to do this with less command lin
     </item>
     
     <item>
+      <title>Network Manager Down</title>
+      <link>/network-manager-down/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/network-manager-down/</guid>
+      <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
+I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
+ sudo apt-get purge network-manager  To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
+    </item>
+    
+    <item>
       <title>SqlMap</title>
       <link>/tools/webapp/sqlmap/sqlmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
