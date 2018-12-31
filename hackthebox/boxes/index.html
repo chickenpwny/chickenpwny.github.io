@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-27T22:24:34 EST">
+<meta name="revised" content="2018-12-31T14:33:36 EST">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -87,30 +87,6 @@
       <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
-    <li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
-        ">
-      <div>
-      <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
-      </div>
-    </li>
-    <li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
-        ">
-      <div>
-      <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
-      </div>
-    </li>
-    <li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
-        ">
-      <div>
-      <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
-      </div>
-    </li>
-    <li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
-        ">
-      <div>
-      <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
-      </div>
-    </li>
         </ul>
     </li>
         </ul>
@@ -148,6 +124,12 @@
         ">
       <div>
       <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
     <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
@@ -302,6 +284,9 @@
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -359,6 +344,19 @@
 <p>Blue Special thanks to IppSec for contributing to this post. Please Subscribe
 changes /etc/hosts so 10.10.10.40 blue.htb
 PORT STATE SERVICE VERSION 135/tcp open msrpc Microsoft Windows RPC 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP) 49152/tcp open msrpc Microsoft Windows RPC 49153/tcp open msrpc Microsoft Windows RPC 49154/tcp open msrpc Microsoft Windows RPC 49155/tcp open msrpc Microsoft Windows RPC 49156/tcp open msrpc Microsoft Windows RPC 49157/tcp open msrpc Microsoft Windows RPC Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/crimestoppers/" >CrimeStopper</a></card>
+<p>watch the ippsec video https://www.youtube.com/watch?v=bgKth1K44QA
+read this guide :https://0xdf.gitlab.io/2018/06/03/htb-crimestoppers.html
+This is just a summary of those two guides.
+Initial scan only shows port 80 open. +
+FSociety ransomware all the major credit databases and destroyed the backups.
+wfuzz -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-small.txt -u http://crimestoppers.htb/?op=FUZZ
+Navigating to list we get a list of submitted tips. A note from white rose.
+https://addons.mozilla.org/en-US/firefox/addon/cookie-quick-manager/
+So null, byte doesn&rsquo;t work and encoding the string doesn&rsquo;t work.</p>
 </span>
 
 <span><card>
