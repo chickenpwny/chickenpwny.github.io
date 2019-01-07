@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-31T14:37:22 EST">
+<meta name="revised" content="2019-01-07T01:02:29 EST">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -156,6 +156,13 @@
       <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
+      <li data-nav-id="/hackthebox/boxes/mischief/_index.md/" class="dd-item">
+        <div>
+          <a href="/hackthebox/boxes/mischief/_index.md/">
+            Mischief
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
     <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
         ">
       <div>
@@ -172,6 +179,12 @@
         ">
       <div>
       <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
         </ul>
@@ -311,6 +324,7 @@
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
    CrimeStopper</option>
+      <option value="/hackthebox/boxes/mischief/_index.md/" >-- Mischief</option>
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -320,6 +334,9 @@
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
   
     <option value="/hackthebox/challenges/" >
   - 
@@ -384,6 +401,18 @@ So null, byte doesn&rsquo;t work and encoding the string doesn&rsquo;t work.</p>
 </span>
 
 <span><card>
+		<a href="/hackthebox/boxes/mischief/_index.md/" >Mischief</a></card>
+<p>THIS IS A SUMMARY OF IPPSEC VIDEO &amp; 0XDF GUIDE.
+watch the ippsec video https://www.youtube.com/watch?v=GKo6xoB1g4Q
+read this guide https://0xdf.gitlab.io/2019/01/05/htb-mischief.html
+Summary, this box highlights securing ipv6.
+The quality of the phpsession tokens is exellent damnit.
+Nmap -v print output as it find it
+-max-retries 0 &lt;&ndash; save for later
+# Nmap 7.70 scan initiated Tue Jan 1 16:00:09 2019 as: nmap -sV -sC -p- -Pn -oA total -T5 10.10.10.92 Nmap scan report for 10.</p>
+</span>
+
+<span><card>
 		<a href="/hackthebox/boxes/poison/" >Poison</a></card>
 <p>PHASE 1 NMAP
 nmap -sC -sV -Pn -oA initial_poison 10.10.10.84  port 22 ssh it can be a rabbit-hole.
@@ -409,6 +438,17 @@ PHASE 3 Manual investigation of the webpage</p>
 Instead of giving binaries system-wide permissions, give them the permissions they need to do the job.
 Skipping past Nmap, after messing around with the request’s found three request fileWrite, dirRead, fileRead. FileWrite writes user-supplied input to list1. dirRead will enumerate directories and print out the content. fileRead needs the exact file path to work.
 Sqlmap, Wfuzz didn’t work I had more success with wfuzz but I couldn’t filter the output.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/sunday/" >sunday</a></card>
+<p>INCOMPLETE
+sunos 5.111 2008, SunSsh
+FINGER USER LIST finger user@10.10.10.76 -s displays the user login real terminal write status no access is a least priviliege user -l same as -s but with directory information -p limits -l output  stuff
+this box requires equine wordlist you can’t use the standard one. Metasploit module, be sure to change the dictionary used to enumerate the user list.
+Sammy Sunny
+HASHCAT
+I don’t remember where I found the hashes, i digress.</p>
 </span>
 </ul>
 

