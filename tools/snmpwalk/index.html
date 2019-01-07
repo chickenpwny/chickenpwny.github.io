@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-01-07T03:02:12 EST">
-<title>Concept :: DocDock Documentation</title>
+<title>SNMPWalk :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 
     
   </head>
-  <body data-url="/concepts/">
+  <body data-url="/tools/snmpwalk/">
     
       <header>
   <div class="logo">
@@ -75,11 +75,10 @@
             <i class="fa fa-fw fa-home"></i>
           </a>
           </li>
-    <li data-nav-id="/concepts/" class="dd-item parent active haschildren
+    <li data-nav-id="/concepts/" class="dd-item haschildren
         ">
       <div>
-      <a href="/concepts/">Concept</a>
-            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
     <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
@@ -216,10 +215,11 @@
       <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
-    <li data-nav-id="/tools/" class="dd-item haschildren
+    <li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
       <div>
-      <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/">Tools</a>
+            <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
       </div>
         <ul>
       <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -256,7 +256,7 @@
     </li>
         </ul>
     </li>
-    <li data-nav-id="/tools/snmpwalk/" class="dd-item
+    <li data-nav-id="/tools/snmpwalk/" class="dd-item parent active
         ">
       <div>
       <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
@@ -319,12 +319,8 @@
       <center>Navigation : 
         <select onchange="javascript:location.href = this.value;">
           
-    <option value="/concepts/"  selected>
-   Concept</option> 
-    <option value="/concepts/webapppentest/" >
-  - 
-   WebAppPenTests</option>
-  
+    <option value="/concepts/" >
+   Concept</option>
     <option value="/github/" >
    GitHub</option>
     <option value="/hackthebox/" >
@@ -332,7 +328,23 @@
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/portscanning/" >
+  - 
+   PortScannings</option>
+    <option value="/tools/snmpwalk/"  selected>
+  - 
+   SNMPWalk</option> 
+  
+    <option value="/tools/webapp/" >
+  - 
+   WebApps</option>
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -355,27 +367,54 @@
       </div>
     
 
-    <h1>Concept</h1>
+    <h1>SNMPWalk</h1>
     
     
     
 
-<p>Concept</p>
+<p>snmp has three version 1, 2c &amp; 3 typically for htb so far its been public but that may not always be the cause. Snmp stands for simple network managment protocal. this allows administrators to collect information for logs. SNMP3 adds a layer of security by providing authentication.  In mischief I abused snmp 2c to gain system creds.</p>
+
+<pre><code>snmpwalk -c public -v2c 10.10.10.92 | tee snmpwalk-mib.out
+tee prints out the output as it reads it.
+-c group
+-version 1,2c,3
+
+ipAddressTable = prints out ip address table
+
+hrSWRunTable = running processes
+
+snmpwalk -c public -v2c 10.10.10.92 hrSWRunTable
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/imagessnmpwalksnmpwalk-out-put.PNG" alt="snmpwalk-out-put" /></p>
+
+<p><a href="http://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/?oid=1.3.6.1.2.1.4.34">OID REFERENCE</a></p>
+
+<p>Another Cool tool to easily convert ipv6 strings returned by snmpwalk into something readable is Enxy.</p>
+
+<div class="notices warning" ><p>If snmp-mibs-downloader is enabled it will produce an error because the python script is looking for the normal output. So need uncomment it out for it to work.</p>
+</div>
 
 
+<p><a href="https://github.com/trickster0/Enyx">https://github.com/trickster0/Enyx</a></p>
 
-<ul class="children children-card">
+<pre><code>python enyx.py 2x public 10.10.10.92
+</code></pre>
 
-<span><card>
-		<a href="/concepts/webapppentest/" >WebAppPenTests</a></card>
-<p></p>
-</span>
-</ul>
+<p><img src="https://chickenpwny.github.io/images/snmpwalk/enyx.PNG" alt="enyx" /></p>
 
-
-
+<div class="notices tip" ><p>Install snmp-mibs-downloader to make oid more readable it will also convert ipv6 decimal into hex making it more manageable.</p>
+</div>
 
 
+<p>apt install snmp-mibs-downloader</p>
+
+<pre><code>vi /etc/snmp/snmp.conf 
+</code></pre>
+
+<p>comment out mibs</p>
+
+<p><img src="https://chickenpwny.github.io/imagessnmpwalksnmp-mibs.PNG" alt="snmp-mibs" /></p>
 
 
 
@@ -383,8 +422,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/" title=""> <i class="fa fa-chevron-left"></i><label></label></a>
-    <a class="nav nav-next" href="/concepts/webapppentest/" title="WebAppPenTests" style="margin-right: 0px;"><label>WebAppPenTests</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/portscanning/nmap/" title="Nmap"> <i class="fa fa-chevron-left"></i><label>Nmap</label></a>
+    <a class="nav nav-next" href="/tools/webapp/" title="WebApps" style="margin-right: 0px;"><label>WebApps</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -401,7 +440,7 @@
 
     
     <div class="github-link">
-      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/Concepts/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://github.com/vjeantet/hugo-theme-docdock/edit/master/exampleSite/content/Tools/SnmpWalk/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
