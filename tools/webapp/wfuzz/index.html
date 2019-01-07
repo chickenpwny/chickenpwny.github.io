@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-07T03:02:12 EST">
-<title>WFUZZ :: DocDock Documentation</title>
+<meta name="revised" content="2019-01-07T03:14:30 EST">
+<title>WFuzz :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -285,7 +285,7 @@
     <li data-nav-id="/tools/webapp/wfuzz/" class="dd-item parent active
         ">
       <div>
-      <a href="/tools/webapp/wfuzz/">WFUZZ</a><i class="fa fa-circle-thin read-icon"></i>
+      <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
       </div>
     </li>
         </ul>
@@ -347,7 +347,7 @@
       <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
     <option value="/tools/webapp/wfuzz/"  selected>
   -- 
-   WFUZZ</option> 
+   WFuzz</option> 
   
   
     <option value="/tools/ssh/" >
@@ -376,12 +376,14 @@
       </div>
     
 
-    <h1>WFUZZ</h1>
+    <h1>WFuzz</h1>
     
     
     
 
-<p>WFUZZ</p>
+
+
+<h3 id="wfuzz">WFUZZ</h3>
 
 <p>WFUZZ is a powerful fuzzer, you can enumerate directories, Wierd directories. You can also use it for bruteforcing passwords, look for Lfi, I could keep going.
 This is a swiss army knife it doesn&rsquo;t beat manual enumeration. Becoming depending on this tool to look for SQL injection can lead you to miss something obvious.</p>
@@ -413,6 +415,14 @@ this method different than the above. this uses get request or a stanard request
 <p><img src="https://cdn-images-1.medium.com/max/667/1*ZSYfM0ABTPnyb2E9b8K-vw.png" alt="img" /></p>
 
 <p><img src="https://cdn-images-1.medium.com/max/667/1*gW9C8ZZwCdrMvr35Z_KZIg.png" alt="img" /></p>
+
+<h3 id="post-request">Post-Request</h3>
+
+<p>this one slightly different than above post request one this uses ipv6 from the mischief box. second the formatting is slightly different.</p>
+
+<p>wfuzz -c -w /opt/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -d &ldquo;FUZZ=junk&rdquo; &ndash;hh 403 &lsquo;<a href="http://loki.htb/'">http://loki.htb/'</a></p>
+
+<p><img src="https://chickenpwny.github.io/images/wfuzz/wfuzz-post.PNG" alt="wfuzz-post" /></p>
 
 
 

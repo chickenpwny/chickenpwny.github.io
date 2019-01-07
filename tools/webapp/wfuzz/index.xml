@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>WFUZZ on DocDock Documentation</title>
+    <title>WFuzz on DocDock Documentation</title>
     <link>/tools/webapp/wfuzz/</link>
-    <description>Recent content in WFUZZ on DocDock Documentation</description>
+    <description>Recent content in WFuzz on DocDock Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
