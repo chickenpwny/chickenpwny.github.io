@@ -203,7 +203,7 @@
 	"content": " Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target\u0026rsquo;s network. It has a lot of options/switches to use but by default, they are set to auto/detect. So typically you won\u0026rsquo;t need most of them.\nDOWNLOAD  Something to note you will need root access to run sshuttle; be sure to test the connection before wildly connecting.\nConnecting to a router with enabled ssh will give you access to the whole network. That is typical of VPN anyways.\nsshuttle -r chicken@192.168.1.6 172.16.42.0/24\u0026lt;/code\u0026gt; \u0026lt;code\u0026gt;-r --remote\u0026lt;/code\u0026gt;   "
 },
 {
-	"uri": "/hackthebox/boxes/secnotes/_index.md/",
+	"uri": "/hackthebox/boxes/secnotes/",
 	"title": "SecNotes",
 	"tags": [],
 	"description": "",

