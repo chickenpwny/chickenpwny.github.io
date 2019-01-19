@@ -121,6 +121,10 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/secnotes/_index.md/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/webapp/sqlmap/sqlmap/</loc>
   </url>
   
