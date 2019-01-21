@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-19T15:50:30 EST">
+<meta name="revised" content="2019-01-21T12:00:28 EST">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -179,6 +179,13 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">Oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
         ">
     <div>
@@ -299,6 +306,13 @@
         <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/webapp/gobuster/" class="dd-item
         ">
     <div>
@@ -374,6 +388,9 @@
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   Oz</option>
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -475,6 +492,14 @@ Nmap -v print output as it find it
 </span>
 
 <span><card>
+		<a href="/hackthebox/boxes/oz/" >Oz</a></card>
+<p>{{ button href=&ldquo;https://www.youtube.com/watch?v=yX00n1UmalE&quot; theme=&ldquo;danger&rdquo; }} IppSec {{ /button }}
+NMAP
+two ports 80 &amp; 8080
+nmap -sC -sV -oA nmap/oz-initial 10.10.10.96 -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-20 11:18 EST Stats: 0:00:12 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan Service scan Timing: About 0.00% done Nmap scan report for 10.10.10.96 Host is up (0.041s latency). Not shown: 998 filtered ports PORT STATE SERVICE VERSION 80/tcp open http Werkzeug httpd 0.</p>
+</span>
+
+<span><card>
 		<a href="/hackthebox/boxes/poison/" >Poison</a></card>
 <p>PHASE 1 NMAP
 nmap -sC -sV -Pn -oA initial_poison 10.10.10.84  port 22 ssh it can be a rabbit-hole.
@@ -486,9 +511,9 @@ Manually inspect the webpage this is kind of tedious. As you’ll have to invest
 
 <span><card>
 		<a href="/hackthebox/boxes/secnotes/" >SecNotes</a></card>
-<p>PORT STATE SERVICE VERSION 80/tcp open http Microsoft IIS httpd 10.0 | http-methods:
+<p>NMAP PORT STATE SERVICE VERSION 80/tcp open http Microsoft IIS httpd 10.0 | http-methods:
 |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 | http-title: Secure Notes - Login
-|_Requested resource was login.php 445/tcp open microsoft-ds Windows 10 Enterprise 17134 microsoft-ds (workgroup: HTB) 8808/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: IIS Windows
+|Requested resource was login.php 445/tcp open microsoft-ds Windows 10 Enterprise 17134 microsoft-ds (workgroup: HTB) 8808/tcp open http Microsoft IIS httpd 10.0 |-methods: | Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: IIS Windows
 Service Info: Host: SECNOTES; OS: Windows; CPE: cpe:/o:microsoft:windows
 Host script results: |_clock-skew: mean: 2h32m44s, deviation: 4h37m10s, median: -7m17s</p>
 </span>

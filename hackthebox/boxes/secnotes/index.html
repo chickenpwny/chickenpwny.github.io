@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-19T15:50:30 EST">
+<meta name="revised" content="2019-01-21T12:00:28 EST">
 <title>SecNotes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -179,6 +179,13 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">Oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
         ">
     <div>
@@ -299,6 +306,13 @@
         <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/webapp/gobuster/" class="dd-item
         ">
     <div>
@@ -374,6 +388,9 @@
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   Oz</option>
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -430,17 +447,19 @@
 
 <p><img src="https://chickenpwny.github.io/images/secnotes/secnotes_badge.PNG" alt="secnotes_badge" /></p>
 
+<h1 id="nmap">NMAP</h1>
+
 <p>PORT     STATE SERVICE      VERSION
 80/tcp   open  http         Microsoft IIS httpd 10.0
 | http-methods:<br />
 |_  Potentially risky methods: TRACE
 |_http-server-header: Microsoft-IIS/10.0
 | http-title: Secure Notes - Login<br />
-|_Requested resource was login.php
+|<em>Requested resource was login.php
 445/tcp  open  microsoft-ds Windows 10 Enterprise 17134 microsoft-ds (workgroup: HTB)
 8808/tcp open  http         Microsoft IIS httpd 10.0
-| htt<img src="https://chickenpwny.github.io/images/secnotes/secnotes_badge.PNG" alt="secnotes_badge" />p-methods:
-|_  Potentially risky methods: TRACE                                                   |_http-server-header: Microsoft-IIS/10.0
+|-methods:
+|</em>  Potentially risky methods: TRACE                                                   |_http-server-header: Microsoft-IIS/10.0
 |_http-title: IIS Windows<br />
 Service Info: Host: SECNOTES; OS: Windows; CPE: cpe:/o:microsoft:windows</p>
 

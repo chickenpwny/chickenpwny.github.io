@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta name="generator" content="Hugo 0.52" />
     <title>DocDock Documentation</title>
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-01-21T12:00:28 EST">
-<title> :: DocDock Documentation</title>
+<title>Burp :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -26,7 +25,7 @@
 
     
   </head>
-  <body data-url="/">
+  <body data-url="/tools/webapp/burp/">
     
       <header>
   <div class="logo">
@@ -247,11 +246,12 @@
         <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/" class="dd-item haschildren
+<li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/">Tools</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -298,14 +298,15 @@
         <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+<li data-nav-id="/tools/webapp/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/webapp/">WebApps</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/tools/webapp/burp/" class="dd-item
+<li data-nav-id="/tools/webapp/burp/" class="dd-item parent active
         ">
     <div>
 
@@ -375,7 +376,34 @@
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/portscanning/" >
+  - 
+   PortScannings</option>
+    <option value="/tools/snmpwalk/" >
+  - 
+   SNMPWalk</option>
+    <option value="/tools/webapp/" >
+  - 
+   WebApps</option> 
+    <option value="/tools/webapp/burp/"  selected>
+  -- 
+   Burp</option> 
+  
+    <option value="/tools/webapp/gobuster/" >
+  -- 
+   GoBuster</option>
+      <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
+    <option value="/tools/webapp/wfuzz/" >
+  -- 
+   WFuzz</option>
+  
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -398,20 +426,13 @@
       </div>
     
 
+    <h1>Burp</h1>
     
     
     
-    
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fa fa-bars"></i> navigation</a>
-</span>
- 
-<p>PLEASE CONTACT ME ON TWITTER OR BY EMAIL AT CHICKENPWNY IF ANY OF THE CONTENT VIOLATES HACKTHEBOX EULA.</p>
 
-<p>Welcome, to my repository of knowledge, <a href="https://www.hackthebox.eu/">HACKTHEBOXon</a> walkthroughs, pentesting tools &amp; concepts. The top right you will find social links. to the left or top, you should see navigation depends on the platform.</p>
-
-<p><img src="https://chickenpwny.github.io/images/meme/kitty_working.png" alt="kitty_working" /></p>
-
+<p>options as the request method will return the used methods for the webapp.
+<img src="../../../../../../../Users/charl/OneDrive/Pictures/hackthebox/oz/request-options.PNG" alt="Request Options" /></p>
 
 
 
@@ -419,7 +440,8 @@
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-next" href="/concepts/" title="Concept" style="margin-right: 0px;"><label>Concept</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/webapp/" title="WebApps"> <i class="fa fa-chevron-left"></i><label>WebApps</label></a>
+    <a class="nav nav-next" href="/tools/webapp/gobuster/" title="GoBuster" style="margin-right: 0px;"><label>GoBuster</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -436,7 +458,7 @@
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.io_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioTools/WebApp/Burp/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

