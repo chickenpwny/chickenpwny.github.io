@@ -52,10 +52,10 @@ SSHFS is built on SFTP.</description>
     
     <item>
       <title>Hugo/Github/Power</title>
-      <link>/github/hugopowershell/</link>
+      <link>/hackthebox/github/hugopowershell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/github/hugopowershell/</guid>
+      <guid>/hackthebox/github/hugopowershell/</guid>
       <description>POWERSHELL Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
 First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&amp;rsquo;t find the material I need to do within windows.</description>
     </item>
@@ -77,7 +77,9 @@ I&amp;rsquo;m not sure if completely removing the network manager is required bu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tools/webapp/sqlmap/sqlmap/</guid>
-      <description>In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req</description>
+      <description>SqlMap automates finding sql-injection it can use GET or POST request. It&amp;rsquo;s pretty neat.
+In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req
+sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
     </item>
     
   </channel>

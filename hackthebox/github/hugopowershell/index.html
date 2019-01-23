@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-01-23T17:29:58 EST">
-<title>HackTheBox :: DocDock Documentation</title>
+<title>Hugo/Github/Power :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -19,13 +19,13 @@
 <script type="text/javascript">
       var baseurl = "\/";
 </script>
-<meta name="description" content="">
+<meta name="description" content="How to setup a Hugo Static WebPage using PowerShell on GitHub!">
 
 
 
     
   </head>
-  <body data-url="/hackthebox/">
+  <body data-url="/hackthebox/github/hugopowershell/">
     
       <header>
   <div class="logo">
@@ -119,7 +119,7 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/hackthebox/" class="dd-item parent active haschildren
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
         ">
     <div>
 
@@ -206,14 +206,15 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+<li data-nav-id="/hackthebox/github/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/github/">GitHub</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item active">
     <div>
         <a href="/hackthebox/github/hugopowershell/">
             Hugo/Github/Power
@@ -375,14 +376,16 @@
           
     <option value="/concepts/" >
    Concept</option>
-    <option value="/hackthebox/"  selected>
+    <option value="/hackthebox/" >
    HackTheBox</option> 
     <option value="/hackthebox/boxes/" >
   - 
    Boxes</option>
     <option value="/hackthebox/github/" >
   - 
-   GitHub</option>
+   GitHub</option> 
+      <option value="/hackthebox/github/hugopowershell/"  selected>-- Hugo/Github/Power</option>
+  
     <option value="/hackthebox/challenges/" >
   - 
    Miscellaneous</option>
@@ -413,51 +416,128 @@
       </div>
     
 
-    <h1>HackTheBox</h1>
+    <h1>Hugo/Github/Power</h1>
     
     
     
+    
 
-<p><strong>HackTheBox</strong></p>
+<div class="alert 
+alert-info"
+ 
+role="alert">POWERSHELL</div>
+
+
+<p>Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.</p>
+
+<p>First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&rsquo;t find the material I need to do within windows.</p>
+
+<p><img src="https://chickenpwny.github.io/images/meme/evil-laugh-zim.jpg" alt="evil-laugh-zim" /></p>
+
+<h5 id="setting-up-github">Setting up GitHub</h5>
+
+<p>Create two repositories the first will be named YourSite(blog whatever you want). the second must be named the desired url I.E chickenpwny.github.io / YourSite.github.io</p>
+
+<p>git clone <a href="https://github.com/YourSite.git">https://github.com/YourSite.git</a></p>
+
+<h5 id="installing-golang-https-golang-org-dl-in-windows">Installing <a href="https://golang.org/dl/">GoLang</a> in windows</h5>
 
 
 
-<ul class="children children-card">
-
-<span><card>
-		<a href="/hackthebox/boxes/" >Boxes</a></card>
-<p>Boxes
-```   FTP FILE TRANSFER PROTOCOL SSH secure shell HTTP and an unknown port protected H2 database on 8082 GOBUSTER
-  Blue Blue Special thanks to IppSec for contributing to this post. Please Subscribe changes /etc/hosts so 10.10.10.40 blue.htb PORT STATE SERVICE VERSION 135/tcp open msrpc Microsoft Windows RPC 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP) 49152/tcp open msrpc Microsoft Windows RPC 49153/tcp open msrpc Microsoft Windows RPC 49154/tcp open msrpc Microsoft Windows RPC 49155/tcp open msrpc Microsoft Windows RPC 49156/tcp open msrpc Microsoft Windows RPC 49157/tcp open msrpc Microsoft Windows RPC Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed.</p>
-</span>
-
-<span><card>
-		<a href="/hackthebox/github/" >GitHub</a></card>
-<p>  Hugo/Github/Power How to setup a Hugo Static WebPage using PowerShell on GitHub!
-  </p>
-</span>
-
-<span><card>
-		<a href="/hackthebox/challenges/" >Miscellaneous</a></card>
-<p>Setting up Test Enviroment or Complicated tools.
-  
-  </p>
-</span>
-</ul>
+<button class="btn  btn-warning" type="button"  onclick="location.href='https:\/\/dl.google.com\/go\/go1.11.4.windows-amd64.msi'" > Windows GoLang </button>
 
 
 
 
+<p>AFTER INSTALLING GOLANG need to setup Hogo the Content Management System CMS. To do this we will need a windows package manger I chose Scoop.</p>
 
+<h4 id="if-it-hangs-just-wait-paniently-for-atleast-one-minute">IF IT HANGS JUST WAIT PANIENTLY FOR ATLEAST ONE MINUTE.</h4>
 
+<pre><code>mkdir c:\Hugo\bin
+
+cd c:\Hugo\bin
+
+Invoke-webRequest -Uri https://github.com/gohugoio/hugo/releases/download/v0.52/hugo_extended_0.52_Windows-64bit.zip -OutFile hugo_extended_0.52_Windows-64bit.zip
+
+Expand-Archive -Path .\hugo_extended_0.52_Windows-64bit.zip -DestinationPath .
+
+scoop install unzip 
+
+cd c:\Hugo
+
+mkdir .\sites
+
+cd .\sites
+
+Now download &amp; install scoop
+
+IEX(new-object net.webclient).downloadstring('https://get.scoop.sh')
+
+scoop install hugo
+
+hugo new site YourSite
+
+cd .\yourSite
+
+cd .\themes
+
+git submodule add https://github.com/vjeantet/hugo-theme-docdock.git themes\hugo-theme-docdock
+
+Now we need to set some permission for the repository. 
+If you skip this you may get errors uploading to the repo.
+
+<div class="alert 
+alert-danger"
+ 
+role="alert">submodule add <a href="https://github.com/YourSiteCHANGEME/YourSiteCHANGEME.github.io.git">https://github.com/YourSiteCHANGEME/YourSiteCHANGEME.github.io.git</a> public &ndash;</div>
+
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/huge-image/https-submodule.PNG" alt="https_submodule" /></p>
+
+<p>Note, the period before the backslash represents current directory same as in Linux.</p>
+
+<p>Covering some commands Before we move on from here</p>
+
+<h5 id="create-some-new-content">Create some new content:</h5>
+
+<pre><code>hugo new content\first-post.md
+</code></pre>
+
+<h5 id="to-host-your-webpage-locally">To host your webpage locally :</h5>
+
+<pre><code>hugo server -D localhost 
+</code></pre>
+
+<p>In the content directory adding the _index.md to a folder will make it a page on the site. You can add conent in the _index.md or just use it to name the directory. A little confusing just play around.</p>
+
+<p><img src="https://chickenpwny.github.io/images/huge-image/content.PNG" alt="content" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/huge-image/content_example.PNG" alt="content_example" /></p>
+
+<p>Lets say your done editing your content and you want publish your site.</p>
+
+<p>You can use type Hugo to generate your site you must be in the root directory of YourSite. I&rsquo;d recommend using the -t switch for theme. You dont need to supply the full path.</p>
+
+<pre><code>
+hugo -t YourThemeName
+cd public
+git add .
+git commit -m &quot;a&quot;
+git push origin master
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/meme/wait.png" alt="wait" /></p>
+
+<p>I had gotten confused initially and tried to upload the theme generator and thought it would generate the site on GitHub. Git hub needs index.html page, so eventually figured out that you generated the content locally then upload it. GitLab generates the content from the generator continuous deployment deal. Ithink GitHub offers it was well different guide.</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/concepts/webapppentest/phptypejuggling/" title="PHP Typw Juggling"> <i class="fa fa-chevron-left"></i><label>PHP Typw Juggling</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/" title="Boxes" style="margin-right: 0px;"><label>Boxes</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/github/" title="GitHub"> <i class="fa fa-chevron-left"></i><label>GitHub</label></a>
+    <a class="nav nav-next" href="/hackthebox/challenges/" title="Miscellaneous" style="margin-right: 0px;"><label>Miscellaneous</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -474,7 +554,7 @@
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioHackTheBox/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/GitHub/HugoPowerShell.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-23T14:42:08 EST">
-<title>Oz :: DocDock Documentation</title>
+<meta name="revised" content="2019-01-23T17:29:59 EST">
+<title>oz :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -119,22 +119,6 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/github/" class="dd-item haschildren
-        ">
-    <div>
-
-        <a href="/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-    <ul>
-<li data-nav-id="/github/hugopowershell/" class="dd-item">
-    <div>
-        <a href="/github/hugopowershell/">
-            Hugo/Github/Power
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-    </ul>
-</li>
 <li data-nav-id="/hackthebox/" class="dd-item parent haschildren
         ">
     <div>
@@ -179,13 +163,6 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item parent active
-        ">
-    <div>
-
-        <a href="/hackthebox/boxes/oz/">Oz</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
         ">
     <div>
@@ -214,11 +191,34 @@
         <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item parent active
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
         ">
     <div>
 
         <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -343,6 +343,13 @@
         <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
         ">
     <div>
@@ -369,8 +376,6 @@
           
     <option value="/concepts/" >
    Concept</option>
-    <option value="/github/" >
-   GitHub</option>
     <option value="/hackthebox/" >
    HackTheBox</option> 
     <option value="/hackthebox/boxes/" >
@@ -388,10 +393,6 @@
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
-    <option value="/hackthebox/boxes/oz/"  selected>
-  -- 
-   Oz</option> 
-  
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -404,10 +405,17 @@
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
+    <option value="/hackthebox/boxes/oz/"  selected>
+  -- 
+   oz</option> 
+  
     <option value="/hackthebox/boxes/sunday/" >
   -- 
    sunday</option>
   
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
     <option value="/hackthebox/challenges/" >
   - 
    Miscellaneous</option>
@@ -438,14 +446,14 @@
       </div>
     
 
-    <h1>Oz</h1>
+    <h1>oz</h1>
     
     
     
 
 
 
-<p>{{ button href=&ldquo;<a href="https://www.youtube.com/watch?v=yX00n1UmalE&quot;">https://www.youtube.com/watch?v=yX00n1UmalE&quot;</a> theme=&ldquo;danger&rdquo; }} IppSec {{ /button }}</p>
+<p>{{  button href=&ldquo;<a href="https://www.youtube.com/watch?v=yX00n1UmalE&quot;">https://www.youtube.com/watch?v=yX00n1UmalE&quot;</a> theme=danger }} IppSec {{ /button }}</p>
 
 <p>NMAP</p>
 
@@ -479,7 +487,7 @@ modify the host header
 
 <p>using options in the request method in burp will give you the supported request. neat</p>
 
-<p><img src="https://chickenpwny.github.io/images//oz/request-options.PNG" alt="request-options" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/request-options.PNG" alt="request-options" /></p>
 
 <p><img src="https://chickenpwny.github.io/images/oz/request-options-login.PNG" alt="request-options-login" /></p>
 
@@ -818,24 +826,24 @@ nc -zv -w 1 172.17.0.2 $ip  2&gt;&amp;1 |grep 'succeeded!' &amp;
 done
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/ew.PNG" alt="ew" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ew.PNG" alt="ew" /></p>
 
 <p>I dont like the for loop because it just craps out so much output. for some reason it always makes a mess. I think i modified the former from the netcat ip range scanner. The below option is much cleaner.</p>
 
 <pre><code>nc -zv -w 1  172.17.0.2 8900-10000 2&gt;&amp;1 | grep succeeded!
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/netcat.PNG" alt="netcat" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/netcat.PNG" alt="netcat" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container.PNG" alt="ssh-container" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container.PNG" alt="ssh-container" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-2.PNG" alt="ssh-container-2" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-2.PNG" alt="ssh-container-2" /></p>
 
 <h2 id="exploiting-portainer">Exploiting Portainer</h2>
 
 <p>changing the password on portainer.io submit a POST request to the web directory/api/users/admin/init. I&rsquo;m not sure why submiting to init resets the admin password. i guess that&rsquo;s the api used to reset the password. Again i dont know.  Finish the request like in the pciture below. This will reset the admin password to whatever password you submit.</p>
 
-<p><img src="https://chickenpwny.github.io/images/change-pass-portainer.PNG" alt="change-pass-portainer" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/change-pass-portainer.PNG" alt="change-pass-portainer" /></p>
 
 <p>Login with the submitted password</p>
 
@@ -847,29 +855,31 @@ done
 
 <p>some problems may occur the ssh tunnel may drop youll have to reset it by using the port knocking for loop. Be sure to turn off burp the proxy really slows it down it will not load.</p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-3.PNG" alt="ssh-container-3" /></p>
+<p>c</p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-4.PNG" alt="ssh-container-4" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-3.PNG" alt="ssh-container-3" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-5.PNG" alt="ssh-container-5" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-4.PNG" alt="ssh-container-4" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-6.PNG" alt="ssh-container-6" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-5.PNG" alt="ssh-container-5" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-7.PNG" alt="ssh-container-7" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-6.PNG" alt="ssh-container-6" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-8.PNG" alt="ssh-container-8" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-7.PNG" alt="ssh-container-7" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-9.PNG" alt="ssh-container-9" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-8.PNG" alt="ssh-container-8" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-10.PNG" alt="ssh-container-10" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-9.PNG" alt="ssh-container-9" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-10.PNG" alt="ssh-container-10" /></p>
 
 <p>it could take awhile to create the container or hang depends.</p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-12.PNG" alt="ssh-container-12" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-12.PNG" alt="ssh-container-12" /></p>
 
 <p>change from /bin/bash to /bin/sh. there is a cron job running resetting the containers to default.</p>
 
-<p><img src="https://chickenpwny.github.io/images/ssh-container-14.PNG" alt="ssh-container-14" /></p>
+<p><img src="https://chickenpwny.github.io/images/oz/ssh-container-14.PNG" alt="ssh-container-14" /></p>
 
 <p>ssh&gt; -L9051:172.17.0.2:9050</p>
 
@@ -881,7 +891,7 @@ done
 
 <p>i could not get shuttle to work for some reason</p>
 
-<p>sshuttle</p>
+<p>sshuttle.</p>
 
 <p>sshuttle -r dorthi@oz.htb 172.0.0.0/16 &ndash;ssh-cmd &lsquo;ssh -i dorthi.ssh&rsquo;</p>
 
@@ -891,8 +901,8 @@ done
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/mischief/" title="Mischief"> <i class="fa fa-chevron-left"></i><label>Mischief</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/waldo/" title="Waldo"> <i class="fa fa-chevron-left"></i><label>Waldo</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/sunday/" title="sunday" style="margin-right: 0px;"><label>sunday</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
