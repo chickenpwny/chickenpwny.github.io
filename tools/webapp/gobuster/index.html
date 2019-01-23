@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-21T12:00:28 EST">
+<meta name="revised" content="2019-01-23T14:39:43 EST">
 <title>GoBuster :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
                 </a>
             </li>
             <li class="" role="">
-                <a href="https://github.com/vjeantet/hugo-theme-docdock/archive/master.zip"  rel="noopener">
+                <a href="https://chickenpwny.github.com/images/meme/raw.gif"  rel="noopener">
                   <i class='fa fa-cloud-download'></i> <label>Download</label>
                 </a>
             </li>
@@ -72,7 +72,7 @@
 <article>
   <aside>
     <ul class="menu">
-<a href="http://chickenpwny.github.io"><img src="/images/chickenpwny2.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home"/></a>
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
 <li data-nav-id="/concepts/" class="dd-item haschildren
         ">
     <div>
@@ -439,23 +439,26 @@
 
 <h4 id="enumerating-directories">Enumerating Directories</h4>
 
-<p><code>gobuster -u <a href="http://TARGET_IP:PORT">http://TARGET_IP:PORT</a> -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100</p>
+<pre><code>gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100 
 
-<p>-t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.</p>
+-t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.
 
-<p>-s &ldquo;200,204,301,302,307,404&rdquo; errors to look for you can edit these</p>
+-s &quot;200,204,301,302,307,404&quot; errors to look for you can edit these
 
-<p>-w medium or small</p>
+-w medium or small
 
-<p>-x extensions <em>Linux</em> php html txt doc <em>Windows</em> aspx asp php</p>
+-x extensions *Linux* php html txt doc *Windows* aspx asp php
 
-<p>-fw force wild card</code></p>
+-fw force wild card
 
-<p>-l filter out matching lengths</p>
+-l filter out matching lengths
 
-<p>Adding SessionID this can be easily overlooked.</p>
+Adding SessionID this can be easily overlooked.
 
-<p>-c PHPSESSIONID=1324567890</p>
+-c PHPSESSIONID=1324567890
+
+
+</code></pre>
 
 <h4 id="enumerating-browser-user-agent">Enumerating Browser User Agent</h4>
 
