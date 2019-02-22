@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-02-22T18:10:37 EST">
-<title>GoBuster :: DocDock Documentation</title>
+<title>Hydra :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/tools/webapp/gobuster/">
+  <body data-url="/tools/hydra/">
     
       <header>
   <div class="logo">
@@ -268,7 +268,7 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/hydra/" class="dd-item
+<li data-nav-id="/tools/hydra/" class="dd-item parent active
         ">
     <div>
 
@@ -312,12 +312,11 @@
         <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/" class="dd-item parent haschildren
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/tools/webapp/">WebApps</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/webapp/burp/" class="dd-item
@@ -327,7 +326,7 @@
         <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/gobuster/" class="dd-item parent active
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
         ">
     <div>
 
@@ -405,9 +404,10 @@
    Tools</option> 
       <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
       <option value="/tools/ftp/" >- FTP</option>
-    <option value="/tools/hydra/" >
+    <option value="/tools/hydra/"  selected>
   - 
-   Hydra</option>
+   Hydra</option> 
+  
     <option value="/tools/portscanning/" >
   - 
    PortScannings</option>
@@ -417,22 +417,7 @@
    SNMPWalk</option>
     <option value="/tools/webapp/" >
   - 
-   WebApps</option> 
-    <option value="/tools/webapp/burp/" >
-  -- 
-   Burp</option>
-    <option value="/tools/webapp/gobuster/"  selected>
-  -- 
-   GoBuster</option> 
-  
-    <option value="/tools/webapp/skipfish/" >
-  -- 
-   SkipFish</option>
-      <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
-    <option value="/tools/webapp/wfuzz/" >
-  -- 
-   WFuzz</option>
-  
+   WebApps</option>
     <option value="/tools/ssh/" >
   - 
    ssh</option>
@@ -459,49 +444,69 @@
       </div>
     
 
-    <h1>GoBuster</h1>
+    <h1>Hydra</h1>
     
     
     
 
+<p><img src="C:UserscharlPicturespwnHYDRAlogo.jpg" alt="HYDRAlogo" /></p>
 
+<p>Hydra is a WebApp Brutefocer. suupply it with the required information and it will enumrate logins based on customer login word list of you could use rock you.</p>
 
-<h3 id="go-buster-https-github-com-oj-gobuster"><a href="https://github.com/OJ/gobuster"><strong>Go Buster</strong> </a></h3>
+<p>Hydra v8.8 &copy; 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.</p>
 
-<p>Gobuster is a tool often used to enumerate web directories. It offers more power than dirb &amp; dirbuster.  You dont have to use the extension switch all the time and it may not be necessary. I would recommend limiting extensions to whats relevant.</p>
-
-<h4 id="enumerating-directories">Enumerating Directories</h4>
-
-<pre><code>gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100 
-
--t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.
-
--s &quot;200,204,301,302,307,404&quot; errors to look for you can edit these
-
--w medium or small
-
--x extensions *Linux* php html txt doc *Windows* aspx asp php
-
--fw force wild card
-
--l filter out matching lengths
-
-Adding SessionID this can be easily overlooked.
-
--c PHPSESSIONID=1324567890
-
-
+<pre><code>                                                                        
+Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PO
+RT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]]
+                                                                                                                                                    
+Options:                                                                                                                                            
+  -R        restore a previous aborted/crashed session
+  -I        ignore an existing restore file (don't wait 10 seconds)
+  -S        perform an SSL connect      
+  -s PORT   if the service is on a different default port, define it here
+  -l LOGIN or -L FILE  login with LOGIN name, or load several logins from FILE
+  -p PASS  or -P FILE  try password PASS, or load several passwords from FILE
+  -x MIN:MAX:CHARSET  password bruteforce generation, type &quot;-x -h&quot; to get help                                                                      
+  -y        disable use of symbols in bruteforce, see above
+  -e nsr    try &quot;n&quot; null password, &quot;s&quot; login as pass and/or &quot;r&quot; reversed login                                                                         -u        loop around users, not passwords (effective! implied with -x)                                                                              -C FILE   colon separated &quot;login:pass&quot; format, instead of -L/-P options                                                                           
+  -M FILE   list of servers to attack, one entry per line, ':' to specify port
+  -o FILE   write found login/password pairs to FILE instead of stdout                                                                              
+  -b FORMAT specify the format for the -o FILE: text(default), json, jsonv1                                                                         
+  -f / -F   exit when a login/pass pair is found (-M: -f per host, -F global)                                                                       
+  -t TASKS  run TASKS number of connects in parallel per target (default: 16)
+  -T TASKS  run TASKS connects in parallel overall (for -M, default: 64)
+  -w / -W TIME  wait time for a response (32) / between connects per thread (0)                                                                     
+  -c TIME   wait time per login attempt over all threads (enforces -t 1)                                                                            
+  -4 / -6   use IPv4 (default) / IPv6 addresses (put always in [] also in -M)                                                                       
+  -v / -V / -d  verbose mode / show login+pass for each attempt / debug mode
+  -O        use old SSL v2 and v3                               
+  -q        do not print messages about connection errors
+  -U        service module usage details
+  -h        more command line options (COMPLETE HELP)
+  server    the target: DNS, IP or 192.168.0.0/24 (this OR the -M option)
+  service   the service to crack (see below for supported protocols)
+  OPT       some service modules support additional input (-U for module help)
 </code></pre>
 
-<h4 id="enumerating-browser-user-agent">Enumerating Browser User Agent</h4>
+<p>Supported services: adam6500 asterisk cisco cisco-enable cvs firebird ftp ftps http[s]-{head|get|post} http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-{cram|digest}md5][s] mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</p>
 
-<p>Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE). Some webservers can be configred to only accept a certain browser.</p>
+<p>Hydra is a tool to guess/crack valid login/password pairs. Licensed under AGPL
+v3.0. The newest version is always available at <a href="https://github.com/vanhauser-thc/thc-hydra">https://github.com/vanhauser-thc/thc-hydra</a>
+Don&rsquo;t use in military or secret service organizations, or for illegal purposes.
+These services were not compiled in: afp ncp oracle sapr3.</p>
 
-<p>gobuster -u <a href="http://target:port">http://target:port</a> -a &lsquo;agent&rsquo; -w wordlists -t 100</p>
+<p>Use HYDRA_PROXY_HTTP or HYDRA_PROXY environment variables for a proxy setup.
+E.g. % export HYDRA_PROXY=socks5://l:p@127.0.0.1:9150 (or: socks4:// connect://)
+     % export HYDRA_PROXY=connect_and_socks_proxylist.txt  (up to 64 entries)
+     % export HYDRA_PROXY_HTTP=<a href="http://login:pass@proxy:8080">http://login:pass@proxy:8080</a>
+     % export HYDRA_PROXY_HTTP=proxylist.txt  (up to 64 entries)</p>
 
-<p>Adding multple extentions</p>
-
-<p>-x php,aspx,asp,html,doc,txt</code></p>
+<p>Examples:
+  hydra -l user -P passlist.txt <a href="ftp://192.168.0.1">ftp://192.168.0.1</a>
+  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+  hydra -l admin -p password ftp://[192.168.0.0/24]/
+  hydra -L logins.txt -P pws.txt -M targets.txt ssh</p>
 
 
 
@@ -509,8 +514,8 @@ Adding SessionID this can be easily overlooked.
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/tools/webapp/burp/" title="Burp"> <i class="fa fa-chevron-left"></i><label>Burp</label></a>
-    <a class="nav nav-next" href="/tools/webapp/skipfish/" title="SkipFish" style="margin-right: 0px;"><label>SkipFish</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/ftp/" title="FTP"> <i class="fa fa-chevron-left"></i><label>FTP</label></a>
+    <a class="nav nav-next" href="/tools/portscanning/" title="PortScannings" style="margin-right: 0px;"><label>PortScannings</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -527,7 +532,7 @@ Adding SessionID this can be easily overlooked.
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioTools/WebApp/Gobuster/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioTools/Hydra/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

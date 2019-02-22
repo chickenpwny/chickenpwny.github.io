@@ -76,6 +76,10 @@
   </url>
   
   <url>
+    <loc>/tools/hydra/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/challenges/</loc>
   </url>
   
@@ -121,6 +125,10 @@
   </url>
   
   <url>
+    <loc>/tools/smb/smb/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/snmpwalk/</loc>
   </url>
   
@@ -130,6 +138,10 @@
   
   <url>
     <loc>/hackthebox/boxes/secnotes/</loc>
+  </url>
+  
+  <url>
+    <loc>/tools/webapp/skipfish/</loc>
   </url>
   
   <url>

@@ -32,5 +32,15 @@ mget * download everything in the directory get download file / documents put up
 SSHFS is built on SFTP.</description>
     </item>
     
+    <item>
+      <title>SMB</title>
+      <link>/tools/smb/smb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/smb/smb/</guid>
+      <description>SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
   </channel>
 </rss>

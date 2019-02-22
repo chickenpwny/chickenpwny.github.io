@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-01-23T17:29:59 EST">
+<meta name="revised" content="2019-02-22T18:10:37 EST">
 <title>ssh :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -268,6 +268,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/portscanning/" class="dd-item haschildren
         ">
     <div>
@@ -290,6 +297,13 @@
     </div>
 </li>
     </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
 </li>
 <li data-nav-id="/tools/snmpwalk/" class="dd-item
         ">
@@ -317,6 +331,13 @@
     <div>
 
         <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
@@ -384,9 +405,13 @@
    Tools</option> 
       <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
       <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/hydra/" >
+  - 
+   Hydra</option>
     <option value="/tools/portscanning/" >
   - 
    PortScannings</option>
+      <option value="/tools/smb/smb/" >- SMB</option>
     <option value="/tools/snmpwalk/" >
   - 
    SNMPWalk</option>
@@ -438,6 +463,13 @@
 <p>SSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.</p>
 
 <p>Start Service</p>
+
+<p>Directories private keys might be in</p>
+
+<pre><code>/etc/ssh
+/root/.ssh
+
+</code></pre>
 
 <p>vi /etc/ssh/sshd_conf
 PermitRootLogin yes

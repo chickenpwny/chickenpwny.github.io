@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-02-22T18:10:37 EST">
-<title>GoBuster :: DocDock Documentation</title>
+<title>SkipFish :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/tools/webapp/gobuster/">
+  <body data-url="/tools/webapp/skipfish/">
     
       <header>
   <div class="logo">
@@ -327,14 +327,14 @@
         <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/gobuster/" class="dd-item parent active
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
         ">
     <div>
 
         <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item parent active
         ">
     <div>
 
@@ -421,13 +421,13 @@
     <option value="/tools/webapp/burp/" >
   -- 
    Burp</option>
-    <option value="/tools/webapp/gobuster/"  selected>
+    <option value="/tools/webapp/gobuster/" >
   -- 
-   GoBuster</option> 
+   GoBuster</option>
+    <option value="/tools/webapp/skipfish/"  selected>
+  -- 
+   SkipFish</option> 
   
-    <option value="/tools/webapp/skipfish/" >
-  -- 
-   SkipFish</option>
       <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
     <option value="/tools/webapp/wfuzz/" >
   -- 
@@ -459,49 +459,88 @@
       </div>
     
 
-    <h1>GoBuster</h1>
+    <h1>SkipFish</h1>
     
     
     
 
+<p>SkipFish is a web app directory scanner that creates a neat report. it will recursively scan a web app and will look for ill regularities.</p>
 
+<pre><code>skipfish -h                                                                                                  [39/484]
+skipfish web application scanner - version 2.10b                                                                                                     
+Usage: skipfish [ options ... ] -W wordlist -o output_dir start_url [ start_url2 ... ]                                                               
+                                                                                                                                                     
+Authentication and access options:                                                                                                                   
+                                                                                                                                
+  -A user:pass      - use specified HTTP authentication credentials                                                                
+  -F host=IP        - pretend that 'host' resolves to 'IP'                                                                          
+  -C name=val       - append a custom cookie to all requests                                                                                   
+  -H name=val       - append a custom HTTP header to all requests                                                                                    
+  -b (i|f|p)        - use headers consistent with MSIE / Firefox / iPhone
+  -N                - do not accept any new cookies               
+  --auth-form url   - form authentication URL             
+  --auth-user user  - form authentication user                 
+  --auth-pass pass  - form authentication password                 
+  --auth-verify-url -  URL for in-session detection          
+                                               
+Crawl scope options:                                               
+                                                     
+  -d max_depth     - maximum crawl tree depth (16)
+  -c max_child     - maximum children to index per node (512)
+  -x max_desc      - maximum descendants to index per branch (8192)
+  -r r_limit       - max total number of requests to send (100000000)
+  -p crawl%        - node and link crawl probability (100%)
+  -q hex           - repeat probabilistic scan with given seed
+  -I string        - only follow URLs matching 'string'
+  -X string        - exclude URLs matching 'string'
+  -K string        - do not fuzz parameters named 'string'
+  -D domain        - crawl cross-site links to another domain
+  -B domain        - trust, but do not crawl, another domain
+  -Z               - do not descend into 5xx locations
+  -O               - do not submit any forms
+  -P               - do not parse HTML, etc, to find new links
+Reporting options:
 
-<h3 id="go-buster-https-github-com-oj-gobuster"><a href="https://github.com/OJ/gobuster"><strong>Go Buster</strong> </a></h3>
+  -o dir          - write output to specified directory (required)
+  -M              - log warnings about mixed content / non-SSL passwords
+  -E              - log all HTTP/1.0 / HTTP/1.1 caching intent mismatches
+  -U              - log all external URLs and e-mails seen
+  -Q              - completely suppress duplicate nodes in reports
+  -u              - be quiet, disable realtime progress stats
+  -v              - enable runtime logging (to stderr)
 
-<p>Gobuster is a tool often used to enumerate web directories. It offers more power than dirb &amp; dirbuster.  You dont have to use the extension switch all the time and it may not be necessary. I would recommend limiting extensions to whats relevant.</p>
+Dictionary management options:
 
-<h4 id="enumerating-directories">Enumerating Directories</h4>
+  -W wordlist     - use a specified read-write wordlist (required)
+  -S wordlist     - load a supplemental read-only wordlist
+  -L              - do not auto-learn new keywords for the site
+  -Y              - do not fuzz extensions in directory brute-force
+  -R age          - purge words hit more than 'age' scans ago
+  -T name=val     - add new form auto-fill rule
+  -G max_guess    - maximum number of keyword guesses to keep (256)
 
-<pre><code>gobuster -u http://TARGET_IP:PORT -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100 
+  -z sigfile      - load signatures from this file
 
--t for threads can go as high as 200, 100 is kind of to much 40 is perfect for multiple things going on.
+Performance settings:
 
--s &quot;200,204,301,302,307,404&quot; errors to look for you can edit these
+  -g max_conn     - max simultaneous TCP connections, global (40)
+  -m host_conn    - max simultaneous connections, per target IP (10)
+  -f max_fail     - max number of consecutive HTTP errors (100)
+  -t req_tmout    - total request response timeout (20 s)
+  -w rw_tmout     - individual network I/O timeout (10 s)
+  -i idle_tmout   - timeout on idle HTTP connections (10 s)
+  -s s_limit      - response size limit (400000 B)
+  -e              - do not keep binary responses for reporting
+Other settings:
 
--w medium or small
+  -l max_req      - max requests per second (0.000000)
+  -k duration     - stop scanning after the given duration h:m:s
+  --config file   - load the specified configuration file
 
--x extensions *Linux* php html txt doc *Windows* aspx asp php
-
--fw force wild card
-
--l filter out matching lengths
-
-Adding SessionID this can be easily overlooked.
-
--c PHPSESSIONID=1324567890
-
-
+Send comments and complaints to &lt;heinenn@google.com&gt;.
 </code></pre>
 
-<h4 id="enumerating-browser-user-agent">Enumerating Browser User Agent</h4>
-
-<p>Burp Proxy User Agent (certain browser Sufarri, FireFox, Chrome, IE). Some webservers can be configred to only accept a certain browser.</p>
-
-<p>gobuster -u <a href="http://target:port">http://target:port</a> -a &lsquo;agent&rsquo; -w wordlists -t 100</p>
-
-<p>Adding multple extentions</p>
-
-<p>-x php,aspx,asp,html,doc,txt</code></p>
+<p><a href="https://tools.kali.org/web-applications/skipfish">https://tools.kali.org/web-applications/skipfish</a></p>
 
 
 
@@ -509,8 +548,8 @@ Adding SessionID this can be easily overlooked.
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/tools/webapp/burp/" title="Burp"> <i class="fa fa-chevron-left"></i><label>Burp</label></a>
-    <a class="nav nav-next" href="/tools/webapp/skipfish/" title="SkipFish" style="margin-right: 0px;"><label>SkipFish</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/webapp/gobuster/" title="GoBuster"> <i class="fa fa-chevron-left"></i><label>GoBuster</label></a>
+    <a class="nav nav-next" href="/tools/webapp/sqlmap/sqlmap/" title="SqlMap" style="margin-right: 0px;"><label>SqlMap</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -527,7 +566,7 @@ Adding SessionID this can be easily overlooked.
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioTools/WebApp/Gobuster/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioTools/WebApp/skipfish/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
