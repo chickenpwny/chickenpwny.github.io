@@ -10,16 +10,5 @@
 	<atom:link href="/hackthebox/boxes/zipper/index.xml" rel="self" type="application/rss+xml" />
     
     
-    <item>
-      <title>Zipper</title>
-      <link>/hackthebox/boxes/zipper/zipper/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/zipper/zipper/</guid>
-      <description>NMAP
-initial
-# Nmap 7.70 scan initiated Fri Feb 15 14:32:38 2019 as: nmap -sC -sV -oA nmap/intial -T4 10.10.10.108 Nmap scan report for 10.10.10.108 Host is up (0.046s latency). Not shown: 998 closed ports PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 2048 59:20:a3:a0:98:f2:a7:14:1e:08:e0:9b:81:72:99:0e (RSA) | 256 aa:fe:25:f8:21:24:7c:fc:b5:4b:5f:05:24:69:4c:76 (ECDSA) |_ 256 89:28:37:e2:b6:cc:d5:80:38:1f:b2:6a:3a:c3:a1:84 (ED25519) 80/tcp open http Apache httpd 2.</description>
-    </item>
-    
   </channel>
 </rss>
