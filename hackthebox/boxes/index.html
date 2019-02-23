@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-02-23T13:59:53 EST">
+<meta name="revised" content="2019-02-23T14:11:03 EST">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -160,6 +160,22 @@
 
         <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/zipper/zipper/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/zipper/zipper/">
+            Zipper
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
 </li>
 <li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
         ">
@@ -399,6 +415,9 @@
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
     <option value="/hackthebox/boxes/oz/" >
   -- 
    oz</option>
@@ -534,6 +553,13 @@ PHASE 3 Manual investigation of the webpage</p>
 Instead of giving binaries system-wide permissions, give them the permissions they need to do the job.
 Skipping past Nmap, after messing around with the request’s found three request fileWrite, dirRead, fileRead. FileWrite writes user-supplied input to list1. dirRead will enumerate directories and print out the content. fileRead needs the exact file path to work.
 Sqlmap, Wfuzz didn’t work I had more success with wfuzz but I couldn’t filter the output.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/zipper/" >Zipper</a></card>
+<p>NMAP
+initial
+# Nmap 7.70 scan initiated Fri Feb 15 14:32:38 2019 as: nmap -sC -sV -oA nmap/intial -T4 10.10.10.108 Nmap scan report for 10.10.10.108 Host is up (0.046s latency). Not shown: 998 closed ports PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 2048 59:20:a3:a0:98:f2:a7:14:1e:08:e0:9b:81:72:99:0e (RSA) | 256 aa:fe:25:f8:21:24:7c:fc:b5:4b:5f:05:24:69:4c:76 (ECDSA) |_ 256 89:28:37:e2:b6:cc:d5:80:38:1f:b2:6a:3a:c3:a1:84 (ED25519) 80/tcp open http Apache httpd 2.</p>
 </span>
 
 <span><card>

