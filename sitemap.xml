@@ -108,11 +108,19 @@
   </url>
   
   <url>
+    <loc>/tools/nmap/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/portscanning/nmap/</loc>
   </url>
   
   <url>
     <loc>/concepts/webapppentest/osinjcmd/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/optimum/</loc>
   </url>
   
   <url>

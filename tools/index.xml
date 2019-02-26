@@ -33,6 +33,16 @@ SSHFS is built on SFTP.</description>
     </item>
     
     <item>
+      <title>Nmap</title>
+      <link>/tools/nmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/nmap/</guid>
+      <description>tcp connect its quicker and might discover some hidden services
+nmap -sT -p- -Pn -T5 nmap/initial ip_addr  Next move to targeted nmap scans.</description>
+    </item>
+    
+    <item>
       <title>SMB</title>
       <link>/tools/smb/smb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
