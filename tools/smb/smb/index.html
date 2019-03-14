@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-02-25T22:25:45 EST">
+<meta name="revised" content="2019-03-13T22:37:39 EDT">
 <title>SMB :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -154,6 +154,13 @@
         <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
         ">
     <div>
@@ -168,11 +175,11 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item
-        ">
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
     <div>
-
-        <a href="/hackthebox/boxes/optimum/">Optimum</a><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
@@ -476,7 +483,27 @@
     
     
     
-    <p>SMBCLIENT</p>
+    <p>Mounting smb  shares linux</p>
+
+<p>You may get an error, this means that the supporting programs aren&rsquo;t there.</p>
+
+<pre><code>sudo apt install cifs-utils -y
+sudo apt install nfs-common
+</code></pre>
+
+<p>Error Message</p>
+
+<pre><code>bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&lt;type&gt; helper program.    
+</code></pre>
+
+<p>Example</p>
+
+<pre><code>mount -o user=REPLACE '//ip_addr/share' /mnt/share
+</code></pre>
+
+<p>+++</p>
+
+<p>SMBCLIENT</p>
 
 <pre><code>Usage: smbclient service &lt;password&gt;                                                                                 
   -R, --name-resolve=NAME-RESOLVE-ORDER     Use these name resolution services only                 
@@ -520,6 +547,8 @@ Authentication options:
   -C, --use-ccache                          Use the winbind ccache for authentication
       --pw-nt-hash                          The supplied password is the NT hash
 </code></pre>
+
+<p>+++</p>
 
 <p>SMBMAP</p>
 

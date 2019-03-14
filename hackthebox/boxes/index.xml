@@ -10,5 +10,24 @@
 	<atom:link href="/hackthebox/boxes/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Devel</title>
+      <link>/hackthebox/boxes/devel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/devel/</guid>
+      <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds  nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.</description>
+    </item>
+    
+    <item>
+      <title>Optimum</title>
+      <link>/hackthebox/boxes/optimum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/optimum/</guid>
+      <description>NMAP
+nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00:19 EST Nmap scan report for 10.10.10.8 Host is up (0.042s latency). Not shown: 999 filtered ports PORT STATE SERVICE VERSION 80/tcp open http HttpFileServer httpd 2.3 |_http-server-header: HFS 2.3 |_http-title: HFS / Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 14.</description>
+    </item>
+    
   </channel>
 </rss>

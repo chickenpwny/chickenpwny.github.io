@@ -52,6 +52,10 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/devel/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/ftp/</loc>
   </url>
   

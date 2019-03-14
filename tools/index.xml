@@ -48,7 +48,12 @@ nmap -sT -p- -Pn -T5 nmap/initial ip_addr  Next move to targeted nmap scans.</de
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tools/smb/smb/</guid>
-      <description>SMBCLIENT
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
+SMBCLIENT
 Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
     </item>
     

