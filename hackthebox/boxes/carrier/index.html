@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-19T10:34:51 EDT">
+<meta name="revised" content="2019-03-19T11:17:59 EDT">
 <title>Carrier :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -968,7 +968,7 @@ route-map MYMAP permit 10 changes the hop count
 <pre><code>sh ip bgp
 </code></pre>
 
-<p><img src=".route.PNG" alt="10.route" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/route.PNG" alt="10.route" /></p>
 
 <p>interesting in the above after messing with it for awhile</p>
 
@@ -1092,7 +1092,7 @@ Connection closed by foreign host.</p>
 <pre><code>for i in {1..254}; do nc -v -n -z -w 1 10.120.15.$i 21 |grep failed; done
 </code></pre>
 
-<p><img src=".ftp-confirmation.PNG" alt="ftp-confirmation" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/ftp-confirmation.PNG" alt="ftp-confirmation" /></p>
 
 <p>Capturing FTP commands and login details is straight forward. After the authentication is established an FTP session can be <strong>active</strong> or <strong>passive</strong>  this will determine whether the data part of the session is conducted  over TCP port 20 or another ephemeral port. With the following command  you will USER and PASS in the output (which could be fed to grep) as  well as the FTP commands such as LIST, CWD and PASSIVE.</p>
 
@@ -1149,7 +1149,7 @@ trying to change the route-map
 
 <p>as 300 10.120.0.0/16</p>
 
-<p><img src="../../Pictures/htb/maps.png" alt="maps" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/maps.png" alt="maps" /></p>
 
 <p>eliminating bgpd sub prefix hijacking</p>
 
@@ -1337,7 +1337,7 @@ network 10.120.15.0 mask 255.255.255.0
 
 <p>attribute is the list of as number a route has traversed to its destination for as 100 to talk to as 300 it goes through as 200. when it arrives at 300 it looks like 10.120.0.0(300,200) it inverts the as&rsquo;s to know how to get back. note</p>
 
-<p><img src=".route2.PNG" alt="route2" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/route2.PNG" alt="route2" /></p>
 
 <h2 id="next-hop-attribute">Next hop attribute</h2>
 
@@ -1351,7 +1351,7 @@ network 10.120.15.0 mask 255.255.255.0
 
 <p>distance bgp 20</p>
 
-<p>AS 200 routes directly to AS 300 because thats the shortest path and there for preferred. I want it to go 200 to 100 to 300. distance bgp command to edit the prefered route. this is what i need to get ftp creds. This may not be the way im not sure what kind of internal gateway protocol is being used. Nevermind found it<img src=".igp.PNG" alt="igp" /></p>
+<p>AS 200 routes directly to AS 300 because thats the shortest path and there for preferred. I want it to go 200 to 100 to 300. distance bgp command to edit the prefered route. this is what i need to get ftp creds. This may not be the way im not sure what kind of internal gateway protocol is being used. Nevermind found it<img src="https://chickenpwny.github.io/images/carrier/igp.PNG" alt="igp" /></p>
 
 <p>one thing that makes this option finicky is that i dont have access to internal gateway protocol. I can only us router bgp. Based on my understand I should be able to bypass this by using the backdoor command.</p>
 
@@ -1377,7 +1377,7 @@ network 10.120.15.0 mask 255.255.255.0
 
 <p>.<a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork</a></p>
 
-<p><img src=".metric.PNG" alt="metric" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/metric.PNG" alt="metric" /></p>
 
 <p>neighbor 10.120.0.0 remote-as 300</p>
 
@@ -1892,7 +1892,7 @@ cp bgpd.conf.orig bgpd.conf
 
 <p>to get to 300 i go to 200 then 300, i dont want this</p>
 
-<p><img src="analyzzeee.PNG" alt="analyzzeee" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee.PNG" alt="analyzzeee" /></p>
 
 <p>this is almost what i want to get to 200 i got to 300 then 200</p>
 
@@ -1902,7 +1902,7 @@ cp bgpd.conf.orig bgpd.conf
 
 <p>im not sure the original bgpd.conf only allows one path to get to as300. when i make my changes  i have multiple paths which while i made my changes it could still allow the default path.</p>
 
-<p><img src="analyzzeee2.PNG" alt="analyzzeee2" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee2.PNG" alt="analyzzeee2" /></p>
 
 <p>&ldquo;You can use the set as-path prepend command in order to prepend path numbers to your updates and make the path length look longer. But, with attributes such as local preference, metric, or weight, AS400 can have set the exit point to be AS200. In this case, there is nothing that you can do. &ldquo;</p>
 
@@ -1936,7 +1936,7 @@ cp bgpd.conf.orig bgpd.conf
 
 <p>network 10.120.15.0/24</p>
 
-<p><img src="analyzzeee4.PNG" alt="analyzzeee4" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee4.PNG" alt="analyzzeee4" /></p>
 
 <pre><code>clear ip bgp 10.78.10.2
 clear ip bgp 10.78.11.2
@@ -1996,7 +1996,7 @@ sh ip bgp
 cp bgpd.conf.orig bgpd.conf
 </code></pre>
 
-<p><img src="analyzzeee5.PNG" alt="analyzzeee5" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee5.PNG" alt="analyzzeee5" /></p>
 
 <pre><code>clear ip bgp 10.78.10.2
 clear ip bgp 10.78.11.2
@@ -2077,9 +2077,9 @@ sudo iptables -t nat -A POSTROUTING -s 10.6.1.2 -j NETMAP --to 10.1.1.2
 
 <p>10.78.11.2 connects to 300 on 10.78.10.2 connects via 200 to 300</p>
 
-<p><img src="analyzzeee6.PNG" alt="analyzzeee6" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee6.PNG" alt="analyzzeee6" /></p>
 
-<p><img src="analyzzeee-map.png" alt="analyzzeee-map" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee-map.png" alt="analyzzeee-map" /></p>
 
 <h4 id="failed">FAILED</h4>
 
