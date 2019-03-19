@@ -32,6 +32,16 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
     
     <item>
       <title>Carrier</title>
+      <link>/hackthebox/boxes/carrier-root/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/carrier-root/</guid>
+      <description>This guide will only cover setting up bgp high jacking and to better summarize how to setup a mitm using bgp. There is one method that i believe everyone used which is where you host a ftp server and just redirect the track to your server. Not quite as cool as the mitm.
+Theres a script running in the background that will reset all the changes made. I had to deal with this the whole time i did the lab.</description>
+    </item>
+    
+    <item>
+      <title>Carrier</title>
       <link>/hackthebox/boxes/carrier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

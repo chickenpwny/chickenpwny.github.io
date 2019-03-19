@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-17T19:49:09 EDT">
+<meta name="revised" content="2019-03-19T10:34:51 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -147,6 +147,13 @@
     <div>
 
         <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
@@ -450,6 +457,7 @@
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- Carrier</option>
       <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
@@ -544,6 +552,12 @@ GOBUSTER</p>
 <p>Blue Special thanks to IppSec for contributing to this post. Please Subscribe
 changes /etc/hosts so 10.10.10.40 blue.htb
 PORT STATE SERVICE VERSION 135/tcp open msrpc Microsoft Windows RPC 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Microsoft Windows 7 - 10 microsoft-ds (workgroup: WORKGROUP) 49152/tcp open msrpc Microsoft Windows RPC 49153/tcp open msrpc Microsoft Windows RPC 49154/tcp open msrpc Microsoft Windows RPC 49155/tcp open msrpc Microsoft Windows RPC 49156/tcp open msrpc Microsoft Windows RPC 49157/tcp open msrpc Microsoft Windows RPC Service Info: Host: HARIS-PC; OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/carrier-root/" >Carrier</a></card>
+<p>This guide will only cover setting up bgp high jacking and to better summarize how to setup a mitm using bgp. There is one method that i believe everyone used which is where you host a ftp server and just redirect the track to your server. Not quite as cool as the mitm.
+Theres a script running in the background that will reset all the changes made. I had to deal with this the whole time i did the lab.</p>
 </span>
 
 <span><card>

