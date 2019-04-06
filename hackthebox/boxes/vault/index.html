@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-06T02:51:08 EDT">
+<meta name="revised" content="2019-04-06T02:57:14 EDT">
 <title>Vault :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -651,13 +651,13 @@ sudo route del -net 192.168.5.0/24 gw 192.168.122.5
 -sT is the tcp connections switch apposed to probing with ping
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/vault/1*1d0P19_vLLQY1I83uy3XHQ.png" alt="img" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/nmap_vault.PNG" alt="nmap_vault" /></p>
 
 <pre><code>netcat 
 nc -zv -w 1 192.168.5.2 987 2&gt;&amp;1 | grep succeeded!
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/vault/1*0cc_q5FciV6MEK3i-V5swg.png" alt="img" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/vault_netcat.PNG" alt="vault_netcat" /></p>
 
 <p>lastly, gpg is common encryption storing the token ring on the system. so moving it off and trying to decrypt it can be quite the challenges. I used netcat to move the root.txt to 192.168.122.1. the passphrase is itscominghome.</p>
 
