@@ -50,5 +50,16 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
 nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00:19 EST Nmap scan report for 10.10.10.8 Host is up (0.042s latency). Not shown: 999 filtered ports PORT STATE SERVICE VERSION 80/tcp open http HttpFileServer httpd 2.3 |_http-server-header: HFS 2.3 |_http-title: HFS / Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 14.</description>
     </item>
     
+    <item>
+      <title>Vault</title>
+      <link>/hackthebox/boxes/vault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/vault/</guid>
+      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
+moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
+so it turns out its not sql injections pretty happy with that.</description>
+    </item>
+    
   </channel>
 </rss>

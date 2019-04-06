@@ -190,6 +190,10 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/vault/</loc>
+  </url>
+  
+  <url>
     <loc>/tools/webapp/wfuzz/</loc>
   </url>
   

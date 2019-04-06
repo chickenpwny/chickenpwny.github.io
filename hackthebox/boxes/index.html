@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-03-19T14:50:45 EDT">
+<meta name="revised" content="2019-04-06T02:33:25 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -217,6 +217,13 @@
     <div>
 
         <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
@@ -479,6 +486,7 @@
     <option value="/hackthebox/boxes/valentine/" >
   -- 
    Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
     <option value="/hackthebox/boxes/waldo/" >
   -- 
    Waldo</option>
@@ -636,6 +644,13 @@ nmap -sC -sV -Pn -oA initial 10.10.10.79  Didn’t return anything of significan
 PHASE 2 — GOBUSTER /wpscan
 gobuster -u [http://10.10.10.](http://10.10.10.88)79 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-mediuml.txt -t 50  return vulnerable to OpenSSL hearbleed
 PHASE 3 Manual investigation of the webpage</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/vault/" >Vault</a></card>
+<p>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
+moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
+so it turns out its not sql injections pretty happy with that.</p>
 </span>
 
 <span><card>

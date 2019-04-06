@@ -156,5 +156,16 @@ In burp right click select copy to file, this will test for sql injection. prett
 sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
     </item>
     
+    <item>
+      <title>Vault</title>
+      <link>/hackthebox/boxes/vault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/vault/</guid>
+      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
+moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
+so it turns out its not sql injections pretty happy with that.</description>
+    </item>
+    
   </channel>
 </rss>
