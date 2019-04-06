@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-06T02:33:26 EDT">
+<meta name="revised" content="2019-04-06T02:39:24 EDT">
 <title>Vault :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -584,9 +584,9 @@ nc -zv -w 1 192.168.122.4 1-1000 2&gt;&amp;1 | grep succeeded!
 
 <p>sshuttle will forward 10.10.10.109 to 192.168.122.0/24 allowing us to access the webpage. going to vpn configure were allowed to edit the vpn.conf file. quick google search reverses shell vpn.conf file. lead me to this <a href="https://medium.com/tenable-techblog/reverse-shell-from-an-openvpn-configuration-file-73fd8b1d38da">https://medium.com/tenable-techblog/reverse-shell-from-an-openvpn-configuration-file-73fd8b1d38da</a></p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultdns-webpage.PNG" alt="dns-webpage" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/dns-webpage.PNG" alt="dns-webpage" /></p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultvpn_config.PNG" alt="vpn_config" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/vpn_config.PNG" alt="vpn_config" /></p>
 
 <pre><code>remote 192.168.1.245
 ifconfig 10.200.0.2 10.200.0.1
@@ -600,7 +600,7 @@ nobind
 
 <p>Well, gosh darn it (internally rages)I got access by skipping a very important part. no fault to my own. So now im going to build a variety of ways to detect this in the future.</p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultnetwork lay out.png" alt="network lay out" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/network lay out.png" alt="network lay out" /></p>
 
 <p>nmap is available performing a very verbose scan of 192.168.5.0 ip range descover another ip address. You can also you netcat to do that scan.</p>
 
@@ -627,13 +627,13 @@ done
 
 <p>i suspect the firewall rules look similar to the image below explicitly blocking 192.168.5.1 from accessing port 987. that&rsquo;s why none of the enumeration techniques worked. dhclient -r doesn&rsquo;t reset the IP address.</p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultfirewall rules.PNG" alt="firewall rules" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/firewall rules.PNG" alt="firewall rules" /></p>
 
 <p>Deleting the default gateway address and changing the IP address will bypass the firewall. The IP address in the environment is static, theirs no DHCP to keep track of what mac was assigned an IP address. What is a routing table inside Linux? When there no DHCP or central authority for routing tables operating systems have a habit of trying to understand the environment around them. Every time a connection is made the operating system updates the routing table with the shortest path possible. I think this speaks more to a poorly setup vault. There are actually two paths to vault not one. The route table is configured to send all the traffic to the gateway at 192.168.122.5 there are no controls in place to keep track of everything. Deleting the route to the firewall and changing our IP address will bypass the firewall. If this was configured a little better I also suspect the network is a ring; this trick wouldn’t happen.</p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultnetwork lay out 2.png" alt="network lay out 2" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/network lay out 2.png" alt="network lay out 2" /></p>
 
-<p><img src="C:UserscharlPictureshacktheboxvaultroute.PNG" alt="route" /></p>
+<p><img src="https://chickenpwny.github.io/images/vault/route.PNG" alt="route" /></p>
 
 <p>route</p>
 
