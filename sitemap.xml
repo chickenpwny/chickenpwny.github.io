@@ -68,7 +68,7 @@
   </url>
   
   <url>
-    <loc>/filetransfer/</loc>
+    <loc>/concepts/file-transfer/</loc>
   </url>
   
   <url>
@@ -229,6 +229,10 @@
   
   <url>
     <loc>/hackthebox/boxes/sunday/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/teacher/</loc>
   </url>
   
 </urlset>

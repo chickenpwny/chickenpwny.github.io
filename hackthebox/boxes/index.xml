@@ -61,5 +61,16 @@ moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is
 so it turns out its not sql injections pretty happy with that.</description>
     </item>
     
+    <item>
+      <title>teacher</title>
+      <link>/hackthebox/boxes/teacher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/teacher/</guid>
+      <description>nmap -sT -T3 -PS80,443,8000,8443,8800 -p 80,443,8000,8443,8080 -oA http-enum-results &amp;ndash;script=http-enum teacher.htb
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-24 16:27 EST Nmap scan report for teacher.htb (10.10.10.153) Host is up (0.043s latency).
+PORT STATE SERVICE 80/tcp open http | http-enum: | /css/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /images/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /js/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; |_ /manual/: Potentially interesting folder</description>
+    </item>
+    
   </channel>
 </rss>

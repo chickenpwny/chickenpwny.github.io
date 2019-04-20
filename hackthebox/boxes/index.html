@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-18T01:16:24 EDT">
+<meta name="revised" content="2019-04-20T12:45:24 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -80,6 +80,13 @@
         <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
         ">
     <div>
@@ -87,34 +94,6 @@
         <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
     </ul>
 </li>
 <li data-nav-id="/concepts/bypass/" class="dd-item">
@@ -259,6 +238,13 @@
     <div>
 
         <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -506,6 +492,7 @@
     <option value="/hackthebox/boxes/sunday/" >
   -- 
    sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
   
     <option value="/hackthebox/github/" >
   - 
@@ -692,6 +679,13 @@ this box requires equine wordlist you can’t use the standard one. Metasploit m
 Sammy Sunny
 HASHCAT
 I don’t remember where I found the hashes, i digress.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/teacher/" >teacher</a></card>
+<p>nmap -sT -T3 -PS80,443,8000,8443,8800 -p 80,443,8000,8443,8080 -oA http-enum-results &ndash;script=http-enum teacher.htb
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-24 16:27 EST Nmap scan report for teacher.htb (10.10.10.153) Host is up (0.043s latency).
+PORT STATE SERVICE 80/tcp open http | http-enum: | /css/: Potentially interesting directory w/ listing on &lsquo;apache/2.4.25 (debian)&rsquo; | /images/: Potentially interesting directory w/ listing on &lsquo;apache/2.4.25 (debian)&rsquo; | /js/: Potentially interesting directory w/ listing on &lsquo;apache/2.4.25 (debian)&rsquo; |_ /manual/: Potentially interesting folder</p>
 </span>
 </ul>
 

