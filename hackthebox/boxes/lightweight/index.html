@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-12T23:48:23 EDT">
+<meta name="revised" content="2019-05-12T23:52:10 EDT">
 <title>LightWeight :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -607,7 +607,7 @@ password = ipaddress</p>
 
 <p>might have to tunnel in using ssh. there seems to be a webpage running on port 443 on the localhost. also ldap might offer something more connecting locally.</p>
 
-<p><img src="https://chickenpwny.github.io/images/lightweight/static/images/lightweight/webpage6.PNG" alt="webpage6" /></p>
+<p><img src="https://chickenpwny.github.io/images/lightweight/images/lightweight/webpage6.PNG" alt="webpage6" /></p>
 
 <p><img src="https://chickenpwny.github.io/images/lightweight/inside-tcp-connection.PNG" alt="inside-tcp-connection" /></p>
 
@@ -626,7 +626,7 @@ lightweight.htb
 
 <p>used sshuttle to gain access to the local webpage. interesting that it offered https to the localuser. that made me believe that localhost might be different i was able to run gobuster. to enumerate the web app directories.</p>
 
-<p><img src="https://chickenpwny.github.io/images/lightweight/static/images/lightweight/shuttle.PNG" alt="shuttle" /></p>
+<p><img src="https://chickenpwny.github.io/images/lightweight/images/lightweight/shuttle.PNG" alt="shuttle" /></p>
 
 <pre><code>/usr/sbin/slapd -VV
 @(#) $OpenLDAP: slapd 2.4.44 (May 16 2018 09:55:53) $
@@ -770,7 +770,9 @@ strings openssl | grep OPENSSL
 
 <p>openssl enc -in &ldquo;filename&rdquo;</p>
 
-<p><img src="https://chickenpwny.github.io/images/lightweight/static/images/lightweight/root.PNG" alt="root" /></p>
+<p><img src="https://chickenpwny.github.io/images/lightweight/images/lightweight/root.PNG" alt="root" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/lightweight/vsdvsd.jpg" alt="vsdvsd" /></p>
 
 
     
