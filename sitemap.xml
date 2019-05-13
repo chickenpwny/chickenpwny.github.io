@@ -11,6 +11,10 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/lightweight/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
   </url>
   
@@ -57,6 +61,10 @@
   
   <url>
     <loc>/hackthebox/boxes/crimestoppers/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/dll/</loc>
   </url>
   
   <url>

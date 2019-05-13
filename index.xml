@@ -12,6 +12,19 @@
     
     <item>
       <title></title>
+      <link>/hackthebox/boxes/lightweight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/lightweight/</guid>
+      <description>Lightweight has some kind of waf in place that&amp;rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp;amp; password based on that person IP address, creepy.
+initially you will need to change your hosts file lightweight.htb
+ssh ippaddr@lightweight.htb password = ipaddress
+passwd to change password once logged in.
+Linux version 3.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -58,6 +71,18 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
       
       <guid>/_header/</guid>
       <description> ChickenPwny </description>
+    </item>
+    
+    <item>
+      <title>DLL-Hijacking</title>
+      <link>/concepts/dll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/dll/</guid>
+      <description>Some binaries that run in syswow64 and have elevated execuation.
+SystemPropertiesComputerName.exe SystemPropertiesHardware.exe SystemPropertiesProtection.exe SystemPropertiesRemote.exe  This website will tell you the dll need for a bianry commonly found in windows most likel x86.
+https://lolbas-project.github.io/
+tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4s/pruebas/blob/master/Beryllium.dll</description>
     </item>
     
     <item>
