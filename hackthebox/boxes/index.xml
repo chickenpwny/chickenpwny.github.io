@@ -11,19 +11,6 @@
     
     
     <item>
-      <title></title>
-      <link>/hackthebox/boxes/lightweight/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/lightweight/</guid>
-      <description>Lightweight has some kind of waf in place that&amp;rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp;amp; password based on that person IP address, creepy.
-initially you will need to change your hosts file lightweight.htb
-ssh ippaddr@lightweight.htb password = ipaddress
-passwd to change password once logged in.
-Linux version 3.</description>
-    </item>
-    
-    <item>
       <title>Carrier</title>
       <link>/hackthebox/boxes/carrier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -51,6 +38,19 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
       
       <guid>/hackthebox/boxes/devel/</guid>
       <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds  nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.</description>
+    </item>
+    
+    <item>
+      <title>LightWeight</title>
+      <link>/hackthebox/boxes/lightweight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/lightweight/</guid>
+      <description>Lightweight has some kind of waf in place that&amp;rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp;amp; password based on that person IP address, creepy.
+initially you will need to change your hosts file lightweight.htb
+ssh ippaddr@lightweight.htb password = ipaddress
+passwd to change password once logged in.
+Linux version 3.</description>
     </item>
     
     <item>

