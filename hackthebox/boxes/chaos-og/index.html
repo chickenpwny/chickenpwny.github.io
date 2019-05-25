@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-25T19:28:29 EDT">
+<meta name="revised" content="2019-05-25T19:33:24 EDT">
 <title>CHAOS :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -679,8 +679,6 @@ PORT      STATE SERVICE
 10000/udp open  ndmp
 </code></pre>
 
-<p>+++</p>
-
 <h2 id="gobuster">GOBUSTER</h2>
 
 <p>enumerated all the known webpages</p>
@@ -715,8 +713,6 @@ PORT      STATE SERVICE
 </code></pre>
 
 <p><a href="https://chaos.htb:10000">https://chaos.htb:10000</a>     NOTHING</p>
-
-<p>+++</p>
 
 <h3 id="wfuzz-subdomains">WFUZZ - subdomains</h3>
 
@@ -756,8 +752,6 @@ s.htb&quot; -t 42 --hc 400
 
 <p><img src="https://chickenpwny.github.io/images/chaos/wfuzzmeow.PNG" alt="wfuzz2" /></p>
 
-<p>+++</p>
-
 <p>WEBAPP&rsquo;S</p>
 
 <p>1)<img src="https://chickenpwny.github.io/images/chaos/wp-10.10.10.120-0.PNG" alt="wp-10.10.10.120-0" /></p>
@@ -782,11 +776,7 @@ s.htb&quot; -t 42 --hc 400
 
 <p><img src="https://chickenpwny.github.io/images/chaos/webmail2.PNG" alt="webmail2" /></p>
 
-<p>+++</p>
-
 <p>HYDRA   # THERE IS A WAF INPLACE that&rsquo;s why we see direct ip not allowed and our brute forcing attempts are blocked.</p>
-
-<p>+++</p>
 
 <p>DECRYPTING  <a href="https://github.com/argosk/encrypt-Python">https://github.com/argosk/encrypt-Python</a>    #  To decrypt this file i used a python script i found on github it will ask you for to either encrpt for decrypt a file then select a file. eneter the key to de or en crypt the file. in the email we are told the password is our name. we are addressed as sahay.</p>
 
@@ -820,8 +810,6 @@ def getKey(password):
             hasher = SHA256.new(password.encode('utf-8'))
             return hasher.digest()
 </code></pre>
-
-<p>+++</p>
 
 <h2 id="j00-w1ll-f1nd-n07h1n9-h3r3">J00_w1ll_f1Nd_n07H1n9_H3r3</h2>
 
@@ -872,8 +860,6 @@ Run1
 <p><img src="https://chickenpwny.github.io/images/chaos/shell.PNG" alt="shell" /></p>
 
 <p><img src="https://chickenpwny.github.io/images/chaos/shells-success.PNG" alt="shells-success" /></p>
-
-<p>+++</p>
 
 <p>USER &amp; ROOT</p>
 
