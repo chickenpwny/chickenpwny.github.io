@@ -28,8 +28,8 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
       
       <guid>/tools/ftp/</guid>
       <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
-mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP
-SSHFS is built on SFTP.</description>
+https://slacksite.com/other/ftp.html
+mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
     </item>
     
     <item>

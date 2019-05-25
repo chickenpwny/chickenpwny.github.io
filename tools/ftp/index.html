@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-13T00:00:05 EDT">
+<meta name="revised" content="2019-05-25T19:18:26 EDT">
 <title>FTP :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -145,6 +145,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows_enum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
     </ul>
 </li>
 <li data-nav-id="/hackthebox/" class="dd-item haschildren
@@ -175,6 +182,13 @@
         <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
     <div>
         <a href="/hackthebox/boxes/carrier/">
@@ -200,6 +214,13 @@
     <div>
         <a href="/hackthebox/boxes/devel/">
             Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -548,6 +569,8 @@
     
     <p>File  transfer protocol is a terrible service and you should never run it  without some kind of protection in front of it. I&rsquo;ve bumped into quite a  few boxes running FTP. I often forget all the commands you can run with  ftp.</p>
 
+<p><a href="https://slacksite.com/other/ftp.html">https://slacksite.com/other/ftp.html</a></p>
+
 <pre><code>mget * download everything in the directory
 get download file / documents
 put upload file / documents
@@ -562,6 +585,49 @@ nmap (maybe even in intereactive mode)
 sshfs -p 2222 user@ip_address: /mnt/nightmare/
 find . -ls 2&gt;/dev/null &gt; ~/out/put/directory.txt &lt;-- takes forever
 grep file.txt ~/out/put/directory.txt
+</code></pre>
+
+<p>decided to play around with ftp and find some new ways to interact with it.</p>
+
+<pre><code>wget --no-passive-ftp -m ftp://anonymous@10.10.10.106/filepath/filename
+you may also just leave it at the ip address to download the whole directory.
+-m mirror
+-c continue download
+--no-passive-ftp    man wget | grep passive-ftp
+</code></pre>
+
+<p>powershell - this is  rather limited you may only download one file at a time. Have the ability to use scripts.</p>
+
+<p><a href="https://4sysops.com/archives/use-powershell-to-download-a-file-with-http-https-and-ftp">https://4sysops.com/archives/use-powershell-to-download-a-file-with-http-https-and-ftp</a></p>
+
+<pre><code> iwr(Invoke-WebRequest -Uri ftp://10.10.10.106/CHIPSET.txt -OutFile $pwd\CHIPSET.txt -Credential &quot;anonymous&quot;)
+</code></pre>
+
+<p>for the below you dont need the parameters they maybe subbed into the one liner. Note it uses downloadfile instead of typically string. string will print it out into powershell, file just downloads neat.</p>
+
+<p><a href="https://blog.jourdant.me/post/3-ways-to-download-files-with-powershell">https://blog.jourdant.me/post/3-ways-to-download-files-with-powershell</a></p>
+
+<pre><code>$url = &quot;ftp://10.10.10.106/CHIPSET.txt&quot;
+$output = &quot;$pwd\ftp\chipset.txt&quot;
+powershell (new-object system.net.webclient).downloadfile($url, $output)
+</code></pre>
+
+<p>scripts all da files = i have not test this.</p>
+
+<pre><code>#ftp server 
+$ftp = &quot;ftp://example.com/&quot; 
+$user = &quot;XX&quot; 
+$pass = &quot;XXX&quot;
+$SetType = &quot;bin&quot;  
+$remotePickupDir = Get-ChildItem 'c:\test' -recurse
+$webclient = New-Object System.Net.WebClient 
+
+$webclient.Credentials = New-Object System.Net.NetworkCredential($user,$pass)  
+foreach($item in $remotePickupDir){ 
+    $uri = New-Object System.Uri($ftp+$item.Name) 
+    #$webclient.UploadFile($uri,$item.FullName)
+    $webclient.DownloadFile($uri,$item.FullName)
+}
 </code></pre>
 
 

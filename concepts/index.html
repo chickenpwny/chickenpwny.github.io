@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-13T00:00:05 EDT">
+<meta name="revised" content="2019-05-25T19:18:25 EDT">
 <title>Concept :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -146,6 +146,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows_enum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
     </ul>
 </li>
 <li data-nav-id="/hackthebox/" class="dd-item haschildren
@@ -176,6 +183,13 @@
         <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
     <div>
         <a href="/hackthebox/boxes/carrier/">
@@ -201,6 +215,13 @@
     <div>
         <a href="/hackthebox/boxes/devel/">
             Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -501,6 +522,7 @@
   - 
    WebAppPenTests</option>
       <option value="/concepts/bypass/" >- Windows-Bypass</option>
+      <option value="/concepts/windows_enum/" >- Windows_enum</option>
   
     <option value="/hackthebox/" >
    HackTheBox</option>
@@ -576,6 +598,15 @@ nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -o
 		<a href="/concepts/bypass/" >Windows-Bypass</a></card>
 <p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
 CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</p>
+</span>
+
+<span><card>
+		<a href="/concepts/windows_enum/" >Windows_enum</a></card>
+<p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter
+change password inside powershell.
+$password = read-host &quot;Su-ErD;perPa$sw0rd&quot; -assecurestring $useraccount = get-localuser -name &quot;pinkiepie&quot; $useraccount | set-localuser -password $password  os
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
+next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm</p>
 </span>
 </ul>
 

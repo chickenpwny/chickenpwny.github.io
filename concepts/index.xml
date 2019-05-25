@@ -58,5 +58,18 @@ nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -o
 CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
     </item>
     
+    <item>
+      <title>Windows_enum</title>
+      <link>/concepts/windows_enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/windows_enum/</guid>
+      <description>Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
+change password inside powershell.
+$password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
+next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm</description>
+    </item>
+    
   </channel>
 </rss>

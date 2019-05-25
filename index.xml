@@ -31,6 +31,18 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
     </item>
     
     <item>
+      <title>CHAOS</title>
+      <link>/hackthebox/boxes/chaos-og/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/chaos-og/</guid>
+      <description>chaos web server is hosting quite a few webpages. 10.10.10.120/wp/wordpress, chaos.htb, webmail.chaos.htb, chaos.htb:10000. Using wfuzz we find the subdomain. THERE IS A WAF INPLACE BLOCK ACCESSIVE LOGIN ETC
+NMAP
+not sure what 10000 really is most likely related
+nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-06 09:30 EST Nmap scan report for chaos.htb (10.10.10.120) Host is up (0.046s latency). Not shown: 994 closed ports PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
       <title>Carrier</title>
       <link>/hackthebox/boxes/carrier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -82,14 +94,24 @@ tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4
     </item>
     
     <item>
+      <title>Ethereal</title>
+      <link>/hackthebox/boxes/ethereal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/ethereal/</guid>
+      <description>nmap revealed ftp 21, Microsoft iis httpd 10.0 which is 2016 and up.
+nmap -sC -sV -T4 -Pn -oA tcp-connect 10.10.10.106 Starting Nmap 7.70 ( https://nmap.org ) at 2019-05-19 00:05 EDT Nmap scan report for 10.10.10.106 Host is up (0.30s latency). Not shown: 997 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_Can&#39;t get directory listing: PASV IP 172.</description>
+    </item>
+    
+    <item>
       <title>FTP</title>
       <link>/tools/ftp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tools/ftp/</guid>
       <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
-mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP
-SSHFS is built on SFTP.</description>
+https://slacksite.com/other/ftp.html
+mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
     </item>
     
     <item>
@@ -226,6 +248,19 @@ so it turns out its not sql injections pretty happy with that.</description>
       <guid>/concepts/bypass/</guid>
       <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&amp;rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
 CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
+    </item>
+    
+    <item>
+      <title>Windows_enum</title>
+      <link>/concepts/windows_enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/windows_enum/</guid>
+      <description>Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
+change password inside powershell.
+$password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
+next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm</description>
     </item>
     
     <item>

@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>CHAOS</title>
+      <link>/hackthebox/boxes/chaos-og/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/chaos-og/</guid>
+      <description>chaos web server is hosting quite a few webpages. 10.10.10.120/wp/wordpress, chaos.htb, webmail.chaos.htb, chaos.htb:10000. Using wfuzz we find the subdomain. THERE IS A WAF INPLACE BLOCK ACCESSIVE LOGIN ETC
+NMAP
+not sure what 10000 really is most likely related
+nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-06 09:30 EST Nmap scan report for chaos.htb (10.10.10.120) Host is up (0.046s latency). Not shown: 994 closed ports PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
       <title>Carrier</title>
       <link>/hackthebox/boxes/carrier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -38,6 +50,16 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
       
       <guid>/hackthebox/boxes/devel/</guid>
       <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds  nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.</description>
+    </item>
+    
+    <item>
+      <title>Ethereal</title>
+      <link>/hackthebox/boxes/ethereal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/ethereal/</guid>
+      <description>nmap revealed ftp 21, Microsoft iis httpd 10.0 which is 2016 and up.
+nmap -sC -sV -T4 -Pn -oA tcp-connect 10.10.10.106 Starting Nmap 7.70 ( https://nmap.org ) at 2019-05-19 00:05 EDT Nmap scan report for 10.10.10.106 Host is up (0.30s latency). Not shown: 997 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_Can&#39;t get directory listing: PASV IP 172.</description>
     </item>
     
     <item>
