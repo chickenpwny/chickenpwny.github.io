@@ -11,10 +11,6 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/sizzle/</loc>
-  </url>
-  
-  <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
   </url>
   
@@ -194,6 +190,10 @@
   
   <url>
     <loc>/hackthebox/boxes/secnotes/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/sizzle/</loc>
   </url>
   
   <url>

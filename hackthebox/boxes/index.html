@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-02T01:55:01 EDT">
+<meta name="revised" content="2019-06-02T02:04:20 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -177,13 +177,6 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
-    <div>
-        <a href="/hackthebox/boxes/sizzle/">
-            
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
         ">
     <div>
@@ -273,6 +266,13 @@
     <div>
 
         <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
@@ -531,7 +531,6 @@
     <option value="/hackthebox/boxes/hawk/" >
   -- 
    </option>
-      <option value="/hackthebox/boxes/sizzle/" >-- </option>
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
@@ -557,6 +556,7 @@
     <option value="/hackthebox/boxes/secnotes/" >
   -- 
    SecNotes</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
     <option value="/hackthebox/boxes/valentine/" >
   -- 
    Valentine</option>
@@ -628,12 +628,6 @@ HTTP
 and an unknown port protected
 H2 database on 8082
 GOBUSTER</p>
-</span>
-
-<span><card>
-		<a href="/hackthebox/boxes/sizzle/" ></a></card>
-<p>NMAP
-# Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</p>
 </span>
 
 <span><card>
@@ -737,6 +731,12 @@ Manually inspect the webpage this is kind of tedious. As you’ll have to invest
 |Requested resource was login.php 445/tcp open microsoft-ds Windows 10 Enterprise 17134 microsoft-ds (workgroup: HTB) 8808/tcp open http Microsoft IIS httpd 10.0 |-methods: | Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: IIS Windows
 Service Info: Host: SECNOTES; OS: Windows; CPE: cpe:/o:microsoft:windows
 Host script results: |_clock-skew: mean: 2h32m44s, deviation: 4h37m10s, median: -7m17s</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/sizzle/" >Sizzle</a></card>
+<p>NMAP
+# Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</p>
 </span>
 
 <span><card>

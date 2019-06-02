@@ -12,16 +12,6 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/boxes/sizzle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/sizzle/</guid>
-      <description>NMAP
-# Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -225,6 +215,16 @@ bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/moun
 mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
 SMBCLIENT
 Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>Sizzle</title>
+      <link>/hackthebox/boxes/sizzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/sizzle/</guid>
+      <description>NMAP
+# Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</description>
     </item>
     
     <item>
