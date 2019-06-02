@@ -12,6 +12,16 @@
     
     <item>
       <title></title>
+      <link>/hackthebox/boxes/sizzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/sizzle/</guid>
+      <description>NMAP
+# Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -99,8 +109,7 @@ tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/ethereal/</guid>
-      <description>nmap revealed ftp 21, Microsoft iis httpd 10.0 which is 2016 and up.
-nmap -sC -sV -T4 -Pn -oA tcp-connect 10.10.10.106 Starting Nmap 7.70 ( https://nmap.org ) at 2019-05-19 00:05 EDT Nmap scan report for 10.10.10.106 Host is up (0.30s latency). Not shown: 997 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd | ftp-anon: Anonymous FTP login allowed (FTP code 230) |_Can&#39;t get directory listing: PASV IP 172.</description>
+      <description>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&amp;rsquo;s. then have to write a python script to get a shell. it just keeps going</description>
     </item>
     
     <item>
