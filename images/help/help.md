@@ -26,7 +26,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 oh, wow, very clean and neat webpage.
 
- ![webpage-support](C:\Users\charl\OneDrive\Pictures\hackthebox\help\webpage-support.PNG)		
+ ![webpage-support](https://chickenpwny.github.io/images/help/webpage-support.PNG)		
 
 tried uploading a php reverse shell got some kind of filtering. 
 
