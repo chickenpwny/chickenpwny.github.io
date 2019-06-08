@@ -11,16 +11,6 @@
     
     
     <item>
-      <title></title>
-      <link>/hackthebox/boxes/help/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/help/</guid>
-      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
-# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
-    </item>
-    
-    <item>
       <title>CHAOS</title>
       <link>/hackthebox/boxes/chaos-og/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -69,6 +59,16 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
       
       <guid>/hackthebox/boxes/ethereal/</guid>
       <description>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&amp;rsquo;s. then have to write a python script to get a shell. it just keeps going.</description>
+    </item>
+    
+    <item>
+      <title>HELP</title>
+      <link>/hackthebox/boxes/help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/help/</guid>
+      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
+# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
     </item>
     
     <item>

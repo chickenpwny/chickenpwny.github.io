@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-08T12:52:52 EDT">
+<meta name="revised" content="2019-06-08T12:57:03 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -177,13 +177,6 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
-    <div>
-        <a href="/hackthebox/boxes/help/">
-            
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
         ">
     <div>
@@ -230,6 +223,13 @@
     <div>
         <a href="/hackthebox/boxes/ethereal/">
             Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            HELP
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -538,7 +538,6 @@
     <option value="/hackthebox/boxes/hawk/" >
   -- 
    </option>
-      <option value="/hackthebox/boxes/help/" >-- </option>
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
@@ -550,6 +549,7 @@
    CrimeStopper</option>
       <option value="/hackthebox/boxes/devel/" >-- Devel</option>
       <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/help/" >-- HELP</option>
     <option value="/hackthebox/boxes/legacy/" >
   -- 
    Legacy</option>
@@ -639,12 +639,6 @@ GOBUSTER</p>
 </span>
 
 <span><card>
-		<a href="/hackthebox/boxes/help/" ></a></card>
-<p>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
-# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</p>
-</span>
-
-<span><card>
 		<a href="/hackthebox/boxes/blue/" >Blue</a></card>
 <p>Blue Special thanks to IppSec for contributing to this post. Please Subscribe
 changes /etc/hosts so 10.10.10.40 blue.htb
@@ -693,6 +687,12 @@ So null, byte doesn&rsquo;t work and encoding the string doesn&rsquo;t work.</p>
 <span><card>
 		<a href="/hackthebox/boxes/ethereal/" >Ethereal</a></card>
 <p>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&rsquo;s. then have to write a python script to get a shell. it just keeps going.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/help/" >HELP</a></card>
+<p>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
+# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</p>
 </span>
 
 <span><card>
