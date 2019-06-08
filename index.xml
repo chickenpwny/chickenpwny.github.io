@@ -12,6 +12,16 @@
     
     <item>
       <title></title>
+      <link>/hackthebox/boxes/help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/help/</guid>
+      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
+# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -99,7 +109,7 @@ tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/ethereal/</guid>
-      <description>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&amp;rsquo;s. then have to write a python script to get a shell. it just keeps going</description>
+      <description>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&amp;rsquo;s. then have to write a python script to get a shell. it just keeps going.</description>
     </item>
     
     <item>
@@ -269,7 +279,9 @@ CLM uses umci policy to determine what powershell scripts are approved(whitelist
 change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm</description>
+next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm
+DIRECTORIES WE CAN ALWAYS CALL HOME
+C:\Windows\Tasks C:\Windows\Temp C:\windows\tracing C:\Windows\Registration\CRMLog C:\Windows\System32\FxsTmp C:\Windows\System32\com\dmp C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys C:\Windows\System32\spool\PRINTERS C:\Windows\System32\spool\SERVERS C:\Windows\System32\spool\drivers\color C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\FxsTmp C:\Windows\SysWOW64\com\dmp C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System  </description>
     </item>
     
     <item>

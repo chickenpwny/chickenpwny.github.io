@@ -68,7 +68,9 @@ CLM uses umci policy to determine what powershell scripts are approved(whitelist
 change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm</description>
+next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm
+DIRECTORIES WE CAN ALWAYS CALL HOME
+C:\Windows\Tasks C:\Windows\Temp C:\windows\tracing C:\Windows\Registration\CRMLog C:\Windows\System32\FxsTmp C:\Windows\System32\com\dmp C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys C:\Windows\System32\spool\PRINTERS C:\Windows\System32\spool\SERVERS C:\Windows\System32\spool\drivers\color C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\FxsTmp C:\Windows\SysWOW64\com\dmp C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System  </description>
     </item>
     
   </channel>
