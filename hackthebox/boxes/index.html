@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-09T14:33:45 EDT">
+<meta name="revised" content="2019-06-09T14:41:23 EDT">
 <title>Boxes :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -275,17 +275,17 @@
         <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
-    <div>
-        <a href="/hackthebox/boxes/gold-sizzle/">
-            Sizzle
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
     <div>
         <a href="/hackthebox/boxes/sizzle/">
             Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -571,8 +571,8 @@
     <option value="/hackthebox/boxes/secnotes/" >
   -- 
    SecNotes</option>
-      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle</option>
       <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
     <option value="/hackthebox/boxes/valentine/" >
   -- 
    Valentine</option>
@@ -756,15 +756,15 @@ Host script results: |_clock-skew: mean: 2h32m44s, deviation: 4h37m10s, median: 
 </span>
 
 <span><card>
-		<a href="/hackthebox/boxes/gold-sizzle/" >Sizzle</a></card>
-<p>Nmap
-80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn't have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</p>
-</span>
-
-<span><card>
 		<a href="/hackthebox/boxes/sizzle/" >Sizzle</a></card>
 <p>NMAP
 # Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/gold-sizzle/" >Sizzle-Gold</a></card>
+<p>Nmap
+80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn't have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&lt;unsupported&gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</p>
 </span>
 
 <span><card>

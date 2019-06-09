@@ -96,22 +96,22 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
     
     <item>
       <title>Sizzle</title>
-      <link>/hackthebox/boxes/gold-sizzle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/gold-sizzle/</guid>
-      <description>Nmap
-80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
-    </item>
-    
-    <item>
-      <title>Sizzle</title>
       <link>/hackthebox/boxes/sizzle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/sizzle/</guid>
       <description>NMAP
 # Nmap 7.70 scan initiated Fri Feb 15 14:24:35 2019 as: nmap -T4 -sC -sV -oA nmap/initial 10.10.10.103 Nmap scan report for 10.10.10.103 Host is up (0.050s latency). Not shown: 987 filtered ports PORT STATE SERVICE VERSION 21/tcp open ftp Microsoft ftpd |_ftp-anon: Anonymous FTP login allowed (FTP code 230) | ftp-syst: |_ SYST: Windows_NT 53/tcp open domain? | fingerprint-strings: | DNSVersionBindreqTCP: | version |_ bind 80/tcp open http Microsoft IIS httpd 10.</description>
+    </item>
+    
+    <item>
+      <title>Sizzle-Gold</title>
+      <link>/hackthebox/boxes/gold-sizzle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/gold-sizzle/</guid>
+      <description>Nmap
+80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
     </item>
     
     <item>

