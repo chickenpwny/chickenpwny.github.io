@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-20T12:45:54 EDT">
+<meta name="revised" content="2019-06-20T13:37:16 EDT">
 <title>CTF :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -644,7 +644,7 @@
 
 <p><img src="https://chickenpwny.github.io/images/inuse/hint-hint-hint-hint-everywhere.jpg" alt="hint-hint-hint-hint-everywhere" /></p>
 
-<p><strong>WebServer</strong>: It had a lot of ports open an I was quick to rush in and wasted a bit of time that couldn&rsquo;t have been prevented. Anyways I thought it was mistakenly a windows host. I should have run a targeted scan next. Just ran a normal Nmap scan instead of using the -sT switch which will perform a TCP connection to the port and it has to respond. It&rsquo;s quicker.</p>
+<p><strong>WebServer</strong>: It had a lot of ports open an I was quick to rush in and wasted a bit of time that couldn&rsquo;t have been prevented. Anyways I thought it was mistakenly a windows host. I should have run a targeted scan next. Just ran a normal Nmap scan instead of using the -sT switch which will perform a TCP connection to the port and it has to respond. It&rsquo;s quicker. Once on the system i used sshuttle to pivot and gaina access to 172.16.42.0/24 subnet.</p>
 
 <p><strong>Router</strong>: speculation on how to exploit. It was a old d-link router that had several vulnerabilities I couldn&rsquo;t get to work. It had a buffer overflow vulnerability that the pubic poc didn&rsquo;t work but im willing to bet that with modification it might have worked. Because the version was deprecated I feel like this one required custom exploitation.</p>
 
