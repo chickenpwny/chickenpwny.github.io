@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-19T23:43:16 EDT">
+<meta name="revised" content="2019-06-20T09:23:20 EDT">
 <title>CTF :: DocDock Documentation</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -646,7 +646,7 @@
 
 <p><strong>WebServer</strong>: It had allot of ports open an i was quick to rush in and wasted a bit of time that couldn&rsquo;t have been prevented. Anyways I thought it was mistakenly a windows host. I should have run a targeted scan next. Just ran a normal Nmap scan instead of using the -sT switch which will perform a tcp connect to the port and it has to respond. It&rsquo;s quicker.</p>
 
-<p><strong>Router</strong>: Gaining access to the router. It was a old d-link router that had several vulnerabilities i couldn&rsquo;t get to work. It had a buffer overflow vulnerability that the pubic poc didn&rsquo;t work but im willing to bet that with modification it might have worked. Because the version was deprecated i feel like this one required custom exploitation.</p>
+<p><strong>Router</strong>: speculation on how to exploit. It was a old d-link router that had several vulnerabilities i couldn&rsquo;t get to work. It had a buffer overflow vulnerability that the pubic poc didn&rsquo;t work but im willing to bet that with modification it might have worked. Because the version was deprecated i feel like this one required custom exploitation.</p>
 
 <p><strong>FireWall</strong>: From what i could tell this was a updated or recently updated version of pfsense. as i uses this at home. So i tried default credentials to login but couldn&rsquo;t gain access. I also ran hydra against the target.</p>
 
@@ -654,7 +654,7 @@
 
 <p><strong>WebServer Dog</strong>: This seemed to be some kind of social media mortgage lender. This one i thought was interesting mostly because i thought there might bec some saved credentials that might help out witht eh domain controller.</p>
 
-<p><strong>Domain Controller</strong> : i wasn&rsquo;t exactly how the firewall and the router played into perhaps gaining access to the dc. Or perhaps i didn&rsquo;t find the credentials need to gain access to the dc. I ran various tools to try and get it to dump creds &amp; to enumerate it further. Guest access wasn&rsquo;t enabled. I also ran hydra against this and tried to bruteforce dc creds. I also tried some kerb attacks that didn&rsquo;t lead anywhere. The system clock ont he domain controller could have been off.</p>
+<p><strong>Domain Controller</strong> : i wasn&rsquo;t exactly sure how the firewall and the router played into perhaps gaining access to the dc. Or perhaps i didn&rsquo;t find the credentials need to gain access to the dc. I ran various tools to try and get it to dump creds &amp; to enumerate it further. Guest access wasn&rsquo;t enabled. I also ran hydra against this and tried to brute force dc creds. I also tried some kerb attacks that didn&rsquo;t lead anywhere. The system clock could have been off that would be a simple easy trick to fool people someone into thinking guest isn&rsquo;t enabled. On the same note the whole environment system clock could be off.</p>
 
 <p>The dotted lines represent a hypothetical connection between the firewall and dc. note that the router is 172.16.1.3</p>
 
