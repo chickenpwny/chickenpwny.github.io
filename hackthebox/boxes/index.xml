@@ -11,6 +11,16 @@
     
     
     <item>
+      <title></title>
+      <link>/hackthebox/boxes/inusectf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/inusectf/</guid>
+      <description>I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in variious places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVER ESTIMATE THE CTF. biggest take away. lol
+WebServer: It had allot of ports open an i was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
+    </item>
+    
+    <item>
       <title>CHAOS</title>
       <link>/hackthebox/boxes/chaos-og/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
