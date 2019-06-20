@@ -49,8 +49,8 @@ nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.or
       
       <guid>/hackthebox/boxes/inusectf/</guid>
       <description>The biggest take away would be
-I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in variious places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVER ESTIMATE THE CTF. biggest take away. lol
-WebServer: It had allot of ports open an i was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
+I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in various places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVERESTIMATE THE CTF.
+WebServer: It had a lot of ports open an I was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
     </item>
     
     <item>
