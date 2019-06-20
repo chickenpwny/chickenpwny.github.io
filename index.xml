@@ -12,16 +12,6 @@
     
     <item>
       <title></title>
-      <link>/hackthebox/boxes/inusectf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/inusectf/</guid>
-      <description>I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in variious places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVER ESTIMATE THE CTF. biggest take away. lol
-WebServer: It had allot of ports open an i was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/hackthebox/challenges/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -50,6 +40,17 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
 NMAP
 not sure what 10000 really is most likely related
 nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-06 09:30 EST Nmap scan report for chaos.htb (10.10.10.120) Host is up (0.046s latency). Not shown: 994 closed ports PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>CTF</title>
+      <link>/hackthebox/boxes/inusectf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/inusectf/</guid>
+      <description>The biggest take away would be
+I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in variious places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVER ESTIMATE THE CTF. biggest take away. lol
+WebServer: It had allot of ports open an i was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
     </item>
     
     <item>
