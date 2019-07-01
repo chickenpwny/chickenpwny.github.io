@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-20T13:37:15 EDT">
+<meta name="revised" content="2019-06-30T21:15:37 EDT">
 <title>Boxes :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -230,6 +230,20 @@
     <div>
         <a href="/hackthebox/boxes/ethereal/">
             Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -564,6 +578,8 @@
    CrimeStopper</option>
       <option value="/hackthebox/boxes/devel/" >-- Devel</option>
       <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/grand-pa/" >-- GrandMa</option>
       <option value="/hackthebox/boxes/help/" >-- HELP</option>
     <option value="/hackthebox/boxes/legacy/" >
   -- 
@@ -710,6 +726,20 @@ So null, byte doesn&rsquo;t work and encoding the string doesn&rsquo;t work.</p>
 <span><card>
 		<a href="/hackthebox/boxes/ethereal/" >Ethereal</a></card>
 <p>there is allot going on with this box first we go to ftp but we can only interact with it using some other methods. used wget to download the drive. inside the drives we find pbox then use that to get some creds. go back to the website enter creds. play around with the waf to run cmd&rsquo;s. then have to write a python script to get a shell. it just keeps going.</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/flujab/" >Flujab</a></card>
+<p>Thank you to 0xdf and ippsec for their guides. Postmortem
+This will not be the typical guide. I will be covering highlights.
+Changeing /etc/hosts didn&rsquo;t notice any change then i went to 0xdf notes. saw that openssl was used to get a list of of fqdmn. I thought it would be neat to use the same trick use din sizzle to get the certs. exporting the cert didn&rsquo;t not yield the (field values).</p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/grand-pa/" >GrandMa</a></card>
+<p>Started out with nmap moved into enumeration with gobuster to enum web directories.
+Nmap
+![gobuster](https://chickenpwny.github.io/images/grandma/gobuster.PNG)nmap -sV -sC -T5 -p80 -oA total-first 10.10.10.15 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-30 20:05 EDT Nmap scan report for 10.10.10.15 Host is up (0.12s latency). PORT STATE SERVICE VERSION 80/tcp open http Microsoft IIS httpd 6.0 | http-methods: |_ Potentially risky methods: TRACE DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT |_http-server-header: Microsoft-IIS/6.</p>
 </span>
 
 <span><card>

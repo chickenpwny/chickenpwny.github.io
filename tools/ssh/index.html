@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-20T13:37:16 EDT">
+<meta name="revised" content="2019-06-30T21:15:38 EDT">
 <title>ssh :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -228,6 +228,20 @@
     <div>
         <a href="/hackthebox/boxes/ethereal/">
             Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -622,6 +636,46 @@
 <p>vi /etc/ssh/sshd_conf
 PermitRootLogin yes
 service ssh start&lt;/c</p>
+
+<p>i thought this was note worthy from flujab.  flujab has host.deny enabled to all host are blocked and only whitelisted hosts are allowed to connect.  host.deny host.allow</p>
+
+<p><strong>hosts.deny</strong></p>
+
+<p>​   This was not accessible from</p>
+
+<pre><code># /etc/hosts.deny: list of hosts that are _not_ allowed to access the system.
+#                  See the manual pages hosts_access(5) and hosts_options(5).
+#
+# Example:    ALL: some.host.name, .some.domain
+#             ALL EXCEPT in.fingerd: other.host.name, .other.domain
+#
+# If you're going to protect the portmapper use the name &quot;rpcbind&quot; for the
+# daemon name. See rpcbind(8) and rpc.mountd(8) for further information.
+#
+# The PARANOID wildcard matches any host whose name does not match its
+# address.
+#
+# You may wish to enable this to ensure any programs that don't
+# validate looked up hostnames still leave understandable logs. In past
+# versions of Debian this has been the default.
+# ALL: PARANOID
+
+sshd : ALL
+</code></pre>
+
+<p><strong>HOSTS.ALLOW</strong></p>
+
+<p>​   just add sshd: address , &amp; all:  address</p>
+
+<pre><code># grant ssh access per host
+# syntax:
+# sshd : [host ip]
+###########################
+</code></pre>
+
+<pre><code>sshd : change_me_to_address
+ALL : change_me_to_address
+</code></pre>
 
 
 

