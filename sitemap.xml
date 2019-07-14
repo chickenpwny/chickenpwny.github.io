@@ -92,6 +92,10 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/friendzone/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/github/</loc>
   </url>
   
@@ -101,10 +105,6 @@
   
   <url>
     <loc>/hackthebox/boxes/grand-pa/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/help/</loc>
   </url>
   
   <url>

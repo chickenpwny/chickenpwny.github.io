@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-06-30T21:15:38 EDT">
+<meta name="revised" content="2019-07-13T20:53:29 EDT">
 <title>GrandMa :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -240,17 +240,17 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item active">
     <div>
         <a href="/hackthebox/boxes/grand-pa/">
             GrandMa
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
-    <div>
-        <a href="/hackthebox/boxes/help/">
-            HELP
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -579,8 +579,8 @@
       <option value="/hackthebox/boxes/devel/" >-- Devel</option>
       <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
       <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/friendzone/" >-- FriendZone</option>
       <option value="/hackthebox/boxes/grand-pa/"  selected>-- GrandMa</option>
-      <option value="/hackthebox/boxes/help/" >-- HELP</option>
     <option value="/hackthebox/boxes/legacy/" >
   -- 
    Legacy</option>
@@ -652,7 +652,9 @@
     
     
     
-    <p>Started out with nmap moved into enumeration with gobuster to enum web directories.</p>
+    <p><img src="../../../static/images/grandma/eustace.gif" alt="eustace" /></p>
+
+<p>Started out with nmap moved into enumeration with gobuster to enum web directories.</p>
 
 <p><strong>Nmap</strong></p>
 
@@ -818,20 +820,28 @@ Nmap done: 1 IP address (1 host up) scanned in 12.35 seconds
 
 <p>ippsec used this webdav bufferoverflow exploit to gain a foothold on grandpa. &ldquo;buffer overflow in the ScStoragePathFromUrl function in the WebDAV service in IIS 6.0 in Microsoft windows server 2003 r2 allows remote attackers to execute arbitrary code via a long header beginning with &rdquo; If: &lt;http://&rdquo; in a PROPFIND request, as exploited in the wild in July August 2016.&rdquo;</p>
 
+<p>ippsec summarized it that it&rsquo;s entering a bunch of A&rsquo;s into the url and exceeding what the web server can handle.</p>
+
+<p>The hint for the exploit is suppose to be the server version 2003 r2 and the year of the system.</p>
+
 <pre><code>exploit/windows/iis/iis_webdav_scstoragepathfromurl
 </code></pre>
 
-<p>Once a shell is established need to elevate the shell using one of the ones mentioned above copy image worked fine. for me</p>
+<p>Once a shell is established need to elevate the shell using one of the ones mentioned above copy image worked fine. for me.</p>
 
 <p><img src="https://chickenpwny.github.io/images/grandma/root-grandpa.PNG" alt="root-grandpa" /></p>
+
+<p><strong>WireShark</strong> - It was pretty neat seeing the connection start. Seeing the payload cross the network to hit its target.</p>
+
+<p><img src="../../../static/images/grandma/giphy.gif" alt="giphy" /></p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/hackthebox/boxes/flujab/" title="Flujab"> <i class="fa fa-chevron-left"></i><label>Flujab</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/help/" title="HELP" style="margin-right: 0px;"><label>HELP</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/hackthebox/boxes/friendzone/" title="FriendZone"> <i class="fa fa-chevron-left"></i><label>FriendZone</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/legacy/" title="Legacy" style="margin-right: 0px;"><label>Legacy</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

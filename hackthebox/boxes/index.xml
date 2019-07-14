@@ -84,6 +84,15 @@ Changeing /etc/hosts didn&amp;rsquo;t notice any change then i went to 0xdf note
     </item>
     
     <item>
+      <title>FriendZone</title>
+      <link>/hackthebox/boxes/friendzone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/friendzone/</guid>
+      <description>Not shown: 993 closed ports [326/1271] PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: |_ 256 00:4e:1a:4f:33:e8:a0:de:86:a6:e4:2a:5f:84:61:2b (ED25519) 53/tcp open domain ISC BIND 9.11.3-1ubuntu1.2 (Ubuntu Linux) | dns-nsid: |_ bind.version: 9.11.3-1ubuntu1.2-Ubuntu 80/tcp open http Apache httpd 2.4.29 ((Ubuntu)) |_http-server-header: Apache/2.4.29 (Ubuntu) |_http-title: Friend Zone Escape software 139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP) 443/tcp open ssl/http Apache httpd 2.</description>
+    </item>
+    
+    <item>
       <title>GrandMa</title>
       <link>/hackthebox/boxes/grand-pa/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -92,16 +101,6 @@ Changeing /etc/hosts didn&amp;rsquo;t notice any change then i went to 0xdf note
       <description>Started out with nmap moved into enumeration with gobuster to enum web directories.
 Nmap
 ![gobuster](https://chickenpwny.github.io/images/grandma/gobuster.PNG)nmap -sV -sC -T5 -p80 -oA total-first 10.10.10.15 Starting Nmap 7.70 ( https://nmap.org ) at 2019-06-30 20:05 EDT Nmap scan report for 10.10.10.15 Host is up (0.12s latency). PORT STATE SERVICE VERSION 80/tcp open http Microsoft IIS httpd 6.0 | http-methods: |_ Potentially risky methods: TRACE DELETE COPY MOVE PROPFIND PROPPATCH SEARCH MKCOL LOCK UNLOCK PUT |_http-server-header: Microsoft-IIS/6.</description>
-    </item>
-    
-    <item>
-      <title>HELP</title>
-      <link>/hackthebox/boxes/help/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/help/</guid>
-      <description>Modified from the Debian original for Ubuntu Last updated: 2014-03-19  so nmap reveals two ports, its running node js on an apache 2014 box, ssh seems up to date. initial go buster scans didn&amp;rsquo;t give much on the serfuce but after enumerating support it revealed some more directories.
-# Nmap 7.70 scan initiated Mon Jan 21 19:30:29 2019 as: nmap -sC -sV -p- -Pn -T4 -oA total-help help.htb Nmap scan report for help.</description>
     </item>
     
     <item>
