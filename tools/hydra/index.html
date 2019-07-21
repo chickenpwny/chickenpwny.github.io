@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-13T21:02:49 EDT">
+<meta name="revised" content="2019-07-21T18:19:20 EDT">
 <title>Hydra :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -138,17 +138,17 @@
 </li>
     </ul>
 </li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/bypass/" class="dd-item">
     <div>
         <a href="/concepts/bypass/">
             Windows-Bypass
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/windows_enum/" class="dd-item">
-    <div>
-        <a href="/concepts/windows_enum/">
-            Windows_enum
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -415,6 +415,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/chisel/" class="dd-item">
+    <div>
+        <a href="/tools/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/ftp/" class="dd-item">
     <div>
         <a href="/tools/ftp/">
@@ -564,6 +571,7 @@
     <option value="/tools/" >
    Tools</option> 
       <option value="/tools/bloodhound/" >- BloodHound Neo4j</option>
+      <option value="/tools/chisel/" >- ChiselTunnel</option>
       <option value="/tools/ftp/" >- FTP</option>
     <option value="/tools/hydra/"  selected>
   - 
@@ -650,25 +658,14 @@ Options:
   OPT       some service modules support additional input (-U for module help)
 </code></pre>
 
-<p>Supported services: adam6500 asterisk cisco cisco-enable cvs firebird ftp ftps http[s]-{head|get|post} http[s]-{get|post}-form http-proxy http-proxy-urlenum icq imap[s] irc ldap2[s] ldap3[-{cram|digest}md5][s] mssql mysql nntp oracle-listener oracle-sid pcanywhere pcnfs pop3[s] postgres radmin2 rdp redis rexec rlogin rpcap rsh rtsp s7-300 sip smb smtp[s] smtp-enum snmp socks5 ssh sshkey svn teamspeak telnet[s] vmauthd vnc xmpp</p>
+<p><strong>SOME EXAMPLE&rsquo;S</strong></p>
 
-<p>Hydra is a tool to guess/crack valid login/password pairs. Licensed under AGPL
-v3.0. The newest version is always available at <a href="https://github.com/vanhauser-thc/thc-hydra">https://github.com/vanhauser-thc/thc-hydra</a>
-Don&rsquo;t use in military or secret service organizations, or for illegal purposes.
-These services were not compiled in: afp ncp oracle sapr3.</p>
+<p>sometimes you get ask for your passsword in prommpt instead of in a web form.</p>
 
-<p>Use HYDRA_PROXY_HTTP or HYDRA_PROXY environment variables for a proxy setup.
-E.g. % export HYDRA_PROXY=socks5://l:p@127.0.0.1:9150 (or: socks4:// connect://)
-     % export HYDRA_PROXY=connect_and_socks_proxylist.txt  (up to 64 entries)
-     % export HYDRA_PROXY_HTTP=<a href="http://login:pass@proxy:8080">http://login:pass@proxy:8080</a>
-     % export HYDRA_PROXY_HTTP=proxylist.txt  (up to 64 entries)</p>
+<pre><code>hydra -L words.txt -P /home/htb/wordlist/seclist/Passwords/Common-Credentials/10-million-password-list-top-1000.txt http-get://meow.htb:8080 -t 64
+</code></pre>
 
-<p>Examples:
-  hydra -l user -P passlist.txt <a href="ftp://192.168.0.1">ftp://192.168.0.1</a>
-  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
-  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
-  hydra -l admin -p password ftp://[192.168.0.0/24]/
-  hydra -L logins.txt -P pws.txt -M targets.txt ssh</p>
+<p><img src="../../../static/images/tools/hydra-login-prompt.PNG" alt="hydra-login-prompt" /></p>
 
 
 

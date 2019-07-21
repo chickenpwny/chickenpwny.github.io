@@ -56,6 +56,10 @@
   </url>
   
   <url>
+    <loc>/tools/chisel/</loc>
+  </url>
+  
+  <url>
     <loc>/concepts/</loc>
   </url>
   
@@ -260,11 +264,11 @@
   </url>
   
   <url>
-    <loc>/concepts/bypass/</loc>
+    <loc>/concepts/windows_enum/</loc>
   </url>
   
   <url>
-    <loc>/concepts/windows_enum/</loc>
+    <loc>/concepts/bypass/</loc>
   </url>
   
   <url>

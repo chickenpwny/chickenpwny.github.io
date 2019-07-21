@@ -22,6 +22,17 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
     </item>
     
     <item>
+      <title>ChiselTunnel</title>
+      <link>/tools/chisel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools/chisel/</guid>
+      <description>Chisel SERVER
+./Chisel server -p 8000 -reverse -v -reverse the connection this is important -v verbose -p port  Chisel.exe CLIENT
+c.exe client 10.10.15.254:8000 R:127.0.0.1:8001:localhost:8081	 </description>
+    </item>
+    
+    <item>
       <title>FTP</title>
       <link>/tools/ftp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

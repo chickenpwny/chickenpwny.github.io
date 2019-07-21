@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-13T21:02:48 EDT">
+<meta name="revised" content="2019-07-21T18:19:19 EDT">
 <title>Concept :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -139,17 +139,17 @@
 </li>
     </ul>
 </li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/concepts/bypass/" class="dd-item">
     <div>
         <a href="/concepts/bypass/">
             Windows-Bypass
-        </a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/windows_enum/" class="dd-item">
-    <div>
-        <a href="/concepts/windows_enum/">
-            Windows_enum
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -415,6 +415,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/chisel/" class="dd-item">
+    <div>
+        <a href="/tools/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/ftp/" class="dd-item">
     <div>
         <a href="/tools/ftp/">
@@ -563,8 +570,8 @@
     <option value="/concepts/webapppentest/" >
   - 
    WebAppPenTests</option>
+      <option value="/concepts/windows_enum/" >- Windows</option>
       <option value="/concepts/bypass/" >- Windows-Bypass</option>
-      <option value="/concepts/windows_enum/" >- Windows_enum</option>
   
     <option value="/hackthebox/" >
    HackTheBox</option>
@@ -637,20 +644,20 @@ nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -o
 </span>
 
 <span><card>
-		<a href="/concepts/bypass/" >Windows-Bypass</a></card>
-<p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
-CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</p>
-</span>
-
-<span><card>
-		<a href="/concepts/windows_enum/" >Windows_enum</a></card>
+		<a href="/concepts/windows_enum/" >Windows</a></card>
 <p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter
 change password inside powershell.
 $password = read-host &quot;Su-ErD;perPa$sw0rd&quot; -assecurestring $useraccount = get-localuser -name &quot;pinkiepie&quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-next week minatoTW the creator of arkham and some other hackthebox challenges will be on if all goes well. The time will be moved to around to 12 pm
-DIRECTORIES WE CAN ALWAYS CALL HOME
-C:\Windows\Tasks C:\Windows\Temp C:\windows\tracing C:\Windows\Registration\CRMLog C:\Windows\System32\FxsTmp C:\Windows\System32\com\dmp C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys C:\Windows\System32\spool\PRINTERS C:\Windows\System32\spool\SERVERS C:\Windows\System32\spool\drivers\color C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\FxsTmp C:\Windows\SysWOW64\com\dmp C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System  </p>
+Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
+AppLocker ApplockerFileExtentions
+   Executable Scripts Installers DLL     exe js msi dll   com ps1 msp ocx    vbs      cmd      bat      HOST BASED FIREWALL</p>
+</span>
+
+<span><card>
+		<a href="/concepts/bypass/" >Windows-Bypass</a></card>
+<p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
+CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</p>
 </span>
 </ul>
 
