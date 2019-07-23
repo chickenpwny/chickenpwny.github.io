@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:40 EDT">
+<meta name="revised" content="2019-07-22T21:23:04 EDT">
 <title>NetCat PORT SCAN :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -631,24 +631,33 @@
 
 <p>UPDATE : I hate the out put from this script. it was originally a ip range scanner.</p>
 
-<div class="notices note" ><pre><code>for ip in $(seq 1 254); do
-nc -zv -w 1 172.16.24.$ip 22  2&gt;&amp;1 &gt; /tmp/nul | grep -v 'timed' &amp;
+<div class="notices note" >
+
+```
+for ip in $(seq 1 254); do
+nc -zv -w 1 172.16.24.$ip 22  2>&1 > /tmp/nul | grep -v 'timed' &
 done
-</code></pre>
+```
+
 </div>
 
+<div class="notices danger" >
 
-<div class="notices danger" ><pre><code>for ip in $(seq 1 1000); do
-nc -zv -w 1 10.0.0.2 $ip  2&gt;&amp;1 &gt; /tmp/nul | grep -v 'timed' &amp;
+```
+for ip in $(seq 1 1000); do
+nc -zv -w 1 10.0.0.2 $ip  2>&1 > /tmp/nul | grep -v 'timed' &
 done
-</code></pre>
+```
+
 </div>
 
+<div class="notices note" >
 
-<div class="notices note" ><pre><code>nc -zv -w 1  172.17.0.2 8900-10000 2&gt;&amp;1 | grep succeeded!
-</code></pre>
+```
+nc -zv -w 1  172.17.0.2 8900-10000 2>&1 | grep succeeded!
+```
+
 </div>
-
 
 
 

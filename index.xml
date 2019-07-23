@@ -319,7 +319,7 @@ so it turns out its not sql injections pretty happy with that.</description>
       
       <guid>/concepts/windows_enum/</guid>
       <description>Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
-change password inside powershell.
+whoami /all /priv systeminfo  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
 Windows File Type for running commands scripts executables. I found this list looking up applocker policies.

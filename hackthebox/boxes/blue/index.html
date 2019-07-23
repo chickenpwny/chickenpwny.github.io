@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:39 EDT">
+<meta name="revised" content="2019-07-22T21:23:04 EDT">
 <title>Blue :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -713,11 +713,11 @@ Nmap done: 1 IP address (1 host up) scanned in 82.62 seconds
 
 <p>Using nmap to check and make sure the vulnerability exist.</p>
 
-<pre><code><div class="alert 
-alert-danger"
+<pre><code>&lt;div class=&quot;alert 
+alert-danger&quot;
  
-role="alert"><p>Nmap -p445 &ndash;script vuln blue.htb -T4</p>
-</div>
+role=&quot;alert&quot;&gt;
+Nmap -p445 --script vuln blue.htb -T4&lt;/div&gt;
 
 Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-24 06:22 EST
 Nmap scan report for blue.htb (10.10.10.40)
@@ -774,14 +774,12 @@ alert-info"
  
 role="alert">type user.txt</div>
 
-
 <p>The root flag is in c:\Users\Adimistrator\Desktop</p>
 
 <div class="alert 
 alert-success"
  
 role="alert">type root.txt</div>
-
 
 
 

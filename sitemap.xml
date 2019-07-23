@@ -8,10 +8,12 @@
   
   <url>
     <loc>/hackthebox/boxes/hawk/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

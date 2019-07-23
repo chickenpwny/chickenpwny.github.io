@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:40 EDT">
+<meta name="revised" content="2019-07-22T21:23:05 EDT">
 <title>SNMPWalk :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -639,9 +639,10 @@ snmpwalk -c public -v2c 10.10.10.92 hrSWRunTable
 
 <p>Another Cool tool to easily convert ipv6 strings returned by snmpwalk into something readable is Enxy.</p>
 
-<div class="notices warning" ><p>If snmp-mibs-downloader is enabled it will produce an error because the python script is looking for the normal output. So need uncomment it out for it to work.</p>
-</div>
+<div class="notices warning" >
+If snmp-mibs-downloader is enabled it will produce an error because the python script is looking for the normal output. So need uncomment it out for it to work. 
 
+</div>
 
 <p><a href="https://github.com/trickster0/Enyx">https://github.com/trickster0/Enyx</a></p>
 
@@ -650,9 +651,8 @@ snmpwalk -c public -v2c 10.10.10.92 hrSWRunTable
 
 <p><img src="https://chickenpwny.github.io/images/snmpwalk/enyx.PNG" alt="enyx" /></p>
 
-<div class="notices tip" ><p>Install snmp-mibs-downloader to make oid more readable it will also convert ipv6 decimal into hex making it more manageable.</p>
-</div>
-
+<div class="notices tip" >
+Install snmp-mibs-downloader to make oid more readable it will also convert ipv6 decimal into hex making it more manageable. </div>
 
 <p>apt install snmp-mibs-downloader</p>
 

