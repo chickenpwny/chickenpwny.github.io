@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebApps on Pwny_Sec</title>
+    <link>/webapp/</link>
+    <description>Recent content in WebApps on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/webapp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GoBuster</title>
+      <link>/webapp/gobuster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/gobuster/</guid>
+      <description>What is Gobuster? Gobuster is a web application fuzzer designed to enumerate Web Directories and Domains
+Gobuster has been recently updated, it has some new features and they changed it everything around. It&amp;rsquo;s still the gobuster we Love but its different now it went though some changes. I&amp;rsquo;m not sure if the kali repo has updated yet, you may need to download gobuster form the github repo.
+Example&amp;rsquo;s For DIR:</description>
+    </item>
+    
+    <item>
+      <title>Hydra</title>
+      <link>/webapp/hydra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/hydra/</guid>
+      <description>Hydra is a WebApp Brutefocer. suupply it with the required information and it will enumrate logins based on customer login word list of you could use rock you.
+Hydra v8.8 &amp;copy; 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+ Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PO RT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]] Options: -R restore a previous aborted/crashed session -I ignore an existing restore file (don&#39;t wait 10 seconds) -S perform an SSL connect -s PORT if the service is on a different default port, define it here -l LOGIN or -L FILE login with LOGIN name, or load several logins from FILE -p PASS or -P FILE try password PASS, or load several passwords from FILE -x MIN:MAX:CHARSET password bruteforce generation, type &amp;quot;-x -h&amp;quot; to get help -y disable use of symbols in bruteforce, see above -e nsr try &amp;quot;n&amp;quot; null password, &amp;quot;s&amp;quot; login as pass and/or &amp;quot;r&amp;quot; reversed login -u loop around users, not passwords (effective!</description>
+    </item>
+    
+    <item>
+      <title>SqlMap</title>
+      <link>/webapp/sqlmap/sqlmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/sqlmap/sqlmap/</guid>
+      <description>SqlMap automates finding sql-injection it can use GET or POST request. It&amp;rsquo;s pretty neat.
+In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req
+sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
+    </item>
+    
+  </channel>
+</rss>

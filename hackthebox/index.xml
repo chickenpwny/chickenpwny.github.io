@@ -10,5 +10,16 @@
 	<atom:link href="/hackthebox/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>TMUX</title>
+      <link>/hackthebox/tmux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/tmux/</guid>
+      <description>TMUX
+okay, because my kali linux crash i had to reintall tmux. i really like gpakaosz theme pack for tmux. cd into your home directory, then create a symlink to .tmux.conf so when tmux runs it will look in you&amp;rsquo;re &amp;ldquo;home&amp;rdquo; directory in kali thats ~/ or /root/
+apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local .  </description>
+    </item>
+    
   </channel>
 </rss>

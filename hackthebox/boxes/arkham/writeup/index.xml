@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ARKHAM-writeup on Pwny_Sec</title>
+    <link>/hackthebox/boxes/arkham/writeup/</link>
+    <description>Recent content in ARKHAM-writeup on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/hackthebox/boxes/arkham/writeup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

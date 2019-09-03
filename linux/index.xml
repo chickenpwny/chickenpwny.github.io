@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linuxes on Pwny_Sec</title>
+    <link>/linux/</link>
+    <description>Recent content in Linuxes on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>FTP</title>
+      <link>/linux/ftp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/ftp/</guid>
+      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
+https://slacksite.com/other/ftp.html
+mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
+    </item>
+    
+    <item>
+      <title>File Transfer</title>
+      <link>/linux/filetransfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/filetransfer/</guid>
+      <description>There&amp;rsquo;s more than one way to skin a cat. This guide will cover way&amp;rsquo;s, to move files off of a Linux environment. This guide will cover tools you can find natively on most Linux environments, you may also move over binaries of the tool you wish to use to move the file off.
+NOTICE : KEY WHEN IT SAYS DOWNLOAD USER PYTHON HTTP SERVER, WHEN IT SAY UPLOAD US NETCAT EXAMPLES BELOW.</description>
+    </item>
+    
+    <item>
+      <title>Nmap</title>
+      <link>/linux/nmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/nmap/</guid>
+      <description>Nmap is a port scanning tool that can enumerate devices operating systems and even run scripts that intrusive. Allot of tools have a wide range of abilities but specialize at one thing. Nmap uses ping sweeps and a lot of math to figure everything out. For example based ping time to live, you can figure out the operating system based on how lit takes to handle the information ~128 windows ~64 Linux.</description>
+    </item>
+    
+    <item>
+      <title>Tunnels</title>
+      <link>/linux/tunneling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/tunneling/</guid>
+      <description>SSH PORTFORWARDING
+ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
+ssh user@ip_addr -L LocalPort:address_ip:HostPort  SSH BIND PORT
+Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
+ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>/linux/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/ssh/</guid>
+      <description>SSH - secure shell Is a commonly used port/service. In fact, it is almost on every Linux Box on hackthebox. Network administrators use it to remotely managing Network Peripherals. There are a couple CVE&amp;rsquo;s out there for older version 7.3 Open Ssh is vulnerable to a user enumeration attack.
+SSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.
+Start Service
+Directories private keys might be in</description>
+    </item>
+    
+  </channel>
+</rss>

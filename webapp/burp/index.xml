@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Burp on Pwny_Sec</title>
+    <link>/webapp/burp/</link>
+    <description>Recent content in Burp on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/webapp/burp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Burp</title>
+      <link>/webapp/burp/burp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/burp/</guid>
+      <description>DA BASICS
+&amp;lt;-
+Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.
+PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
+    </item>
+    
+  </channel>
+</rss>

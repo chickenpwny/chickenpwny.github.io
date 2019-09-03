@@ -117,6 +117,17 @@ Linux version 3.</description>
     </item>
     
     <item>
+      <title>Network Manager Down</title>
+      <link>/hackthebox/boxes/help/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/help/</guid>
+      <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
+I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
+ sudo apt-get purge network-manager  To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
+    </item>
+    
+    <item>
       <title>Optimum</title>
       <link>/hackthebox/boxes/optimum/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -124,6 +135,15 @@ Linux version 3.</description>
       <guid>/hackthebox/boxes/optimum/</guid>
       <description>NMAP
 nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00:19 EST Nmap scan report for 10.10.10.8 Host is up (0.042s latency). Not shown: 999 filtered ports PORT STATE SERVICE VERSION 80/tcp open http HttpFileServer httpd 2.3 |_http-server-header: HFS 2.3 |_http-title: HFS / Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows Service detection performed. Please report any incorrect results at https://nmap.org/submit/ . Nmap done: 1 IP address (1 host up) scanned in 14.</description>
+    </item>
+    
+    <item>
+      <title>Sense</title>
+      <link>/hackthebox/boxes/sense/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/sense/</guid>
+      <description>Sense, well be attacking pfsense 2.14 which has a couple of vulnerabilities, pfsense will block you for 24 hours if it detects brute forcing or 15 failed login attempts. To get around this ippsec tunnel through another machine enumerated that way. Using a web directory fuzzer will find two text files that offer some clues to the cmd injection exploit, and the username. I suppose were suppose to guess the password is still pfsense when the username is changed but oh well.</description>
     </item>
     
     <item>
@@ -144,6 +164,16 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
       <guid>/hackthebox/boxes/gold-sizzle/</guid>
       <description>Nmap
 80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
+    </item>
+    
+    <item>
+      <title>Sneaky</title>
+      <link>/hackthebox/boxes/sneaky/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/sneaky/</guid>
+      <description>The goal of this guide since ill be using other guides to solve it will be to learn as much as possible. There are two open ports, 80 &amp;amp; 161 on udp snmp. The webpage is under development, with a web directory that hides some content.
+nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60 -sT full tcp connection three way handshake -Pn treat ports as if they are open -T5 super speed ### 80 ### nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
     </item>
     
     <item>

