@@ -32,6 +32,14 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/bastion/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/bastion/bastion/</loc>
+  </url>
+  
+  <url>
     <loc>/windows/bloodhound/</loc>
   </url>
   
@@ -45,6 +53,10 @@
   
   <url>
     <loc>/webapp/burp/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/burp/burp-ca/</loc>
   </url>
   
   <url>
@@ -82,6 +94,10 @@
   
   <url>
     <loc>/concepts/dll/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/untitled/</loc>
   </url>
   
   <url>
@@ -167,6 +183,10 @@
   
   <url>
     <loc>/hackthebox/boxes/lightweight/</loc>
+  </url>
+  
+  <url>
+    <loc>/linux/linux/</loc>
   </url>
   
   <url>
@@ -273,6 +293,10 @@
   
   <url>
     <loc>/linux/tunneling/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/user-inputt/</loc>
   </url>
   
   <url>

@@ -23,6 +23,15 @@ a dll that contains meterpreter shell that takes env var as variables</descripti
     </item>
     
     <item>
+      <title>Desync-Attack</title>
+      <link>/concepts/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/untitled/</guid>
+      <description>This writeup will be based on James Kettle work, Click here. This artical is more about me learning how to do this attack.</description>
+    </item>
+    
+    <item>
       <title>File Transfer</title>
       <link>/concepts/file-transfer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

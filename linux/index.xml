@@ -32,6 +32,17 @@ NOTICE : KEY WHEN IT SAYS DOWNLOAD USER PYTHON HTTP SERVER, WHEN IT SAY UPLOAD U
     </item>
     
     <item>
+      <title>Linux</title>
+      <link>/linux/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux/</guid>
+      <description>Permisions ~~~~
+​ Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
+chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
+    </item>
+    
+    <item>
       <title>Nmap</title>
       <link>/linux/nmap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

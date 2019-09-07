@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-03T00:31:33 EDT">
+<meta name="revised" content="2019-09-07T11:19:02 EDT">
 <title>Boxes :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -83,6 +83,13 @@
     <div>
         <a href="/concepts/dll/">
             DLL_CraFt&amp;BreW
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/concepts/untitled/" class="dd-item">
+    <div>
+        <a href="/concepts/untitled/">
+            Desync-Attack
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -170,6 +177,21 @@
         ">
     <div>
         <a href="/hackthebox/boxes/arkham/notes/">arkham notes</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+    </ul>
+</li>
+<li data-nav-id="/hackthebox/boxes/bastion/" class="dd-item haschildren
+        ">
+    <div>
+        <a href="/hackthebox/boxes/bastion/">Bastion-Golden</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+    <ul>
+<li data-nav-id="/hackthebox/boxes/bastion/bastion/" class="dd-item">
+    <div>
+        <a href="/hackthebox/boxes/bastion/bastion/">
+            Bastion-Notes
+        </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -453,6 +475,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/linux/linux/" class="dd-item">
+    <div>
+        <a href="/linux/linux/">
+            Linux
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/linux/netcat/" class="dd-item
         ">
     <div>
@@ -507,6 +536,13 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
+<li data-nav-id="/webapp/burp/burp-ca/" class="dd-item">
+    <div>
+        <a href="/webapp/burp/burp-ca/">
+            Burp Setup CA
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
     </ul>
 </li>
 <li data-nav-id="/webapp/gobuster/" class="dd-item">
@@ -533,6 +569,13 @@
     <div>
         <a href="/webapp/sqlmap/sqlmap/">
             SqlMap
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/user-inputt/" class="dd-item">
+    <div>
+        <a href="/webapp/user-inputt/">
+            USER INPUT OF DOOM
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -620,6 +663,9 @@
     <option value="/hackthebox/boxes/arkham/" >
   -- 
    Arkhams</option>
+    <option value="/hackthebox/boxes/bastion/" >
+  -- 
+   Bastion-Golden</option>
     <option value="/hackthebox/boxes/blue/" >
   -- 
    Blue</option>
@@ -739,6 +785,13 @@ GOBUSTER</p>
 <span><card>
 		<a href="/hackthebox/boxes/arkham/" >Arkhams</a></card>
 <p></p>
+</span>
+
+<span><card>
+		<a href="/hackthebox/boxes/bastion/" >Bastion-Golden</a></card>
+<p>Bastion, is a windows machine that has smb, ssh, winrm. We&rsquo;ll find a backup a virtual box back up image a VHD file. Well get our Credentials to login from dumping NTLM-hashes from Sam, System. To get root we&rsquo;ll exploit some saved credentials in a configuration file to ssh into.
+NMAP
+# Nmap 7.70 scan initiated Mon May 13 17:33:32 2019 as: nmap -sC -sV -p22,135,139,445,5985,12512 -oA nmap/target 10.10.10.134 Nmap scan report for 10.</p>
 </span>
 
 <span><card>

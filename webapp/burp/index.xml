@@ -22,5 +22,15 @@ Burp Suit is a graphical tool for web app security. It can do a host of things b
 PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
     </item>
     
+    <item>
+      <title>Burp Setup CA</title>
+      <link>/webapp/burp/burp-ca/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/burp-ca/</guid>
+      <description>So, Recently had to reinstall kali. I had to setup burp again to work with TLS certs. To properly intercept https traffic.
+Well, just go to  http:/burp:port, click on  CA Certificate download the cert. Now, in firefox click on options click on preferences. Go to  Privacy &amp;amp; Security  take the scroll bar go all the way to the bottom and go to  View Certificares Under Certificates header.</description>
+    </item>
+    
   </channel>
 </rss>

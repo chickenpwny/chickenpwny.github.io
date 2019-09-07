@@ -78,14 +78,14 @@ Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLV
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/windows/windows_enum/</guid>
-      <description>Commands
+      <description>/ETC/HOSTS FOR WINDOWS to change local DNS IN windows.
+notepad c:\womdpws\system32\drivers\etc\hosts  Commands
 Finding things in windows.
 find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot;  Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
 whoami /all /priv systeminfo findstr	= grep  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
-AppLocker ApplockerFileExtentions</description>
+Windows File Type for running commands scripts executables.</description>
     </item>
     
   </channel>

