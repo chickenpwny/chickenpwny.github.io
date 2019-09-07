@@ -32,11 +32,16 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/bastion/</loc>
+    <loc>/hackthebox/boxes/bastion/notes/</loc>
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/bastion/bastion/</loc>
+    <loc>/hackthebox/boxes/bastion/writeup/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/bastion/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

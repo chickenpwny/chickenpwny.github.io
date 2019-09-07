@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-07T11:19:02 EDT">
-<title>Bastion-Golden :: Pwny_Sec</title>
+<meta name="revised" content="2019-09-07T11:31:01 EDT">
+<title>Bastions :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -184,15 +184,20 @@
 <li data-nav-id="/hackthebox/boxes/bastion/" class="dd-item parent active haschildren
         ">
     <div>
-        <a href="/hackthebox/boxes/bastion/">Bastion-Golden</a>
+        <a href="/hackthebox/boxes/bastion/">Bastions</a>
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
-<li data-nav-id="/hackthebox/boxes/bastion/bastion/" class="dd-item">
+<li data-nav-id="/hackthebox/boxes/bastion/notes/" class="dd-item
+        ">
     <div>
-        <a href="/hackthebox/boxes/bastion/bastion/">
-            Bastion-Notes
-        </a><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/hackthebox/boxes/bastion/notes/">Bastion-Golden</a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/hackthebox/boxes/bastion/writeup/" class="dd-item
+        ">
+    <div>
+        <a href="/hackthebox/boxes/bastion/writeup/">Bastion-Notes</a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
     </ul>
@@ -666,8 +671,13 @@
    Arkhams</option>
     <option value="/hackthebox/boxes/bastion/"  selected>
   -- 
-   Bastion-Golden</option> 
-      <option value="/hackthebox/boxes/bastion/bastion/" >--- Bastion-Notes</option>
+   Bastions</option> 
+    <option value="/hackthebox/boxes/bastion/notes/" >
+  --- 
+   Bastion-Golden</option>
+    <option value="/hackthebox/boxes/bastion/writeup/" >
+  --- 
+   Bastion-Notes</option>
   
     <option value="/hackthebox/boxes/blue/" >
   -- 
@@ -763,179 +773,32 @@
       </div>
     
 
-    <h1>Bastion-Golden</h1>
+    <h1>Bastions</h1>
     
     
     
 
-<p>Bastion, is a windows machine that has smb, ssh, winrm. We&rsquo;ll find a backup a virtual box back up image a VHD file. Well get our Credentials to login from dumping NTLM-hashes from <mark>Sam, System</mark>. To get root we&rsquo;ll exploit some saved credentials in a configuration file to ssh into.</p>
 
-<p><strong>NMAP</strong></p>
 
-<pre><code># Nmap 7.70 scan initiated Mon May 13 17:33:32 2019 as: nmap -sC -sV -p22,135,139,445,5985,12512 -oA nmap/target 10.10.10.134                                
-Nmap scan report for 10.10.10.134
-Host is up (0.046s latency).
+<div class="extra-pagination inner">
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 0</span>
+	
+</nav>
 
-PORT      STATE  SERVICE      VERSION
-22/tcp    open   ssh          OpenSSH for_Windows_7.9 (protocol 2.0)
-| ssh-hostkey:
-|   2048 3a:56:ae:75:3c:78:0e:c8:56:4d:cb:1c:22:bf:45:8a (RSA)
-|   256 cc:2e:56:ab:19:97:d5:bb:03:fb:82:cd:63:da:68:01 (ECDSA)
-|_  256 93:5f:5d:aa:ca:9f:53:e7:f2:82:e6:64:a8:a3:a0:18 (ED25519)
-135/tcp   open   msrpc        Microsoft Windows RPC
-139/tcp   open   netbios-ssn  Microsoft Windows netbios-ssn
-445/tcp   open   microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds
-5985/tcp  open   http         Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-server-header: Microsoft-HTTPAPI/2.0
-|_http-title: Not Found
-12512/tcp closed unknown
-Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows                                                                     
+</div>
 
-Host script results:
-|_clock-skew: mean: -39m52s, deviation: 1h09m14s, median: 5s
-| smb-os-discovery:
-|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
-|   Computer name: Bastion
-|   NetBIOS computer name: BASTION\x00
-|   Workgroup: WORKGROUP\x00
-|_  System time: 2019-05-13T23:33:50+02:00
-| smb-security-mode:
-|   account_used: guest
-|   authentication_level: user
-|   challenge_response: supported
-|_  message_signing: disabled (dangerous, but default)
-| smb2-security-mode:
-|   2.02:
-|_    Message signing enabled but not required
-| smb2-time:
-|   date: 2019-05-13 17:33:49
-|_  start_date: 2019-05-13 15:37:21
 
-Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .                                                               
-# Nmap done at Mon May 13 17:33:50 2019 -- 1 IP address (1 host up) scanned in 18.08 seconds 
-</code></pre>
 
-<p><strong>SSH</strong> Nothing here to exploit</p>
+<div style="margin-bottom:2rem"></div>
 
-<p><strong>SMB</strong> Guest login is enabled, this is our first way into bastion. Ill Show a couple of ways to use different tools to enumerate SMB shares.</p>
+<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 0</span>
+	
+</nav>
 
-<pre><code>smbmap -u guest -H 10.10.10.134 -r /
--u username
--r recursive
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/smb-map.png" alt="smb-map" /></p>
-
-<pre><code>smbclient //10.10.10.134/Backups
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/smb-client.png" alt="smb-client" /></p>
-
-<p><strong>CLUES</strong> So we found a clue in notes.txt</p>
-
-<pre><code>Sysadmins: please don't transfer the entire backup file locally, the VPN to the subsidiary office is too slow.
-</code></pre>
-
-<p>​   There&rsquo;s back-image&rsquo;s in the SMB share,there a few directories in.</p>
-
-<pre><code>cd &quot;/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351/&quot;
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/smb-backup-imaget.png" alt="smb-backup-imaget" /></p>
-
-<p>We could Download the backup image which will take forever. We can mount the share to <mark> mnt </mark> and inspect the image that way.</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/thinking.jpg" width="300px" height="300px"></p>
-
-<pre><code>mount -o user=guest '//10.10.10.134/Backups' /mnt/bast-vhd 
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/mount-smb.png" alt="mount-smb" /></p>
-
-<p>Well, need a Tool to mount the image so we can inspect it. I used <mark>guestmount</mark>.</p>
-
-<pre><code>apt-get install libguestfs-tools
-</code></pre>
-
-<p>After thats done with could take awhile, well mount the drive and examine it. Make a directory in mount or mnt directory.</p>
-
-<pre><code>mkdir /mnt/bast-vhd
-cd &quot;/mnt/bast-vhd/WindowsImageBackup/L4mpje-PC/Backup 2019-02-22 124351/&quot;
-</code></pre>
-
-<p>You may have to use the full path. After some testing well find that <mark>9b9cfbc4</mark>    is our desired image.</p>
-
-<pre><code>mkdir /mnt/bast-vhd2
-guestmount --add 9b9cfbc4-369e-11e9-a17c-806e6f6e6963.vhd --inspector --ro /mnt/bast-vhd2/
-</code></pre>
-
-<p>Windows stores user Credentials in <mark> SAM &amp; SYSTEM</mark>, it stores them as NTLM hashes. Hashes are cryptographically secure. They only work on way, but that doesn&rsquo;t mean they aren&rsquo;t without faults.  We will be using some pwdrump which is should be reinstalled on kali.</p>
-
-<pre><code>cd /mnt/bast-vhd2/Windows/System32/config
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/ntlm-system-sam.png" alt="ntlm-system-sam" /></p>
-
-<p>As mentioned above will be using <mark>PWDump</mark> which will extract the <mark>NTLM</mark> hashes from <mark>SYSTEM</mark> hive and <mark>SAM</mark> hive</p>
-
-<pre><code>pwdump SYSTEM SAM
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/ntlm-hashes.png" alt="ntlm-hashes" /></p>
-
-<p>Before running off to <mark>HASHCAT</mark> lets try <mark>crackstation.net</mark>, hashcat should be a last resort just to save time. I tried to use hashcat but didn&rsquo;t get anything, i also cut it short but whatever.</p>
-
-<p>I would like to take a moment to disgust what a ntlm hash is. Colon&rsquo;s are a delimiter,the first part is the user-name, the next the groupid the user belongs to. notice in the image above the different users have differing id&rsquo;s. Ntlm hashes can store a large password up to 128 characters. they broken into two hashes.</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/ntlm-hashes2.png" alt="ntlm-hashes2" /></p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/crackstation.png" alt="crackstation" /></p>
-
-<p><strong>PASSWORD</strong> IS bureaulampje</p>
-
-<pre><code>user:	L4mpje
-pass:	bureaulampje
-</code></pre>
-
-<p><strong>SHELL</strong> We could ssh or probably winrm.</p>
-
-<pre><code>ssh L4mpje@10.10.10.134
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/user.png" alt="user" /></p>
-
-<p>One place to check but is often forgotten about is program files and check both versions.</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/mRemoteNH.png" alt="mRemoteNH" /></p>
-
-<p><strong><a href="https://www.reddit.com/r/mRemoteNG/comments/66hzoe/mremoteng_password_storage_is_insecure/">mRemoteNG</a></strong> Use to store passwords in clear text, now the credentials are encrypted.</p>
-
-<p>We will have to move the files over to our lhost</p>
-
-<p>go to file &gt; Open connectionFile</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/remote2.PNG" alt="remote2" /></p>
-
-<p>now well add this weird external terminal tool feature to extract the passwords.</p>
-
-<p>Tools &gt; External Tools</p>
-
-<p>you will notice i already have one done but i added quotes and that tripped me up thought it was apart of the password lol. then i check L4mpje and saw the same quote. this will opena  terminal with the password decrypted yes!!</p>
-
-<pre><code>display name :	PassWordLookUp
-filename :	cmd
-arguements :	/k echo %password%
-</code></pre>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/remote3.PNG" alt="remote3" /></p>
-
-<p>right click on DC &gt; external tool &gt;passwordlookup . it should open a cmd prompt.</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/root.PNG" alt="root" /></p>
-
-<p>login into ssh with adminsitrator and the password done.</p>
-
-<p><img src="https://chickenpwny.github.io/images/bastion/pinkie-evil.webp" alt="pinkie-evil" /></p>
 
 
 
@@ -944,7 +807,7 @@ arguements :	/k echo %password%
         <div class="chevrons">
     <div id="navigation">
 <a class="nav nav-prev" href="/hackthebox/boxes/arkham/notes/" title="arkham notes"> <i class="fa fa-chevron-left"></i><label>arkham notes</label></a>
-    <a class="nav nav-next" href="/hackthebox/boxes/bastion/bastion/" title="Bastion-Notes" style="margin-right: 0px;"><label>Bastion-Notes</label><i class="fa fa-chevron-right"></i></a></div>
+    <a class="nav nav-next" href="/hackthebox/boxes/bastion/notes/" title="Bastion-Golden" style="margin-right: 0px;"><label>Bastion-Golden</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -961,7 +824,7 @@ arguements :	/k echo %password%
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioHackTheBox/Boxes/bastion/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.io" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     

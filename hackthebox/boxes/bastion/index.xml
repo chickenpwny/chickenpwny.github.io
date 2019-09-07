@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Bastion-Golden on Pwny_Sec</title>
+    <title>Bastions on Pwny_Sec</title>
     <link>/hackthebox/boxes/bastion/</link>
-    <description>Recent content in Bastion-Golden on Pwny_Sec</description>
+    <description>Recent content in Bastions on Pwny_Sec</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
 	<atom:link href="/hackthebox/boxes/bastion/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Bastion-Notes</title>
-      <link>/hackthebox/boxes/bastion/bastion/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/bastion/bastion/</guid>
-      <description>so nmap revealed a bunch of stuf smb which allows guest access. inside there we find a clue. Also the directory is writeable. so ill have to try psf.exe
-# Nmap 7.70 scan initiated Mon May 13 17:33:32 2019 as: nmap -sC -sV -p22,135,139,445,5985,12512 -oA nmap/target 10.10.10.134 Nmap scan report for 10.10.10.134 Host is up (0.046s latency). PORT STATE SERVICE VERSION 22/tcp open ssh OpenSSH for_Windows_7.9 (protocol 2.0) | ssh-hostkey: | 2048 3a:56:ae:75:3c:78:0e:c8:56:4d:cb:1c:22:bf:45:8a (RSA) | 256 cc:2e:56:ab:19:97:d5:bb:03:fb:82:cd:63:da:68:01 (ECDSA) |_ 256 93:5f:5d:aa:ca:9f:53:e7:f2:82:e6:64:a8:a3:a0:18 (ED25519) 135/tcp open msrpc Microsoft Windows RPC 139/tcp open netbios-ssn Microsoft Windows netbios-ssn 445/tcp open microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds 5985/tcp open http Microsoft HTTPAPI httpd 2.</description>
-    </item>
     
   </channel>
 </rss>
