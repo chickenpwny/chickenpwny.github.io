@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-07T11:31:01 EDT">
+<meta name="revised" content="2019-09-23T10:54:35 EDT">
 <title>Burp Setup CA :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -527,6 +527,13 @@
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/webapp/exploiting/" class="dd-item">
+    <div>
+        <a href="/webapp/exploiting/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/webapp/burp/" class="dd-item parent haschildren
         ">
     <div>
@@ -554,6 +561,13 @@
     <div>
         <a href="/webapp/gobuster/">
             GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/http-smuggling/" class="dd-item">
+    <div>
+        <a href="/webapp/http-smuggling/">
+            HTTP SMUGGLING
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -663,6 +677,7 @@
    Linuxes</option>
     <option value="/webapp/" >
    WebApps</option> 
+      <option value="/webapp/exploiting/" >- </option>
     <option value="/webapp/burp/" >
   - 
    Burp</option> 
@@ -670,6 +685,7 @@
       <option value="/webapp/burp/burp-ca/"  selected>-- Burp Setup CA</option>
   
       <option value="/webapp/gobuster/" >- GoBuster</option>
+      <option value="/webapp/http-smuggling/" >- HTTP SMUGGLING</option>
       <option value="/webapp/hydra/" >- Hydra</option>
     <option value="/webapp/skipfish/" >
   - 
@@ -712,17 +728,17 @@
 
 <p>Well, just go to <mark> http:/burp:port</mark>, click on <mark> CA Certificate</mark> download the cert. Now, in firefox click on options click on preferences. Go to <mark> Privacy &amp; Security </mark> take the scroll bar go all the way to the bottom and go to <mark> View Certificares Under Certificates header</mark>. Under the Authorities tab click on import then import the Cert we got from burp, most likely inside Downloads.</p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options2.PNG" alt="burp-tabs-options2" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options2.PNG" alt="burp-tabs-options2" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options3.PNG" alt="burp-tabs-options3" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options3.PNG" alt="burp-tabs-options3" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options4.PNG" alt="burp-tabs-options4" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options4.PNG" alt="burp-tabs-options4" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options5.PNG" alt="burp-tabs-options5" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options5.PNG" alt="burp-tabs-options5" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options6.PNG" alt="burp-tabs-options6" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options6.PNG" alt="burp-tabs-options6" /></p>
 
-<p><img src="https://chickenpwny.github.io/images/images/burp/Cert-Auth/burp-tabs-options7.PNG" alt="burp-tabs-options7" /></p>
+<p><img src="https://chickenpwny.github.io/images/burp/Cert-Auth/burp-tabs-options7.PNG" alt="burp-tabs-options7" /></p>
 
 <p>That&rsquo;s Here&rsquo;s a link to the <a href="https://support.portswigger.net/customer/portal/articles/1783075-installing-burp-s-ca-certificate-in-your-browser">burp website</a>.</p>
 

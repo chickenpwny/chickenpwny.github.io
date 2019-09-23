@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-07T11:31:02 EDT">
+<meta name="revised" content="2019-09-23T10:54:37 EDT">
 <title>WebApps :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -527,6 +527,13 @@
         <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
+<li data-nav-id="/webapp/exploiting/" class="dd-item">
+    <div>
+        <a href="/webapp/exploiting/">
+            
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
 <li data-nav-id="/webapp/burp/" class="dd-item haschildren
         ">
     <div>
@@ -553,6 +560,13 @@
     <div>
         <a href="/webapp/gobuster/">
             GoBuster
+        </a><i class="fa fa-circle-thin read-icon"></i>
+    </div>
+</li>
+<li data-nav-id="/webapp/http-smuggling/" class="dd-item">
+    <div>
+        <a href="/webapp/http-smuggling/">
+            HTTP SMUGGLING
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
@@ -662,10 +676,12 @@
    Linuxes</option>
     <option value="/webapp/"  selected>
    WebApps</option> 
+      <option value="/webapp/exploiting/" >- </option>
     <option value="/webapp/burp/" >
   - 
    Burp</option>
       <option value="/webapp/gobuster/" >- GoBuster</option>
+      <option value="/webapp/http-smuggling/" >- HTTP SMUGGLING</option>
       <option value="/webapp/hydra/" >- Hydra</option>
     <option value="/webapp/skipfish/" >
   - 
@@ -719,12 +735,51 @@
 
    <article class="post WebApp">
     <header class="post-header">
+        <h2 class="post-title"><a href="/webapp/exploiting/"></a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>So I&rsquo;m going to try and do a better job here than the first one. Here we will cover attacking the different web applications. First will explore bypassing user authenication by the front end. the back end will assume all request are valid. this is fix in version two of HTTP.
+by submitting this request twice. were able to get
+POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68. <a class="read-more" href="/webapp/exploiting/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post WebApp">
+    <header class="post-header">
         <h2 class="post-title"><a href="/webapp/gobuster/">GoBuster</a></h2>
     </header>
     <section class="post-excerpt">
         <p>What is Gobuster? Gobuster is a web application fuzzer designed to enumerate Web Directories and Domains
 Gobuster has been recently updated, it has some new features and they changed it everything around. It&rsquo;s still the gobuster we Love but its different now it went though some changes. I&rsquo;m not sure if the kali repo has updated yet, you may need to download gobuster form the github repo.
 Example&rsquo;s For DIR: <a class="read-more" href="/webapp/gobuster/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+        
+
+    </footer>
+</article>
+
+   <article class="post WebApp">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/webapp/http-smuggling/">HTTP SMUGGLING</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>HTTP Smuggling is an old attack, what&rsquo;s new is that it&rsquo;s still around. This is due to complex nature of modern day Web Applications. This will be me just going over documentation how to execute this attack, the implications, how to resolve it.
+This is an old attack made popular by
+https://portswigger.net/web-security/request-smuggling
+Some server support transfer-encoding headers which, breaks up request. There are ways to confuse the front end of a website because of the very nature of the environment. <a class="read-more" href="/webapp/http-smuggling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -810,7 +865,7 @@ Bypassing BlackList - Sometimes the blacklist is literal this means it will look
         <div class="chevrons">
     <div id="navigation">
 <a class="nav nav-prev" href="/linux/ssh/" title="ssh"> <i class="fa fa-chevron-left"></i><label>ssh</label></a>
-    <a class="nav nav-next" href="/webapp/burp/" title="Burp" style="margin-right: 0px;"><label>Burp</label><i class="fa fa-chevron-right"></i></a></div>
+    <a class="nav nav-next" href="/webapp/exploiting/" title="" style="margin-right: 0px;"><label></label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>

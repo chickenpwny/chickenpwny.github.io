@@ -11,6 +11,17 @@
     
     
     <item>
+      <title></title>
+      <link>/webapp/exploiting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/exploiting/</guid>
+      <description>So I&amp;rsquo;m going to try and do a better job here than the first one. Here we will cover attacking the different web applications. First will explore bypassing user authenication by the front end. the back end will assume all request are valid. this is fix in version two of HTTP.
+by submitting this request twice. were able to get
+POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.</description>
+    </item>
+    
+    <item>
       <title>GoBuster</title>
       <link>/webapp/gobuster/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -19,6 +30,18 @@
       <description>What is Gobuster? Gobuster is a web application fuzzer designed to enumerate Web Directories and Domains
 Gobuster has been recently updated, it has some new features and they changed it everything around. It&amp;rsquo;s still the gobuster we Love but its different now it went though some changes. I&amp;rsquo;m not sure if the kali repo has updated yet, you may need to download gobuster form the github repo.
 Example&amp;rsquo;s For DIR:</description>
+    </item>
+    
+    <item>
+      <title>HTTP SMUGGLING</title>
+      <link>/webapp/http-smuggling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/http-smuggling/</guid>
+      <description>HTTP Smuggling is an old attack, what&amp;rsquo;s new is that it&amp;rsquo;s still around. This is due to complex nature of modern day Web Applications. This will be me just going over documentation how to execute this attack, the implications, how to resolve it.
+This is an old attack made popular by
+https://portswigger.net/web-security/request-smuggling
+Some server support transfer-encoding headers which, breaks up request. There are ways to confuse the front end of a website because of the very nature of the environment.</description>
     </item>
     
     <item>
