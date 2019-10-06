@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-09-23T10:54:36 EDT">
+<meta name="revised" content="2019-10-06T00:28:43 EDT">
 <title>Flujab :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -789,7 +789,7 @@
 
 <p>Changeing /etc/hosts didn&rsquo;t notice any change then i went to 0xdf notes. saw that openssl was used to get a list of of fqdmn. I thought it would be neat to use the same trick use din sizzle to get the certs. exporting the cert didn&rsquo;t not yield the (field values). 0xdf covered smtp.flujab.htb &amp; freeflyjab.htb. in the process used wfuzz to enumerate domains. I found that interesting so that will be covered. in the next phase scripting union injection in python.</p>
 
-<p><img src="C:HugositesblogstaticimagesNew folderclownware.PNG" alt="clownware" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/clownware.PNG" alt="clownware" /></p>
 
 <pre><code>smtp.flujab.htb
 freeflujab.htb
@@ -814,9 +814,9 @@ DNS Name: freeflujab.htb
 DNS Name: flujab.htb
 </code></pre>
 
-<p>1)<img src="C:Hugositesblogstaticimagesflujabcerts-browser.PNG" alt="certs-browser" /></p>
+<p>1)<img src="https://chickenpwny.github.io/images/flujab/certs-browser.PNG" alt="certs-browser" /></p>
 
-<p>2)<img src="C:Hugositesblogstaticimagesflujabcerts-browser2.PNG" alt="certs-browser2" /></p>
+<p>2)<img src="https://chickenpwny.github.io/images/flujab/certs-browser2.PNG" alt="certs-browser2" /></p>
 
 <p><strong>0xdf =</strong> used some commands to clean up the output. grep DNS</p>
 
@@ -841,13 +841,13 @@ DNS Name: flujab.htb
 Set-Cookie: Registered=M2Y0YzdhMmExMjljMjliZTFjMjQyZmRkZDVmOTVjYWI9TnVsbA%3D%3D; expires=Mon, 17-Jun-2019 10:18:08 GMT; Max-Age=3600; path=/
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagesflujabbook-webrequest.PNG" alt="book-webrequest" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/book-webrequest.PNG" alt="book-webrequest" /></p>
 
 <pre><code>echo -n 10.10.14.2 | md5sum
 3f4c7a2a129c29be1c242fddd5f95cab
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagesflujabcookie-patient.PNG" alt="cookie-patient" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/cookie-patient.PNG" alt="cookie-patient" /></p>
 
 <p><strong>Modus</strong> cookie</p>
 
@@ -859,35 +859,35 @@ Set-Cookie: Registered=M2Y0YzdhMmExMjljMjliZTFjMjQyZmRkZDVmOTVjYWI9TnVsbA%3D%3D;
 <pre><code>Q29uZmlndXJlPU51bGw%3D
 </code></pre>
 
-<p><img src="C:Hugositesblogstaticimagesflujabnull-cookie-true.PNG" alt="null-cookie-true" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/null-cookie-true.PNG" alt="null-cookie-true" /></p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabnull-cookie-true2.PNG" alt="null-cookie-true2" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/null-cookie-true2.PNG" alt="null-cookie-true2" /></p>
 
 <p>This is how 0xdf changed the cookie (i believe this is more perment than what ippsec did but im not sure.)</p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabnull-cookie-true3.PNG" alt="null-cookie-true3" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/null-cookie-true3.PNG" alt="null-cookie-true3" /></p>
 
 <p>On smtp_config page go to firefoxs inspect elements the go to storage it should show all the cookies. Here you may change the cookie value from the null to true.</p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabfirefox-cookies.PNG" alt="firefox-cookies" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/firefox-cookies.PNG" alt="firefox-cookies" /></p>
 
 <p>The next part we change mailserver parameter in ?smtp_config post request. This should allow us to establish a connection. Ippsec and 0xdf both did it differently. ippsec changed the parameter in the browser 0xdf changed the value in burp. Sometimes it&rsquo;s easy to forget you can easily change theses values int he browser. instead of always using the burp.</p>
 
 <p>ippsec highlighted the input field on smtp_config right clicked went to instpect elements deleted the patternn parameters. which removed the restrictions. You could also change the mailserver value</p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabnull-cookie-true5.PNG" alt="null-cookie-true5" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/null-cookie-true5.PNG" alt="null-cookie-true5" /></p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabnull-cookie-true4.PNG" alt="null-cookie-true4" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/null-cookie-true4.PNG" alt="null-cookie-true4" /></p>
 
 <p><strong>Registrated</strong></p>
 
 <p>need to change the registrated cookie which will reveal another webpage. repeat the steps for changing the modus cookie. If you have firefox&rsquo;s cookie manager you may also change the cookie using that. pretty neat to see all the different ways to do this. This will give us access to the webpage where the sqli out of band is.</p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabregistrated.PNG" alt="registrated" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/registrated.PNG" alt="registrated" /></p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabregistrated2.PNG" alt="registrated2" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/registrated2.PNG" alt="registrated2" /></p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabregistrated3.PNG" alt="registrated3" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/registrated3.PNG" alt="registrated3" /></p>
 
 <p><strong>SQL-INJECTION OUT OF BAND</strong></p>
 
@@ -895,7 +895,7 @@ Set-Cookie: Registered=M2Y0YzdhMmExMjljMjliZTFjMjQyZmRkZDVmOTVjYWI9TnVsbA%3D%3D;
 
 <p><img src="C:UserscharlOneDrivePicturespwn23-MXh9jpL.png" alt="23-MXh9jpL" /></p>
 
-<p><img src="C:Hugositesblogstaticimagesflujabcancel.PNG" alt="cancel" /></p>
+<p><img src="https://chickenpwny.github.io/images/flujab/cancel.PNG" alt="cancel" /></p>
 
 <p>Chaning the cookies,</p>
 
