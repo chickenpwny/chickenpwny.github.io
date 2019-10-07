@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-10-07T17:26:43 EDT">
+<meta name="revised" content="2019-10-07T18:20:59 EDT">
 <title>USER INPUT OF DOOM :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -791,15 +791,6 @@ http://m.com/index.php?user=<script>alert(123)</script>
 http://m.com/index.php?user=<script>alert(document.domain)</script>
 ```
 
-```
-%3c     <
-\x3c    <
-%3e     >
-\x3e    >
-%3cscript%3ealert(document.domain)%3cscript%3e
-\x3cscript\x3ealert(document.domain)\x3cscript\x3e
-```
-
 *TESTING*
 
 https://gist.github.com/rvrsh3ll/09a8b933291f9f98e8ec
@@ -893,8 +884,8 @@ HTML
 
 </code></pre>
 
-<p><script>alert(document.domain);</script></p>
-<p><script>alert[1];</script></p>
+<p><p><script>alert(document.domain);</script></p>
+<p><script>alert[1];</script></p></p>
 
 <pre><code>
 IMAGES some times naming a file like this or image can achieve xss elsewhere on the site. 
