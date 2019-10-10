@@ -5,8 +5,8 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-10-10T02:17:51 EDT">
-<title>Burp :: Pwny_Sec</title>
+<meta name="revised" content="2019-10-10T02:17:52 EDT">
+<title>Ubuntu 18.04 Vmware Workstation 14.17 :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -25,7 +25,7 @@
 
     
   </head>
-  <body data-url="/webapp/burp/">
+  <body data-url="/concepts/vmware/">
     
       <header>
   <div class="logo">
@@ -73,10 +73,11 @@
   <aside>
     <ul class="menu">
 <a href="http://chickenpwny.github.io"><img src="/images/meme/home.jpg" alt="Alternate Text" style="width:45%;margin-left:auto;margin-right:auto;border-radius:50%;display:block;" alt="Home" /></a>
-<li data-nav-id="/concepts/" class="dd-item haschildren
+<li data-nav-id="/concepts/" class="dd-item parent haschildren
         ">
     <div>
-        <a href="/concepts/">Concept</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/concepts/">Concept</a>
+        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/concepts/dll/" class="dd-item">
@@ -100,7 +101,7 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/concepts/vmware/" class="dd-item">
+<li data-nav-id="/concepts/vmware/" class="dd-item active">
     <div>
         <a href="/concepts/vmware/">
             Ubuntu 18.04 Vmware Workstation 14.17
@@ -527,11 +528,10 @@
 </li>
     </ul>
 </li>
-<li data-nav-id="/webapp/" class="dd-item parent haschildren
+<li data-nav-id="/webapp/" class="dd-item haschildren
         ">
     <div>
-        <a href="/webapp/">WebApps</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/webapp/">WebApps</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/webapp/exploiting/" class="dd-item">
@@ -541,11 +541,10 @@
         </a><i class="fa fa-circle-thin read-icon"></i>
     </div>
 </li>
-<li data-nav-id="/webapp/burp/" class="dd-item parent active haschildren
+<li data-nav-id="/webapp/burp/" class="dd-item haschildren
         ">
     <div>
-        <a href="/webapp/burp/">Burp</a>
-        <i class="fa fa-angle-down fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
+        <a href="/webapp/burp/">Burp</a><i class="fa fa-angle-right fa-lg category-icon"></i><i class="fa fa-circle-thin read-icon"></i>
     </div>
     <ul>
 <li data-nav-id="/webapp/burp/burp/" class="dd-item">
@@ -677,32 +676,22 @@
         <select onchange="javascript:location.href = this.value;">
           
     <option value="/concepts/" >
-   Concept</option>
+   Concept</option> 
+      <option value="/concepts/dll/" >- DLL_CraFt&amp;BreW</option>
+      <option value="/concepts/untitled/" >- Desync-Attack</option>
+      <option value="/concepts/file-transfer/" >- File Transfer</option>
+      <option value="/concepts/vmware/"  selected>- Ubuntu 18.04 Vmware Workstation 14.17</option>
+    <option value="/concepts/webapppentest/" >
+  - 
+   WebAppPenTests</option>
+      <option value="/concepts/bypass/" >- Windows-Bypass</option>
+  
     <option value="/hackthebox/" >
    HackTheBox</option>
     <option value="/linux/" >
    Linuxes</option>
     <option value="/webapp/" >
-   WebApps</option> 
-      <option value="/webapp/exploiting/" >- </option>
-    <option value="/webapp/burp/"  selected>
-  - 
-   Burp</option> 
-      <option value="/webapp/burp/burp/" >-- Burp</option>
-      <option value="/webapp/burp/burp-ca/" >-- Burp Setup CA</option>
-  
-      <option value="/webapp/gobuster/" >- GoBuster</option>
-      <option value="/webapp/http-smuggling/" >- HTTP SMUGGLING</option>
-      <option value="/webapp/hydra/" >- Hydra</option>
-    <option value="/webapp/skipfish/" >
-  - 
-   SkipFish</option>
-      <option value="/webapp/sqlmap/sqlmap/" >- SqlMap</option>
-      <option value="/webapp/user-inputt/" >- USER INPUT OF DOOM</option>
-    <option value="/webapp/wfuzz/" >
-  - 
-   WFuzz</option>
-  
+   WebApps</option>
     <option value="/windows/" >
    Windows</option>
 
@@ -727,46 +716,42 @@
       </div>
     
 
-    <h1>Burp</h1>
+    <h1>Ubuntu 18.04 Vmware Workstation 14.17</h1>
     
     
     
+    <p>Recently i moved from elementary to Ubuntu. migrating over to Ubuntu was a bit of a challenge, because i couldn&rsquo;t Vmware to work. Vmware workstation would fail when it ran kernel-module-updater. it would fail at two points Vmware monitor and the network connection. it took about a day to find a solid answer to this.</p>
 
-<p>DA BASICS</p>
+<p>Below you&rsquo;ll noticed allot of stuff but most of it isn&rsquo;t necessary. I believe i did not play around with it much cause it works!!! I think what really helped was dependencies/libraries. I would like to thank tolihouse in the vmware community for his solid solution to the issue. I made one change thats the workstation version please change to the version you are trying to run 15, 14, or 12. for whatever reason using the graphical setup cause all kinds of problems and it best to stick with command line.</p>
 
-<p><img src="https://chickenpwny.github.io/images/burp/burpburp.png" alt="burp" />&lt;-</p>
+<p>there are a whole lot of other people suffering from the same problem. <a href="https://communities.vmware.com/thread/609330">https://communities.vmware.com/thread/609330</a></p>
 
-<p>Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.</p>
+<p><a href="https://askubuntu.com/questions/1041912/installing-vmware-on-18-04-failed-to-build-vmmon">https://askubuntu.com/questions/1041912/installing-vmware-on-18-04-failed-to-build-vmmon</a></p>
 
-<p><em>PROXY</em> : Will set the ip address and port which burp will intercept the traffic.</p>
-
-<p><em>REPEATER</em> : Right click on intercepted traffic and send to repeater to send the same web-request and make edits and try and get different results.</p>
-
-<p><em>SEQUENCER</em> : This is used to test cookies mostly that&rsquo;s what i have used it for.</p>
-
-<p><em>DECODER</em> : A basic tool to encode and decode it kind of sucks but is convent to decode things.</p>
-
-<p><img src="https://chickenpwny.github.io/images/burp/burp-tabs.PNG" alt="burp-tabs" /></p>
-
-<p><strong>SETTIING UP BURP PROXY</strong> Go to the proxy tab &gt; Options &gt;  Proxy Listener &gt;Edit the select a Listener &gt; Edit a Window will pop up there are a couple of thing you can do. To keep it simple change <mark>Bind to Port</mark> to 8088 &gt; Click Okay.</p>
-
-<p><img src="https://chickenpwny.github.io/images/burp/burp-tabs-options.PNG" alt="burp-tabs-options" /></p>
-
-<p><em>NEXT</em> Go back to the Proxy tab and click on intercept you can visually verify this by seeing  it change from (off to on).</p>
-
-<p><img src="https://chickenpwny.github.io/images/burp/burp-tabs-options2.PNG" alt="burp-tabs-options2" /></p>
-
-<p>options as the request method will return the used methods for the webapp.
-<img src="https://chickenpwny.github.io/images/burp/request-options.PNG" alt="Request Options" /></p>
-
+<pre><code>VMWARE_VERSION=workstation-14.1.7
+TMP_FOLDER=/tmp/patch-vmware
+rm -fdr $TMP_FOLDER
+mkdir -p $TMP_FOLDER
+cd $TMP_FOLDER
+git clone https://github.com/mkubecek/vmware-host-modules.git
+cd $TMP_FOLDER/vmware-host-modules
+git checkout $VMWARE_VERSION
+git fetch
+make
+sudo make install
+sudo rm /usr/lib/vmware/lib/libz.so.1/libz.so.1
+sudo ln -s /lib/x86_64-linux-gnu/libz.so.1
+/usr/lib/vmware/lib/libz.so.1/libz.so.1
+sudo /etc/init.d/vmware restart
+</code></pre>
 
 
     
     
         <div class="chevrons">
     <div id="navigation">
-<a class="nav nav-prev" href="/webapp/exploiting/" title=""> <i class="fa fa-chevron-left"></i><label></label></a>
-    <a class="nav nav-next" href="/webapp/burp/burp/" title="Burp" style="margin-right: 0px;"><label>Burp</label><i class="fa fa-chevron-right"></i></a></div>
+<a class="nav nav-prev" href="/concepts/file-transfer/" title="File Transfer"> <i class="fa fa-chevron-left"></i><label>File Transfer</label></a>
+    <a class="nav nav-next" href="/concepts/webapppentest/" title="WebAppPenTests" style="margin-right: 0px;"><label>WebAppPenTests</label><i class="fa fa-chevron-right"></i></a></div>
   </div>
 
   </section>
@@ -783,7 +768,7 @@
 
     
     <div class="github-link">
-      <a href="https://chickenpwny.github.ioWebApp/Burp/_index.md" target="blank"><i class="fa fa-code-fork"></i>
+      <a href="https://chickenpwny.github.ioConcepts/vmware.md" target="blank"><i class="fa fa-code-fork"></i>
         Improve this page</a>
     </div>
     
