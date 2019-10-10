@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trouble_Solutions on Pwny_Sec</title>
+    <link>/trouble_solutions/</link>
+    <description>Recent content in Trouble_Solutions on Pwny_Sec</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/trouble_solutions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GitHub-SSH setup</title>
+      <link>/trouble_solutions/ssh-git-hub/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/ssh-git-hub/</guid>
+      <description>this guide will cover setting up the ssh-keys and the permission how to setup everything to run via ssh. which im sure you have figured out https blows. this will make updating your repo easier in the long run.
+SSH- secure shell is a cryptographic network protocol for communicating over a network in a sure manner. ssh uses both AES and RSA. AES to establish the connection and exchange the keys.</description>
+    </item>
+    
+    <item>
+      <title>Network Manager Down</title>
+      <link>/trouble_solutions/network-manager-down/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/network-manager-down/</guid>
+      <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
+I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
+ sudo apt-get purge network-manager  To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 18.04 Vmware Workstation 14.17</title>
+      <link>/trouble_solutions/vmware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/vmware/</guid>
+      <description>Recently i moved from elementary to Ubuntu. migrating over to Ubuntu was a bit of a challenge, because i couldn&amp;rsquo;t Vmware to work. Vmware workstation would fail when it ran kernel-module-updater. it would fail at two points Vmware monitor and the network connection. it took about a day to find a solid answer to this.
+Below you&amp;rsquo;ll noticed allot of stuff but most of it isn&amp;rsquo;t necessary. I believe i did not play around with it much cause it works!</description>
+    </item>
+    
+  </channel>
+</rss>
