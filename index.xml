@@ -481,7 +481,7 @@ ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH proto
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/webapp/user-inputt/</guid>
-      <description>Talk about Bypass passing WAFS, and other mechanism I will be using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
+      <description>Bypassing WAFS, and other mechanism, using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
 I&amp;rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.
 Bypassing BlackList - Sometimes the blacklist is literal this means it will look for SELECT, and any other iteration of select will be ignored like SelEcT.</description>
     </item>

