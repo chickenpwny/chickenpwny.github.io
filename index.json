@@ -42,6 +42,20 @@
 	"content": "Local file inclusion this vulnerability occurs when system commands or unsanitized user input or written into how the web server handles user input. Basically, you escape out of the current string and your commands get executed. This only grants you the access the web app has. So if the PHP script has permissions for www-data which is a web server user. You won\u0026rsquo;t be able to access anything with elevated permissions. Before you start thinking PHP is the bad guy I want to go ahead and say all of the webpage languages are vulnerable.\nWord list for lfi can be found in seclist: /Seclist/Fuzzing/LFI-JHADDIX.txt\n\u0026hellip;.//\u0026hellip;.//\u0026hellip;.//etc/passwd\n/../../etc/passwd\n/..../..../..../..../..../..../etc/passwd\n/\u0026hellip;/\u0026hellip;/\u0026hellip;/\u0026hellip;/\u0026hellip;/etc/passwd\n\\…..\\\\…..\\\\…..\\\\etc\\passwd\n Often there will be filters in place, and then the job becomes understanding how the information is being filtered. If you\u0026rsquo;d like to see how PHP script in waldo handled user input read the WALDO write-up. You can also use burp to test for LFI I would recommend it makes it really convenient to test. in POISON there weren\u0026rsquo;t any filters in place so the standard escaped worked. (examples later) The web form allowed you to read local files. RCE :\nSadly LFI can\u0026rsquo;t upload files so if you want to get a reverse shell you will need the ability to upload binaries. FTP, Upload forums, you can execute the file by going to uploaded binary to execute it to get access.\n "
 },
 {
+	"uri": "/trouble_solutions/untitled/",
+	"title": " TroubleShooting",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/trouble_solutions/",
+	"title": " TroubleShooting",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/hackthebox/boxes/arkham/writeup/",
 	"title": "ARKHAM-writeup",
 	"tags": [],
@@ -520,13 +534,6 @@
 {
 	"uri": "/tags/",
 	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "/trouble_solutions/",
-	"title": "Trouble_Solutions",
 	"tags": [],
 	"description": "",
 	"content": ""

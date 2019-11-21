@@ -27,6 +27,14 @@
   </url>
   
   <url>
+    <loc>/trouble_solutions/untitled/</loc>
+  </url>
+  
+  <url>
+    <loc>/trouble_solutions/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/arkham/writeup/</loc>
   </url>
   
@@ -305,11 +313,6 @@
   
   <url>
     <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/trouble_solutions/</loc>
     <priority>0</priority>
   </url>
   

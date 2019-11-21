@@ -31,6 +31,15 @@ POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net 
     </item>
     
     <item>
+      <title> TroubleShooting</title>
+      <link>/trouble_solutions/untitled/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/untitled/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>BloodHound Neo4j</title>
       <link>/windows/bloodhound/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
