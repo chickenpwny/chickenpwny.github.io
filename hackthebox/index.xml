@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HackTheBox on Pwny_Sec</title>
@@ -18,7 +18,7 @@
       <guid>/hackthebox/tmux/</guid>
       <description>TMUX
 okay, because my kali linux crash i had to reintall tmux. i really like gpakaosz theme pack for tmux. cd into your home directory, then create a symlink to .tmux.conf so when tmux runs it will look in you&amp;rsquo;re &amp;ldquo;home&amp;rdquo; directory in kali thats ~/ or /root/
-apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local .  </description>
+apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local . </description>
     </item>
     
   </channel>

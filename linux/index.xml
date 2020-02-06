@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linuxes on Pwny_Sec</title>
@@ -11,17 +11,6 @@
     
     
     <item>
-      <title>FTP</title>
-      <link>/linux/ftp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/linux/ftp/</guid>
-      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
-https://slacksite.com/other/ftp.html
-mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
-    </item>
-    
-    <item>
       <title>File Transfer</title>
       <link>/linux/filetransfer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -32,14 +21,26 @@ NOTICE : KEY WHEN IT SAYS DOWNLOAD USER PYTHON HTTP SERVER, WHEN IT SAY UPLOAD U
     </item>
     
     <item>
+      <title>FTP</title>
+      <link>/linux/ftp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/ftp/</guid>
+      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
+https://slacksite.com/other/ftp.html
+mget * download everything in the directoryget download file / documentsput upload file / documentsnmap (maybe even in intereactive mode)SSHFS &amp;amp; SFTP
+SSHFS is built on SFTP.</description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>/linux/linux/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/linux/linux/</guid>
       <description>Permisions ~~~~
-​ Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
-chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
+​	Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
+chown -R Pwny_sec:root * -R recurssive ​	Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
     </item>
     
     <item>
@@ -52,19 +53,6 @@ chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can 
     </item>
     
     <item>
-      <title>Tunnels</title>
-      <link>/linux/tunneling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/linux/tunneling/</guid>
-      <description>SSH PORTFORWARDING
-ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
-ssh user@ip_addr -L LocalPort:address_ip:HostPort  SSH BIND PORT
-Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
-ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
-    </item>
-    
-    <item>
       <title>ssh</title>
       <link>/linux/ssh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -74,6 +62,19 @@ ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH proto
 SSH will commonly use sha-256 encryption to encrypt the traffic. The encryption Bit-Key is commonly set at 2048.
 Start Service
 Directories private keys might be in</description>
+    </item>
+    
+    <item>
+      <title>Tunnels</title>
+      <link>/linux/tunneling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/tunneling/</guid>
+      <description>SSH PORTFORWARDING
+ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
+ssh user@ip_addr -L LocalPort:address_ip:HostPortSSH BIND PORT
+Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
+ssh -D8080 USER@IPADDRESSSshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
     </item>
     
   </channel>

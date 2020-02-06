@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GitHub on Pwny_Sec</title>
@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/trouble_solutions/github/hugopowershell/</guid>
-      <description>POWERSHELL Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
+      <description>role=&amp;quot;alert&amp;quot;&amp;gt;POWERSHELLOverview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
 First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&amp;rsquo;t find the material I need to do within windows.</description>
     </item>
     

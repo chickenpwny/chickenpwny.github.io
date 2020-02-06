@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Burp on Pwny_Sec</title>
@@ -17,9 +17,26 @@
       
       <guid>/webapp/burp/burp/</guid>
       <description>DA BASICS
-&amp;lt;-
 Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.
 PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
+    </item>
+    
+    <item>
+      <title>Burp Collaborator/Extensions</title>
+      <link>/webapp/burp/collab-exten/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/collab-exten/</guid>
+      <description>Memory
+Burps default memory allocation is 2gb but you will most likely need more than that.
+java -jar -Xmx6g /opt/BurpSuitePro/burpsuite_pro.jar BurpSuitePro/burpsuite_pro.jar Collaborator
+cd /opt/BurpSuitePro sudo java -jar /opt/BurpSuitePro/burpsuite_pro.jar --collaborator-server References
+https://portswigger.net/burp/documentation/collaborator https://portswigger.net/blog/introducing-burp-collaborator https://portswigger.net/burp/documentation/collaborator/deploying
+Extension List
+This is a list of extensions created by https://twitter.com/UK_Daniel_Card?s=20
+List
+Reference
+https://github.com/Xservus/PenTestTools/blob/master/PenTestTools.xlsx</description>
     </item>
     
     <item>
@@ -29,7 +46,7 @@ PROXY : Will set the ip address and port which burp will intercept the traffic.<
       
       <guid>/webapp/burp/burp-ca/</guid>
       <description>So, Recently had to reinstall kali. I had to setup burp again to work with TLS certs. To properly intercept https traffic.
-Well, just go to  http:/burp:port, click on  CA Certificate download the cert. Now, in firefox click on options click on preferences. Go to  Privacy &amp;amp; Security  take the scroll bar go all the way to the bottom and go to  View Certificares Under Certificates header.</description>
+Well, just go to http:/burp:port, click on CA Certificatedownload the cert. Now, in firefox click on options click on preferences. Go to Privacy &amp;amp; Security take the scroll bar go all the way to the bottom and go to View Certificares Under Certificates header. Under the Authorities tab click on import then import the Cert we got from burp, most likely inside Downloads.</description>
     </item>
     
   </channel>

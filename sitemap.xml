@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -7,19 +7,32 @@
   </url>
   
   <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/hawk/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/hackthebox/challenges/bloodhound/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/webapp/earnest-orign/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/webapp/exploiting/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/webapp/ssrf/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -27,20 +40,19 @@
   </url>
   
   <url>
-    <loc>/trouble_solutions/untitled/</loc>
-  </url>
-  
-  <url>
     <loc>/trouble_solutions/</loc>
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/arkham/writeup/</loc>
+    <loc>/trouble_solutions/untitled/</loc>
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/arkham/</loc>
-    <priority>0</priority>
+    <loc>/hackthebox/boxes/arkham/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/arkham/writeup/</loc>
   </url>
   
   <url>
@@ -52,11 +64,6 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/bastion/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/windows/bloodhound/</loc>
   </url>
   
@@ -65,11 +72,15 @@
   </url>
   
   <url>
+    <loc>/webapp/burp/</loc>
+  </url>
+  
+  <url>
     <loc>/webapp/burp/burp/</loc>
   </url>
   
   <url>
-    <loc>/webapp/burp/</loc>
+    <loc>/webapp/burp/collab-exten/</loc>
   </url>
   
   <url>
@@ -77,11 +88,7 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/chaos-og/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/inusectf/</loc>
+    <loc>/webapp/bypasswaf/</loc>
   </url>
   
   <url>
@@ -94,7 +101,10 @@
   
   <url>
     <loc>/categories/</loc>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/chaos-og/</loc>
   </url>
   
   <url>
@@ -106,11 +116,15 @@
   </url>
   
   <url>
+    <loc>/trouble_solutions/corrupted-zip/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/crimestoppers/</loc>
   </url>
   
   <url>
-    <loc>/concepts/dll/</loc>
+    <loc>/hackthebox/boxes/inusectf/</loc>
   </url>
   
   <url>
@@ -122,11 +136,11 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/ethereal/</loc>
+    <loc>/concepts/dll/</loc>
   </url>
   
   <url>
-    <loc>/linux/ftp/</loc>
+    <loc>/hackthebox/boxes/ethereal/</loc>
   </url>
   
   <url>
@@ -154,6 +168,10 @@
   </url>
   
   <url>
+    <loc>/linux/ftp/</loc>
+  </url>
+  
+  <url>
     <loc>/trouble_solutions/github/</loc>
   </url>
   
@@ -170,7 +188,7 @@
   </url>
   
   <url>
-    <loc>/webapp/http-smuggling/</loc>
+    <loc>/webapp/graphql/</loc>
   </url>
   
   <url>
@@ -182,16 +200,15 @@
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/helpline/writeup/</loc>
-  </url>
-  
-  <url>
     <loc>/hackthebox/boxes/helpline/notes/</loc>
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/helpline/</loc>
-    <priority>0</priority>
+    <loc>/hackthebox/boxes/helpline/writeup/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/http-smuggling/</loc>
   </url>
   
   <url>
@@ -216,7 +233,6 @@
   
   <url>
     <loc>/linux/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -248,11 +264,15 @@
   </url>
   
   <url>
+    <loc>/hackthebox/boxes/optimum/</loc>
+  </url>
+  
+  <url>
     <loc>/concepts/webapppentest/osinjcmd/</loc>
   </url>
   
   <url>
-    <loc>/hackthebox/boxes/optimum/</loc>
+    <loc>/hackthebox/boxes/oz/</loc>
   </url>
   
   <url>
@@ -265,18 +285,6 @@
   
   <url>
     <loc>/_header/</loc>
-  </url>
-  
-  <url>
-    <loc>/windows/linux-smb-enum/</loc>
-  </url>
-  
-  <url>
-    <loc>/windows/smb/</loc>
-  </url>
-  
-  <url>
-    <loc>/linux/snmpwalk/</loc>
   </url>
   
   <url>
@@ -300,83 +308,23 @@
   </url>
   
   <url>
+    <loc>/windows/linux-smb-enum/</loc>
+  </url>
+  
+  <url>
+    <loc>/windows/smb/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/sneaky/</loc>
   </url>
   
   <url>
+    <loc>/linux/snmpwalk/</loc>
+  </url>
+  
+  <url>
     <loc>/webapp/sqlmap/sqlmap/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/tmux/</loc>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/linux/tunneling/</loc>
-  </url>
-  
-  <url>
-    <loc>/webapp/user-inputt/</loc>
-  </url>
-  
-  <url>
-    <loc>/trouble_solutions/vmware/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/valentine/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/vault/</loc>
-  </url>
-  
-  <url>
-    <loc>/webapp/wfuzz/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/waldo/</loc>
-  </url>
-  
-  <url>
-    <loc>/concepts/webapppentest/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/webapp/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/windows/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/windows/windows_enum/</loc>
-  </url>
-  
-  <url>
-    <loc>/concepts/bypass/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/zipper/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/arkham/notes/</loc>
-  </url>
-  
-  <url>
-    <loc>/hackthebox/boxes/oz/</loc>
   </url>
   
   <url>
@@ -388,7 +336,67 @@
   </url>
   
   <url>
+    <loc>/tags/</loc>
+  </url>
+  
+  <url>
     <loc>/hackthebox/boxes/teacher/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/tmux/</loc>
+  </url>
+  
+  <url>
+    <loc>/linux/tunneling/</loc>
+  </url>
+  
+  <url>
+    <loc>/trouble_solutions/vmware/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/user-inputt/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/valentine/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/vault/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/waldo/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/wfuzz/</loc>
+  </url>
+  
+  <url>
+    <loc>/windows/</loc>
+  </url>
+  
+  <url>
+    <loc>/windows/windows_enum/</loc>
+  </url>
+  
+  <url>
+    <loc>/concepts/bypass/</loc>
+  </url>
+  
+  <url>
+    <loc>/webapp/xxe/</loc>
+  </url>
+  
+  <url>
+    <loc>/hackthebox/boxes/zipper/</loc>
   </url>
   
 </urlset>

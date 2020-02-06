@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title> TroubleShooting on Pwny_Sec</title>
@@ -20,6 +20,16 @@
     </item>
     
     <item>
+      <title>corrupted zip file</title>
+      <link>/trouble_solutions/corrupted-zip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/trouble_solutions/corrupted-zip/</guid>
+      <description>I recently backed up a bunch of important files, but the zip file was corrupted. It would return a null error when trying to open the zip file. This was due to the fact one of the files in the zip file was corrupted. So i would like to take the time to record ways to get around this and fix the zip file.
+There are two ways i fixed this issue, one was repairing the zip file.</description>
+    </item>
+    
+    <item>
       <title>GitHub-SSH setup</title>
       <link>/trouble_solutions/ssh-git-hub/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -37,7 +47,7 @@ SSH- secure shell is a cryptographic network protocol for communicating over a n
       <guid>/trouble_solutions/network-manager-down/</guid>
       <description>The weirdest glitch bug I&amp;rsquo;ve ever experienced I am not sure I how I deleted the icon but it disappeared I could no longer access the network manager. Well fix the problem and see how to get to the internet without the network manager.
 I&amp;rsquo;m not sure if completely removing the network manager is required but i purged it out.
- sudo apt-get purge network-manager  To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
+ sudo apt-get purge network-manager To gain internet access even though the network manager is down and isn&amp;rsquo;t connected.</description>
     </item>
     
     <item>
